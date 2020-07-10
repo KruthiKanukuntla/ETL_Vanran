@@ -1,0 +1,1014 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/22/2020 7:13:13 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="PREETISHK-LPT"
+  DTS:CreatorName="DATAFORTUNE\preetish.kharche"
+  DTS:DTSID="{C0F8E4D0-470E-4A1D-9AD9-6E3AEB177D37}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.123"
+  DTS:LocaleID="16393"
+  DTS:ObjectName="ODS_Download"
+  DTS:PackageType="5"
+  DTS:VersionBuild="56"
+  DTS:VersionGUID="{DA038307-F198-41AC-BC5B-467257BEDCA1}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DFT_Download"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{2F14A3EF-1D67-43A6-A574-3CD93B582E52}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT_Download"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT_Download\Data Conversion"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT_Download\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT_Download\Data Conversion.Inputs[Data Conversion Input].Columns[Root Domain]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Root Domain"
+                      lineageId="Package\DFT_Download\Excel_Download.Outputs[Excel Source Output].Columns[Root Domain]" />
+                    <inputColumn
+                      refId="Package\DFT_Download\Data Conversion.Inputs[Data Conversion Input].Columns[Action]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Action"
+                      lineageId="Package\DFT_Download\Excel_Download.Outputs[Excel Source Output].Columns[Action]" />
+                    <inputColumn
+                      refId="Package\DFT_Download\Data Conversion.Inputs[Data Conversion Input].Columns[Customer]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Customer"
+                      lineageId="Package\DFT_Download\Excel_Download.Outputs[Excel Source Output].Columns[Customer]" />
+                    <inputColumn
+                      refId="Package\DFT_Download\Data Conversion.Inputs[Data Conversion Input].Columns[resource_id]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="resource_id"
+                      lineageId="Package\DFT_Download\Excel_Download.Outputs[Excel Source Output].Columns[resource_id]" />
+                    <inputColumn
+                      refId="Package\DFT_Download\Data Conversion.Inputs[Data Conversion Input].Columns[resource_name]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="resource_name"
+                      lineageId="Package\DFT_Download\Excel_Download.Outputs[Excel Source Output].Columns[resource_name]" />
+                    <inputColumn
+                      refId="Package\DFT_Download\Data Conversion.Inputs[Data Conversion Input].Columns[resource_type]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="resource_type"
+                      lineageId="Package\DFT_Download\Excel_Download.Outputs[Excel Source Output].Columns[resource_type]" />
+                    <inputColumn
+                      refId="Package\DFT_Download\Data Conversion.Inputs[Data Conversion Input].Columns[size]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="size"
+                      lineageId="Package\DFT_Download\Excel_Download.Outputs[Excel Source Output].Columns[size]" />
+                    <inputColumn
+                      refId="Package\DFT_Download\Data Conversion.Inputs[Data Conversion Input].Columns[modified_date]"
+                      cachedDataType="date"
+                      cachedName="modified_date"
+                      lineageId="Package\DFT_Download\Excel_Download.Outputs[Excel Source Output].Columns[modified_date]" />
+                    <inputColumn
+                      refId="Package\DFT_Download\Data Conversion.Inputs[Data Conversion Input].Columns[resource_content]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="resource_content"
+                      lineageId="Package\DFT_Download\Excel_Download.Outputs[Excel Source Output].Columns[resource_content]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_Download\Data Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\DFT_Download\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Download\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Root Domain]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="25"
+                      lineageId="Package\DFT_Download\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Root Domain]"
+                      name="Copy of Root Domain"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT_Download\Excel_Download.Outputs[Excel Source Output].Columns[Root Domain]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Download\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Action]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="25"
+                      lineageId="Package\DFT_Download\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Action]"
+                      name="Copy of Action"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT_Download\Excel_Download.Outputs[Excel Source Output].Columns[Action]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Download\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Customer]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="25"
+                      lineageId="Package\DFT_Download\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Customer]"
+                      name="Copy of Customer"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT_Download\Excel_Download.Outputs[Excel Source Output].Columns[Customer]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Download\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of resource_id]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\DFT_Download\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of resource_id]"
+                      name="Copy of resource_id"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT_Download\Excel_Download.Outputs[Excel Source Output].Columns[resource_id]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Download\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of resource_name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\DFT_Download\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of resource_name]"
+                      name="Copy of resource_name"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT_Download\Excel_Download.Outputs[Excel Source Output].Columns[resource_name]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Download\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of resource_type]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\DFT_Download\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of resource_type]"
+                      name="Copy of resource_type"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT_Download\Excel_Download.Outputs[Excel Source Output].Columns[resource_type]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Download\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of size]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\DFT_Download\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of size]"
+                      name="Copy of size"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT_Download\Excel_Download.Outputs[Excel Source Output].Columns[size]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Download\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of modified_date]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT_Download\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of modified_date]"
+                      name="Copy of modified_date"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT_Download\Excel_Download.Outputs[Excel Source Output].Columns[modified_date]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Download\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of resource_content]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\DFT_Download\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of resource_content]"
+                      name="Copy of resource_content"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT_Download\Excel_Download.Outputs[Excel Source Output].Columns[resource_content]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT_Download\Data Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\DFT_Download\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Download\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Download\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_Download\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Download\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT_Download\Excel_Download"
+              componentClassID="Microsoft.ExcelSource"
+              contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Excel Source"
+              name="Excel_Download"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">Download$A53:I</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mapping from parameters in the SQL command to variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT_Download\Excel_Download.Connections[OleDbConnection]"
+                  connectionManagerID="{0D2225D9-F1D8-4D95-B705-EE61F6D41EC3}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Excel]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT_Download\Excel_Download.Outputs[Excel Source Output]"
+                  name="Excel Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Download\Excel_Download.Outputs[Excel Source Output].Columns[Root Domain]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Download\Excel_Download.Outputs[Excel Source Output].ExternalColumns[Root Domain]"
+                      length="255"
+                      lineageId="Package\DFT_Download\Excel_Download.Outputs[Excel Source Output].Columns[Root Domain]"
+                      name="Root Domain"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Download\Excel_Download.Outputs[Excel Source Output].Columns[Action]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Download\Excel_Download.Outputs[Excel Source Output].ExternalColumns[Action]"
+                      length="255"
+                      lineageId="Package\DFT_Download\Excel_Download.Outputs[Excel Source Output].Columns[Action]"
+                      name="Action"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Download\Excel_Download.Outputs[Excel Source Output].Columns[Customer]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Download\Excel_Download.Outputs[Excel Source Output].ExternalColumns[Customer]"
+                      length="255"
+                      lineageId="Package\DFT_Download\Excel_Download.Outputs[Excel Source Output].Columns[Customer]"
+                      name="Customer"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Download\Excel_Download.Outputs[Excel Source Output].Columns[resource_id]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Download\Excel_Download.Outputs[Excel Source Output].ExternalColumns[resource_id]"
+                      length="255"
+                      lineageId="Package\DFT_Download\Excel_Download.Outputs[Excel Source Output].Columns[resource_id]"
+                      name="resource_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Download\Excel_Download.Outputs[Excel Source Output].Columns[resource_name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Download\Excel_Download.Outputs[Excel Source Output].ExternalColumns[resource_name]"
+                      length="255"
+                      lineageId="Package\DFT_Download\Excel_Download.Outputs[Excel Source Output].Columns[resource_name]"
+                      name="resource_name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Download\Excel_Download.Outputs[Excel Source Output].Columns[resource_type]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Download\Excel_Download.Outputs[Excel Source Output].ExternalColumns[resource_type]"
+                      length="255"
+                      lineageId="Package\DFT_Download\Excel_Download.Outputs[Excel Source Output].Columns[resource_type]"
+                      name="resource_type"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Download\Excel_Download.Outputs[Excel Source Output].Columns[size]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Download\Excel_Download.Outputs[Excel Source Output].ExternalColumns[size]"
+                      length="255"
+                      lineageId="Package\DFT_Download\Excel_Download.Outputs[Excel Source Output].Columns[size]"
+                      name="size"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Download\Excel_Download.Outputs[Excel Source Output].Columns[modified_date]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Download\Excel_Download.Outputs[Excel Source Output].ExternalColumns[modified_date]"
+                      lineageId="Package\DFT_Download\Excel_Download.Outputs[Excel Source Output].Columns[modified_date]"
+                      name="modified_date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Download\Excel_Download.Outputs[Excel Source Output].Columns[resource_content]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Download\Excel_Download.Outputs[Excel Source Output].ExternalColumns[resource_content]"
+                      length="255"
+                      lineageId="Package\DFT_Download\Excel_Download.Outputs[Excel Source Output].Columns[resource_content]"
+                      name="resource_content"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT_Download\Excel_Download.Outputs[Excel Source Output].ExternalColumns[Root Domain]"
+                      dataType="wstr"
+                      length="255"
+                      name="Root Domain" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Download\Excel_Download.Outputs[Excel Source Output].ExternalColumns[Action]"
+                      dataType="wstr"
+                      length="255"
+                      name="Action" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Download\Excel_Download.Outputs[Excel Source Output].ExternalColumns[Customer]"
+                      dataType="wstr"
+                      length="255"
+                      name="Customer" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Download\Excel_Download.Outputs[Excel Source Output].ExternalColumns[resource_id]"
+                      dataType="wstr"
+                      length="255"
+                      name="resource_id" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Download\Excel_Download.Outputs[Excel Source Output].ExternalColumns[resource_name]"
+                      dataType="wstr"
+                      length="255"
+                      name="resource_name" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Download\Excel_Download.Outputs[Excel Source Output].ExternalColumns[resource_type]"
+                      dataType="wstr"
+                      length="255"
+                      name="resource_type" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Download\Excel_Download.Outputs[Excel Source Output].ExternalColumns[size]"
+                      dataType="wstr"
+                      length="255"
+                      name="size" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Download\Excel_Download.Outputs[Excel Source Output].ExternalColumns[modified_date]"
+                      dataType="date"
+                      name="modified_date" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Download\Excel_Download.Outputs[Excel Source Output].ExternalColumns[resource_content]"
+                      dataType="wstr"
+                      length="255"
+                      name="resource_content" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT_Download\Excel_Download.Outputs[Excel Source Error Output]"
+                  isErrorOut="true"
+                  name="Excel Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Download\Excel_Download.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Download\Excel_Download.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_Download\Excel_Download.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Download\Excel_Download.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\DFT_Download\Excel_Download.Outputs[Excel Source Error Output].Columns[Root Domain]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT_Download\Excel_Download.Outputs[Excel Source Error Output].Columns[Root Domain]"
+                      name="Root Domain" />
+                    <outputColumn
+                      refId="Package\DFT_Download\Excel_Download.Outputs[Excel Source Error Output].Columns[Action]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT_Download\Excel_Download.Outputs[Excel Source Error Output].Columns[Action]"
+                      name="Action" />
+                    <outputColumn
+                      refId="Package\DFT_Download\Excel_Download.Outputs[Excel Source Error Output].Columns[Customer]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT_Download\Excel_Download.Outputs[Excel Source Error Output].Columns[Customer]"
+                      name="Customer" />
+                    <outputColumn
+                      refId="Package\DFT_Download\Excel_Download.Outputs[Excel Source Error Output].Columns[resource_id]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT_Download\Excel_Download.Outputs[Excel Source Error Output].Columns[resource_id]"
+                      name="resource_id" />
+                    <outputColumn
+                      refId="Package\DFT_Download\Excel_Download.Outputs[Excel Source Error Output].Columns[resource_name]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT_Download\Excel_Download.Outputs[Excel Source Error Output].Columns[resource_name]"
+                      name="resource_name" />
+                    <outputColumn
+                      refId="Package\DFT_Download\Excel_Download.Outputs[Excel Source Error Output].Columns[resource_type]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT_Download\Excel_Download.Outputs[Excel Source Error Output].Columns[resource_type]"
+                      name="resource_type" />
+                    <outputColumn
+                      refId="Package\DFT_Download\Excel_Download.Outputs[Excel Source Error Output].Columns[size]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT_Download\Excel_Download.Outputs[Excel Source Error Output].Columns[size]"
+                      name="size" />
+                    <outputColumn
+                      refId="Package\DFT_Download\Excel_Download.Outputs[Excel Source Error Output].Columns[modified_date]"
+                      dataType="date"
+                      lineageId="Package\DFT_Download\Excel_Download.Outputs[Excel Source Error Output].Columns[modified_date]"
+                      name="modified_date" />
+                    <outputColumn
+                      refId="Package\DFT_Download\Excel_Download.Outputs[Excel Source Error Output].Columns[resource_content]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT_Download\Excel_Download.Outputs[Excel Source Error Output].Columns[resource_content]"
+                      name="resource_content" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT_Download\Load_Download"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Load_Download"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Download]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT_Download\Load_Download.Connections[OleDbConnection]"
+                  connectionManagerID="{E0E6DC88-A9A1-4A51-8B19-958C1AD76267}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[ODS_Vanran_Ribbon]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT_Download\Load_Download.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT_Download\Load_Download.Inputs[OLE DB Destination Input].Columns[Copy of Action]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="25"
+                      cachedName="Copy of Action"
+                      externalMetadataColumnId="Package\DFT_Download\Load_Download.Inputs[OLE DB Destination Input].ExternalColumns[Action]"
+                      lineageId="Package\DFT_Download\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Action]" />
+                    <inputColumn
+                      refId="Package\DFT_Download\Load_Download.Inputs[OLE DB Destination Input].Columns[Copy of Root Domain]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="25"
+                      cachedName="Copy of Root Domain"
+                      externalMetadataColumnId="Package\DFT_Download\Load_Download.Inputs[OLE DB Destination Input].ExternalColumns[Root_Domain]"
+                      lineageId="Package\DFT_Download\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Root Domain]" />
+                    <inputColumn
+                      refId="Package\DFT_Download\Load_Download.Inputs[OLE DB Destination Input].Columns[Copy of Customer]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="25"
+                      cachedName="Copy of Customer"
+                      externalMetadataColumnId="Package\DFT_Download\Load_Download.Inputs[OLE DB Destination Input].ExternalColumns[Customer]"
+                      lineageId="Package\DFT_Download\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Customer]" />
+                    <inputColumn
+                      refId="Package\DFT_Download\Load_Download.Inputs[OLE DB Destination Input].Columns[Copy of resource_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Copy of resource_id"
+                      externalMetadataColumnId="Package\DFT_Download\Load_Download.Inputs[OLE DB Destination Input].ExternalColumns[resource_id]"
+                      lineageId="Package\DFT_Download\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of resource_id]" />
+                    <inputColumn
+                      refId="Package\DFT_Download\Load_Download.Inputs[OLE DB Destination Input].Columns[Copy of resource_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Copy of resource_name"
+                      externalMetadataColumnId="Package\DFT_Download\Load_Download.Inputs[OLE DB Destination Input].ExternalColumns[resource_name]"
+                      lineageId="Package\DFT_Download\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of resource_name]" />
+                    <inputColumn
+                      refId="Package\DFT_Download\Load_Download.Inputs[OLE DB Destination Input].Columns[Copy of resource_type]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Copy of resource_type"
+                      externalMetadataColumnId="Package\DFT_Download\Load_Download.Inputs[OLE DB Destination Input].ExternalColumns[resource_type]"
+                      lineageId="Package\DFT_Download\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of resource_type]" />
+                    <inputColumn
+                      refId="Package\DFT_Download\Load_Download.Inputs[OLE DB Destination Input].Columns[Copy of size]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Copy of size"
+                      externalMetadataColumnId="Package\DFT_Download\Load_Download.Inputs[OLE DB Destination Input].ExternalColumns[size]"
+                      lineageId="Package\DFT_Download\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of size]" />
+                    <inputColumn
+                      refId="Package\DFT_Download\Load_Download.Inputs[OLE DB Destination Input].Columns[Copy of modified_date]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Copy of modified_date"
+                      externalMetadataColumnId="Package\DFT_Download\Load_Download.Inputs[OLE DB Destination Input].ExternalColumns[modified_date]"
+                      lineageId="Package\DFT_Download\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of modified_date]" />
+                    <inputColumn
+                      refId="Package\DFT_Download\Load_Download.Inputs[OLE DB Destination Input].Columns[Copy of resource_content]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Copy of resource_content"
+                      externalMetadataColumnId="Package\DFT_Download\Load_Download.Inputs[OLE DB Destination Input].ExternalColumns[resource_content]"
+                      lineageId="Package\DFT_Download\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of resource_content]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT_Download\Load_Download.Inputs[OLE DB Destination Input].ExternalColumns[Action]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      name="Action" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Download\Load_Download.Inputs[OLE DB Destination Input].ExternalColumns[Root_Domain]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      name="Root_Domain" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Download\Load_Download.Inputs[OLE DB Destination Input].ExternalColumns[Customer]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      name="Customer" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Download\Load_Download.Inputs[OLE DB Destination Input].ExternalColumns[Checksumval]"
+                      codePage="1252"
+                      dataType="str"
+                      length="32"
+                      name="Checksumval" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Download\Load_Download.Inputs[OLE DB Destination Input].ExternalColumns[Is_Sync]"
+                      dataType="bool"
+                      name="Is_Sync" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Download\Load_Download.Inputs[OLE DB Destination Input].ExternalColumns[resource_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="resource_id" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Download\Load_Download.Inputs[OLE DB Destination Input].ExternalColumns[resource_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="resource_name" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Download\Load_Download.Inputs[OLE DB Destination Input].ExternalColumns[resource_type]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="resource_type" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Download\Load_Download.Inputs[OLE DB Destination Input].ExternalColumns[size]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="size" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Download\Load_Download.Inputs[OLE DB Destination Input].ExternalColumns[modified_date]"
+                      dataType="dbTimeStamp"
+                      name="modified_date" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Download\Load_Download.Inputs[OLE DB Destination Input].ExternalColumns[resource_content]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="resource_content" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_Download\Load_Download.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DFT_Download\Load_Download.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Download\Load_Download.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Download\Load_Download.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_Download\Load_Download.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Download\Load_Download.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT_Download.Paths[Data Conversion Output]"
+              endId="Package\DFT_Download\Load_Download.Inputs[OLE DB Destination Input]"
+              name="Data Conversion Output"
+              startId="Package\DFT_Download\Data Conversion.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\DFT_Download.Paths[Excel Source Output]"
+              endId="Package\DFT_Download\Data Conversion.Inputs[Data Conversion Input]"
+              name="Excel Source Output"
+              startId="Package\DFT_Download\Excel_Download.Outputs[Excel Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate_ODS_table"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{DCBDB0D5-DB50-4E54-A161-EDAA55B286FD}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate_ODS_table"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{E0E6DC88-A9A1-4A51-8B19-958C1AD76267}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE ODS.dbo.Download" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{AD8127E2-21D1-42AE-8346-2624305FDF86}"
+      DTS:From="Package\Truncate_ODS_table"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\DFT_Download" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="155,42"
+          Id="Package\DFT_Download"
+          TopLeft="176,131" />
+        <NodeLayout
+          Size="182,42"
+          Id="Package\Truncate_ODS_table"
+          TopLeft="165,40" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="254.75,82">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,49"
+              Start="0,0"
+              End="0,41.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,41.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DFT_Download">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="161,42"
+          Id="Package\DFT_Download\Excel_Download"
+          TopLeft="383,79" />
+        <NodeLayout
+          Size="159,42"
+          Id="Package\DFT_Download\Load_Download"
+          TopLeft="384,277" />
+        <NodeLayout
+          Size="161,42"
+          Id="Package\DFT_Download\Data Conversion"
+          TopLeft="389,173" />
+        <EdgeLayout
+          Id="Package\DFT_Download.Paths[Excel Source Output]"
+          TopLeft="466.5,121">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,52"
+              Start="0,0"
+              End="0,44.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,44.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT_Download.Paths[Data Conversion Output]"
+          TopLeft="466.5,215">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,62"
+              Start="0,0"
+              End="0,54.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,54.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT_Download\Excel_Download">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT_Download\Load_Download">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

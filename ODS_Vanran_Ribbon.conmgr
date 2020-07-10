@@ -1,0 +1,14 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="ODS_Vanran_Ribbon"
+  DTS:DTSID="{E0E6DC88-A9A1-4A51-8B19-958C1AD76267}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="Data Source=atl-sql01.vr.vanran.com;User ID=automation;Initial Catalog=ODS;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;">
+      <DTS:Password
+        DTS:Name="Password"
+        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAE+TP1UF99kaBbUx/34EU0QAAAAACAAAAAAADZgAAwAAAABAAAABq515ACueBHq0wQQYXJH9IAAAAAASAAACgAAAAEAAAAEkSy1qrSOItfJnRVQNQu6uAAAAAvGwOVR0md/WCo+rJB+6n0DhNQGF5zZJHWhmeb5q+YRBrkP5LsJ6yNJsX2XhPtkNN27z+k4lQkIBEYHrg+5ycvz1c4JPO/7yoLGgJ2Yy0BCEOd+EorRfG2JAa39vy5gczVkGBW+p7MopPfJJBnWFEpqcqbfDWt70tt+rBmI9th4QUAAAAE24f45S0+cDqioW2+5nNL2HyVHo=</DTS:Password>
+    </DTS:ConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

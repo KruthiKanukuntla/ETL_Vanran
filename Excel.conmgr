@@ -1,0 +1,10 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="Excel"
+  DTS:DTSID="{0D2225D9-F1D8-4D95-B705-EE61F6D41EC3}"
+  DTS:CreationName="EXCEL">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=\\ATL-DEVWS03\Vanran_Shared\New folder\ETL_Vanran\KBS_Bulk_AddressBook_DeviceParameterGroup_DeviceParameter_PSTNDID_Site_Subscriber_Terminal_ Importv2 - Copy.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

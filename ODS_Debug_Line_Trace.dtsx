@@ -1,0 +1,1488 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/22/2020 7:13:13 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="PREETISHK-LPT"
+  DTS:CreatorName="DATAFORTUNE\preetish.kharche"
+  DTS:DTSID="{A9E1E5BA-1103-44EA-A71C-BC62B83F7ABB}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.123"
+  DTS:LocaleID="16393"
+  DTS:ObjectName="ODS_Debug_Line_Trace"
+  DTS:PackageType="5"
+  DTS:VersionBuild="60"
+  DTS:VersionGUID="{5B780D78-A19A-438C-AF19-D1B4CD2970D1}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DFT_Debug_Line_Trace"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{E3D73522-E04E-47B4-A1EC-433CF9530C65}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT_Debug_Line_Trace"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT_Debug_Line_Trace\Data Conversion"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT_Debug_Line_Trace\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT_Debug_Line_Trace\Data Conversion.Inputs[Data Conversion Input].Columns[Root Domain]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Root Domain"
+                      lineageId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Output].Columns[Root Domain]" />
+                    <inputColumn
+                      refId="Package\DFT_Debug_Line_Trace\Data Conversion.Inputs[Data Conversion Input].Columns[Action]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Action"
+                      lineageId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Output].Columns[Action]" />
+                    <inputColumn
+                      refId="Package\DFT_Debug_Line_Trace\Data Conversion.Inputs[Data Conversion Input].Columns[Customer]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Customer"
+                      lineageId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Output].Columns[Customer]" />
+                    <inputColumn
+                      refId="Package\DFT_Debug_Line_Trace\Data Conversion.Inputs[Data Conversion Input].Columns[id]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="id"
+                      lineageId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Output].Columns[id]" />
+                    <inputColumn
+                      refId="Package\DFT_Debug_Line_Trace\Data Conversion.Inputs[Data Conversion Input].Columns[dialed_number]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="dialed_number"
+                      lineageId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Output].Columns[dialed_number]" />
+                    <inputColumn
+                      refId="Package\DFT_Debug_Line_Trace\Data Conversion.Inputs[Data Conversion Input].Columns[state]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="state"
+                      lineageId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Output].Columns[state]" />
+                    <inputColumn
+                      refId="Package\DFT_Debug_Line_Trace\Data Conversion.Inputs[Data Conversion Input].Columns[currcommand]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="currcommand"
+                      lineageId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Output].Columns[currcommand]" />
+                    <inputColumn
+                      refId="Package\DFT_Debug_Line_Trace\Data Conversion.Inputs[Data Conversion Input].Columns[lastcommand]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="lastcommand"
+                      lineageId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Output].Columns[lastcommand]" />
+                    <inputColumn
+                      refId="Package\DFT_Debug_Line_Trace\Data Conversion.Inputs[Data Conversion Input].Columns[lastrequest]"
+                      cachedDataType="r8"
+                      cachedName="lastrequest"
+                      lineageId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Output].Columns[lastrequest]" />
+                    <inputColumn
+                      refId="Package\DFT_Debug_Line_Trace\Data Conversion.Inputs[Data Conversion Input].Columns[lines]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="lines"
+                      lineageId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Output].Columns[lines]" />
+                    <inputColumn
+                      refId="Package\DFT_Debug_Line_Trace\Data Conversion.Inputs[Data Conversion Input].Columns[myid]"
+                      cachedDataType="r8"
+                      cachedName="myid"
+                      lineageId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Output].Columns[myid]" />
+                    <inputColumn
+                      refId="Package\DFT_Debug_Line_Trace\Data Conversion.Inputs[Data Conversion Input].Columns[parent]"
+                      cachedDataType="r8"
+                      cachedName="parent"
+                      lineageId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Output].Columns[parent]" />
+                    <inputColumn
+                      refId="Package\DFT_Debug_Line_Trace\Data Conversion.Inputs[Data Conversion Input].Columns[signal]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="signal"
+                      lineageId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Output].Columns[signal]" />
+                    <inputColumn
+                      refId="Package\DFT_Debug_Line_Trace\Data Conversion.Inputs[Data Conversion Input].Columns[user]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="user"
+                      lineageId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Output].Columns[user]" />
+                    <inputColumn
+                      refId="Package\DFT_Debug_Line_Trace\Data Conversion.Inputs[Data Conversion Input].Columns[logcount]"
+                      cachedDataType="r8"
+                      cachedName="logcount"
+                      lineageId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Output].Columns[logcount]" />
+                    <inputColumn
+                      refId="Package\DFT_Debug_Line_Trace\Data Conversion.Inputs[Data Conversion Input].Columns[logfile]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="logfile"
+                      lineageId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Output].Columns[logfile]" />
+                    <inputColumn
+                      refId="Package\DFT_Debug_Line_Trace\Data Conversion.Inputs[Data Conversion Input].Columns[file_name]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="file_name"
+                      lineageId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Output].Columns[file_name]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_Debug_Line_Trace\Data Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\DFT_Debug_Line_Trace\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Debug_Line_Trace\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Root Domain]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="25"
+                      lineageId="Package\DFT_Debug_Line_Trace\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Root Domain]"
+                      name="Copy of Root Domain"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Output].Columns[Root Domain]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Debug_Line_Trace\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Action]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="25"
+                      lineageId="Package\DFT_Debug_Line_Trace\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Action]"
+                      name="Copy of Action"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Output].Columns[Action]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Debug_Line_Trace\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Customer]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="25"
+                      lineageId="Package\DFT_Debug_Line_Trace\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Customer]"
+                      name="Copy of Customer"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Output].Columns[Customer]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Debug_Line_Trace\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of id]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\DFT_Debug_Line_Trace\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of id]"
+                      name="Copy of id"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Output].Columns[id]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Debug_Line_Trace\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of dialed_number]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="32"
+                      lineageId="Package\DFT_Debug_Line_Trace\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of dialed_number]"
+                      name="Copy of dialed_number"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Output].Columns[dialed_number]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Debug_Line_Trace\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of state]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\DFT_Debug_Line_Trace\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of state]"
+                      name="Copy of state"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Output].Columns[state]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Debug_Line_Trace\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of currcommand]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\DFT_Debug_Line_Trace\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of currcommand]"
+                      name="Copy of currcommand"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Output].Columns[currcommand]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Debug_Line_Trace\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of lastcommand]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\DFT_Debug_Line_Trace\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of lastcommand]"
+                      name="Copy of lastcommand"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Output].Columns[lastcommand]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Debug_Line_Trace\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of lastrequest]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT_Debug_Line_Trace\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of lastrequest]"
+                      name="Copy of lastrequest"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Output].Columns[lastrequest]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Debug_Line_Trace\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of lines]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\DFT_Debug_Line_Trace\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of lines]"
+                      name="Copy of lines"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Output].Columns[lines]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Debug_Line_Trace\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of myid]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT_Debug_Line_Trace\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of myid]"
+                      name="Copy of myid"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Output].Columns[myid]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Debug_Line_Trace\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of parent]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT_Debug_Line_Trace\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of parent]"
+                      name="Copy of parent"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Output].Columns[parent]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Debug_Line_Trace\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of signal]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\DFT_Debug_Line_Trace\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of signal]"
+                      name="Copy of signal"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Output].Columns[signal]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Debug_Line_Trace\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of user]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\DFT_Debug_Line_Trace\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of user]"
+                      name="Copy of user"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Output].Columns[user]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Debug_Line_Trace\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of logcount]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT_Debug_Line_Trace\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of logcount]"
+                      name="Copy of logcount"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Output].Columns[logcount]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Debug_Line_Trace\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of logfile]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\DFT_Debug_Line_Trace\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of logfile]"
+                      name="Copy of logfile"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Output].Columns[logfile]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Debug_Line_Trace\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of file_name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\DFT_Debug_Line_Trace\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of file_name]"
+                      name="Copy of file_name"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Output].Columns[file_name]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT_Debug_Line_Trace\Data Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\DFT_Debug_Line_Trace\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Debug_Line_Trace\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Debug_Line_Trace\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_Debug_Line_Trace\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Debug_Line_Trace\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace"
+              componentClassID="Microsoft.ExcelSource"
+              contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Excel Source"
+              name="Excel_Debug_Line_Trace"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">Debug_Line_Trace$A53:Q</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mapping from parameters in the SQL command to variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Connections[OleDbConnection]"
+                  connectionManagerID="{0D2225D9-F1D8-4D95-B705-EE61F6D41EC3}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Excel]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Output]"
+                  name="Excel Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Output].Columns[Root Domain]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Output].ExternalColumns[Root Domain]"
+                      length="255"
+                      lineageId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Output].Columns[Root Domain]"
+                      name="Root Domain"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Output].Columns[Action]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Output].ExternalColumns[Action]"
+                      length="255"
+                      lineageId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Output].Columns[Action]"
+                      name="Action"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Output].Columns[Customer]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Output].ExternalColumns[Customer]"
+                      length="255"
+                      lineageId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Output].Columns[Customer]"
+                      name="Customer"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Output].Columns[id]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Output].ExternalColumns[id]"
+                      length="255"
+                      lineageId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Output].Columns[id]"
+                      name="id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Output].Columns[dialed_number]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Output].ExternalColumns[dialed_number]"
+                      length="255"
+                      lineageId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Output].Columns[dialed_number]"
+                      name="dialed_number"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Output].Columns[state]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Output].ExternalColumns[state]"
+                      length="255"
+                      lineageId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Output].Columns[state]"
+                      name="state"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Output].Columns[currcommand]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Output].ExternalColumns[currcommand]"
+                      length="255"
+                      lineageId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Output].Columns[currcommand]"
+                      name="currcommand"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Output].Columns[lastcommand]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Output].ExternalColumns[lastcommand]"
+                      length="255"
+                      lineageId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Output].Columns[lastcommand]"
+                      name="lastcommand"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Output].Columns[lastrequest]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Output].ExternalColumns[lastrequest]"
+                      lineageId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Output].Columns[lastrequest]"
+                      name="lastrequest"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Output].Columns[lines]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Output].ExternalColumns[lines]"
+                      length="255"
+                      lineageId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Output].Columns[lines]"
+                      name="lines"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Output].Columns[myid]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Output].ExternalColumns[myid]"
+                      lineageId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Output].Columns[myid]"
+                      name="myid"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Output].Columns[parent]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Output].ExternalColumns[parent]"
+                      lineageId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Output].Columns[parent]"
+                      name="parent"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Output].Columns[signal]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Output].ExternalColumns[signal]"
+                      length="255"
+                      lineageId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Output].Columns[signal]"
+                      name="signal"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Output].Columns[user]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Output].ExternalColumns[user]"
+                      length="255"
+                      lineageId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Output].Columns[user]"
+                      name="user"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Output].Columns[logcount]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Output].ExternalColumns[logcount]"
+                      lineageId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Output].Columns[logcount]"
+                      name="logcount"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Output].Columns[logfile]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Output].ExternalColumns[logfile]"
+                      length="255"
+                      lineageId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Output].Columns[logfile]"
+                      name="logfile"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Output].Columns[file_name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Output].ExternalColumns[file_name]"
+                      length="255"
+                      lineageId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Output].Columns[file_name]"
+                      name="file_name"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Output].ExternalColumns[Root Domain]"
+                      dataType="wstr"
+                      length="255"
+                      name="Root Domain" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Output].ExternalColumns[Action]"
+                      dataType="wstr"
+                      length="255"
+                      name="Action" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Output].ExternalColumns[Customer]"
+                      dataType="wstr"
+                      length="255"
+                      name="Customer" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Output].ExternalColumns[id]"
+                      dataType="wstr"
+                      length="255"
+                      name="id" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Output].ExternalColumns[dialed_number]"
+                      dataType="wstr"
+                      length="255"
+                      name="dialed_number" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Output].ExternalColumns[state]"
+                      dataType="wstr"
+                      length="255"
+                      name="state" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Output].ExternalColumns[currcommand]"
+                      dataType="wstr"
+                      length="255"
+                      name="currcommand" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Output].ExternalColumns[lastcommand]"
+                      dataType="wstr"
+                      length="255"
+                      name="lastcommand" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Output].ExternalColumns[lastrequest]"
+                      dataType="r8"
+                      name="lastrequest" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Output].ExternalColumns[lines]"
+                      dataType="wstr"
+                      length="255"
+                      name="lines" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Output].ExternalColumns[myid]"
+                      dataType="r8"
+                      name="myid" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Output].ExternalColumns[parent]"
+                      dataType="r8"
+                      name="parent" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Output].ExternalColumns[signal]"
+                      dataType="wstr"
+                      length="255"
+                      name="signal" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Output].ExternalColumns[user]"
+                      dataType="wstr"
+                      length="255"
+                      name="user" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Output].ExternalColumns[logcount]"
+                      dataType="r8"
+                      name="logcount" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Output].ExternalColumns[logfile]"
+                      dataType="wstr"
+                      length="255"
+                      name="logfile" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Output].ExternalColumns[file_name]"
+                      dataType="wstr"
+                      length="255"
+                      name="file_name" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Error Output]"
+                  isErrorOut="true"
+                  name="Excel Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Error Output].Columns[Root Domain]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Error Output].Columns[Root Domain]"
+                      name="Root Domain" />
+                    <outputColumn
+                      refId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Error Output].Columns[Action]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Error Output].Columns[Action]"
+                      name="Action" />
+                    <outputColumn
+                      refId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Error Output].Columns[Customer]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Error Output].Columns[Customer]"
+                      name="Customer" />
+                    <outputColumn
+                      refId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Error Output].Columns[id]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Error Output].Columns[id]"
+                      name="id" />
+                    <outputColumn
+                      refId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Error Output].Columns[dialed_number]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Error Output].Columns[dialed_number]"
+                      name="dialed_number" />
+                    <outputColumn
+                      refId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Error Output].Columns[state]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Error Output].Columns[state]"
+                      name="state" />
+                    <outputColumn
+                      refId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Error Output].Columns[currcommand]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Error Output].Columns[currcommand]"
+                      name="currcommand" />
+                    <outputColumn
+                      refId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Error Output].Columns[lastcommand]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Error Output].Columns[lastcommand]"
+                      name="lastcommand" />
+                    <outputColumn
+                      refId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Error Output].Columns[lastrequest]"
+                      dataType="r8"
+                      lineageId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Error Output].Columns[lastrequest]"
+                      name="lastrequest" />
+                    <outputColumn
+                      refId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Error Output].Columns[lines]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Error Output].Columns[lines]"
+                      name="lines" />
+                    <outputColumn
+                      refId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Error Output].Columns[myid]"
+                      dataType="r8"
+                      lineageId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Error Output].Columns[myid]"
+                      name="myid" />
+                    <outputColumn
+                      refId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Error Output].Columns[parent]"
+                      dataType="r8"
+                      lineageId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Error Output].Columns[parent]"
+                      name="parent" />
+                    <outputColumn
+                      refId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Error Output].Columns[signal]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Error Output].Columns[signal]"
+                      name="signal" />
+                    <outputColumn
+                      refId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Error Output].Columns[user]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Error Output].Columns[user]"
+                      name="user" />
+                    <outputColumn
+                      refId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Error Output].Columns[logcount]"
+                      dataType="r8"
+                      lineageId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Error Output].Columns[logcount]"
+                      name="logcount" />
+                    <outputColumn
+                      refId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Error Output].Columns[logfile]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Error Output].Columns[logfile]"
+                      name="logfile" />
+                    <outputColumn
+                      refId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Error Output].Columns[file_name]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Error Output].Columns[file_name]"
+                      name="file_name" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT_Debug_Line_Trace\Load_Debug_Line_Trace"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Load_Debug_Line_Trace"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Debug_Line_Trace]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT_Debug_Line_Trace\Load_Debug_Line_Trace.Connections[OleDbConnection]"
+                  connectionManagerID="{E0E6DC88-A9A1-4A51-8B19-958C1AD76267}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[ODS_Vanran_Ribbon]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT_Debug_Line_Trace\Load_Debug_Line_Trace.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT_Debug_Line_Trace\Load_Debug_Line_Trace.Inputs[OLE DB Destination Input].Columns[Copy of Action]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="25"
+                      cachedName="Copy of Action"
+                      externalMetadataColumnId="Package\DFT_Debug_Line_Trace\Load_Debug_Line_Trace.Inputs[OLE DB Destination Input].ExternalColumns[Action]"
+                      lineageId="Package\DFT_Debug_Line_Trace\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Action]" />
+                    <inputColumn
+                      refId="Package\DFT_Debug_Line_Trace\Load_Debug_Line_Trace.Inputs[OLE DB Destination Input].Columns[Copy of Root Domain]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="25"
+                      cachedName="Copy of Root Domain"
+                      externalMetadataColumnId="Package\DFT_Debug_Line_Trace\Load_Debug_Line_Trace.Inputs[OLE DB Destination Input].ExternalColumns[Root_Domain]"
+                      lineageId="Package\DFT_Debug_Line_Trace\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Root Domain]" />
+                    <inputColumn
+                      refId="Package\DFT_Debug_Line_Trace\Load_Debug_Line_Trace.Inputs[OLE DB Destination Input].Columns[Copy of Customer]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="25"
+                      cachedName="Copy of Customer"
+                      externalMetadataColumnId="Package\DFT_Debug_Line_Trace\Load_Debug_Line_Trace.Inputs[OLE DB Destination Input].ExternalColumns[Customer]"
+                      lineageId="Package\DFT_Debug_Line_Trace\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Customer]" />
+                    <inputColumn
+                      refId="Package\DFT_Debug_Line_Trace\Load_Debug_Line_Trace.Inputs[OLE DB Destination Input].Columns[Copy of id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Copy of id"
+                      externalMetadataColumnId="Package\DFT_Debug_Line_Trace\Load_Debug_Line_Trace.Inputs[OLE DB Destination Input].ExternalColumns[id]"
+                      lineageId="Package\DFT_Debug_Line_Trace\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of id]" />
+                    <inputColumn
+                      refId="Package\DFT_Debug_Line_Trace\Load_Debug_Line_Trace.Inputs[OLE DB Destination Input].Columns[Copy of dialed_number]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="32"
+                      cachedName="Copy of dialed_number"
+                      externalMetadataColumnId="Package\DFT_Debug_Line_Trace\Load_Debug_Line_Trace.Inputs[OLE DB Destination Input].ExternalColumns[dialed_number]"
+                      lineageId="Package\DFT_Debug_Line_Trace\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of dialed_number]" />
+                    <inputColumn
+                      refId="Package\DFT_Debug_Line_Trace\Load_Debug_Line_Trace.Inputs[OLE DB Destination Input].Columns[Copy of state]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Copy of state"
+                      externalMetadataColumnId="Package\DFT_Debug_Line_Trace\Load_Debug_Line_Trace.Inputs[OLE DB Destination Input].ExternalColumns[state]"
+                      lineageId="Package\DFT_Debug_Line_Trace\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of state]" />
+                    <inputColumn
+                      refId="Package\DFT_Debug_Line_Trace\Load_Debug_Line_Trace.Inputs[OLE DB Destination Input].Columns[Copy of currcommand]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Copy of currcommand"
+                      externalMetadataColumnId="Package\DFT_Debug_Line_Trace\Load_Debug_Line_Trace.Inputs[OLE DB Destination Input].ExternalColumns[currcommand]"
+                      lineageId="Package\DFT_Debug_Line_Trace\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of currcommand]" />
+                    <inputColumn
+                      refId="Package\DFT_Debug_Line_Trace\Load_Debug_Line_Trace.Inputs[OLE DB Destination Input].Columns[Copy of lastcommand]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Copy of lastcommand"
+                      externalMetadataColumnId="Package\DFT_Debug_Line_Trace\Load_Debug_Line_Trace.Inputs[OLE DB Destination Input].ExternalColumns[lastcommand]"
+                      lineageId="Package\DFT_Debug_Line_Trace\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of lastcommand]" />
+                    <inputColumn
+                      refId="Package\DFT_Debug_Line_Trace\Load_Debug_Line_Trace.Inputs[OLE DB Destination Input].Columns[Copy of lastrequest]"
+                      cachedDataType="i4"
+                      cachedName="Copy of lastrequest"
+                      externalMetadataColumnId="Package\DFT_Debug_Line_Trace\Load_Debug_Line_Trace.Inputs[OLE DB Destination Input].ExternalColumns[lastrequest]"
+                      lineageId="Package\DFT_Debug_Line_Trace\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of lastrequest]" />
+                    <inputColumn
+                      refId="Package\DFT_Debug_Line_Trace\Load_Debug_Line_Trace.Inputs[OLE DB Destination Input].Columns[Copy of lines]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Copy of lines"
+                      externalMetadataColumnId="Package\DFT_Debug_Line_Trace\Load_Debug_Line_Trace.Inputs[OLE DB Destination Input].ExternalColumns[lines]"
+                      lineageId="Package\DFT_Debug_Line_Trace\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of lines]" />
+                    <inputColumn
+                      refId="Package\DFT_Debug_Line_Trace\Load_Debug_Line_Trace.Inputs[OLE DB Destination Input].Columns[Copy of myid]"
+                      cachedDataType="i4"
+                      cachedName="Copy of myid"
+                      externalMetadataColumnId="Package\DFT_Debug_Line_Trace\Load_Debug_Line_Trace.Inputs[OLE DB Destination Input].ExternalColumns[myid]"
+                      lineageId="Package\DFT_Debug_Line_Trace\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of myid]" />
+                    <inputColumn
+                      refId="Package\DFT_Debug_Line_Trace\Load_Debug_Line_Trace.Inputs[OLE DB Destination Input].Columns[Copy of parent]"
+                      cachedDataType="i4"
+                      cachedName="Copy of parent"
+                      externalMetadataColumnId="Package\DFT_Debug_Line_Trace\Load_Debug_Line_Trace.Inputs[OLE DB Destination Input].ExternalColumns[parent]"
+                      lineageId="Package\DFT_Debug_Line_Trace\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of parent]" />
+                    <inputColumn
+                      refId="Package\DFT_Debug_Line_Trace\Load_Debug_Line_Trace.Inputs[OLE DB Destination Input].Columns[Copy of signal]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Copy of signal"
+                      externalMetadataColumnId="Package\DFT_Debug_Line_Trace\Load_Debug_Line_Trace.Inputs[OLE DB Destination Input].ExternalColumns[signal]"
+                      lineageId="Package\DFT_Debug_Line_Trace\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of signal]" />
+                    <inputColumn
+                      refId="Package\DFT_Debug_Line_Trace\Load_Debug_Line_Trace.Inputs[OLE DB Destination Input].Columns[Copy of user]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Copy of user"
+                      externalMetadataColumnId="Package\DFT_Debug_Line_Trace\Load_Debug_Line_Trace.Inputs[OLE DB Destination Input].ExternalColumns[user]"
+                      lineageId="Package\DFT_Debug_Line_Trace\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of user]" />
+                    <inputColumn
+                      refId="Package\DFT_Debug_Line_Trace\Load_Debug_Line_Trace.Inputs[OLE DB Destination Input].Columns[Copy of logcount]"
+                      cachedDataType="i4"
+                      cachedName="Copy of logcount"
+                      externalMetadataColumnId="Package\DFT_Debug_Line_Trace\Load_Debug_Line_Trace.Inputs[OLE DB Destination Input].ExternalColumns[logcount]"
+                      lineageId="Package\DFT_Debug_Line_Trace\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of logcount]" />
+                    <inputColumn
+                      refId="Package\DFT_Debug_Line_Trace\Load_Debug_Line_Trace.Inputs[OLE DB Destination Input].Columns[Copy of logfile]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Copy of logfile"
+                      externalMetadataColumnId="Package\DFT_Debug_Line_Trace\Load_Debug_Line_Trace.Inputs[OLE DB Destination Input].ExternalColumns[logfile]"
+                      lineageId="Package\DFT_Debug_Line_Trace\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of logfile]" />
+                    <inputColumn
+                      refId="Package\DFT_Debug_Line_Trace\Load_Debug_Line_Trace.Inputs[OLE DB Destination Input].Columns[Copy of file_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Copy of file_name"
+                      externalMetadataColumnId="Package\DFT_Debug_Line_Trace\Load_Debug_Line_Trace.Inputs[OLE DB Destination Input].ExternalColumns[file_name]"
+                      lineageId="Package\DFT_Debug_Line_Trace\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of file_name]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT_Debug_Line_Trace\Load_Debug_Line_Trace.Inputs[OLE DB Destination Input].ExternalColumns[Action]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      name="Action" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Debug_Line_Trace\Load_Debug_Line_Trace.Inputs[OLE DB Destination Input].ExternalColumns[Root_Domain]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      name="Root_Domain" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Debug_Line_Trace\Load_Debug_Line_Trace.Inputs[OLE DB Destination Input].ExternalColumns[Customer]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      name="Customer" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Debug_Line_Trace\Load_Debug_Line_Trace.Inputs[OLE DB Destination Input].ExternalColumns[Checksumval]"
+                      codePage="1252"
+                      dataType="str"
+                      length="32"
+                      name="Checksumval" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Debug_Line_Trace\Load_Debug_Line_Trace.Inputs[OLE DB Destination Input].ExternalColumns[Is_Sync]"
+                      dataType="bool"
+                      name="Is_Sync" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Debug_Line_Trace\Load_Debug_Line_Trace.Inputs[OLE DB Destination Input].ExternalColumns[id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="id" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Debug_Line_Trace\Load_Debug_Line_Trace.Inputs[OLE DB Destination Input].ExternalColumns[dialed_number]"
+                      codePage="1252"
+                      dataType="str"
+                      length="32"
+                      name="dialed_number" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Debug_Line_Trace\Load_Debug_Line_Trace.Inputs[OLE DB Destination Input].ExternalColumns[state]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="state" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Debug_Line_Trace\Load_Debug_Line_Trace.Inputs[OLE DB Destination Input].ExternalColumns[currcommand]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="currcommand" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Debug_Line_Trace\Load_Debug_Line_Trace.Inputs[OLE DB Destination Input].ExternalColumns[lastcommand]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="lastcommand" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Debug_Line_Trace\Load_Debug_Line_Trace.Inputs[OLE DB Destination Input].ExternalColumns[lastrequest]"
+                      dataType="i4"
+                      name="lastrequest" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Debug_Line_Trace\Load_Debug_Line_Trace.Inputs[OLE DB Destination Input].ExternalColumns[lines]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="lines" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Debug_Line_Trace\Load_Debug_Line_Trace.Inputs[OLE DB Destination Input].ExternalColumns[myid]"
+                      dataType="i4"
+                      name="myid" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Debug_Line_Trace\Load_Debug_Line_Trace.Inputs[OLE DB Destination Input].ExternalColumns[parent]"
+                      dataType="i4"
+                      name="parent" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Debug_Line_Trace\Load_Debug_Line_Trace.Inputs[OLE DB Destination Input].ExternalColumns[signal]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="signal" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Debug_Line_Trace\Load_Debug_Line_Trace.Inputs[OLE DB Destination Input].ExternalColumns[user]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="user" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Debug_Line_Trace\Load_Debug_Line_Trace.Inputs[OLE DB Destination Input].ExternalColumns[logcount]"
+                      dataType="i4"
+                      name="logcount" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Debug_Line_Trace\Load_Debug_Line_Trace.Inputs[OLE DB Destination Input].ExternalColumns[logfile]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="logfile" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Debug_Line_Trace\Load_Debug_Line_Trace.Inputs[OLE DB Destination Input].ExternalColumns[file_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="file_name" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_Debug_Line_Trace\Load_Debug_Line_Trace.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DFT_Debug_Line_Trace\Load_Debug_Line_Trace.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Debug_Line_Trace\Load_Debug_Line_Trace.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Debug_Line_Trace\Load_Debug_Line_Trace.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_Debug_Line_Trace\Load_Debug_Line_Trace.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Debug_Line_Trace\Load_Debug_Line_Trace.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT_Debug_Line_Trace.Paths[Data Conversion Output]"
+              endId="Package\DFT_Debug_Line_Trace\Load_Debug_Line_Trace.Inputs[OLE DB Destination Input]"
+              name="Data Conversion Output"
+              startId="Package\DFT_Debug_Line_Trace\Data Conversion.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\DFT_Debug_Line_Trace.Paths[Excel Source Output]"
+              endId="Package\DFT_Debug_Line_Trace\Data Conversion.Inputs[Data Conversion Input]"
+              name="Excel Source Output"
+              startId="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace.Outputs[Excel Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate_ODS_table"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{C2EB381D-1DA1-453F-8E53-BADD3DD30392}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate_ODS_table"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{E0E6DC88-A9A1-4A51-8B19-958C1AD76267}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE ODS.dbo.Debug_Line_Trace" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{70ACEE1F-08FD-4189-BA7A-9696A7F8EA92}"
+      DTS:From="Package\Truncate_ODS_table"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\DFT_Debug_Line_Trace" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="200,42"
+          Id="Package\DFT_Debug_Line_Trace"
+          TopLeft="162,131" />
+        <NodeLayout
+          Size="182,42"
+          Id="Package\Truncate_ODS_table"
+          TopLeft="165,40" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="259,82">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,49"
+              Start="0,0"
+              End="0,41.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,41.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DFT_Debug_Line_Trace">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="203,42"
+          Id="Package\DFT_Debug_Line_Trace\Load_Debug_Line_Trace"
+          TopLeft="372,277" />
+        <NodeLayout
+          Size="161,42"
+          Id="Package\DFT_Debug_Line_Trace\Data Conversion"
+          TopLeft="389,173" />
+        <NodeLayout
+          Size="206,42"
+          Id="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace"
+          TopLeft="373,79" />
+        <EdgeLayout
+          Id="Package\DFT_Debug_Line_Trace.Paths[Excel Source Output]"
+          TopLeft="472.75,121">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,52"
+              Start="0,0"
+              End="0,44.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,44.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT_Debug_Line_Trace.Paths[Data Conversion Output]"
+          TopLeft="471.5,215">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,62"
+              Start="0,0"
+              End="0,54.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,54.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT_Debug_Line_Trace\Load_Debug_Line_Trace">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT_Debug_Line_Trace\Excel_Debug_Line_Trace">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

@@ -1,0 +1,1140 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/22/2020 7:13:13 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="PREETISHK-LPT"
+  DTS:CreatorName="DATAFORTUNE\preetish.kharche"
+  DTS:DTSID="{16E92F13-2514-4B7A-9CEA-1B11E54E626E}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.123"
+  DTS:LocaleID="16393"
+  DTS:ObjectName="ODS_SFTP"
+  DTS:PackageType="5"
+  DTS:VersionBuild="53"
+  DTS:VersionGUID="{084FE5B8-1785-4141-93DD-5B4C09F68C0C}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DFT_SFTP"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{C411253C-A909-457A-8EEB-B797FC02E0B5}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT_SFTP"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT_SFTP\Data Conversion"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT_SFTP\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT_SFTP\Data Conversion.Inputs[Data Conversion Input].Columns[Root Domain]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Root Domain"
+                      lineageId="Package\DFT_SFTP\Excel_SFTP.Outputs[Excel Source Output].Columns[Root Domain]" />
+                    <inputColumn
+                      refId="Package\DFT_SFTP\Data Conversion.Inputs[Data Conversion Input].Columns[Action]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Action"
+                      lineageId="Package\DFT_SFTP\Excel_SFTP.Outputs[Excel Source Output].Columns[Action]" />
+                    <inputColumn
+                      refId="Package\DFT_SFTP\Data Conversion.Inputs[Data Conversion Input].Columns[Customer]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Customer"
+                      lineageId="Package\DFT_SFTP\Excel_SFTP.Outputs[Excel Source Output].Columns[Customer]" />
+                    <inputColumn
+                      refId="Package\DFT_SFTP\Data Conversion.Inputs[Data Conversion Input].Columns[port]"
+                      cachedDataType="r8"
+                      cachedName="port"
+                      lineageId="Package\DFT_SFTP\Excel_SFTP.Outputs[Excel Source Output].Columns[port]" />
+                    <inputColumn
+                      refId="Package\DFT_SFTP\Data Conversion.Inputs[Data Conversion Input].Columns[server_address]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="server_address"
+                      lineageId="Package\DFT_SFTP\Excel_SFTP.Outputs[Excel Source Output].Columns[server_address]" />
+                    <inputColumn
+                      refId="Package\DFT_SFTP\Data Conversion.Inputs[Data Conversion Input].Columns[userid]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="userid"
+                      lineageId="Package\DFT_SFTP\Excel_SFTP.Outputs[Excel Source Output].Columns[userid]" />
+                    <inputColumn
+                      refId="Package\DFT_SFTP\Data Conversion.Inputs[Data Conversion Input].Columns[password]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="password"
+                      lineageId="Package\DFT_SFTP\Excel_SFTP.Outputs[Excel Source Output].Columns[password]" />
+                    <inputColumn
+                      refId="Package\DFT_SFTP\Data Conversion.Inputs[Data Conversion Input].Columns[password_exist]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="password_exist"
+                      lineageId="Package\DFT_SFTP\Excel_SFTP.Outputs[Excel Source Output].Columns[password_exist]" />
+                    <inputColumn
+                      refId="Package\DFT_SFTP\Data Conversion.Inputs[Data Conversion Input].Columns[cdr_path]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="cdr_path"
+                      lineageId="Package\DFT_SFTP\Excel_SFTP.Outputs[Excel Source Output].Columns[cdr_path]" />
+                    <inputColumn
+                      refId="Package\DFT_SFTP\Data Conversion.Inputs[Data Conversion Input].Columns[invoice_path]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="invoice_path"
+                      lineageId="Package\DFT_SFTP\Excel_SFTP.Outputs[Excel Source Output].Columns[invoice_path]" />
+                    <inputColumn
+                      refId="Package\DFT_SFTP\Data Conversion.Inputs[Data Conversion Input].Columns[frequency]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="frequency"
+                      lineageId="Package\DFT_SFTP\Excel_SFTP.Outputs[Excel Source Output].Columns[frequency]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_SFTP\Data Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\DFT_SFTP\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_SFTP\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Root Domain]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="25"
+                      lineageId="Package\DFT_SFTP\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Root Domain]"
+                      name="Copy of Root Domain"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT_SFTP\Excel_SFTP.Outputs[Excel Source Output].Columns[Root Domain]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_SFTP\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Action]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="25"
+                      lineageId="Package\DFT_SFTP\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Action]"
+                      name="Copy of Action"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT_SFTP\Excel_SFTP.Outputs[Excel Source Output].Columns[Action]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_SFTP\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Customer]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="25"
+                      lineageId="Package\DFT_SFTP\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Customer]"
+                      name="Copy of Customer"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT_SFTP\Excel_SFTP.Outputs[Excel Source Output].Columns[Customer]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_SFTP\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of port]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT_SFTP\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of port]"
+                      name="Copy of port"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT_SFTP\Excel_SFTP.Outputs[Excel Source Output].Columns[port]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_SFTP\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of server_address]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\DFT_SFTP\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of server_address]"
+                      name="Copy of server_address"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT_SFTP\Excel_SFTP.Outputs[Excel Source Output].Columns[server_address]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_SFTP\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of userid]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\DFT_SFTP\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of userid]"
+                      name="Copy of userid"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT_SFTP\Excel_SFTP.Outputs[Excel Source Output].Columns[userid]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_SFTP\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of password]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\DFT_SFTP\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of password]"
+                      name="Copy of password"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT_SFTP\Excel_SFTP.Outputs[Excel Source Output].Columns[password]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_SFTP\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of password_exist]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="10"
+                      lineageId="Package\DFT_SFTP\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of password_exist]"
+                      name="Copy of password_exist"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT_SFTP\Excel_SFTP.Outputs[Excel Source Output].Columns[password_exist]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_SFTP\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of cdr_path]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\DFT_SFTP\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of cdr_path]"
+                      name="Copy of cdr_path"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT_SFTP\Excel_SFTP.Outputs[Excel Source Output].Columns[cdr_path]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_SFTP\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of invoice_path]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\DFT_SFTP\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of invoice_path]"
+                      name="Copy of invoice_path"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT_SFTP\Excel_SFTP.Outputs[Excel Source Output].Columns[invoice_path]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_SFTP\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of frequency]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="10"
+                      lineageId="Package\DFT_SFTP\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of frequency]"
+                      name="Copy of frequency"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT_SFTP\Excel_SFTP.Outputs[Excel Source Output].Columns[frequency]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT_SFTP\Data Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\DFT_SFTP\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_SFTP\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_SFTP\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_SFTP\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_SFTP\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT_SFTP\Excel_SFTP"
+              componentClassID="Microsoft.ExcelSource"
+              contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Excel Source"
+              name="Excel_SFTP"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">SFTP$A53:K</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mapping from parameters in the SQL command to variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT_SFTP\Excel_SFTP.Connections[OleDbConnection]"
+                  connectionManagerID="{0D2225D9-F1D8-4D95-B705-EE61F6D41EC3}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Excel]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT_SFTP\Excel_SFTP.Outputs[Excel Source Output]"
+                  name="Excel Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_SFTP\Excel_SFTP.Outputs[Excel Source Output].Columns[Root Domain]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_SFTP\Excel_SFTP.Outputs[Excel Source Output].ExternalColumns[Root Domain]"
+                      length="255"
+                      lineageId="Package\DFT_SFTP\Excel_SFTP.Outputs[Excel Source Output].Columns[Root Domain]"
+                      name="Root Domain"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_SFTP\Excel_SFTP.Outputs[Excel Source Output].Columns[Action]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_SFTP\Excel_SFTP.Outputs[Excel Source Output].ExternalColumns[Action]"
+                      length="255"
+                      lineageId="Package\DFT_SFTP\Excel_SFTP.Outputs[Excel Source Output].Columns[Action]"
+                      name="Action"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_SFTP\Excel_SFTP.Outputs[Excel Source Output].Columns[Customer]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_SFTP\Excel_SFTP.Outputs[Excel Source Output].ExternalColumns[Customer]"
+                      length="255"
+                      lineageId="Package\DFT_SFTP\Excel_SFTP.Outputs[Excel Source Output].Columns[Customer]"
+                      name="Customer"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_SFTP\Excel_SFTP.Outputs[Excel Source Output].Columns[port]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_SFTP\Excel_SFTP.Outputs[Excel Source Output].ExternalColumns[port]"
+                      lineageId="Package\DFT_SFTP\Excel_SFTP.Outputs[Excel Source Output].Columns[port]"
+                      name="port"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_SFTP\Excel_SFTP.Outputs[Excel Source Output].Columns[server_address]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_SFTP\Excel_SFTP.Outputs[Excel Source Output].ExternalColumns[server_address]"
+                      length="255"
+                      lineageId="Package\DFT_SFTP\Excel_SFTP.Outputs[Excel Source Output].Columns[server_address]"
+                      name="server_address"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_SFTP\Excel_SFTP.Outputs[Excel Source Output].Columns[userid]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_SFTP\Excel_SFTP.Outputs[Excel Source Output].ExternalColumns[userid]"
+                      length="255"
+                      lineageId="Package\DFT_SFTP\Excel_SFTP.Outputs[Excel Source Output].Columns[userid]"
+                      name="userid"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_SFTP\Excel_SFTP.Outputs[Excel Source Output].Columns[password]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_SFTP\Excel_SFTP.Outputs[Excel Source Output].ExternalColumns[password]"
+                      length="255"
+                      lineageId="Package\DFT_SFTP\Excel_SFTP.Outputs[Excel Source Output].Columns[password]"
+                      name="password"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_SFTP\Excel_SFTP.Outputs[Excel Source Output].Columns[password_exist]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_SFTP\Excel_SFTP.Outputs[Excel Source Output].ExternalColumns[password_exist]"
+                      length="255"
+                      lineageId="Package\DFT_SFTP\Excel_SFTP.Outputs[Excel Source Output].Columns[password_exist]"
+                      name="password_exist"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_SFTP\Excel_SFTP.Outputs[Excel Source Output].Columns[cdr_path]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_SFTP\Excel_SFTP.Outputs[Excel Source Output].ExternalColumns[cdr_path]"
+                      length="255"
+                      lineageId="Package\DFT_SFTP\Excel_SFTP.Outputs[Excel Source Output].Columns[cdr_path]"
+                      name="cdr_path"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_SFTP\Excel_SFTP.Outputs[Excel Source Output].Columns[invoice_path]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_SFTP\Excel_SFTP.Outputs[Excel Source Output].ExternalColumns[invoice_path]"
+                      length="255"
+                      lineageId="Package\DFT_SFTP\Excel_SFTP.Outputs[Excel Source Output].Columns[invoice_path]"
+                      name="invoice_path"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_SFTP\Excel_SFTP.Outputs[Excel Source Output].Columns[frequency]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_SFTP\Excel_SFTP.Outputs[Excel Source Output].ExternalColumns[frequency]"
+                      length="255"
+                      lineageId="Package\DFT_SFTP\Excel_SFTP.Outputs[Excel Source Output].Columns[frequency]"
+                      name="frequency"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT_SFTP\Excel_SFTP.Outputs[Excel Source Output].ExternalColumns[Root Domain]"
+                      dataType="wstr"
+                      length="255"
+                      name="Root Domain" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_SFTP\Excel_SFTP.Outputs[Excel Source Output].ExternalColumns[Action]"
+                      dataType="wstr"
+                      length="255"
+                      name="Action" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_SFTP\Excel_SFTP.Outputs[Excel Source Output].ExternalColumns[Customer]"
+                      dataType="wstr"
+                      length="255"
+                      name="Customer" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_SFTP\Excel_SFTP.Outputs[Excel Source Output].ExternalColumns[port]"
+                      dataType="r8"
+                      name="port" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_SFTP\Excel_SFTP.Outputs[Excel Source Output].ExternalColumns[server_address]"
+                      dataType="wstr"
+                      length="255"
+                      name="server_address" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_SFTP\Excel_SFTP.Outputs[Excel Source Output].ExternalColumns[userid]"
+                      dataType="wstr"
+                      length="255"
+                      name="userid" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_SFTP\Excel_SFTP.Outputs[Excel Source Output].ExternalColumns[password]"
+                      dataType="wstr"
+                      length="255"
+                      name="password" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_SFTP\Excel_SFTP.Outputs[Excel Source Output].ExternalColumns[password_exist]"
+                      dataType="wstr"
+                      length="255"
+                      name="password_exist" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_SFTP\Excel_SFTP.Outputs[Excel Source Output].ExternalColumns[cdr_path]"
+                      dataType="wstr"
+                      length="255"
+                      name="cdr_path" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_SFTP\Excel_SFTP.Outputs[Excel Source Output].ExternalColumns[invoice_path]"
+                      dataType="wstr"
+                      length="255"
+                      name="invoice_path" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_SFTP\Excel_SFTP.Outputs[Excel Source Output].ExternalColumns[frequency]"
+                      dataType="wstr"
+                      length="255"
+                      name="frequency" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT_SFTP\Excel_SFTP.Outputs[Excel Source Error Output]"
+                  isErrorOut="true"
+                  name="Excel Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_SFTP\Excel_SFTP.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_SFTP\Excel_SFTP.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_SFTP\Excel_SFTP.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_SFTP\Excel_SFTP.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\DFT_SFTP\Excel_SFTP.Outputs[Excel Source Error Output].Columns[Root Domain]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT_SFTP\Excel_SFTP.Outputs[Excel Source Error Output].Columns[Root Domain]"
+                      name="Root Domain" />
+                    <outputColumn
+                      refId="Package\DFT_SFTP\Excel_SFTP.Outputs[Excel Source Error Output].Columns[Action]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT_SFTP\Excel_SFTP.Outputs[Excel Source Error Output].Columns[Action]"
+                      name="Action" />
+                    <outputColumn
+                      refId="Package\DFT_SFTP\Excel_SFTP.Outputs[Excel Source Error Output].Columns[Customer]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT_SFTP\Excel_SFTP.Outputs[Excel Source Error Output].Columns[Customer]"
+                      name="Customer" />
+                    <outputColumn
+                      refId="Package\DFT_SFTP\Excel_SFTP.Outputs[Excel Source Error Output].Columns[port]"
+                      dataType="r8"
+                      lineageId="Package\DFT_SFTP\Excel_SFTP.Outputs[Excel Source Error Output].Columns[port]"
+                      name="port" />
+                    <outputColumn
+                      refId="Package\DFT_SFTP\Excel_SFTP.Outputs[Excel Source Error Output].Columns[server_address]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT_SFTP\Excel_SFTP.Outputs[Excel Source Error Output].Columns[server_address]"
+                      name="server_address" />
+                    <outputColumn
+                      refId="Package\DFT_SFTP\Excel_SFTP.Outputs[Excel Source Error Output].Columns[userid]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT_SFTP\Excel_SFTP.Outputs[Excel Source Error Output].Columns[userid]"
+                      name="userid" />
+                    <outputColumn
+                      refId="Package\DFT_SFTP\Excel_SFTP.Outputs[Excel Source Error Output].Columns[password]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT_SFTP\Excel_SFTP.Outputs[Excel Source Error Output].Columns[password]"
+                      name="password" />
+                    <outputColumn
+                      refId="Package\DFT_SFTP\Excel_SFTP.Outputs[Excel Source Error Output].Columns[password_exist]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT_SFTP\Excel_SFTP.Outputs[Excel Source Error Output].Columns[password_exist]"
+                      name="password_exist" />
+                    <outputColumn
+                      refId="Package\DFT_SFTP\Excel_SFTP.Outputs[Excel Source Error Output].Columns[cdr_path]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT_SFTP\Excel_SFTP.Outputs[Excel Source Error Output].Columns[cdr_path]"
+                      name="cdr_path" />
+                    <outputColumn
+                      refId="Package\DFT_SFTP\Excel_SFTP.Outputs[Excel Source Error Output].Columns[invoice_path]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT_SFTP\Excel_SFTP.Outputs[Excel Source Error Output].Columns[invoice_path]"
+                      name="invoice_path" />
+                    <outputColumn
+                      refId="Package\DFT_SFTP\Excel_SFTP.Outputs[Excel Source Error Output].Columns[frequency]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT_SFTP\Excel_SFTP.Outputs[Excel Source Error Output].Columns[frequency]"
+                      name="frequency" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT_SFTP\Load_SFTP"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Load_SFTP"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[SFTP]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT_SFTP\Load_SFTP.Connections[OleDbConnection]"
+                  connectionManagerID="{E0E6DC88-A9A1-4A51-8B19-958C1AD76267}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[ODS_Vanran_Ribbon]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT_SFTP\Load_SFTP.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT_SFTP\Load_SFTP.Inputs[OLE DB Destination Input].Columns[Copy of Action]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="25"
+                      cachedName="Copy of Action"
+                      externalMetadataColumnId="Package\DFT_SFTP\Load_SFTP.Inputs[OLE DB Destination Input].ExternalColumns[Action]"
+                      lineageId="Package\DFT_SFTP\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Action]" />
+                    <inputColumn
+                      refId="Package\DFT_SFTP\Load_SFTP.Inputs[OLE DB Destination Input].Columns[Copy of Root Domain]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="25"
+                      cachedName="Copy of Root Domain"
+                      externalMetadataColumnId="Package\DFT_SFTP\Load_SFTP.Inputs[OLE DB Destination Input].ExternalColumns[Root_Domain]"
+                      lineageId="Package\DFT_SFTP\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Root Domain]" />
+                    <inputColumn
+                      refId="Package\DFT_SFTP\Load_SFTP.Inputs[OLE DB Destination Input].Columns[Copy of Customer]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="25"
+                      cachedName="Copy of Customer"
+                      externalMetadataColumnId="Package\DFT_SFTP\Load_SFTP.Inputs[OLE DB Destination Input].ExternalColumns[Customer]"
+                      lineageId="Package\DFT_SFTP\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Customer]" />
+                    <inputColumn
+                      refId="Package\DFT_SFTP\Load_SFTP.Inputs[OLE DB Destination Input].Columns[Copy of port]"
+                      cachedDataType="i4"
+                      cachedName="Copy of port"
+                      externalMetadataColumnId="Package\DFT_SFTP\Load_SFTP.Inputs[OLE DB Destination Input].ExternalColumns[port]"
+                      lineageId="Package\DFT_SFTP\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of port]" />
+                    <inputColumn
+                      refId="Package\DFT_SFTP\Load_SFTP.Inputs[OLE DB Destination Input].Columns[Copy of server_address]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Copy of server_address"
+                      externalMetadataColumnId="Package\DFT_SFTP\Load_SFTP.Inputs[OLE DB Destination Input].ExternalColumns[server_address]"
+                      lineageId="Package\DFT_SFTP\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of server_address]" />
+                    <inputColumn
+                      refId="Package\DFT_SFTP\Load_SFTP.Inputs[OLE DB Destination Input].Columns[Copy of userid]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Copy of userid"
+                      externalMetadataColumnId="Package\DFT_SFTP\Load_SFTP.Inputs[OLE DB Destination Input].ExternalColumns[userid]"
+                      lineageId="Package\DFT_SFTP\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of userid]" />
+                    <inputColumn
+                      refId="Package\DFT_SFTP\Load_SFTP.Inputs[OLE DB Destination Input].Columns[Copy of password]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Copy of password"
+                      externalMetadataColumnId="Package\DFT_SFTP\Load_SFTP.Inputs[OLE DB Destination Input].ExternalColumns[password]"
+                      lineageId="Package\DFT_SFTP\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of password]" />
+                    <inputColumn
+                      refId="Package\DFT_SFTP\Load_SFTP.Inputs[OLE DB Destination Input].Columns[Copy of password_exist]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="Copy of password_exist"
+                      externalMetadataColumnId="Package\DFT_SFTP\Load_SFTP.Inputs[OLE DB Destination Input].ExternalColumns[password_exist]"
+                      lineageId="Package\DFT_SFTP\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of password_exist]" />
+                    <inputColumn
+                      refId="Package\DFT_SFTP\Load_SFTP.Inputs[OLE DB Destination Input].Columns[Copy of cdr_path]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Copy of cdr_path"
+                      externalMetadataColumnId="Package\DFT_SFTP\Load_SFTP.Inputs[OLE DB Destination Input].ExternalColumns[cdr_path]"
+                      lineageId="Package\DFT_SFTP\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of cdr_path]" />
+                    <inputColumn
+                      refId="Package\DFT_SFTP\Load_SFTP.Inputs[OLE DB Destination Input].Columns[Copy of invoice_path]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Copy of invoice_path"
+                      externalMetadataColumnId="Package\DFT_SFTP\Load_SFTP.Inputs[OLE DB Destination Input].ExternalColumns[invoice_path]"
+                      lineageId="Package\DFT_SFTP\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of invoice_path]" />
+                    <inputColumn
+                      refId="Package\DFT_SFTP\Load_SFTP.Inputs[OLE DB Destination Input].Columns[Copy of frequency]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="Copy of frequency"
+                      externalMetadataColumnId="Package\DFT_SFTP\Load_SFTP.Inputs[OLE DB Destination Input].ExternalColumns[frequency]"
+                      lineageId="Package\DFT_SFTP\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of frequency]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT_SFTP\Load_SFTP.Inputs[OLE DB Destination Input].ExternalColumns[Action]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      name="Action" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_SFTP\Load_SFTP.Inputs[OLE DB Destination Input].ExternalColumns[Root_Domain]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      name="Root_Domain" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_SFTP\Load_SFTP.Inputs[OLE DB Destination Input].ExternalColumns[Customer]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      name="Customer" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_SFTP\Load_SFTP.Inputs[OLE DB Destination Input].ExternalColumns[Checksumval]"
+                      codePage="1252"
+                      dataType="str"
+                      length="32"
+                      name="Checksumval" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_SFTP\Load_SFTP.Inputs[OLE DB Destination Input].ExternalColumns[Is_Sync]"
+                      dataType="bool"
+                      name="Is_Sync" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_SFTP\Load_SFTP.Inputs[OLE DB Destination Input].ExternalColumns[port]"
+                      dataType="i4"
+                      name="port" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_SFTP\Load_SFTP.Inputs[OLE DB Destination Input].ExternalColumns[server_address]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="server_address" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_SFTP\Load_SFTP.Inputs[OLE DB Destination Input].ExternalColumns[userid]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="userid" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_SFTP\Load_SFTP.Inputs[OLE DB Destination Input].ExternalColumns[password]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="password" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_SFTP\Load_SFTP.Inputs[OLE DB Destination Input].ExternalColumns[password_exist]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="password_exist" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_SFTP\Load_SFTP.Inputs[OLE DB Destination Input].ExternalColumns[cdr_path]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="cdr_path" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_SFTP\Load_SFTP.Inputs[OLE DB Destination Input].ExternalColumns[invoice_path]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="invoice_path" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_SFTP\Load_SFTP.Inputs[OLE DB Destination Input].ExternalColumns[frequency]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="frequency" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_SFTP\Load_SFTP.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DFT_SFTP\Load_SFTP.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_SFTP\Load_SFTP.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_SFTP\Load_SFTP.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_SFTP\Load_SFTP.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_SFTP\Load_SFTP.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT_SFTP.Paths[Data Conversion Output]"
+              endId="Package\DFT_SFTP\Load_SFTP.Inputs[OLE DB Destination Input]"
+              name="Data Conversion Output"
+              startId="Package\DFT_SFTP\Data Conversion.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\DFT_SFTP.Paths[Excel Source Output]"
+              endId="Package\DFT_SFTP\Data Conversion.Inputs[Data Conversion Input]"
+              name="Excel Source Output"
+              startId="Package\DFT_SFTP\Excel_SFTP.Outputs[Excel Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate_ODS_table"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{6BD2B555-1233-48AD-A840-416616D98504}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate_ODS_table"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{E0E6DC88-A9A1-4A51-8B19-958C1AD76267}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE ODS.dbo.SFTP" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{3AAC94D0-F8C2-495E-9615-669ADB5BB0B0}"
+      DTS:From="Package\Truncate_ODS_table"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\DFT_SFTP" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="135,42"
+          Id="Package\DFT_SFTP"
+          TopLeft="184,131" />
+        <NodeLayout
+          Size="182,42"
+          Id="Package\Truncate_ODS_table"
+          TopLeft="165,40" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="253.75,82">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,49"
+              Start="0,0"
+              End="0,41.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,41.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DFT_SFTP">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="140,42"
+          Id="Package\DFT_SFTP\Excel_SFTP"
+          TopLeft="383,79" />
+        <NodeLayout
+          Size="138,42"
+          Id="Package\DFT_SFTP\Load_SFTP"
+          TopLeft="378,277" />
+        <NodeLayout
+          Size="161,42"
+          Id="Package\DFT_SFTP\Data Conversion"
+          TopLeft="373,173" />
+        <EdgeLayout
+          Id="Package\DFT_SFTP.Paths[Excel Source Output]"
+          TopLeft="453.25,121">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,52"
+              Start="0,0"
+              End="0,44.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,44.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT_SFTP.Paths[Data Conversion Output]"
+          TopLeft="450.25,215">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,62"
+              Start="0,0"
+              End="0,54.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,54.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT_SFTP\Excel_SFTP">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT_SFTP\Load_SFTP">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

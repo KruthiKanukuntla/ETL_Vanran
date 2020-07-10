@@ -1,0 +1,926 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/22/2020 7:13:13 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="PREETISHK-LPT"
+  DTS:CreatorName="DATAFORTUNE\preetish.kharche"
+  DTS:DTSID="{5CE979FC-2833-4DD9-B97E-71A82F0DCB90}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.123"
+  DTS:LocaleID="16393"
+  DTS:ObjectName="ODS_Email_Authentication"
+  DTS:PackageType="5"
+  DTS:VersionBuild="61"
+  DTS:VersionGUID="{CEF21132-D159-49CB-A8C9-B2C30B78D180}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DFT_Email_Authentication"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{520CDAE1-4EBF-499B-9567-07BDFECF8D9F}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT_Email_Authentication"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT_Email_Authentication\Data Conversion"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT_Email_Authentication\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT_Email_Authentication\Data Conversion.Inputs[Data Conversion Input].Columns[Root Domain]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Root Domain"
+                      lineageId="Package\DFT_Email_Authentication\Excel_Email_Authentication.Outputs[Excel Source Output].Columns[Root Domain]" />
+                    <inputColumn
+                      refId="Package\DFT_Email_Authentication\Data Conversion.Inputs[Data Conversion Input].Columns[Customer]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Customer"
+                      lineageId="Package\DFT_Email_Authentication\Excel_Email_Authentication.Outputs[Excel Source Output].Columns[Customer]" />
+                    <inputColumn
+                      refId="Package\DFT_Email_Authentication\Data Conversion.Inputs[Data Conversion Input].Columns[Action]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Action"
+                      lineageId="Package\DFT_Email_Authentication\Excel_Email_Authentication.Outputs[Excel Source Output].Columns[Action]" />
+                    <inputColumn
+                      refId="Package\DFT_Email_Authentication\Data Conversion.Inputs[Data Conversion Input].Columns[smtp_host]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="smtp_host"
+                      lineageId="Package\DFT_Email_Authentication\Excel_Email_Authentication.Outputs[Excel Source Output].Columns[smtp_host]" />
+                    <inputColumn
+                      refId="Package\DFT_Email_Authentication\Data Conversion.Inputs[Data Conversion Input].Columns[authentication_user]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="authentication_user"
+                      lineageId="Package\DFT_Email_Authentication\Excel_Email_Authentication.Outputs[Excel Source Output].Columns[authentication_user]" />
+                    <inputColumn
+                      refId="Package\DFT_Email_Authentication\Data Conversion.Inputs[Data Conversion Input].Columns[authentication_password]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="authentication_password"
+                      lineageId="Package\DFT_Email_Authentication\Excel_Email_Authentication.Outputs[Excel Source Output].Columns[authentication_password]" />
+                    <inputColumn
+                      refId="Package\DFT_Email_Authentication\Data Conversion.Inputs[Data Conversion Input].Columns[security]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="security"
+                      lineageId="Package\DFT_Email_Authentication\Excel_Email_Authentication.Outputs[Excel Source Output].Columns[security]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_Email_Authentication\Data Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\DFT_Email_Authentication\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Email_Authentication\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Root Domain]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="25"
+                      lineageId="Package\DFT_Email_Authentication\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Root Domain]"
+                      name="Copy of Root Domain"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT_Email_Authentication\Excel_Email_Authentication.Outputs[Excel Source Output].Columns[Root Domain]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Email_Authentication\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Customer]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="25"
+                      lineageId="Package\DFT_Email_Authentication\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Customer]"
+                      name="Copy of Customer"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT_Email_Authentication\Excel_Email_Authentication.Outputs[Excel Source Output].Columns[Customer]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Email_Authentication\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Action]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="25"
+                      lineageId="Package\DFT_Email_Authentication\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Action]"
+                      name="Copy of Action"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT_Email_Authentication\Excel_Email_Authentication.Outputs[Excel Source Output].Columns[Action]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Email_Authentication\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of smtp_host]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\DFT_Email_Authentication\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of smtp_host]"
+                      name="Copy of smtp_host"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT_Email_Authentication\Excel_Email_Authentication.Outputs[Excel Source Output].Columns[smtp_host]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Email_Authentication\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of authentication_user]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\DFT_Email_Authentication\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of authentication_user]"
+                      name="Copy of authentication_user"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT_Email_Authentication\Excel_Email_Authentication.Outputs[Excel Source Output].Columns[authentication_user]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Email_Authentication\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of authentication_password]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\DFT_Email_Authentication\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of authentication_password]"
+                      name="Copy of authentication_password"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT_Email_Authentication\Excel_Email_Authentication.Outputs[Excel Source Output].Columns[authentication_password]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Email_Authentication\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of security]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="25"
+                      lineageId="Package\DFT_Email_Authentication\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of security]"
+                      name="Copy of security"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT_Email_Authentication\Excel_Email_Authentication.Outputs[Excel Source Output].Columns[security]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT_Email_Authentication\Data Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\DFT_Email_Authentication\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Email_Authentication\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Email_Authentication\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_Email_Authentication\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Email_Authentication\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT_Email_Authentication\Excel_Email_Authentication"
+              componentClassID="Microsoft.ExcelSource"
+              contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Excel Source"
+              name="Excel_Email_Authentication"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">Email_Authentication$A53:H</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mapping from parameters in the SQL command to variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT_Email_Authentication\Excel_Email_Authentication.Connections[OleDbConnection]"
+                  connectionManagerID="{0D2225D9-F1D8-4D95-B705-EE61F6D41EC3}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Excel]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT_Email_Authentication\Excel_Email_Authentication.Outputs[Excel Source Output]"
+                  name="Excel Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Email_Authentication\Excel_Email_Authentication.Outputs[Excel Source Output].Columns[Root Domain]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Email_Authentication\Excel_Email_Authentication.Outputs[Excel Source Output].ExternalColumns[Root Domain]"
+                      length="255"
+                      lineageId="Package\DFT_Email_Authentication\Excel_Email_Authentication.Outputs[Excel Source Output].Columns[Root Domain]"
+                      name="Root Domain"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Email_Authentication\Excel_Email_Authentication.Outputs[Excel Source Output].Columns[Customer]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Email_Authentication\Excel_Email_Authentication.Outputs[Excel Source Output].ExternalColumns[Customer]"
+                      length="255"
+                      lineageId="Package\DFT_Email_Authentication\Excel_Email_Authentication.Outputs[Excel Source Output].Columns[Customer]"
+                      name="Customer"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Email_Authentication\Excel_Email_Authentication.Outputs[Excel Source Output].Columns[Action]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Email_Authentication\Excel_Email_Authentication.Outputs[Excel Source Output].ExternalColumns[Action]"
+                      length="255"
+                      lineageId="Package\DFT_Email_Authentication\Excel_Email_Authentication.Outputs[Excel Source Output].Columns[Action]"
+                      name="Action"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Email_Authentication\Excel_Email_Authentication.Outputs[Excel Source Output].Columns[smtp_host]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Email_Authentication\Excel_Email_Authentication.Outputs[Excel Source Output].ExternalColumns[smtp_host]"
+                      length="255"
+                      lineageId="Package\DFT_Email_Authentication\Excel_Email_Authentication.Outputs[Excel Source Output].Columns[smtp_host]"
+                      name="smtp_host"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Email_Authentication\Excel_Email_Authentication.Outputs[Excel Source Output].Columns[smtp_port]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Email_Authentication\Excel_Email_Authentication.Outputs[Excel Source Output].ExternalColumns[smtp_port]"
+                      lineageId="Package\DFT_Email_Authentication\Excel_Email_Authentication.Outputs[Excel Source Output].Columns[smtp_port]"
+                      name="smtp_port"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Email_Authentication\Excel_Email_Authentication.Outputs[Excel Source Output].Columns[authentication_user]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Email_Authentication\Excel_Email_Authentication.Outputs[Excel Source Output].ExternalColumns[authentication_user]"
+                      length="255"
+                      lineageId="Package\DFT_Email_Authentication\Excel_Email_Authentication.Outputs[Excel Source Output].Columns[authentication_user]"
+                      name="authentication_user"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Email_Authentication\Excel_Email_Authentication.Outputs[Excel Source Output].Columns[authentication_password]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Email_Authentication\Excel_Email_Authentication.Outputs[Excel Source Output].ExternalColumns[authentication_password]"
+                      length="255"
+                      lineageId="Package\DFT_Email_Authentication\Excel_Email_Authentication.Outputs[Excel Source Output].Columns[authentication_password]"
+                      name="authentication_password"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Email_Authentication\Excel_Email_Authentication.Outputs[Excel Source Output].Columns[security]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Email_Authentication\Excel_Email_Authentication.Outputs[Excel Source Output].ExternalColumns[security]"
+                      length="255"
+                      lineageId="Package\DFT_Email_Authentication\Excel_Email_Authentication.Outputs[Excel Source Output].Columns[security]"
+                      name="security"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT_Email_Authentication\Excel_Email_Authentication.Outputs[Excel Source Output].ExternalColumns[Root Domain]"
+                      dataType="wstr"
+                      length="255"
+                      name="Root Domain" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Email_Authentication\Excel_Email_Authentication.Outputs[Excel Source Output].ExternalColumns[Customer]"
+                      dataType="wstr"
+                      length="255"
+                      name="Customer" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Email_Authentication\Excel_Email_Authentication.Outputs[Excel Source Output].ExternalColumns[Action]"
+                      dataType="wstr"
+                      length="255"
+                      name="Action" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Email_Authentication\Excel_Email_Authentication.Outputs[Excel Source Output].ExternalColumns[smtp_host]"
+                      dataType="wstr"
+                      length="255"
+                      name="smtp_host" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Email_Authentication\Excel_Email_Authentication.Outputs[Excel Source Output].ExternalColumns[smtp_port]"
+                      dataType="r8"
+                      name="smtp_port" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Email_Authentication\Excel_Email_Authentication.Outputs[Excel Source Output].ExternalColumns[authentication_user]"
+                      dataType="wstr"
+                      length="255"
+                      name="authentication_user" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Email_Authentication\Excel_Email_Authentication.Outputs[Excel Source Output].ExternalColumns[authentication_password]"
+                      dataType="wstr"
+                      length="255"
+                      name="authentication_password" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Email_Authentication\Excel_Email_Authentication.Outputs[Excel Source Output].ExternalColumns[security]"
+                      dataType="wstr"
+                      length="255"
+                      name="security" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT_Email_Authentication\Excel_Email_Authentication.Outputs[Excel Source Error Output]"
+                  isErrorOut="true"
+                  name="Excel Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Email_Authentication\Excel_Email_Authentication.Outputs[Excel Source Error Output].Columns[Root Domain]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT_Email_Authentication\Excel_Email_Authentication.Outputs[Excel Source Error Output].Columns[Root Domain]"
+                      name="Root Domain" />
+                    <outputColumn
+                      refId="Package\DFT_Email_Authentication\Excel_Email_Authentication.Outputs[Excel Source Error Output].Columns[Customer]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT_Email_Authentication\Excel_Email_Authentication.Outputs[Excel Source Error Output].Columns[Customer]"
+                      name="Customer" />
+                    <outputColumn
+                      refId="Package\DFT_Email_Authentication\Excel_Email_Authentication.Outputs[Excel Source Error Output].Columns[Action]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT_Email_Authentication\Excel_Email_Authentication.Outputs[Excel Source Error Output].Columns[Action]"
+                      name="Action" />
+                    <outputColumn
+                      refId="Package\DFT_Email_Authentication\Excel_Email_Authentication.Outputs[Excel Source Error Output].Columns[smtp_host]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT_Email_Authentication\Excel_Email_Authentication.Outputs[Excel Source Error Output].Columns[smtp_host]"
+                      name="smtp_host" />
+                    <outputColumn
+                      refId="Package\DFT_Email_Authentication\Excel_Email_Authentication.Outputs[Excel Source Error Output].Columns[smtp_port]"
+                      dataType="r8"
+                      lineageId="Package\DFT_Email_Authentication\Excel_Email_Authentication.Outputs[Excel Source Error Output].Columns[smtp_port]"
+                      name="smtp_port" />
+                    <outputColumn
+                      refId="Package\DFT_Email_Authentication\Excel_Email_Authentication.Outputs[Excel Source Error Output].Columns[authentication_user]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT_Email_Authentication\Excel_Email_Authentication.Outputs[Excel Source Error Output].Columns[authentication_user]"
+                      name="authentication_user" />
+                    <outputColumn
+                      refId="Package\DFT_Email_Authentication\Excel_Email_Authentication.Outputs[Excel Source Error Output].Columns[authentication_password]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT_Email_Authentication\Excel_Email_Authentication.Outputs[Excel Source Error Output].Columns[authentication_password]"
+                      name="authentication_password" />
+                    <outputColumn
+                      refId="Package\DFT_Email_Authentication\Excel_Email_Authentication.Outputs[Excel Source Error Output].Columns[security]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT_Email_Authentication\Excel_Email_Authentication.Outputs[Excel Source Error Output].Columns[security]"
+                      name="security" />
+                    <outputColumn
+                      refId="Package\DFT_Email_Authentication\Excel_Email_Authentication.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Email_Authentication\Excel_Email_Authentication.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_Email_Authentication\Excel_Email_Authentication.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Email_Authentication\Excel_Email_Authentication.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT_Email_Authentication\Load_Email_Authentication"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Load_Email_Authentication"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Email_Authentication]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS,ROWS_PER_BATCH = 100000</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">100000</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT_Email_Authentication\Load_Email_Authentication.Connections[OleDbConnection]"
+                  connectionManagerID="{E0E6DC88-A9A1-4A51-8B19-958C1AD76267}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[ODS_Vanran_Ribbon]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT_Email_Authentication\Load_Email_Authentication.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT_Email_Authentication\Load_Email_Authentication.Inputs[OLE DB Destination Input].Columns[Copy of Root Domain]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="25"
+                      cachedName="Copy of Root Domain"
+                      externalMetadataColumnId="Package\DFT_Email_Authentication\Load_Email_Authentication.Inputs[OLE DB Destination Input].ExternalColumns[Root_Domain]"
+                      lineageId="Package\DFT_Email_Authentication\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Root Domain]" />
+                    <inputColumn
+                      refId="Package\DFT_Email_Authentication\Load_Email_Authentication.Inputs[OLE DB Destination Input].Columns[Copy of Action]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="25"
+                      cachedName="Copy of Action"
+                      externalMetadataColumnId="Package\DFT_Email_Authentication\Load_Email_Authentication.Inputs[OLE DB Destination Input].ExternalColumns[Action]"
+                      lineageId="Package\DFT_Email_Authentication\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Action]" />
+                    <inputColumn
+                      refId="Package\DFT_Email_Authentication\Load_Email_Authentication.Inputs[OLE DB Destination Input].Columns[Copy of Customer]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="25"
+                      cachedName="Copy of Customer"
+                      externalMetadataColumnId="Package\DFT_Email_Authentication\Load_Email_Authentication.Inputs[OLE DB Destination Input].ExternalColumns[Customer]"
+                      lineageId="Package\DFT_Email_Authentication\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Customer]" />
+                    <inputColumn
+                      refId="Package\DFT_Email_Authentication\Load_Email_Authentication.Inputs[OLE DB Destination Input].Columns[Copy of smtp_host]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Copy of smtp_host"
+                      externalMetadataColumnId="Package\DFT_Email_Authentication\Load_Email_Authentication.Inputs[OLE DB Destination Input].ExternalColumns[smtp_host]"
+                      lineageId="Package\DFT_Email_Authentication\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of smtp_host]" />
+                    <inputColumn
+                      refId="Package\DFT_Email_Authentication\Load_Email_Authentication.Inputs[OLE DB Destination Input].Columns[smtp_port]"
+                      cachedDataType="r8"
+                      cachedName="smtp_port"
+                      externalMetadataColumnId="Package\DFT_Email_Authentication\Load_Email_Authentication.Inputs[OLE DB Destination Input].ExternalColumns[smtp_port]"
+                      lineageId="Package\DFT_Email_Authentication\Excel_Email_Authentication.Outputs[Excel Source Output].Columns[smtp_port]" />
+                    <inputColumn
+                      refId="Package\DFT_Email_Authentication\Load_Email_Authentication.Inputs[OLE DB Destination Input].Columns[Copy of authentication_user]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Copy of authentication_user"
+                      externalMetadataColumnId="Package\DFT_Email_Authentication\Load_Email_Authentication.Inputs[OLE DB Destination Input].ExternalColumns[authentication_user]"
+                      lineageId="Package\DFT_Email_Authentication\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of authentication_user]" />
+                    <inputColumn
+                      refId="Package\DFT_Email_Authentication\Load_Email_Authentication.Inputs[OLE DB Destination Input].Columns[Copy of authentication_password]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Copy of authentication_password"
+                      externalMetadataColumnId="Package\DFT_Email_Authentication\Load_Email_Authentication.Inputs[OLE DB Destination Input].ExternalColumns[authentication_password]"
+                      lineageId="Package\DFT_Email_Authentication\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of authentication_password]" />
+                    <inputColumn
+                      refId="Package\DFT_Email_Authentication\Load_Email_Authentication.Inputs[OLE DB Destination Input].Columns[Copy of security]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="25"
+                      cachedName="Copy of security"
+                      externalMetadataColumnId="Package\DFT_Email_Authentication\Load_Email_Authentication.Inputs[OLE DB Destination Input].ExternalColumns[security]"
+                      lineageId="Package\DFT_Email_Authentication\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of security]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT_Email_Authentication\Load_Email_Authentication.Inputs[OLE DB Destination Input].ExternalColumns[Action]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      name="Action" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Email_Authentication\Load_Email_Authentication.Inputs[OLE DB Destination Input].ExternalColumns[Root_Domain]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      name="Root_Domain" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Email_Authentication\Load_Email_Authentication.Inputs[OLE DB Destination Input].ExternalColumns[Customer]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      name="Customer" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Email_Authentication\Load_Email_Authentication.Inputs[OLE DB Destination Input].ExternalColumns[Checksumval]"
+                      codePage="1252"
+                      dataType="str"
+                      length="32"
+                      name="Checksumval" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Email_Authentication\Load_Email_Authentication.Inputs[OLE DB Destination Input].ExternalColumns[Is_Sync]"
+                      dataType="bool"
+                      name="Is_Sync" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Email_Authentication\Load_Email_Authentication.Inputs[OLE DB Destination Input].ExternalColumns[smtp_host]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="smtp_host" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Email_Authentication\Load_Email_Authentication.Inputs[OLE DB Destination Input].ExternalColumns[smtp_port]"
+                      dataType="i4"
+                      name="smtp_port" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Email_Authentication\Load_Email_Authentication.Inputs[OLE DB Destination Input].ExternalColumns[authentication_user]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="authentication_user" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Email_Authentication\Load_Email_Authentication.Inputs[OLE DB Destination Input].ExternalColumns[authentication_password]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="authentication_password" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Email_Authentication\Load_Email_Authentication.Inputs[OLE DB Destination Input].ExternalColumns[security]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      name="security" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_Email_Authentication\Load_Email_Authentication.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DFT_Email_Authentication\Load_Email_Authentication.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Email_Authentication\Load_Email_Authentication.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Email_Authentication\Load_Email_Authentication.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_Email_Authentication\Load_Email_Authentication.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Email_Authentication\Load_Email_Authentication.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT_Email_Authentication.Paths[Data Conversion Output]"
+              endId="Package\DFT_Email_Authentication\Load_Email_Authentication.Inputs[OLE DB Destination Input]"
+              name="Data Conversion Output"
+              startId="Package\DFT_Email_Authentication\Data Conversion.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\DFT_Email_Authentication.Paths[Excel Source Output]"
+              endId="Package\DFT_Email_Authentication\Data Conversion.Inputs[Data Conversion Input]"
+              name="Excel Source Output"
+              startId="Package\DFT_Email_Authentication\Excel_Email_Authentication.Outputs[Excel Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate_ODS_Email_Authentication_table"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{09740FAB-F405-4950-951D-5E7A7C2CFA78}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate_ODS_Email_Authentication_table"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{E0E6DC88-A9A1-4A51-8B19-958C1AD76267}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE ODS.dbo.Email_Authentication" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{76382B3A-2FE8-4482-83A7-6E5EE230D099}"
+      DTS:From="Package\Truncate_ODS_Email_Authentication_table"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\DFT_Email_Authentication" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="210,42"
+          Id="Package\DFT_Email_Authentication"
+          TopLeft="175,134" />
+        <NodeLayout
+          Size="292,42"
+          Id="Package\Truncate_ODS_Email_Authentication_table"
+          TopLeft="128,40" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="277,82">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,52"
+              Start="0,0"
+              End="0,44.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,44.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DFT_Email_Authentication">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="213,42"
+          Id="Package\DFT_Email_Authentication\Load_Email_Authentication"
+          TopLeft="365,276" />
+        <NodeLayout
+          Size="161,42"
+          Id="Package\DFT_Email_Authentication\Data Conversion"
+          TopLeft="394,176" />
+        <NodeLayout
+          Size="216,42"
+          Id="Package\DFT_Email_Authentication\Excel_Email_Authentication"
+          TopLeft="365,75" />
+        <EdgeLayout
+          Id="Package\DFT_Email_Authentication.Paths[Excel Source Output]"
+          TopLeft="473.75,117">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59"
+              Start="0,0"
+              End="0,51.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,51.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT_Email_Authentication.Paths[Data Conversion Output]"
+          TopLeft="473,218">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,58"
+              Start="0,0"
+              End="0,50.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,50.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT_Email_Authentication\Load_Email_Authentication">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT_Email_Authentication\Excel_Email_Authentication">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

@@ -1,0 +1,876 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/22/2020 7:13:13 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="PREETISHK-LPT"
+  DTS:CreatorName="DATAFORTUNE\preetish.kharche"
+  DTS:DTSID="{9423DA7E-C57A-4588-878F-FDA601FD825D}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.123"
+  DTS:LocaleID="16393"
+  DTS:ObjectName="ODS_Access_Log"
+  DTS:PackageType="5"
+  DTS:VersionBuild="47"
+  DTS:VersionGUID="{B41F7156-CE7C-4093-BF61-1B74BB6D5005}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DFT_Access_Log"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{47F27C6C-D6DC-402C-A510-4A47A556A8EB}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT_Access_Log"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT_Access_Log\Data Conversion"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT_Access_Log\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT_Access_Log\Data Conversion.Inputs[Data Conversion Input].Columns[Root Domain]"
+                      cachedDataType="r8"
+                      cachedName="Root Domain"
+                      lineageId="Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Output].Columns[Root Domain]" />
+                    <inputColumn
+                      refId="Package\DFT_Access_Log\Data Conversion.Inputs[Data Conversion Input].Columns[Action]"
+                      cachedDataType="r8"
+                      cachedName="Action"
+                      lineageId="Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Output].Columns[Action]" />
+                    <inputColumn
+                      refId="Package\DFT_Access_Log\Data Conversion.Inputs[Data Conversion Input].Columns[Customer]"
+                      cachedDataType="r8"
+                      cachedName="Customer"
+                      lineageId="Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Output].Columns[Customer]" />
+                    <inputColumn
+                      refId="Package\DFT_Access_Log\Data Conversion.Inputs[Data Conversion Input].Columns[type]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="type"
+                      lineageId="Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Output].Columns[type]" />
+                    <inputColumn
+                      refId="Package\DFT_Access_Log\Data Conversion.Inputs[Data Conversion Input].Columns[log]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="log"
+                      lineageId="Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Output].Columns[log]" />
+                    <inputColumn
+                      refId="Package\DFT_Access_Log\Data Conversion.Inputs[Data Conversion Input].Columns[log_time]"
+                      cachedDataType="date"
+                      cachedName="log_time"
+                      lineageId="Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Output].Columns[log_time]" />
+                    <inputColumn
+                      refId="Package\DFT_Access_Log\Data Conversion.Inputs[Data Conversion Input].Columns[user_login_name]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="user_login_name"
+                      lineageId="Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Output].Columns[user_login_name]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_Access_Log\Data Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\DFT_Access_Log\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Access_Log\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Root Domain]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="25"
+                      lineageId="Package\DFT_Access_Log\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Root Domain]"
+                      name="Copy of Root Domain"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Output].Columns[Root Domain]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Access_Log\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Action]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="25"
+                      lineageId="Package\DFT_Access_Log\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Action]"
+                      name="Copy of Action"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Output].Columns[Action]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Access_Log\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Customer]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="25"
+                      lineageId="Package\DFT_Access_Log\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Customer]"
+                      name="Copy of Customer"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Output].Columns[Customer]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Access_Log\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of type]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\DFT_Access_Log\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of type]"
+                      name="Copy of type"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Output].Columns[type]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Access_Log\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of log]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="500"
+                      lineageId="Package\DFT_Access_Log\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of log]"
+                      name="Copy of log"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Output].Columns[log]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Access_Log\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of log_time]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT_Access_Log\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of log_time]"
+                      name="Copy of log_time"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Output].Columns[log_time]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Access_Log\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of user_login_name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\DFT_Access_Log\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of user_login_name]"
+                      name="Copy of user_login_name"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Output].Columns[user_login_name]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT_Access_Log\Data Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\DFT_Access_Log\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Access_Log\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Access_Log\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_Access_Log\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Access_Log\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT_Access_Log\Excel_Access_Log"
+              componentClassID="Microsoft.ExcelSource"
+              contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Excel Source"
+              name="Excel_Access_Log"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">Access Log$A53:G</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mapping from parameters in the SQL command to variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT_Access_Log\Excel_Access_Log.Connections[OleDbConnection]"
+                  connectionManagerID="{0D2225D9-F1D8-4D95-B705-EE61F6D41EC3}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Excel]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Output]"
+                  name="Excel Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Output].Columns[Root Domain]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Output].ExternalColumns[Root Domain]"
+                      lineageId="Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Output].Columns[Root Domain]"
+                      name="Root Domain"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Output].Columns[Action]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Output].ExternalColumns[Action]"
+                      lineageId="Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Output].Columns[Action]"
+                      name="Action"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Output].Columns[Customer]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Output].ExternalColumns[Customer]"
+                      lineageId="Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Output].Columns[Customer]"
+                      name="Customer"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Output].Columns[type]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Output].ExternalColumns[type]"
+                      length="255"
+                      lineageId="Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Output].Columns[type]"
+                      name="type"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Output].Columns[log]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Output].ExternalColumns[log]"
+                      length="255"
+                      lineageId="Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Output].Columns[log]"
+                      name="log"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Output].Columns[log_time]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Output].ExternalColumns[log_time]"
+                      lineageId="Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Output].Columns[log_time]"
+                      name="log_time"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Output].Columns[user_login_name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Output].ExternalColumns[user_login_name]"
+                      length="255"
+                      lineageId="Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Output].Columns[user_login_name]"
+                      name="user_login_name"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Output].ExternalColumns[Root Domain]"
+                      dataType="r8"
+                      name="Root Domain" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Output].ExternalColumns[Action]"
+                      dataType="r8"
+                      name="Action" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Output].ExternalColumns[Customer]"
+                      dataType="r8"
+                      name="Customer" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Output].ExternalColumns[type]"
+                      dataType="wstr"
+                      length="255"
+                      name="type" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Output].ExternalColumns[log]"
+                      dataType="wstr"
+                      length="255"
+                      name="log" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Output].ExternalColumns[log_time]"
+                      dataType="date"
+                      name="log_time" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Output].ExternalColumns[user_login_name]"
+                      dataType="wstr"
+                      length="255"
+                      name="user_login_name" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Error Output]"
+                  isErrorOut="true"
+                  name="Excel Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Error Output].Columns[Root Domain]"
+                      dataType="r8"
+                      lineageId="Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Error Output].Columns[Root Domain]"
+                      name="Root Domain" />
+                    <outputColumn
+                      refId="Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Error Output].Columns[Action]"
+                      dataType="r8"
+                      lineageId="Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Error Output].Columns[Action]"
+                      name="Action" />
+                    <outputColumn
+                      refId="Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Error Output].Columns[Customer]"
+                      dataType="r8"
+                      lineageId="Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Error Output].Columns[Customer]"
+                      name="Customer" />
+                    <outputColumn
+                      refId="Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Error Output].Columns[type]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Error Output].Columns[type]"
+                      name="type" />
+                    <outputColumn
+                      refId="Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Error Output].Columns[log]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Error Output].Columns[log]"
+                      name="log" />
+                    <outputColumn
+                      refId="Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Error Output].Columns[log_time]"
+                      dataType="date"
+                      lineageId="Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Error Output].Columns[log_time]"
+                      name="log_time" />
+                    <outputColumn
+                      refId="Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Error Output].Columns[user_login_name]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Error Output].Columns[user_login_name]"
+                      name="user_login_name" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT_Access_Log\Load_Access_Log"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Load_Access_Log"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Access_Log]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT_Access_Log\Load_Access_Log.Connections[OleDbConnection]"
+                  connectionManagerID="{E0E6DC88-A9A1-4A51-8B19-958C1AD76267}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[ODS_Vanran_Ribbon]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT_Access_Log\Load_Access_Log.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT_Access_Log\Load_Access_Log.Inputs[OLE DB Destination Input].Columns[Copy of Action]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="25"
+                      cachedName="Copy of Action"
+                      externalMetadataColumnId="Package\DFT_Access_Log\Load_Access_Log.Inputs[OLE DB Destination Input].ExternalColumns[Action]"
+                      lineageId="Package\DFT_Access_Log\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Action]" />
+                    <inputColumn
+                      refId="Package\DFT_Access_Log\Load_Access_Log.Inputs[OLE DB Destination Input].Columns[Copy of Root Domain]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="25"
+                      cachedName="Copy of Root Domain"
+                      externalMetadataColumnId="Package\DFT_Access_Log\Load_Access_Log.Inputs[OLE DB Destination Input].ExternalColumns[Root_Domain]"
+                      lineageId="Package\DFT_Access_Log\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Root Domain]" />
+                    <inputColumn
+                      refId="Package\DFT_Access_Log\Load_Access_Log.Inputs[OLE DB Destination Input].Columns[Copy of Customer]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="25"
+                      cachedName="Copy of Customer"
+                      externalMetadataColumnId="Package\DFT_Access_Log\Load_Access_Log.Inputs[OLE DB Destination Input].ExternalColumns[Customer]"
+                      lineageId="Package\DFT_Access_Log\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Customer]" />
+                    <inputColumn
+                      refId="Package\DFT_Access_Log\Load_Access_Log.Inputs[OLE DB Destination Input].Columns[Copy of type]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Copy of type"
+                      externalMetadataColumnId="Package\DFT_Access_Log\Load_Access_Log.Inputs[OLE DB Destination Input].ExternalColumns[type]"
+                      lineageId="Package\DFT_Access_Log\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of type]" />
+                    <inputColumn
+                      refId="Package\DFT_Access_Log\Load_Access_Log.Inputs[OLE DB Destination Input].Columns[Copy of log]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="Copy of log"
+                      externalMetadataColumnId="Package\DFT_Access_Log\Load_Access_Log.Inputs[OLE DB Destination Input].ExternalColumns[log]"
+                      lineageId="Package\DFT_Access_Log\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of log]" />
+                    <inputColumn
+                      refId="Package\DFT_Access_Log\Load_Access_Log.Inputs[OLE DB Destination Input].Columns[Copy of log_time]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Copy of log_time"
+                      externalMetadataColumnId="Package\DFT_Access_Log\Load_Access_Log.Inputs[OLE DB Destination Input].ExternalColumns[log_time]"
+                      lineageId="Package\DFT_Access_Log\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of log_time]" />
+                    <inputColumn
+                      refId="Package\DFT_Access_Log\Load_Access_Log.Inputs[OLE DB Destination Input].Columns[Copy of user_login_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Copy of user_login_name"
+                      externalMetadataColumnId="Package\DFT_Access_Log\Load_Access_Log.Inputs[OLE DB Destination Input].ExternalColumns[user_login_name]"
+                      lineageId="Package\DFT_Access_Log\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of user_login_name]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT_Access_Log\Load_Access_Log.Inputs[OLE DB Destination Input].ExternalColumns[Action]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      name="Action" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Access_Log\Load_Access_Log.Inputs[OLE DB Destination Input].ExternalColumns[Root_Domain]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      name="Root_Domain" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Access_Log\Load_Access_Log.Inputs[OLE DB Destination Input].ExternalColumns[Customer]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      name="Customer" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Access_Log\Load_Access_Log.Inputs[OLE DB Destination Input].ExternalColumns[Checksumval]"
+                      codePage="1252"
+                      dataType="str"
+                      length="32"
+                      name="Checksumval" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Access_Log\Load_Access_Log.Inputs[OLE DB Destination Input].ExternalColumns[Is_Sync]"
+                      dataType="bool"
+                      name="Is_Sync" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Access_Log\Load_Access_Log.Inputs[OLE DB Destination Input].ExternalColumns[type]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="type" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Access_Log\Load_Access_Log.Inputs[OLE DB Destination Input].ExternalColumns[log]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="log" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Access_Log\Load_Access_Log.Inputs[OLE DB Destination Input].ExternalColumns[log_time]"
+                      dataType="dbTimeStamp"
+                      name="log_time" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Access_Log\Load_Access_Log.Inputs[OLE DB Destination Input].ExternalColumns[user_login_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="user_login_name" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_Access_Log\Load_Access_Log.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DFT_Access_Log\Load_Access_Log.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Access_Log\Load_Access_Log.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Access_Log\Load_Access_Log.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_Access_Log\Load_Access_Log.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Access_Log\Load_Access_Log.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT_Access_Log.Paths[Data Conversion Output]"
+              endId="Package\DFT_Access_Log\Load_Access_Log.Inputs[OLE DB Destination Input]"
+              name="Data Conversion Output"
+              startId="Package\DFT_Access_Log\Data Conversion.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\DFT_Access_Log.Paths[Excel Source Output]"
+              endId="Package\DFT_Access_Log\Data Conversion.Inputs[Data Conversion Input]"
+              name="Excel Source Output"
+              startId="Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate_ODS_table"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{7C08C465-66D2-4228-BEFE-22C2EDF2F63C}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate_ODS_table"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{E0E6DC88-A9A1-4A51-8B19-958C1AD76267}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE ODS.dbo.Access_Log" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{B5F00798-4218-41F3-AB65-9032075637C5}"
+      DTS:From="Package\Truncate_ODS_table"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\DFT_Access_Log" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="166,42"
+          Id="Package\DFT_Access_Log"
+          TopLeft="170,131" />
+        <NodeLayout
+          Size="182,42"
+          Id="Package\Truncate_ODS_table"
+          TopLeft="165,40" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="254.5,82">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,49"
+              Start="0,0"
+              End="0,41.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,41.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DFT_Access_Log">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="172,42"
+          Id="Package\DFT_Access_Log\Excel_Access_Log"
+          TopLeft="383,79" />
+        <NodeLayout
+          Size="169,42"
+          Id="Package\DFT_Access_Log\Load_Access_Log"
+          TopLeft="378,277" />
+        <NodeLayout
+          Size="161,42"
+          Id="Package\DFT_Access_Log\Data Conversion"
+          TopLeft="389,173" />
+        <EdgeLayout
+          Id="Package\DFT_Access_Log.Paths[Excel Source Output]"
+          TopLeft="469.25,121">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,52"
+              Start="0,0"
+              End="0,44.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,44.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT_Access_Log.Paths[Data Conversion Output]"
+          TopLeft="466,215">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,62"
+              Start="0,0"
+              End="0,54.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,54.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT_Access_Log\Excel_Access_Log">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT_Access_Log\Load_Access_Log">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

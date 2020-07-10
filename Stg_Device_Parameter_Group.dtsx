@@ -1,0 +1,2107 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/22/2020 7:13:13 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="PREETISHK-LPT"
+  DTS:CreatorName="DATAFORTUNE\preetish.kharche"
+  DTS:DTSID="{861CD923-ACE0-4C48-B8C1-E93058AB8D6F}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.123"
+  DTS:LocaleID="16393"
+  DTS:ObjectName="Stg_Device_Parameter_Group"
+  DTS:PackageType="5"
+  DTS:VersionBuild="66"
+  DTS:VersionGUID="{EF73570C-640C-432A-9DBB-04F4341D41FF}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DFT_Device_Parameter_Group"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{1013C81C-726A-4A63-BAC2-CA731EC7130F}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT_Device_Parameter_Group"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT_Device_Parameter_Group\CS_CompareNonKeyColumns"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+              name="CS_CompareNonKeyColumns"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT_Device_Parameter_Group\CS_CompareNonKeyColumns.Inputs[Conditional Split Input]"
+                  description="Input to the Conditional Split Transformation"
+                  name="Conditional Split Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT_Device_Parameter_Group\CS_CompareNonKeyColumns.Inputs[Conditional Split Input].Columns[Checksumval]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="32"
+                      cachedName="Checksumval"
+                      lineageId="Package\DFT_Device_Parameter_Group\Source_ODS.Outputs[OLE DB Source Output].Columns[Checksumval]" />
+                    <inputColumn
+                      refId="Package\DFT_Device_Parameter_Group\CS_CompareNonKeyColumns.Inputs[Conditional Split Input].Columns[Lkp_Checksumval]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Lkp_Checksumval"
+                      lineageId="Package\DFT_Device_Parameter_Group\Lkp_Arc.Outputs[Lookup Match Output].Columns[Lkp_Checksumval]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_Device_Parameter_Group\CS_CompareNonKeyColumns.Outputs[Changed Records]"
+                  description="Output 1 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Changed Records"
+                  synchronousInputId="Package\DFT_Device_Parameter_Group\CS_CompareNonKeyColumns.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">[REPLACENULL](#{Package\DFT_Device_Parameter_Group\Source_ODS.Outputs[OLE DB Source Output].Columns[Checksumval]},"ZZZ") != [REPLACENULL](#{Package\DFT_Device_Parameter_Group\Lkp_Arc.Outputs[Lookup Match Output].Columns[Lkp_Checksumval]},"ZZZ")</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">REPLACENULL(Checksumval,"ZZZ") != REPLACENULL(Lkp_Checksumval,"ZZZ")</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT_Device_Parameter_Group\CS_CompareNonKeyColumns.Outputs[Conditional Split Default Output]"
+                  description="Default Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  name="Conditional Split Default Output"
+                  synchronousInputId="Package\DFT_Device_Parameter_Group\CS_CompareNonKeyColumns.Inputs[Conditional Split Input]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT_Device_Parameter_Group\CS_CompareNonKeyColumns.Outputs[Conditional Split Error Output]"
+                  description="Error Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Conditional Split Error Output"
+                  synchronousInputId="Package\DFT_Device_Parameter_Group\CS_CompareNonKeyColumns.Inputs[Conditional Split Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Device_Parameter_Group\CS_CompareNonKeyColumns.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Device_Parameter_Group\CS_CompareNonKeyColumns.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_Device_Parameter_Group\CS_CompareNonKeyColumns.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Device_Parameter_Group\CS_CompareNonKeyColumns.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT_Device_Parameter_Group\DC_NewFlag_N"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="DC_NewFlag_N"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT_Device_Parameter_Group\DC_NewFlag_N.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_Device_Parameter_Group\DC_NewFlag_N.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\DFT_Device_Parameter_Group\DC_NewFlag_N.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Device_Parameter_Group\DC_NewFlag_N.Outputs[Derived Column Output].Columns[dw_eff_strt_dttm]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT_Device_Parameter_Group\DC_NewFlag_N.Outputs[Derived Column Output].Columns[dw_eff_strt_dttm]"
+                      name="dw_eff_strt_dttm"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_DBTIMESTAMP)[GETDATE]()</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_DBTIMESTAMP)GETDATE()</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Device_Parameter_Group\DC_NewFlag_N.Outputs[Derived Column Output].Columns[new_flag]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="1"
+                      lineageId="Package\DFT_Device_Parameter_Group\DC_NewFlag_N.Outputs[Derived Column Output].Columns[new_flag]"
+                      name="new_flag"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_STR,1,1252)"N"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_STR,1,1252)"N"</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Device_Parameter_Group\DC_NewFlag_N.Outputs[Derived Column Output].Columns[dw_crte_usrid]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="10"
+                      lineageId="Package\DFT_Device_Parameter_Group\DC_NewFlag_N.Outputs[Derived Column Output].Columns[dw_crte_usrid]"
+                      name="dw_crte_usrid"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_STR,10,1252)"etlprocess"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_STR,10,1252)"etlprocess"</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT_Device_Parameter_Group\DC_NewFlag_N.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\DFT_Device_Parameter_Group\DC_NewFlag_N.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Device_Parameter_Group\DC_NewFlag_N.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Device_Parameter_Group\DC_NewFlag_N.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_Device_Parameter_Group\DC_NewFlag_N.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Device_Parameter_Group\DC_NewFlag_N.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT_Device_Parameter_Group\DC_NewFlag_Y"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="DC_NewFlag_Y"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT_Device_Parameter_Group\DC_NewFlag_Y.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_Device_Parameter_Group\DC_NewFlag_Y.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\DFT_Device_Parameter_Group\DC_NewFlag_Y.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Device_Parameter_Group\DC_NewFlag_Y.Outputs[Derived Column Output].Columns[dw_eff_strt_dttm]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT_Device_Parameter_Group\DC_NewFlag_Y.Outputs[Derived Column Output].Columns[dw_eff_strt_dttm]"
+                      name="dw_eff_strt_dttm"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_DBTIMESTAMP)[GETDATE]()</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_DBTIMESTAMP)GETDATE()</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Device_Parameter_Group\DC_NewFlag_Y.Outputs[Derived Column Output].Columns[new_flag]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="1"
+                      lineageId="Package\DFT_Device_Parameter_Group\DC_NewFlag_Y.Outputs[Derived Column Output].Columns[new_flag]"
+                      name="new_flag"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_STR,1,1252)"Y"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_STR,1,1252)"Y"</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Device_Parameter_Group\DC_NewFlag_Y.Outputs[Derived Column Output].Columns[dw_crte_usrid]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="10"
+                      lineageId="Package\DFT_Device_Parameter_Group\DC_NewFlag_Y.Outputs[Derived Column Output].Columns[dw_crte_usrid]"
+                      name="dw_crte_usrid"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_STR,10,1252)"etlprocess"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_STR,10,1252)"etlprocess"</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT_Device_Parameter_Group\DC_NewFlag_Y.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\DFT_Device_Parameter_Group\DC_NewFlag_Y.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Device_Parameter_Group\DC_NewFlag_Y.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Device_Parameter_Group\DC_NewFlag_Y.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_Device_Parameter_Group\DC_NewFlag_Y.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Device_Parameter_Group\DC_NewFlag_Y.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT_Device_Parameter_Group\Lkp_Arc"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Lkp_Arc"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT name,Checksumval
+FROM DW_HIST.dbo.Device_Parameter_Group
+WHERE current_flag = 'Y'</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (SELECT name,Checksumval
+FROM DW_HIST.dbo.Device_Parameter_Group
+WHERE current_flag = 'Y') [refTable]
+where [refTable].[name] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="name" dataType="DT_STR" length="30" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="Checksumval" dataType="DT_STR" length="100" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\DFT_Device_Parameter_Group\Source_ODS.Outputs[OLE DB Source Output].Columns[name]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT_Device_Parameter_Group\Lkp_Arc.Connections[OleDbConnection]"
+                  connectionManagerID="{05B7AD07-7614-46E5-A55A-1E46DA8444A4}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Hist_Vanran_Ribbon]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT_Device_Parameter_Group\Lkp_Arc.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Lkp_Arc.Inputs[Lookup Input].Columns[name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="name"
+                      lineageId="Package\DFT_Device_Parameter_Group\Source_ODS.Outputs[OLE DB Source Output].Columns[name]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">name</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_Device_Parameter_Group\Lkp_Arc.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\DFT_Device_Parameter_Group\Lkp_Arc.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Lkp_Arc.Outputs[Lookup Match Output].Columns[Lkp_Checksumval]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Copy Column"
+                      length="100"
+                      lineageId="Package\DFT_Device_Parameter_Group\Lkp_Arc.Outputs[Lookup Match Output].Columns[Lkp_Checksumval]"
+                      name="Lkp_Checksumval"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">Checksumval</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT_Device_Parameter_Group\Lkp_Arc.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\DFT_Device_Parameter_Group\Lkp_Arc.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT_Device_Parameter_Group\Lkp_Arc.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\DFT_Device_Parameter_Group\Lkp_Arc.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Lkp_Arc.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Device_Parameter_Group\Lkp_Arc.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Lkp_Arc.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Device_Parameter_Group\Lkp_Arc.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT_Device_Parameter_Group\Source_ODS"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Source_ODS"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Device_Parameter_Group]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT_Device_Parameter_Group\Source_ODS.Connections[OleDbConnection]"
+                  connectionManagerID="{E0E6DC88-A9A1-4A51-8B19-958C1AD76267}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[ODS_Vanran_Ribbon]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT_Device_Parameter_Group\Source_ODS.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Source_ODS.Outputs[OLE DB Source Output].Columns[Root_Domain]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Device_Parameter_Group\Source_ODS.Outputs[OLE DB Source Output].ExternalColumns[Root_Domain]"
+                      length="25"
+                      lineageId="Package\DFT_Device_Parameter_Group\Source_ODS.Outputs[OLE DB Source Output].Columns[Root_Domain]"
+                      name="Root_Domain"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Source_ODS.Outputs[OLE DB Source Output].Columns[Customer]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Device_Parameter_Group\Source_ODS.Outputs[OLE DB Source Output].ExternalColumns[Customer]"
+                      length="25"
+                      lineageId="Package\DFT_Device_Parameter_Group\Source_ODS.Outputs[OLE DB Source Output].Columns[Customer]"
+                      name="Customer"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Source_ODS.Outputs[OLE DB Source Output].Columns[Action]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Device_Parameter_Group\Source_ODS.Outputs[OLE DB Source Output].ExternalColumns[Action]"
+                      length="25"
+                      lineageId="Package\DFT_Device_Parameter_Group\Source_ODS.Outputs[OLE DB Source Output].Columns[Action]"
+                      name="Action"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Source_ODS.Outputs[OLE DB Source Output].Columns[Checksumval]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Device_Parameter_Group\Source_ODS.Outputs[OLE DB Source Output].ExternalColumns[Checksumval]"
+                      length="32"
+                      lineageId="Package\DFT_Device_Parameter_Group\Source_ODS.Outputs[OLE DB Source Output].Columns[Checksumval]"
+                      name="Checksumval"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Source_ODS.Outputs[OLE DB Source Output].Columns[name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Device_Parameter_Group\Source_ODS.Outputs[OLE DB Source Output].ExternalColumns[name]"
+                      length="30"
+                      lineageId="Package\DFT_Device_Parameter_Group\Source_ODS.Outputs[OLE DB Source Output].Columns[name]"
+                      name="name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Source_ODS.Outputs[OLE DB Source Output].Columns[scope]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Device_Parameter_Group\Source_ODS.Outputs[OLE DB Source Output].ExternalColumns[scope]"
+                      length="10"
+                      lineageId="Package\DFT_Device_Parameter_Group\Source_ODS.Outputs[OLE DB Source Output].Columns[scope]"
+                      name="scope"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Source_ODS.Outputs[OLE DB Source Output].Columns[device_types]"
+                      codePage="1252"
+                      dataType="text"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Device_Parameter_Group\Source_ODS.Outputs[OLE DB Source Output].ExternalColumns[device_types]"
+                      lineageId="Package\DFT_Device_Parameter_Group\Source_ODS.Outputs[OLE DB Source Output].Columns[device_types]"
+                      name="device_types"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Source_ODS.Outputs[OLE DB Source Output].Columns[device_vendor]"
+                      codePage="1252"
+                      dataType="text"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Device_Parameter_Group\Source_ODS.Outputs[OLE DB Source Output].ExternalColumns[device_vendor]"
+                      lineageId="Package\DFT_Device_Parameter_Group\Source_ODS.Outputs[OLE DB Source Output].Columns[device_vendor]"
+                      name="device_vendor"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Source_ODS.Outputs[OLE DB Source Output].Columns[sites]"
+                      codePage="1252"
+                      dataType="text"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Device_Parameter_Group\Source_ODS.Outputs[OLE DB Source Output].ExternalColumns[sites]"
+                      lineageId="Package\DFT_Device_Parameter_Group\Source_ODS.Outputs[OLE DB Source Output].Columns[sites]"
+                      name="sites"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Source_ODS.Outputs[OLE DB Source Output].Columns[subscribers]"
+                      codePage="1252"
+                      dataType="text"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Device_Parameter_Group\Source_ODS.Outputs[OLE DB Source Output].ExternalColumns[subscribers]"
+                      lineageId="Package\DFT_Device_Parameter_Group\Source_ODS.Outputs[OLE DB Source Output].Columns[subscribers]"
+                      name="subscribers"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Source_ODS.Outputs[OLE DB Source Output].Columns[devices]"
+                      codePage="1252"
+                      dataType="text"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Device_Parameter_Group\Source_ODS.Outputs[OLE DB Source Output].ExternalColumns[devices]"
+                      lineageId="Package\DFT_Device_Parameter_Group\Source_ODS.Outputs[OLE DB Source Output].Columns[devices]"
+                      name="devices"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT_Device_Parameter_Group\Source_ODS.Outputs[OLE DB Source Output].ExternalColumns[Root_Domain]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      name="Root_Domain" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Device_Parameter_Group\Source_ODS.Outputs[OLE DB Source Output].ExternalColumns[Customer]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      name="Customer" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Device_Parameter_Group\Source_ODS.Outputs[OLE DB Source Output].ExternalColumns[Action]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      name="Action" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Device_Parameter_Group\Source_ODS.Outputs[OLE DB Source Output].ExternalColumns[Checksumval]"
+                      codePage="1252"
+                      dataType="str"
+                      length="32"
+                      name="Checksumval" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Device_Parameter_Group\Source_ODS.Outputs[OLE DB Source Output].ExternalColumns[name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="name" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Device_Parameter_Group\Source_ODS.Outputs[OLE DB Source Output].ExternalColumns[scope]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="scope" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Device_Parameter_Group\Source_ODS.Outputs[OLE DB Source Output].ExternalColumns[device_types]"
+                      codePage="1252"
+                      dataType="text"
+                      name="device_types" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Device_Parameter_Group\Source_ODS.Outputs[OLE DB Source Output].ExternalColumns[device_vendor]"
+                      codePage="1252"
+                      dataType="text"
+                      name="device_vendor" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Device_Parameter_Group\Source_ODS.Outputs[OLE DB Source Output].ExternalColumns[sites]"
+                      codePage="1252"
+                      dataType="text"
+                      name="sites" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Device_Parameter_Group\Source_ODS.Outputs[OLE DB Source Output].ExternalColumns[subscribers]"
+                      codePage="1252"
+                      dataType="text"
+                      name="subscribers" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Device_Parameter_Group\Source_ODS.Outputs[OLE DB Source Output].ExternalColumns[devices]"
+                      codePage="1252"
+                      dataType="text"
+                      name="devices" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT_Device_Parameter_Group\Source_ODS.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Source_ODS.Outputs[OLE DB Source Error Output].Columns[Root_Domain]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      lineageId="Package\DFT_Device_Parameter_Group\Source_ODS.Outputs[OLE DB Source Error Output].Columns[Root_Domain]"
+                      name="Root_Domain" />
+                    <outputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Source_ODS.Outputs[OLE DB Source Error Output].Columns[Customer]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      lineageId="Package\DFT_Device_Parameter_Group\Source_ODS.Outputs[OLE DB Source Error Output].Columns[Customer]"
+                      name="Customer" />
+                    <outputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Source_ODS.Outputs[OLE DB Source Error Output].Columns[Action]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      lineageId="Package\DFT_Device_Parameter_Group\Source_ODS.Outputs[OLE DB Source Error Output].Columns[Action]"
+                      name="Action" />
+                    <outputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Source_ODS.Outputs[OLE DB Source Error Output].Columns[name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      lineageId="Package\DFT_Device_Parameter_Group\Source_ODS.Outputs[OLE DB Source Error Output].Columns[name]"
+                      name="name" />
+                    <outputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Source_ODS.Outputs[OLE DB Source Error Output].Columns[scope]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\DFT_Device_Parameter_Group\Source_ODS.Outputs[OLE DB Source Error Output].Columns[scope]"
+                      name="scope" />
+                    <outputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Source_ODS.Outputs[OLE DB Source Error Output].Columns[device_types]"
+                      codePage="1252"
+                      dataType="text"
+                      lineageId="Package\DFT_Device_Parameter_Group\Source_ODS.Outputs[OLE DB Source Error Output].Columns[device_types]"
+                      name="device_types" />
+                    <outputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Source_ODS.Outputs[OLE DB Source Error Output].Columns[device_vendor]"
+                      codePage="1252"
+                      dataType="text"
+                      lineageId="Package\DFT_Device_Parameter_Group\Source_ODS.Outputs[OLE DB Source Error Output].Columns[device_vendor]"
+                      name="device_vendor" />
+                    <outputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Source_ODS.Outputs[OLE DB Source Error Output].Columns[sites]"
+                      codePage="1252"
+                      dataType="text"
+                      lineageId="Package\DFT_Device_Parameter_Group\Source_ODS.Outputs[OLE DB Source Error Output].Columns[sites]"
+                      name="sites" />
+                    <outputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Source_ODS.Outputs[OLE DB Source Error Output].Columns[subscribers]"
+                      codePage="1252"
+                      dataType="text"
+                      lineageId="Package\DFT_Device_Parameter_Group\Source_ODS.Outputs[OLE DB Source Error Output].Columns[subscribers]"
+                      name="subscribers" />
+                    <outputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Source_ODS.Outputs[OLE DB Source Error Output].Columns[devices]"
+                      codePage="1252"
+                      dataType="text"
+                      lineageId="Package\DFT_Device_Parameter_Group\Source_ODS.Outputs[OLE DB Source Error Output].Columns[devices]"
+                      name="devices" />
+                    <outputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Source_ODS.Outputs[OLE DB Source Error Output].Columns[Checksumval]"
+                      codePage="1252"
+                      dataType="str"
+                      length="32"
+                      lineageId="Package\DFT_Device_Parameter_Group\Source_ODS.Outputs[OLE DB Source Error Output].Columns[Checksumval]"
+                      name="Checksumval" />
+                    <outputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Source_ODS.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Device_Parameter_Group\Source_ODS.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Source_ODS.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Device_Parameter_Group\Source_ODS.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT_Device_Parameter_Group\Stg_Device_Parameter_Group"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Stg_Device_Parameter_Group"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Device_Parameter_Group]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT_Device_Parameter_Group\Stg_Device_Parameter_Group.Connections[OleDbConnection]"
+                  connectionManagerID="{4B2BAB6F-A5B2-4A58-BD25-0961304475AA}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Stg_Vanran_Ribbon]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT_Device_Parameter_Group\Stg_Device_Parameter_Group.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Stg_Device_Parameter_Group.Inputs[OLE DB Destination Input].Columns[Root_Domain]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="25"
+                      cachedName="Root_Domain"
+                      externalMetadataColumnId="Package\DFT_Device_Parameter_Group\Stg_Device_Parameter_Group.Inputs[OLE DB Destination Input].ExternalColumns[Root_Domain]"
+                      lineageId="Package\DFT_Device_Parameter_Group\Union All.Outputs[Union All Output 1].Columns[Root_Domain]" />
+                    <inputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Stg_Device_Parameter_Group.Inputs[OLE DB Destination Input].Columns[Customer]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="25"
+                      cachedName="Customer"
+                      externalMetadataColumnId="Package\DFT_Device_Parameter_Group\Stg_Device_Parameter_Group.Inputs[OLE DB Destination Input].ExternalColumns[Customer]"
+                      lineageId="Package\DFT_Device_Parameter_Group\Union All.Outputs[Union All Output 1].Columns[Customer]" />
+                    <inputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Stg_Device_Parameter_Group.Inputs[OLE DB Destination Input].Columns[Action]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="25"
+                      cachedName="Action"
+                      externalMetadataColumnId="Package\DFT_Device_Parameter_Group\Stg_Device_Parameter_Group.Inputs[OLE DB Destination Input].ExternalColumns[Action]"
+                      lineageId="Package\DFT_Device_Parameter_Group\Union All.Outputs[Union All Output 1].Columns[Action]" />
+                    <inputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Stg_Device_Parameter_Group.Inputs[OLE DB Destination Input].Columns[Checksumval]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="32"
+                      cachedName="Checksumval"
+                      externalMetadataColumnId="Package\DFT_Device_Parameter_Group\Stg_Device_Parameter_Group.Inputs[OLE DB Destination Input].ExternalColumns[Checksumval]"
+                      lineageId="Package\DFT_Device_Parameter_Group\Union All.Outputs[Union All Output 1].Columns[Checksumval]" />
+                    <inputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Stg_Device_Parameter_Group.Inputs[OLE DB Destination Input].Columns[dw_eff_strt_dttm]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="dw_eff_strt_dttm"
+                      externalMetadataColumnId="Package\DFT_Device_Parameter_Group\Stg_Device_Parameter_Group.Inputs[OLE DB Destination Input].ExternalColumns[dw_eff_strt_dttm]"
+                      lineageId="Package\DFT_Device_Parameter_Group\Union All.Outputs[Union All Output 1].Columns[dw_eff_strt_dttm]" />
+                    <inputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Stg_Device_Parameter_Group.Inputs[OLE DB Destination Input].Columns[new_flag]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="new_flag"
+                      externalMetadataColumnId="Package\DFT_Device_Parameter_Group\Stg_Device_Parameter_Group.Inputs[OLE DB Destination Input].ExternalColumns[new_flag]"
+                      lineageId="Package\DFT_Device_Parameter_Group\Union All.Outputs[Union All Output 1].Columns[new_flag]" />
+                    <inputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Stg_Device_Parameter_Group.Inputs[OLE DB Destination Input].Columns[dw_crte_usrid]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="dw_crte_usrid"
+                      externalMetadataColumnId="Package\DFT_Device_Parameter_Group\Stg_Device_Parameter_Group.Inputs[OLE DB Destination Input].ExternalColumns[dw_crte_usrid]"
+                      lineageId="Package\DFT_Device_Parameter_Group\Union All.Outputs[Union All Output 1].Columns[dw_crte_usrid]" />
+                    <inputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Stg_Device_Parameter_Group.Inputs[OLE DB Destination Input].Columns[name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="name"
+                      externalMetadataColumnId="Package\DFT_Device_Parameter_Group\Stg_Device_Parameter_Group.Inputs[OLE DB Destination Input].ExternalColumns[name]"
+                      lineageId="Package\DFT_Device_Parameter_Group\Union All.Outputs[Union All Output 1].Columns[name]" />
+                    <inputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Stg_Device_Parameter_Group.Inputs[OLE DB Destination Input].Columns[scope]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="scope"
+                      externalMetadataColumnId="Package\DFT_Device_Parameter_Group\Stg_Device_Parameter_Group.Inputs[OLE DB Destination Input].ExternalColumns[scope]"
+                      lineageId="Package\DFT_Device_Parameter_Group\Union All.Outputs[Union All Output 1].Columns[scope]" />
+                    <inputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Stg_Device_Parameter_Group.Inputs[OLE DB Destination Input].Columns[device_types]"
+                      cachedCodepage="1252"
+                      cachedDataType="text"
+                      cachedName="device_types"
+                      externalMetadataColumnId="Package\DFT_Device_Parameter_Group\Stg_Device_Parameter_Group.Inputs[OLE DB Destination Input].ExternalColumns[device_types]"
+                      lineageId="Package\DFT_Device_Parameter_Group\Union All.Outputs[Union All Output 1].Columns[device_types]" />
+                    <inputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Stg_Device_Parameter_Group.Inputs[OLE DB Destination Input].Columns[device_vendor]"
+                      cachedCodepage="1252"
+                      cachedDataType="text"
+                      cachedName="device_vendor"
+                      externalMetadataColumnId="Package\DFT_Device_Parameter_Group\Stg_Device_Parameter_Group.Inputs[OLE DB Destination Input].ExternalColumns[device_vendor]"
+                      lineageId="Package\DFT_Device_Parameter_Group\Union All.Outputs[Union All Output 1].Columns[device_vendor]" />
+                    <inputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Stg_Device_Parameter_Group.Inputs[OLE DB Destination Input].Columns[sites]"
+                      cachedCodepage="1252"
+                      cachedDataType="text"
+                      cachedName="sites"
+                      externalMetadataColumnId="Package\DFT_Device_Parameter_Group\Stg_Device_Parameter_Group.Inputs[OLE DB Destination Input].ExternalColumns[sites]"
+                      lineageId="Package\DFT_Device_Parameter_Group\Union All.Outputs[Union All Output 1].Columns[sites]" />
+                    <inputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Stg_Device_Parameter_Group.Inputs[OLE DB Destination Input].Columns[subscribers]"
+                      cachedCodepage="1252"
+                      cachedDataType="text"
+                      cachedName="subscribers"
+                      externalMetadataColumnId="Package\DFT_Device_Parameter_Group\Stg_Device_Parameter_Group.Inputs[OLE DB Destination Input].ExternalColumns[subscribers]"
+                      lineageId="Package\DFT_Device_Parameter_Group\Union All.Outputs[Union All Output 1].Columns[subscribers]" />
+                    <inputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Stg_Device_Parameter_Group.Inputs[OLE DB Destination Input].Columns[devices]"
+                      cachedCodepage="1252"
+                      cachedDataType="text"
+                      cachedName="devices"
+                      externalMetadataColumnId="Package\DFT_Device_Parameter_Group\Stg_Device_Parameter_Group.Inputs[OLE DB Destination Input].ExternalColumns[devices]"
+                      lineageId="Package\DFT_Device_Parameter_Group\Union All.Outputs[Union All Output 1].Columns[devices]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT_Device_Parameter_Group\Stg_Device_Parameter_Group.Inputs[OLE DB Destination Input].ExternalColumns[Root_Domain]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      name="Root_Domain" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Device_Parameter_Group\Stg_Device_Parameter_Group.Inputs[OLE DB Destination Input].ExternalColumns[Customer]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      name="Customer" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Device_Parameter_Group\Stg_Device_Parameter_Group.Inputs[OLE DB Destination Input].ExternalColumns[Action]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      name="Action" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Device_Parameter_Group\Stg_Device_Parameter_Group.Inputs[OLE DB Destination Input].ExternalColumns[dw_eff_strt_dttm]"
+                      dataType="dbTimeStamp"
+                      name="dw_eff_strt_dttm" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Device_Parameter_Group\Stg_Device_Parameter_Group.Inputs[OLE DB Destination Input].ExternalColumns[dw_crte_usrid]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="dw_crte_usrid" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Device_Parameter_Group\Stg_Device_Parameter_Group.Inputs[OLE DB Destination Input].ExternalColumns[new_flag]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="new_flag" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Device_Parameter_Group\Stg_Device_Parameter_Group.Inputs[OLE DB Destination Input].ExternalColumns[Checksumval]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Checksumval" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Device_Parameter_Group\Stg_Device_Parameter_Group.Inputs[OLE DB Destination Input].ExternalColumns[name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="name" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Device_Parameter_Group\Stg_Device_Parameter_Group.Inputs[OLE DB Destination Input].ExternalColumns[scope]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="scope" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Device_Parameter_Group\Stg_Device_Parameter_Group.Inputs[OLE DB Destination Input].ExternalColumns[device_types]"
+                      codePage="1252"
+                      dataType="text"
+                      name="device_types" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Device_Parameter_Group\Stg_Device_Parameter_Group.Inputs[OLE DB Destination Input].ExternalColumns[device_vendor]"
+                      codePage="1252"
+                      dataType="text"
+                      name="device_vendor" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Device_Parameter_Group\Stg_Device_Parameter_Group.Inputs[OLE DB Destination Input].ExternalColumns[sites]"
+                      codePage="1252"
+                      dataType="text"
+                      name="sites" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Device_Parameter_Group\Stg_Device_Parameter_Group.Inputs[OLE DB Destination Input].ExternalColumns[subscribers]"
+                      codePage="1252"
+                      dataType="text"
+                      name="subscribers" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Device_Parameter_Group\Stg_Device_Parameter_Group.Inputs[OLE DB Destination Input].ExternalColumns[devices]"
+                      codePage="1252"
+                      dataType="text"
+                      name="devices" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_Device_Parameter_Group\Stg_Device_Parameter_Group.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DFT_Device_Parameter_Group\Stg_Device_Parameter_Group.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Stg_Device_Parameter_Group.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Device_Parameter_Group\Stg_Device_Parameter_Group.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Stg_Device_Parameter_Group.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Device_Parameter_Group\Stg_Device_Parameter_Group.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT_Device_Parameter_Group\Union All"
+              componentClassID="Microsoft.UnionAll"
+              contactInfo="Union All;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Combines rows from multiple data flows without sorting. For example, add rows back to a data flow after correction of errors. If sorting is important, we recommend using the Merge transformation."
+              name="Union All"
+              version="1">
+              <inputs>
+                <input
+                  refId="Package\DFT_Device_Parameter_Group\Union All.Inputs[Union All Input 1]"
+                  name="Union All Input 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Union All.Inputs[Union All Input 1].Columns[Root_Domain]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="25"
+                      cachedName="Root_Domain"
+                      lineageId="Package\DFT_Device_Parameter_Group\Source_ODS.Outputs[OLE DB Source Output].Columns[Root_Domain]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_Device_Parameter_Group\Union All.Outputs[Union All Output 1].Columns[Root_Domain]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Union All.Inputs[Union All Input 1].Columns[Customer]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="25"
+                      cachedName="Customer"
+                      lineageId="Package\DFT_Device_Parameter_Group\Source_ODS.Outputs[OLE DB Source Output].Columns[Customer]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_Device_Parameter_Group\Union All.Outputs[Union All Output 1].Columns[Customer]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Union All.Inputs[Union All Input 1].Columns[Action]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="25"
+                      cachedName="Action"
+                      lineageId="Package\DFT_Device_Parameter_Group\Source_ODS.Outputs[OLE DB Source Output].Columns[Action]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_Device_Parameter_Group\Union All.Outputs[Union All Output 1].Columns[Action]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Union All.Inputs[Union All Input 1].Columns[Checksumval]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="32"
+                      cachedName="Checksumval"
+                      lineageId="Package\DFT_Device_Parameter_Group\Source_ODS.Outputs[OLE DB Source Output].Columns[Checksumval]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_Device_Parameter_Group\Union All.Outputs[Union All Output 1].Columns[Checksumval]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Union All.Inputs[Union All Input 1].Columns[name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="name"
+                      lineageId="Package\DFT_Device_Parameter_Group\Source_ODS.Outputs[OLE DB Source Output].Columns[name]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_Device_Parameter_Group\Union All.Outputs[Union All Output 1].Columns[name]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Union All.Inputs[Union All Input 1].Columns[scope]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="scope"
+                      lineageId="Package\DFT_Device_Parameter_Group\Source_ODS.Outputs[OLE DB Source Output].Columns[scope]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_Device_Parameter_Group\Union All.Outputs[Union All Output 1].Columns[scope]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Union All.Inputs[Union All Input 1].Columns[device_types]"
+                      cachedCodepage="1252"
+                      cachedDataType="text"
+                      cachedName="device_types"
+                      lineageId="Package\DFT_Device_Parameter_Group\Source_ODS.Outputs[OLE DB Source Output].Columns[device_types]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_Device_Parameter_Group\Union All.Outputs[Union All Output 1].Columns[device_types]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Union All.Inputs[Union All Input 1].Columns[device_vendor]"
+                      cachedCodepage="1252"
+                      cachedDataType="text"
+                      cachedName="device_vendor"
+                      lineageId="Package\DFT_Device_Parameter_Group\Source_ODS.Outputs[OLE DB Source Output].Columns[device_vendor]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_Device_Parameter_Group\Union All.Outputs[Union All Output 1].Columns[device_vendor]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Union All.Inputs[Union All Input 1].Columns[sites]"
+                      cachedCodepage="1252"
+                      cachedDataType="text"
+                      cachedName="sites"
+                      lineageId="Package\DFT_Device_Parameter_Group\Source_ODS.Outputs[OLE DB Source Output].Columns[sites]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_Device_Parameter_Group\Union All.Outputs[Union All Output 1].Columns[sites]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Union All.Inputs[Union All Input 1].Columns[subscribers]"
+                      cachedCodepage="1252"
+                      cachedDataType="text"
+                      cachedName="subscribers"
+                      lineageId="Package\DFT_Device_Parameter_Group\Source_ODS.Outputs[OLE DB Source Output].Columns[subscribers]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_Device_Parameter_Group\Union All.Outputs[Union All Output 1].Columns[subscribers]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Union All.Inputs[Union All Input 1].Columns[devices]"
+                      cachedCodepage="1252"
+                      cachedDataType="text"
+                      cachedName="devices"
+                      lineageId="Package\DFT_Device_Parameter_Group\Source_ODS.Outputs[OLE DB Source Output].Columns[devices]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_Device_Parameter_Group\Union All.Outputs[Union All Output 1].Columns[devices]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Union All.Inputs[Union All Input 1].Columns[dw_eff_strt_dttm]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="dw_eff_strt_dttm"
+                      lineageId="Package\DFT_Device_Parameter_Group\DC_NewFlag_Y.Outputs[Derived Column Output].Columns[dw_eff_strt_dttm]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_Device_Parameter_Group\Union All.Outputs[Union All Output 1].Columns[dw_eff_strt_dttm]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Union All.Inputs[Union All Input 1].Columns[new_flag]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="new_flag"
+                      lineageId="Package\DFT_Device_Parameter_Group\DC_NewFlag_Y.Outputs[Derived Column Output].Columns[new_flag]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_Device_Parameter_Group\Union All.Outputs[Union All Output 1].Columns[new_flag]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Union All.Inputs[Union All Input 1].Columns[dw_crte_usrid]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="dw_crte_usrid"
+                      lineageId="Package\DFT_Device_Parameter_Group\DC_NewFlag_Y.Outputs[Derived Column Output].Columns[dw_crte_usrid]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_Device_Parameter_Group\Union All.Outputs[Union All Output 1].Columns[dw_crte_usrid]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\DFT_Device_Parameter_Group\Union All.Inputs[Union All Input 2]"
+                  hasSideEffects="true"
+                  name="Union All Input 2">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Union All.Inputs[Union All Input 2].Columns[Root_Domain]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="25"
+                      cachedName="Root_Domain"
+                      lineageId="Package\DFT_Device_Parameter_Group\Source_ODS.Outputs[OLE DB Source Output].Columns[Root_Domain]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_Device_Parameter_Group\Union All.Outputs[Union All Output 1].Columns[Root_Domain]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Union All.Inputs[Union All Input 2].Columns[Customer]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="25"
+                      cachedName="Customer"
+                      lineageId="Package\DFT_Device_Parameter_Group\Source_ODS.Outputs[OLE DB Source Output].Columns[Customer]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_Device_Parameter_Group\Union All.Outputs[Union All Output 1].Columns[Customer]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Union All.Inputs[Union All Input 2].Columns[Action]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="25"
+                      cachedName="Action"
+                      lineageId="Package\DFT_Device_Parameter_Group\Source_ODS.Outputs[OLE DB Source Output].Columns[Action]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_Device_Parameter_Group\Union All.Outputs[Union All Output 1].Columns[Action]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Union All.Inputs[Union All Input 2].Columns[Checksumval]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="32"
+                      cachedName="Checksumval"
+                      lineageId="Package\DFT_Device_Parameter_Group\Source_ODS.Outputs[OLE DB Source Output].Columns[Checksumval]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_Device_Parameter_Group\Union All.Outputs[Union All Output 1].Columns[Checksumval]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Union All.Inputs[Union All Input 2].Columns[name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="name"
+                      lineageId="Package\DFT_Device_Parameter_Group\Source_ODS.Outputs[OLE DB Source Output].Columns[name]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_Device_Parameter_Group\Union All.Outputs[Union All Output 1].Columns[name]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Union All.Inputs[Union All Input 2].Columns[scope]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="scope"
+                      lineageId="Package\DFT_Device_Parameter_Group\Source_ODS.Outputs[OLE DB Source Output].Columns[scope]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_Device_Parameter_Group\Union All.Outputs[Union All Output 1].Columns[scope]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Union All.Inputs[Union All Input 2].Columns[device_types]"
+                      cachedCodepage="1252"
+                      cachedDataType="text"
+                      cachedName="device_types"
+                      lineageId="Package\DFT_Device_Parameter_Group\Source_ODS.Outputs[OLE DB Source Output].Columns[device_types]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_Device_Parameter_Group\Union All.Outputs[Union All Output 1].Columns[device_types]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Union All.Inputs[Union All Input 2].Columns[device_vendor]"
+                      cachedCodepage="1252"
+                      cachedDataType="text"
+                      cachedName="device_vendor"
+                      lineageId="Package\DFT_Device_Parameter_Group\Source_ODS.Outputs[OLE DB Source Output].Columns[device_vendor]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_Device_Parameter_Group\Union All.Outputs[Union All Output 1].Columns[device_vendor]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Union All.Inputs[Union All Input 2].Columns[sites]"
+                      cachedCodepage="1252"
+                      cachedDataType="text"
+                      cachedName="sites"
+                      lineageId="Package\DFT_Device_Parameter_Group\Source_ODS.Outputs[OLE DB Source Output].Columns[sites]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_Device_Parameter_Group\Union All.Outputs[Union All Output 1].Columns[sites]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Union All.Inputs[Union All Input 2].Columns[subscribers]"
+                      cachedCodepage="1252"
+                      cachedDataType="text"
+                      cachedName="subscribers"
+                      lineageId="Package\DFT_Device_Parameter_Group\Source_ODS.Outputs[OLE DB Source Output].Columns[subscribers]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_Device_Parameter_Group\Union All.Outputs[Union All Output 1].Columns[subscribers]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Union All.Inputs[Union All Input 2].Columns[devices]"
+                      cachedCodepage="1252"
+                      cachedDataType="text"
+                      cachedName="devices"
+                      lineageId="Package\DFT_Device_Parameter_Group\Source_ODS.Outputs[OLE DB Source Output].Columns[devices]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_Device_Parameter_Group\Union All.Outputs[Union All Output 1].Columns[devices]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Union All.Inputs[Union All Input 2].Columns[dw_eff_strt_dttm]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="dw_eff_strt_dttm"
+                      lineageId="Package\DFT_Device_Parameter_Group\DC_NewFlag_N.Outputs[Derived Column Output].Columns[dw_eff_strt_dttm]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_Device_Parameter_Group\Union All.Outputs[Union All Output 1].Columns[dw_eff_strt_dttm]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Union All.Inputs[Union All Input 2].Columns[new_flag]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="new_flag"
+                      lineageId="Package\DFT_Device_Parameter_Group\DC_NewFlag_N.Outputs[Derived Column Output].Columns[new_flag]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_Device_Parameter_Group\Union All.Outputs[Union All Output 1].Columns[new_flag]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Union All.Inputs[Union All Input 2].Columns[dw_crte_usrid]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="dw_crte_usrid"
+                      lineageId="Package\DFT_Device_Parameter_Group\DC_NewFlag_N.Outputs[Derived Column Output].Columns[dw_crte_usrid]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_Device_Parameter_Group\Union All.Outputs[Union All Output 1].Columns[dw_crte_usrid]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\DFT_Device_Parameter_Group\Union All.Inputs[Union All Input 3]"
+                  dangling="true"
+                  hasSideEffects="true"
+                  name="Union All Input 3">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_Device_Parameter_Group\Union All.Outputs[Union All Output 1]"
+                  name="Union All Output 1">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Union All.Outputs[Union All Output 1].Columns[Root_Domain]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      lineageId="Package\DFT_Device_Parameter_Group\Union All.Outputs[Union All Output 1].Columns[Root_Domain]"
+                      name="Root_Domain" />
+                    <outputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Union All.Outputs[Union All Output 1].Columns[Customer]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      lineageId="Package\DFT_Device_Parameter_Group\Union All.Outputs[Union All Output 1].Columns[Customer]"
+                      name="Customer" />
+                    <outputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Union All.Outputs[Union All Output 1].Columns[Action]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      lineageId="Package\DFT_Device_Parameter_Group\Union All.Outputs[Union All Output 1].Columns[Action]"
+                      name="Action" />
+                    <outputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Union All.Outputs[Union All Output 1].Columns[Checksumval]"
+                      codePage="1252"
+                      dataType="str"
+                      length="32"
+                      lineageId="Package\DFT_Device_Parameter_Group\Union All.Outputs[Union All Output 1].Columns[Checksumval]"
+                      name="Checksumval" />
+                    <outputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Union All.Outputs[Union All Output 1].Columns[name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      lineageId="Package\DFT_Device_Parameter_Group\Union All.Outputs[Union All Output 1].Columns[name]"
+                      name="name" />
+                    <outputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Union All.Outputs[Union All Output 1].Columns[scope]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\DFT_Device_Parameter_Group\Union All.Outputs[Union All Output 1].Columns[scope]"
+                      name="scope" />
+                    <outputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Union All.Outputs[Union All Output 1].Columns[device_types]"
+                      codePage="1252"
+                      dataType="text"
+                      lineageId="Package\DFT_Device_Parameter_Group\Union All.Outputs[Union All Output 1].Columns[device_types]"
+                      name="device_types" />
+                    <outputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Union All.Outputs[Union All Output 1].Columns[device_vendor]"
+                      codePage="1252"
+                      dataType="text"
+                      lineageId="Package\DFT_Device_Parameter_Group\Union All.Outputs[Union All Output 1].Columns[device_vendor]"
+                      name="device_vendor" />
+                    <outputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Union All.Outputs[Union All Output 1].Columns[sites]"
+                      codePage="1252"
+                      dataType="text"
+                      lineageId="Package\DFT_Device_Parameter_Group\Union All.Outputs[Union All Output 1].Columns[sites]"
+                      name="sites" />
+                    <outputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Union All.Outputs[Union All Output 1].Columns[subscribers]"
+                      codePage="1252"
+                      dataType="text"
+                      lineageId="Package\DFT_Device_Parameter_Group\Union All.Outputs[Union All Output 1].Columns[subscribers]"
+                      name="subscribers" />
+                    <outputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Union All.Outputs[Union All Output 1].Columns[devices]"
+                      codePage="1252"
+                      dataType="text"
+                      lineageId="Package\DFT_Device_Parameter_Group\Union All.Outputs[Union All Output 1].Columns[devices]"
+                      name="devices" />
+                    <outputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Union All.Outputs[Union All Output 1].Columns[dw_eff_strt_dttm]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\DFT_Device_Parameter_Group\Union All.Outputs[Union All Output 1].Columns[dw_eff_strt_dttm]"
+                      name="dw_eff_strt_dttm" />
+                    <outputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Union All.Outputs[Union All Output 1].Columns[new_flag]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\DFT_Device_Parameter_Group\Union All.Outputs[Union All Output 1].Columns[new_flag]"
+                      name="new_flag" />
+                    <outputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Union All.Outputs[Union All Output 1].Columns[dw_crte_usrid]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\DFT_Device_Parameter_Group\Union All.Outputs[Union All Output 1].Columns[dw_crte_usrid]"
+                      name="dw_crte_usrid" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT_Device_Parameter_Group.Paths[Changed Records]"
+              endId="Package\DFT_Device_Parameter_Group\DC_NewFlag_N.Inputs[Derived Column Input]"
+              name="Changed Records"
+              startId="Package\DFT_Device_Parameter_Group\CS_CompareNonKeyColumns.Outputs[Changed Records]" />
+            <path
+              refId="Package\DFT_Device_Parameter_Group.Paths[Derived Column Output]"
+              endId="Package\DFT_Device_Parameter_Group\Union All.Inputs[Union All Input 1]"
+              name="Derived Column Output"
+              startId="Package\DFT_Device_Parameter_Group\DC_NewFlag_Y.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\DFT_Device_Parameter_Group.Paths[Derived Column Output1]"
+              endId="Package\DFT_Device_Parameter_Group\Union All.Inputs[Union All Input 2]"
+              name="Derived Column Output"
+              startId="Package\DFT_Device_Parameter_Group\DC_NewFlag_N.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\DFT_Device_Parameter_Group.Paths[Existing Records]"
+              endId="Package\DFT_Device_Parameter_Group\CS_CompareNonKeyColumns.Inputs[Conditional Split Input]"
+              name="Existing Records"
+              startId="Package\DFT_Device_Parameter_Group\Lkp_Arc.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\DFT_Device_Parameter_Group.Paths[Lookup No Match Output]"
+              endId="Package\DFT_Device_Parameter_Group\DC_NewFlag_Y.Inputs[Derived Column Input]"
+              name="Lookup No Match Output"
+              startId="Package\DFT_Device_Parameter_Group\Lkp_Arc.Outputs[Lookup No Match Output]" />
+            <path
+              refId="Package\DFT_Device_Parameter_Group.Paths[OLE DB Source Output]"
+              endId="Package\DFT_Device_Parameter_Group\Lkp_Arc.Inputs[Lookup Input]"
+              name="OLE DB Source Output"
+              startId="Package\DFT_Device_Parameter_Group\Source_ODS.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\DFT_Device_Parameter_Group.Paths[Union All Output 1]"
+              endId="Package\DFT_Device_Parameter_Group\Stg_Device_Parameter_Group.Inputs[OLE DB Destination Input]"
+              name="Union All Output 1"
+              startId="Package\DFT_Device_Parameter_Group\Union All.Outputs[Union All Output 1]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate_Stg_table"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{54094A6F-6F65-49A7-8C8B-633EA0FB8C3E}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate_Stg_table"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{4B2BAB6F-A5B2-4A58-BD25-0961304475AA}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE DW_STG.dbo.Device_Parameter_Group" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{6EEF5180-6A18-470C-8DBF-E68192706A81}"
+      DTS:From="Package\Truncate_Stg_table"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\DFT_Device_Parameter_Group" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="234,42"
+          Id="Package\DFT_Device_Parameter_Group"
+          TopLeft="159,148" />
+        <NodeLayout
+          Size="175,42"
+          Id="Package\Truncate_Stg_table"
+          TopLeft="184,49" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="273.75,91">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,57"
+              Start="0,0"
+              End="0,49.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,49.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DFT_Device_Parameter_Group">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="158,42"
+          Id="Package\DFT_Device_Parameter_Group\DC_NewFlag_N"
+          TopLeft="518,311" />
+        <NodeLayout
+          Size="158,42"
+          Id="Package\DFT_Device_Parameter_Group\DC_NewFlag_Y"
+          TopLeft="242,308" />
+        <NodeLayout
+          Size="119,42"
+          Id="Package\DFT_Device_Parameter_Group\Lkp_Arc"
+          TopLeft="370,112" />
+        <NodeLayout
+          Size="229,42"
+          Id="Package\DFT_Device_Parameter_Group\Stg_Device_Parameter_Group"
+          TopLeft="325,507" />
+        <NodeLayout
+          Size="228,42"
+          Id="Package\DFT_Device_Parameter_Group\CS_CompareNonKeyColumns"
+          TopLeft="477,213" />
+        <NodeLayout
+          Size="144,42"
+          Id="Package\DFT_Device_Parameter_Group\Source_ODS"
+          TopLeft="355,21" />
+        <EdgeLayout
+          Id="Package\DFT_Device_Parameter_Group.Paths[OLE DB Source Output]"
+          TopLeft="428.25,63">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,49"
+              Start="0,0"
+              End="0,41.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,41.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT_Device_Parameter_Group.Paths[Lookup No Match Output]"
+          TopLeft="411,154">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-90,154"
+              Start="0,0"
+              End="-90,146.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,58.8258706467662" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,58.8258706467662"
+                    Point2="0,62.8258706467662"
+                    Point3="-4,62.8258706467662" />
+                  <mssgle:LineSegment
+                    End="-86,62.8258706467662" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-86,62.8258706467662"
+                    Point2="-90,62.8258706467662"
+                    Point3="-90,66.8258706467662" />
+                  <mssgle:LineSegment
+                    End="-90,146.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-100.80638671875,67.8258706467662,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT_Device_Parameter_Group.Paths[Existing Records]"
+          TopLeft="448,154">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="143,59"
+              Start="0,0"
+              End="143,51.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.0696517412935" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.0696517412935"
+                    Point2="0,24.0696517412935"
+                    Point3="4,24.0696517412935" />
+                  <mssgle:LineSegment
+                    End="139,24.0696517412935" />
+                  <mssgle:CubicBezierSegment
+                    Point1="139,24.0696517412935"
+                    Point2="143,24.0696517412935"
+                    Point3="143,28.0696517412935" />
+                  <mssgle:LineSegment
+                    End="143,51.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="23.30861328125,29.0696517412935,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT_Device_Parameter_Group.Paths[Changed Records]"
+          TopLeft="594,255">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,56"
+              Start="0,0"
+              End="0,48.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,48.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-39.23009765625,18.41845703125,78.4601953125,11.6630859375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="123,42"
+          Id="Package\DFT_Device_Parameter_Group\Union All"
+          TopLeft="375,410" />
+        <EdgeLayout
+          Id="Package\DFT_Device_Parameter_Group.Paths[Derived Column Output]"
+          TopLeft="321,350">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="115.5,60"
+              Start="0,0"
+              End="115.5,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26"
+                    Point2="0,30"
+                    Point3="4,30" />
+                  <mssgle:LineSegment
+                    End="111.5,30" />
+                  <mssgle:CubicBezierSegment
+                    Point1="111.5,30"
+                    Point2="115.5,30"
+                    Point3="115.5,34" />
+                  <mssgle:LineSegment
+                    End="115.5,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT_Device_Parameter_Group.Paths[Derived Column Output1]"
+          TopLeft="597,353">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-141.333333333333,57"
+              Start="0,0"
+              End="-141.333333333333,49.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.760834670947" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,29.760834670947"
+                    Point2="0,33.760834670947"
+                    Point3="-4,33.760834670947" />
+                  <mssgle:LineSegment
+                    End="-137.333333333333,33.760834670947" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-137.333333333333,33.760834670947"
+                    Point2="-141.333333333333,33.760834670947"
+                    Point3="-141.333333333333,37.760834670947" />
+                  <mssgle:LineSegment
+                    End="-141.333333333333,49.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT_Device_Parameter_Group.Paths[Union All Output 1]"
+          TopLeft="438,452">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,55"
+              Start="0,0"
+              End="0,47.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,47.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT_Device_Parameter_Group\Lkp_Arc">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT_Device_Parameter_Group\Stg_Device_Parameter_Group">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT_Device_Parameter_Group\Source_ODS">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

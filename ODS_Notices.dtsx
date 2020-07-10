@@ -1,0 +1,1202 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/22/2020 7:13:13 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="PREETISHK-LPT"
+  DTS:CreatorName="DATAFORTUNE\preetish.kharche"
+  DTS:DTSID="{A8AF5B8F-BC02-4F04-A7A6-84A936E30CB8}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.123"
+  DTS:LocaleID="16393"
+  DTS:ObjectName="ODS_Notices"
+  DTS:PackageType="5"
+  DTS:VersionBuild="52"
+  DTS:VersionGUID="{1852D4D6-B49B-469C-AA7F-4822C2E99D31}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DFT_Notices"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{1DECD714-9934-4C9B-8B56-859608B87AD8}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT_Notices"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT_Notices\Data Conversion"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT_Notices\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT_Notices\Data Conversion.Inputs[Data Conversion Input].Columns[Root Domain]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Root Domain"
+                      lineageId="Package\DFT_Notices\Excel_Notices.Outputs[Excel Source Output].Columns[Root Domain]" />
+                    <inputColumn
+                      refId="Package\DFT_Notices\Data Conversion.Inputs[Data Conversion Input].Columns[Action]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Action"
+                      lineageId="Package\DFT_Notices\Excel_Notices.Outputs[Excel Source Output].Columns[Action]" />
+                    <inputColumn
+                      refId="Package\DFT_Notices\Data Conversion.Inputs[Data Conversion Input].Columns[Customer]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Customer"
+                      lineageId="Package\DFT_Notices\Excel_Notices.Outputs[Excel Source Output].Columns[Customer]" />
+                    <inputColumn
+                      refId="Package\DFT_Notices\Data Conversion.Inputs[Data Conversion Input].Columns[notice_id]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="notice_id"
+                      lineageId="Package\DFT_Notices\Excel_Notices.Outputs[Excel Source Output].Columns[notice_id]" />
+                    <inputColumn
+                      refId="Package\DFT_Notices\Data Conversion.Inputs[Data Conversion Input].Columns[notification_type]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="notification_type"
+                      lineageId="Package\DFT_Notices\Excel_Notices.Outputs[Excel Source Output].Columns[notification_type]" />
+                    <inputColumn
+                      refId="Package\DFT_Notices\Data Conversion.Inputs[Data Conversion Input].Columns[notification_subject]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="notification_subject"
+                      lineageId="Package\DFT_Notices\Excel_Notices.Outputs[Excel Source Output].Columns[notification_subject]" />
+                    <inputColumn
+                      refId="Package\DFT_Notices\Data Conversion.Inputs[Data Conversion Input].Columns[notification_message]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="notification_message"
+                      lineageId="Package\DFT_Notices\Excel_Notices.Outputs[Excel Source Output].Columns[notification_message]" />
+                    <inputColumn
+                      refId="Package\DFT_Notices\Data Conversion.Inputs[Data Conversion Input].Columns[customer_list]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="customer_list"
+                      lineageId="Package\DFT_Notices\Excel_Notices.Outputs[Excel Source Output].Columns[customer_list]" />
+                    <inputColumn
+                      refId="Package\DFT_Notices\Data Conversion.Inputs[Data Conversion Input].Columns[permission]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="permission"
+                      lineageId="Package\DFT_Notices\Excel_Notices.Outputs[Excel Source Output].Columns[permission]" />
+                    <inputColumn
+                      refId="Package\DFT_Notices\Data Conversion.Inputs[Data Conversion Input].Columns[notification_scope]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="notification_scope"
+                      lineageId="Package\DFT_Notices\Excel_Notices.Outputs[Excel Source Output].Columns[notification_scope]" />
+                    <inputColumn
+                      refId="Package\DFT_Notices\Data Conversion.Inputs[Data Conversion Input].Columns[is_archive]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="is_archive"
+                      lineageId="Package\DFT_Notices\Excel_Notices.Outputs[Excel Source Output].Columns[is_archive]" />
+                    <inputColumn
+                      refId="Package\DFT_Notices\Data Conversion.Inputs[Data Conversion Input].Columns[last_modified]"
+                      cachedDataType="date"
+                      cachedName="last_modified"
+                      lineageId="Package\DFT_Notices\Excel_Notices.Outputs[Excel Source Output].Columns[last_modified]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_Notices\Data Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\DFT_Notices\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Notices\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Root Domain]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="25"
+                      lineageId="Package\DFT_Notices\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Root Domain]"
+                      name="Copy of Root Domain"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT_Notices\Excel_Notices.Outputs[Excel Source Output].Columns[Root Domain]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Notices\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Action]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="25"
+                      lineageId="Package\DFT_Notices\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Action]"
+                      name="Copy of Action"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT_Notices\Excel_Notices.Outputs[Excel Source Output].Columns[Action]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Notices\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Customer]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="25"
+                      lineageId="Package\DFT_Notices\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Customer]"
+                      name="Copy of Customer"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT_Notices\Excel_Notices.Outputs[Excel Source Output].Columns[Customer]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Notices\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of notice_id]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\DFT_Notices\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of notice_id]"
+                      name="Copy of notice_id"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT_Notices\Excel_Notices.Outputs[Excel Source Output].Columns[notice_id]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Notices\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of notification_type]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\DFT_Notices\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of notification_type]"
+                      name="Copy of notification_type"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT_Notices\Excel_Notices.Outputs[Excel Source Output].Columns[notification_type]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Notices\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of notification_subject]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\DFT_Notices\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of notification_subject]"
+                      name="Copy of notification_subject"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT_Notices\Excel_Notices.Outputs[Excel Source Output].Columns[notification_subject]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Notices\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of notification_message]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\DFT_Notices\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of notification_message]"
+                      name="Copy of notification_message"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT_Notices\Excel_Notices.Outputs[Excel Source Output].Columns[notification_message]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Notices\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of customer_list]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="500"
+                      lineageId="Package\DFT_Notices\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of customer_list]"
+                      name="Copy of customer_list"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT_Notices\Excel_Notices.Outputs[Excel Source Output].Columns[customer_list]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Notices\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of permission]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\DFT_Notices\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of permission]"
+                      name="Copy of permission"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT_Notices\Excel_Notices.Outputs[Excel Source Output].Columns[permission]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Notices\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of notification_scope]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\DFT_Notices\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of notification_scope]"
+                      name="Copy of notification_scope"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT_Notices\Excel_Notices.Outputs[Excel Source Output].Columns[notification_scope]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Notices\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of is_archive]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="10"
+                      lineageId="Package\DFT_Notices\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of is_archive]"
+                      name="Copy of is_archive"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT_Notices\Excel_Notices.Outputs[Excel Source Output].Columns[is_archive]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Notices\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of last_modified]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT_Notices\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of last_modified]"
+                      name="Copy of last_modified"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT_Notices\Excel_Notices.Outputs[Excel Source Output].Columns[last_modified]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT_Notices\Data Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\DFT_Notices\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Notices\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Notices\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_Notices\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Notices\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT_Notices\Excel_Notices"
+              componentClassID="Microsoft.ExcelSource"
+              contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Excel Source"
+              name="Excel_Notices"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">Notices$A53:L</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mapping from parameters in the SQL command to variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT_Notices\Excel_Notices.Connections[OleDbConnection]"
+                  connectionManagerID="{0D2225D9-F1D8-4D95-B705-EE61F6D41EC3}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Excel]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT_Notices\Excel_Notices.Outputs[Excel Source Output]"
+                  name="Excel Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Notices\Excel_Notices.Outputs[Excel Source Output].Columns[Root Domain]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Notices\Excel_Notices.Outputs[Excel Source Output].ExternalColumns[Root Domain]"
+                      length="255"
+                      lineageId="Package\DFT_Notices\Excel_Notices.Outputs[Excel Source Output].Columns[Root Domain]"
+                      name="Root Domain"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Notices\Excel_Notices.Outputs[Excel Source Output].Columns[Action]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Notices\Excel_Notices.Outputs[Excel Source Output].ExternalColumns[Action]"
+                      length="255"
+                      lineageId="Package\DFT_Notices\Excel_Notices.Outputs[Excel Source Output].Columns[Action]"
+                      name="Action"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Notices\Excel_Notices.Outputs[Excel Source Output].Columns[Customer]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Notices\Excel_Notices.Outputs[Excel Source Output].ExternalColumns[Customer]"
+                      length="255"
+                      lineageId="Package\DFT_Notices\Excel_Notices.Outputs[Excel Source Output].Columns[Customer]"
+                      name="Customer"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Notices\Excel_Notices.Outputs[Excel Source Output].Columns[notice_id]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Notices\Excel_Notices.Outputs[Excel Source Output].ExternalColumns[notice_id]"
+                      length="255"
+                      lineageId="Package\DFT_Notices\Excel_Notices.Outputs[Excel Source Output].Columns[notice_id]"
+                      name="notice_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Notices\Excel_Notices.Outputs[Excel Source Output].Columns[notification_type]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Notices\Excel_Notices.Outputs[Excel Source Output].ExternalColumns[notification_type]"
+                      length="255"
+                      lineageId="Package\DFT_Notices\Excel_Notices.Outputs[Excel Source Output].Columns[notification_type]"
+                      name="notification_type"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Notices\Excel_Notices.Outputs[Excel Source Output].Columns[notification_subject]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Notices\Excel_Notices.Outputs[Excel Source Output].ExternalColumns[notification_subject]"
+                      length="255"
+                      lineageId="Package\DFT_Notices\Excel_Notices.Outputs[Excel Source Output].Columns[notification_subject]"
+                      name="notification_subject"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Notices\Excel_Notices.Outputs[Excel Source Output].Columns[notification_message]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Notices\Excel_Notices.Outputs[Excel Source Output].ExternalColumns[notification_message]"
+                      length="255"
+                      lineageId="Package\DFT_Notices\Excel_Notices.Outputs[Excel Source Output].Columns[notification_message]"
+                      name="notification_message"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Notices\Excel_Notices.Outputs[Excel Source Output].Columns[customer_list]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Notices\Excel_Notices.Outputs[Excel Source Output].ExternalColumns[customer_list]"
+                      length="255"
+                      lineageId="Package\DFT_Notices\Excel_Notices.Outputs[Excel Source Output].Columns[customer_list]"
+                      name="customer_list"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Notices\Excel_Notices.Outputs[Excel Source Output].Columns[permission]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Notices\Excel_Notices.Outputs[Excel Source Output].ExternalColumns[permission]"
+                      length="255"
+                      lineageId="Package\DFT_Notices\Excel_Notices.Outputs[Excel Source Output].Columns[permission]"
+                      name="permission"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Notices\Excel_Notices.Outputs[Excel Source Output].Columns[notification_scope]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Notices\Excel_Notices.Outputs[Excel Source Output].ExternalColumns[notification_scope]"
+                      length="255"
+                      lineageId="Package\DFT_Notices\Excel_Notices.Outputs[Excel Source Output].Columns[notification_scope]"
+                      name="notification_scope"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Notices\Excel_Notices.Outputs[Excel Source Output].Columns[is_archive]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Notices\Excel_Notices.Outputs[Excel Source Output].ExternalColumns[is_archive]"
+                      length="255"
+                      lineageId="Package\DFT_Notices\Excel_Notices.Outputs[Excel Source Output].Columns[is_archive]"
+                      name="is_archive"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Notices\Excel_Notices.Outputs[Excel Source Output].Columns[last_modified]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Notices\Excel_Notices.Outputs[Excel Source Output].ExternalColumns[last_modified]"
+                      lineageId="Package\DFT_Notices\Excel_Notices.Outputs[Excel Source Output].Columns[last_modified]"
+                      name="last_modified"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT_Notices\Excel_Notices.Outputs[Excel Source Output].ExternalColumns[Root Domain]"
+                      dataType="wstr"
+                      length="255"
+                      name="Root Domain" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Notices\Excel_Notices.Outputs[Excel Source Output].ExternalColumns[Action]"
+                      dataType="wstr"
+                      length="255"
+                      name="Action" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Notices\Excel_Notices.Outputs[Excel Source Output].ExternalColumns[Customer]"
+                      dataType="wstr"
+                      length="255"
+                      name="Customer" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Notices\Excel_Notices.Outputs[Excel Source Output].ExternalColumns[notice_id]"
+                      dataType="wstr"
+                      length="255"
+                      name="notice_id" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Notices\Excel_Notices.Outputs[Excel Source Output].ExternalColumns[notification_type]"
+                      dataType="wstr"
+                      length="255"
+                      name="notification_type" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Notices\Excel_Notices.Outputs[Excel Source Output].ExternalColumns[notification_subject]"
+                      dataType="wstr"
+                      length="255"
+                      name="notification_subject" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Notices\Excel_Notices.Outputs[Excel Source Output].ExternalColumns[notification_message]"
+                      dataType="wstr"
+                      length="255"
+                      name="notification_message" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Notices\Excel_Notices.Outputs[Excel Source Output].ExternalColumns[customer_list]"
+                      dataType="wstr"
+                      length="255"
+                      name="customer_list" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Notices\Excel_Notices.Outputs[Excel Source Output].ExternalColumns[permission]"
+                      dataType="wstr"
+                      length="255"
+                      name="permission" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Notices\Excel_Notices.Outputs[Excel Source Output].ExternalColumns[notification_scope]"
+                      dataType="wstr"
+                      length="255"
+                      name="notification_scope" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Notices\Excel_Notices.Outputs[Excel Source Output].ExternalColumns[is_archive]"
+                      dataType="wstr"
+                      length="255"
+                      name="is_archive" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Notices\Excel_Notices.Outputs[Excel Source Output].ExternalColumns[last_modified]"
+                      dataType="date"
+                      name="last_modified" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT_Notices\Excel_Notices.Outputs[Excel Source Error Output]"
+                  isErrorOut="true"
+                  name="Excel Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Notices\Excel_Notices.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Notices\Excel_Notices.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_Notices\Excel_Notices.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Notices\Excel_Notices.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\DFT_Notices\Excel_Notices.Outputs[Excel Source Error Output].Columns[Root Domain]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT_Notices\Excel_Notices.Outputs[Excel Source Error Output].Columns[Root Domain]"
+                      name="Root Domain" />
+                    <outputColumn
+                      refId="Package\DFT_Notices\Excel_Notices.Outputs[Excel Source Error Output].Columns[Action]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT_Notices\Excel_Notices.Outputs[Excel Source Error Output].Columns[Action]"
+                      name="Action" />
+                    <outputColumn
+                      refId="Package\DFT_Notices\Excel_Notices.Outputs[Excel Source Error Output].Columns[Customer]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT_Notices\Excel_Notices.Outputs[Excel Source Error Output].Columns[Customer]"
+                      name="Customer" />
+                    <outputColumn
+                      refId="Package\DFT_Notices\Excel_Notices.Outputs[Excel Source Error Output].Columns[notice_id]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT_Notices\Excel_Notices.Outputs[Excel Source Error Output].Columns[notice_id]"
+                      name="notice_id" />
+                    <outputColumn
+                      refId="Package\DFT_Notices\Excel_Notices.Outputs[Excel Source Error Output].Columns[notification_type]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT_Notices\Excel_Notices.Outputs[Excel Source Error Output].Columns[notification_type]"
+                      name="notification_type" />
+                    <outputColumn
+                      refId="Package\DFT_Notices\Excel_Notices.Outputs[Excel Source Error Output].Columns[notification_subject]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT_Notices\Excel_Notices.Outputs[Excel Source Error Output].Columns[notification_subject]"
+                      name="notification_subject" />
+                    <outputColumn
+                      refId="Package\DFT_Notices\Excel_Notices.Outputs[Excel Source Error Output].Columns[notification_message]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT_Notices\Excel_Notices.Outputs[Excel Source Error Output].Columns[notification_message]"
+                      name="notification_message" />
+                    <outputColumn
+                      refId="Package\DFT_Notices\Excel_Notices.Outputs[Excel Source Error Output].Columns[customer_list]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT_Notices\Excel_Notices.Outputs[Excel Source Error Output].Columns[customer_list]"
+                      name="customer_list" />
+                    <outputColumn
+                      refId="Package\DFT_Notices\Excel_Notices.Outputs[Excel Source Error Output].Columns[permission]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT_Notices\Excel_Notices.Outputs[Excel Source Error Output].Columns[permission]"
+                      name="permission" />
+                    <outputColumn
+                      refId="Package\DFT_Notices\Excel_Notices.Outputs[Excel Source Error Output].Columns[notification_scope]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT_Notices\Excel_Notices.Outputs[Excel Source Error Output].Columns[notification_scope]"
+                      name="notification_scope" />
+                    <outputColumn
+                      refId="Package\DFT_Notices\Excel_Notices.Outputs[Excel Source Error Output].Columns[is_archive]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT_Notices\Excel_Notices.Outputs[Excel Source Error Output].Columns[is_archive]"
+                      name="is_archive" />
+                    <outputColumn
+                      refId="Package\DFT_Notices\Excel_Notices.Outputs[Excel Source Error Output].Columns[last_modified]"
+                      dataType="date"
+                      lineageId="Package\DFT_Notices\Excel_Notices.Outputs[Excel Source Error Output].Columns[last_modified]"
+                      name="last_modified" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT_Notices\Load_Notices"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Load_Notices"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Notices]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT_Notices\Load_Notices.Connections[OleDbConnection]"
+                  connectionManagerID="{E0E6DC88-A9A1-4A51-8B19-958C1AD76267}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[ODS_Vanran_Ribbon]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT_Notices\Load_Notices.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT_Notices\Load_Notices.Inputs[OLE DB Destination Input].Columns[Copy of Action]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="25"
+                      cachedName="Copy of Action"
+                      externalMetadataColumnId="Package\DFT_Notices\Load_Notices.Inputs[OLE DB Destination Input].ExternalColumns[Action]"
+                      lineageId="Package\DFT_Notices\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Action]" />
+                    <inputColumn
+                      refId="Package\DFT_Notices\Load_Notices.Inputs[OLE DB Destination Input].Columns[Copy of Root Domain]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="25"
+                      cachedName="Copy of Root Domain"
+                      externalMetadataColumnId="Package\DFT_Notices\Load_Notices.Inputs[OLE DB Destination Input].ExternalColumns[Root_Domain]"
+                      lineageId="Package\DFT_Notices\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Root Domain]" />
+                    <inputColumn
+                      refId="Package\DFT_Notices\Load_Notices.Inputs[OLE DB Destination Input].Columns[Copy of Customer]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="25"
+                      cachedName="Copy of Customer"
+                      externalMetadataColumnId="Package\DFT_Notices\Load_Notices.Inputs[OLE DB Destination Input].ExternalColumns[Customer]"
+                      lineageId="Package\DFT_Notices\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Customer]" />
+                    <inputColumn
+                      refId="Package\DFT_Notices\Load_Notices.Inputs[OLE DB Destination Input].Columns[Copy of notice_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Copy of notice_id"
+                      externalMetadataColumnId="Package\DFT_Notices\Load_Notices.Inputs[OLE DB Destination Input].ExternalColumns[notice_id]"
+                      lineageId="Package\DFT_Notices\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of notice_id]" />
+                    <inputColumn
+                      refId="Package\DFT_Notices\Load_Notices.Inputs[OLE DB Destination Input].Columns[Copy of notification_type]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Copy of notification_type"
+                      externalMetadataColumnId="Package\DFT_Notices\Load_Notices.Inputs[OLE DB Destination Input].ExternalColumns[notification_type]"
+                      lineageId="Package\DFT_Notices\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of notification_type]" />
+                    <inputColumn
+                      refId="Package\DFT_Notices\Load_Notices.Inputs[OLE DB Destination Input].Columns[Copy of notification_subject]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Copy of notification_subject"
+                      externalMetadataColumnId="Package\DFT_Notices\Load_Notices.Inputs[OLE DB Destination Input].ExternalColumns[notification_subject]"
+                      lineageId="Package\DFT_Notices\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of notification_subject]" />
+                    <inputColumn
+                      refId="Package\DFT_Notices\Load_Notices.Inputs[OLE DB Destination Input].Columns[Copy of notification_message]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Copy of notification_message"
+                      externalMetadataColumnId="Package\DFT_Notices\Load_Notices.Inputs[OLE DB Destination Input].ExternalColumns[notification_message]"
+                      lineageId="Package\DFT_Notices\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of notification_message]" />
+                    <inputColumn
+                      refId="Package\DFT_Notices\Load_Notices.Inputs[OLE DB Destination Input].Columns[Copy of customer_list]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="Copy of customer_list"
+                      externalMetadataColumnId="Package\DFT_Notices\Load_Notices.Inputs[OLE DB Destination Input].ExternalColumns[customer_list]"
+                      lineageId="Package\DFT_Notices\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of customer_list]" />
+                    <inputColumn
+                      refId="Package\DFT_Notices\Load_Notices.Inputs[OLE DB Destination Input].Columns[Copy of permission]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Copy of permission"
+                      externalMetadataColumnId="Package\DFT_Notices\Load_Notices.Inputs[OLE DB Destination Input].ExternalColumns[permission]"
+                      lineageId="Package\DFT_Notices\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of permission]" />
+                    <inputColumn
+                      refId="Package\DFT_Notices\Load_Notices.Inputs[OLE DB Destination Input].Columns[Copy of notification_scope]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Copy of notification_scope"
+                      externalMetadataColumnId="Package\DFT_Notices\Load_Notices.Inputs[OLE DB Destination Input].ExternalColumns[notification_scope]"
+                      lineageId="Package\DFT_Notices\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of notification_scope]" />
+                    <inputColumn
+                      refId="Package\DFT_Notices\Load_Notices.Inputs[OLE DB Destination Input].Columns[Copy of is_archive]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="Copy of is_archive"
+                      externalMetadataColumnId="Package\DFT_Notices\Load_Notices.Inputs[OLE DB Destination Input].ExternalColumns[is_archive]"
+                      lineageId="Package\DFT_Notices\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of is_archive]" />
+                    <inputColumn
+                      refId="Package\DFT_Notices\Load_Notices.Inputs[OLE DB Destination Input].Columns[Copy of last_modified]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Copy of last_modified"
+                      externalMetadataColumnId="Package\DFT_Notices\Load_Notices.Inputs[OLE DB Destination Input].ExternalColumns[last_modified]"
+                      lineageId="Package\DFT_Notices\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of last_modified]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT_Notices\Load_Notices.Inputs[OLE DB Destination Input].ExternalColumns[Action]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      name="Action" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Notices\Load_Notices.Inputs[OLE DB Destination Input].ExternalColumns[Root_Domain]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      name="Root_Domain" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Notices\Load_Notices.Inputs[OLE DB Destination Input].ExternalColumns[Customer]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      name="Customer" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Notices\Load_Notices.Inputs[OLE DB Destination Input].ExternalColumns[Checksumval]"
+                      codePage="1252"
+                      dataType="str"
+                      length="32"
+                      name="Checksumval" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Notices\Load_Notices.Inputs[OLE DB Destination Input].ExternalColumns[Is_Sync]"
+                      dataType="bool"
+                      name="Is_Sync" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Notices\Load_Notices.Inputs[OLE DB Destination Input].ExternalColumns[notice_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="notice_id" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Notices\Load_Notices.Inputs[OLE DB Destination Input].ExternalColumns[notification_type]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="notification_type" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Notices\Load_Notices.Inputs[OLE DB Destination Input].ExternalColumns[notification_subject]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="notification_subject" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Notices\Load_Notices.Inputs[OLE DB Destination Input].ExternalColumns[notification_message]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="notification_message" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Notices\Load_Notices.Inputs[OLE DB Destination Input].ExternalColumns[customer_list]"
+                      codePage="1252"
+                      dataType="text"
+                      name="customer_list" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Notices\Load_Notices.Inputs[OLE DB Destination Input].ExternalColumns[permission]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="permission" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Notices\Load_Notices.Inputs[OLE DB Destination Input].ExternalColumns[notification_scope]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="notification_scope" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Notices\Load_Notices.Inputs[OLE DB Destination Input].ExternalColumns[is_archive]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="is_archive" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Notices\Load_Notices.Inputs[OLE DB Destination Input].ExternalColumns[last_modified]"
+                      dataType="dbTimeStamp"
+                      name="last_modified" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_Notices\Load_Notices.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DFT_Notices\Load_Notices.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Notices\Load_Notices.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Notices\Load_Notices.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_Notices\Load_Notices.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Notices\Load_Notices.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT_Notices.Paths[Data Conversion Output]"
+              endId="Package\DFT_Notices\Load_Notices.Inputs[OLE DB Destination Input]"
+              name="Data Conversion Output"
+              startId="Package\DFT_Notices\Data Conversion.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\DFT_Notices.Paths[Excel Source Output]"
+              endId="Package\DFT_Notices\Data Conversion.Inputs[Data Conversion Input]"
+              name="Excel Source Output"
+              startId="Package\DFT_Notices\Excel_Notices.Outputs[Excel Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate_ODS_table"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{12A30382-B9B6-4FD0-AE87-A7CFFCE5F0A3}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate_ODS_table"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{E0E6DC88-A9A1-4A51-8B19-958C1AD76267}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE ODS.dbo.Notices" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{FF833824-6823-4019-8395-0CEC612804F0}"
+      DTS:From="Package\Truncate_ODS_table"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\DFT_Notices" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="143,42"
+          Id="Package\DFT_Notices"
+          TopLeft="180,131" />
+        <NodeLayout
+          Size="182,42"
+          Id="Package\Truncate_ODS_table"
+          TopLeft="165,40" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="253.75,82">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,49"
+              Start="0,0"
+              End="0,41.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,41.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DFT_Notices">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="149,42"
+          Id="Package\DFT_Notices\Excel_Notices"
+          TopLeft="383,79" />
+        <NodeLayout
+          Size="146,42"
+          Id="Package\DFT_Notices\Load_Notices"
+          TopLeft="384,277" />
+        <NodeLayout
+          Size="161,42"
+          Id="Package\DFT_Notices\Data Conversion"
+          TopLeft="379,173" />
+        <EdgeLayout
+          Id="Package\DFT_Notices.Paths[Excel Source Output]"
+          TopLeft="458.5,121">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,52"
+              Start="0,0"
+              End="0,44.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,44.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT_Notices.Paths[Data Conversion Output]"
+          TopLeft="458.25,215">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,62"
+              Start="0,0"
+              End="0,54.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,54.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT_Notices\Excel_Notices">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT_Notices\Load_Notices">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
