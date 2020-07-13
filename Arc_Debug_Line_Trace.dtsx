@@ -11,20 +11,20 @@
   DTS:LocaleID="16393"
   DTS:ObjectName="Arc_Debug_Line_Trace"
   DTS:PackageType="5"
-  DTS:VersionBuild="54"
-  DTS:VersionGUID="{B7104D77-EA09-47D7-9E51-F598294E247B}">
+  DTS:VersionBuild="55"
+  DTS:VersionGUID="{1AD20310-ECA1-46BE-A14D-B2958E08EB5C}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
   <DTS:Executables>
     <DTS:Executable
-      DTS:refId="Package\ArcLoad_Debug_Line_Trace"
+      DTS:refId="Package\ArcLoad_Debug_Line"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
       DTS:DTSID="{20686502-854B-4E8A-A90E-16E633124277}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
-      DTS:ObjectName="ArcLoad_Debug_Line_Trace"
+      DTS:ObjectName="ArcLoad_Debug_Line"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
       DTS:ThreadHint="0">
       <DTS:Variables />
@@ -48,8 +48,8 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
         <NodeLayout
-          Size="220,42"
-          Id="Package\ArcLoad_Debug_Line_Trace"
+          Size="185,42"
+          Id="Package\ArcLoad_Debug_Line"
           TopLeft="121,56" />
       </GraphLayout>
     </LayoutInfo>
