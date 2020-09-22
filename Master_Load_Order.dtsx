@@ -1,0 +1,2246 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="7/28/2020 1:25:15 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="ATL-DEVWS03"
+  DTS:CreatorName="VANRAN\pkharche"
+  DTS:DTSID="{A06B9D57-E24B-45FD-854F-8075099966E4}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.123"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="62"
+  DTS:VersionGUID="{C799E330-393E-4B64-AE1E-51624325B327}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Excel Connection Manager]"
+      DTS:CreationName="EXCEL"
+      DTS:DelayValidation="True"
+      DTS:DTSID="{2718A258-0DCA-4E66-BD6C-F7C0794317AD}"
+      DTS:ObjectName="Excel Connection Manager">
+      <DTS:PropertyExpression
+        DTS:Name="ExcelFilePath">@[User::File_Name]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{F705C5D7-EC68-4C68-9DCB-02B5CBF5DE0A}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="File_Identifier">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{002D276A-8716-4337-A986-DFF1F50A0E3F}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;&#xA;select File_Identifier from ODS.dbo.File_Load_Logs&#xA;where File_Name = RIGHT('&quot; + @[User::File_Name] + &quot;', CHARINDEX('\\', REVERSE('&quot; + @[User::File_Name] + &quot;'))-1)&#xA;and Load_Date = (select max(Load_Date) from ODS.dbo.File_Load_Logs)&#xA;&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="File_Identifier_Query">
+      <DTS:VariableValue
+        DTS:DataType="8">
+select File_Identifier from ODS.dbo.File_Load_Logs
+where File_Name = RIGHT('', CHARINDEX('\', REVERSE(''))-1)
+and Load_Date = (select max(Load_Date) from ODS.dbo.File_Load_Logs)
+</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{9CD3C09C-CDF9-4BBD-800C-CC553B46BA67}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="File_Name">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\LoadArc_ODS_to_HIST_Order"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{C76A2BD4-C640-43B1-A97E-46D21DAE1F5E}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="LoadArc_ODS_to_HIST_Order"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{05B7AD07-7614-46E5-A55A-1E46DA8444A4}"
+          SQLTask:SqlStatementSource="EXEC [dbo].[usp_LoadArc_ODS_to_HIST_Order]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Loading source excel files"
+      DTS:CreationName="STOCK:FOREACHLOOP"
+      DTS:Description="Foreach Loop Container"
+      DTS:DTSID="{F5A5136A-472F-409A-965D-EFC2F4B41DB5}"
+      DTS:ExecutableType="STOCK:FOREACHLOOP"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Loading source excel files">
+      <DTS:ForEachEnumerator
+        DTS:CreationName="Microsoft.ForEachFileEnumerator"
+        DTS:DTSID="{7F58AC73-449B-4A8F-9E27-3E4EB9925FDE}"
+        DTS:ObjectName="{16B6AB6B-D1B4-4F4B-87E8-D100DE41703D}">
+        <DTS:PropertyExpression
+          DTS:Name="Directory">@[$Project::Excel_File_Path]</DTS:PropertyExpression>
+        <DTS:PropertyExpression
+          DTS:Name="FileSpec">@[$Project::Excel_File_Extension]</DTS:PropertyExpression>
+        <DTS:ObjectData>
+          <ForEachFileEnumeratorProperties>
+            <FEFEProperty
+              Folder="\\atl-sql01\f$\Vanran_Test" />
+            <FEFEProperty
+              FileSpec="*.xlsx" />
+            <FEFEProperty
+              FileNameRetrievalType="0" />
+            <FEFEProperty
+              Recurse="0" />
+          </ForEachFileEnumeratorProperties>
+        </DTS:ObjectData>
+      </DTS:ForEachEnumerator>
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Loading source excel files\DFT_Order"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:DelayValidation="True"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{D274794A-401A-4FE3-AF07-D4E2B70143D2}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DFT_Order"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Loading source excel files\DFT_Order\Data Conversion"
+                  componentClassID="Microsoft.DataConvert"
+                  contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Data Conversion"
+                  name="Data Conversion"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\Loading source excel files\DFT_Order\Data Conversion.Inputs[Data Conversion Input]"
+                      name="Data Conversion Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Loading source excel files\DFT_Order\Data Conversion.Inputs[Data Conversion Input].Columns[Action]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Action"
+                          lineageId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].Columns[Action]" />
+                        <inputColumn
+                          refId="Package\Loading source excel files\DFT_Order\Data Conversion.Inputs[Data Conversion Input].Columns[status]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="status"
+                          lineageId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].Columns[status]" />
+                        <inputColumn
+                          refId="Package\Loading source excel files\DFT_Order\Data Conversion.Inputs[Data Conversion Input].Columns[Root_Domain]"
+                          cachedDataType="r8"
+                          cachedName="Root_Domain"
+                          lineageId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].Columns[Root_Domain]" />
+                        <inputColumn
+                          refId="Package\Loading source excel files\DFT_Order\Data Conversion.Inputs[Data Conversion Input].Columns[Customer]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Customer"
+                          lineageId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].Columns[Customer]" />
+                        <inputColumn
+                          refId="Package\Loading source excel files\DFT_Order\Data Conversion.Inputs[Data Conversion Input].Columns[order_customer]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="order_customer"
+                          lineageId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].Columns[order_customer]" />
+                        <inputColumn
+                          refId="Package\Loading source excel files\DFT_Order\Data Conversion.Inputs[Data Conversion Input].Columns[order_action]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="order_action"
+                          lineageId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].Columns[order_action]" />
+                        <inputColumn
+                          refId="Package\Loading source excel files\DFT_Order\Data Conversion.Inputs[Data Conversion Input].Columns[order_type]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="order_type"
+                          lineageId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].Columns[order_type]" />
+                        <inputColumn
+                          refId="Package\Loading source excel files\DFT_Order\Data Conversion.Inputs[Data Conversion Input].Columns[order_no]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="order_no"
+                          lineageId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].Columns[order_no]" />
+                        <inputColumn
+                          refId="Package\Loading source excel files\DFT_Order\Data Conversion.Inputs[Data Conversion Input].Columns[order_label]"
+                          cachedDataType="r8"
+                          cachedName="order_label"
+                          lineageId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].Columns[order_label]" />
+                        <inputColumn
+                          refId="Package\Loading source excel files\DFT_Order\Data Conversion.Inputs[Data Conversion Input].Columns[created_by]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="created_by"
+                          lineageId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].Columns[created_by]" />
+                        <inputColumn
+                          refId="Package\Loading source excel files\DFT_Order\Data Conversion.Inputs[Data Conversion Input].Columns[monthly_value]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="monthly_value"
+                          lineageId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].Columns[monthly_value]" />
+                        <inputColumn
+                          refId="Package\Loading source excel files\DFT_Order\Data Conversion.Inputs[Data Conversion Input].Columns[monthly_value_currency]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="monthly_value_currency"
+                          lineageId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].Columns[monthly_value_currency]" />
+                        <inputColumn
+                          refId="Package\Loading source excel files\DFT_Order\Data Conversion.Inputs[Data Conversion Input].Columns[monthly_cost]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="monthly_cost"
+                          lineageId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].Columns[monthly_cost]" />
+                        <inputColumn
+                          refId="Package\Loading source excel files\DFT_Order\Data Conversion.Inputs[Data Conversion Input].Columns[monthly_cost_currency]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="monthly_cost_currency"
+                          lineageId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].Columns[monthly_cost_currency]" />
+                        <inputColumn
+                          refId="Package\Loading source excel files\DFT_Order\Data Conversion.Inputs[Data Conversion Input].Columns[margin]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="margin"
+                          lineageId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].Columns[margin]" />
+                        <inputColumn
+                          refId="Package\Loading source excel files\DFT_Order\Data Conversion.Inputs[Data Conversion Input].Columns[accepted_by]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="accepted_by"
+                          lineageId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].Columns[accepted_by]" />
+                        <inputColumn
+                          refId="Package\Loading source excel files\DFT_Order\Data Conversion.Inputs[Data Conversion Input].Columns[fulfilled_date]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="fulfilled_date"
+                          lineageId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].Columns[fulfilled_date]" />
+                        <inputColumn
+                          refId="Package\Loading source excel files\DFT_Order\Data Conversion.Inputs[Data Conversion Input].Columns[last_modified]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="last_modified"
+                          lineageId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].Columns[last_modified]" />
+                        <inputColumn
+                          refId="Package\Loading source excel files\DFT_Order\Data Conversion.Inputs[Data Conversion Input].Columns[auto_accepted]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="auto_accepted"
+                          lineageId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].Columns[auto_accepted]" />
+                        <inputColumn
+                          refId="Package\Loading source excel files\DFT_Order\Data Conversion.Inputs[Data Conversion Input].Columns[zero_cost_expiry_date]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="zero_cost_expiry_date"
+                          lineageId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].Columns[zero_cost_expiry_date]" />
+                        <inputColumn
+                          refId="Package\Loading source excel files\DFT_Order\Data Conversion.Inputs[Data Conversion Input].Columns[sku]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="sku"
+                          lineageId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].Columns[sku]" />
+                        <inputColumn
+                          refId="Package\Loading source excel files\DFT_Order\Data Conversion.Inputs[Data Conversion Input].Columns[quantity]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="quantity"
+                          lineageId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].Columns[quantity]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Loading source excel files\DFT_Order\Data Conversion.Outputs[Data Conversion Output]"
+                      exclusionGroup="1"
+                      name="Data Conversion Output"
+                      synchronousInputId="Package\Loading source excel files\DFT_Order\Data Conversion.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Loading source excel files\DFT_Order\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Action]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="25"
+                          lineageId="Package\Loading source excel files\DFT_Order\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Action]"
+                          name="Copy of Action"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].Columns[Action]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Loading source excel files\DFT_Order\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of status]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="25"
+                          lineageId="Package\Loading source excel files\DFT_Order\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of status]"
+                          name="Copy of status"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].Columns[status]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Loading source excel files\DFT_Order\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Root_Domain]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="25"
+                          lineageId="Package\Loading source excel files\DFT_Order\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Root_Domain]"
+                          name="Copy of Root_Domain"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].Columns[Root_Domain]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Loading source excel files\DFT_Order\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Customer]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="25"
+                          lineageId="Package\Loading source excel files\DFT_Order\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Customer]"
+                          name="Copy of Customer"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].Columns[Customer]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Loading source excel files\DFT_Order\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of order_customer]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="225"
+                          lineageId="Package\Loading source excel files\DFT_Order\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of order_customer]"
+                          name="Copy of order_customer"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].Columns[order_customer]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Loading source excel files\DFT_Order\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of order_action]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="25"
+                          lineageId="Package\Loading source excel files\DFT_Order\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of order_action]"
+                          name="Copy of order_action"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].Columns[order_action]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Loading source excel files\DFT_Order\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of order_type]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="10"
+                          lineageId="Package\Loading source excel files\DFT_Order\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of order_type]"
+                          name="Copy of order_type"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].Columns[order_type]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Loading source excel files\DFT_Order\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of order_no]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="225"
+                          lineageId="Package\Loading source excel files\DFT_Order\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of order_no]"
+                          name="Copy of order_no"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].Columns[order_no]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Loading source excel files\DFT_Order\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of order_label]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="32"
+                          lineageId="Package\Loading source excel files\DFT_Order\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of order_label]"
+                          name="Copy of order_label"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].Columns[order_label]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Loading source excel files\DFT_Order\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of created_by]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="225"
+                          lineageId="Package\Loading source excel files\DFT_Order\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of created_by]"
+                          name="Copy of created_by"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].Columns[created_by]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Loading source excel files\DFT_Order\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of monthly_value]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Loading source excel files\DFT_Order\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of monthly_value]"
+                          name="Copy of monthly_value"
+                          precision="18"
+                          scale="2"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].Columns[monthly_value]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Loading source excel files\DFT_Order\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of monthly_value_currency]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="10"
+                          lineageId="Package\Loading source excel files\DFT_Order\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of monthly_value_currency]"
+                          name="Copy of monthly_value_currency"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].Columns[monthly_value_currency]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Loading source excel files\DFT_Order\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of monthly_cost]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Loading source excel files\DFT_Order\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of monthly_cost]"
+                          name="Copy of monthly_cost"
+                          precision="18"
+                          scale="2"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].Columns[monthly_cost]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Loading source excel files\DFT_Order\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of monthly_cost_currency]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="10"
+                          lineageId="Package\Loading source excel files\DFT_Order\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of monthly_cost_currency]"
+                          name="Copy of monthly_cost_currency"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].Columns[monthly_cost_currency]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Loading source excel files\DFT_Order\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of margin]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Loading source excel files\DFT_Order\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of margin]"
+                          name="Copy of margin"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].Columns[margin]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Loading source excel files\DFT_Order\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of accepted_by]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="225"
+                          lineageId="Package\Loading source excel files\DFT_Order\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of accepted_by]"
+                          name="Copy of accepted_by"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].Columns[accepted_by]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Loading source excel files\DFT_Order\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of fulfilled_date]"
+                          dataType="dbTimeStamp2"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Loading source excel files\DFT_Order\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of fulfilled_date]"
+                          name="Copy of fulfilled_date"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].Columns[fulfilled_date]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Loading source excel files\DFT_Order\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of last_modified]"
+                          dataType="dbTimeStamp2"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Loading source excel files\DFT_Order\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of last_modified]"
+                          name="Copy of last_modified"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].Columns[last_modified]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Loading source excel files\DFT_Order\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of auto_accepted]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="10"
+                          lineageId="Package\Loading source excel files\DFT_Order\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of auto_accepted]"
+                          name="Copy of auto_accepted"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].Columns[auto_accepted]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Loading source excel files\DFT_Order\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of zero_cost_expiry_date]"
+                          dataType="dbTimeStamp2"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Loading source excel files\DFT_Order\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of zero_cost_expiry_date]"
+                          name="Copy of zero_cost_expiry_date"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].Columns[zero_cost_expiry_date]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Loading source excel files\DFT_Order\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of sku]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="50"
+                          lineageId="Package\Loading source excel files\DFT_Order\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of sku]"
+                          name="Copy of sku"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].Columns[sku]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Loading source excel files\DFT_Order\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of quantity]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Loading source excel files\DFT_Order\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of quantity]"
+                          name="Copy of quantity"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].Columns[quantity]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Loading source excel files\DFT_Order\Data Conversion.Outputs[Data Conversion Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Data Conversion Error Output"
+                      synchronousInputId="Package\Loading source excel files\DFT_Order\Data Conversion.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Loading source excel files\DFT_Order\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Loading source excel files\DFT_Order\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Loading source excel files\DFT_Order\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Loading source excel files\DFT_Order\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Loading source excel files\DFT_Order\Derived Column"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="Derived Column"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\Loading source excel files\DFT_Order\Derived Column.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Loading source excel files\DFT_Order\Derived Column.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\Loading source excel files\DFT_Order\Derived Column.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Loading source excel files\DFT_Order\Derived Column.Outputs[Derived Column Output].Columns[Der_Source_Type]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          length="10"
+                          lineageId="Package\Loading source excel files\DFT_Order\Derived Column.Outputs[Derived Column Output].Columns[Der_Source_Type]"
+                          name="Der_Source_Type"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">(DT_STR,10,1252)"Excel"</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">(DT_STR,10,1252)"Excel"</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Loading source excel files\DFT_Order\Derived Column.Outputs[Derived Column Output].Columns[Der_Is_Valid]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Loading source excel files\DFT_Order\Derived Column.Outputs[Derived Column Output].Columns[Der_Is_Valid]"
+                          name="Der_Is_Valid"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">1</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">1</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Loading source excel files\DFT_Order\Derived Column.Outputs[Derived Column Output].Columns[Der_File_Identifier]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Loading source excel files\DFT_Order\Derived Column.Outputs[Derived Column Output].Columns[Der_File_Identifier]"
+                          name="Der_File_Identifier"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">@[User::File_Identifier]</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">@[User::File_Identifier]</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Loading source excel files\DFT_Order\Derived Column.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\Loading source excel files\DFT_Order\Derived Column.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Loading source excel files\DFT_Order\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Loading source excel files\DFT_Order\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Loading source excel files\DFT_Order\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Loading source excel files\DFT_Order\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Loading source excel files\DFT_Order\Excel_Order"
+                  componentClassID="Microsoft.ExcelSource"
+                  contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Excel Source"
+                  name="Excel_Order"
+                  usesDispositions="true"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">Order$A53:Y</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mapping from parameters in the SQL command to variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Loading source excel files\DFT_Order\Excel_Order.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[Excel Connection Manager]"
+                      connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output]"
+                      name="Excel Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].Columns[Action]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].ExternalColumns[Action]"
+                          length="255"
+                          lineageId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].Columns[Action]"
+                          name="Action"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].Columns[status]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].ExternalColumns[status]"
+                          length="255"
+                          lineageId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].Columns[status]"
+                          name="status"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].Columns[Root_Domain]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].ExternalColumns[Root_Domain]"
+                          lineageId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].Columns[Root_Domain]"
+                          name="Root_Domain"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].Columns[Customer]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].ExternalColumns[Customer]"
+                          length="255"
+                          lineageId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].Columns[Customer]"
+                          name="Customer"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].Columns[order_customer]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].ExternalColumns[order_customer]"
+                          length="255"
+                          lineageId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].Columns[order_customer]"
+                          name="order_customer"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].Columns[order_action]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].ExternalColumns[order_action]"
+                          length="255"
+                          lineageId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].Columns[order_action]"
+                          name="order_action"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].Columns[order_type]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].ExternalColumns[order_type]"
+                          length="255"
+                          lineageId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].Columns[order_type]"
+                          name="order_type"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].Columns[order_no]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].ExternalColumns[order_no]"
+                          length="255"
+                          lineageId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].Columns[order_no]"
+                          name="order_no"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].Columns[order_label]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].ExternalColumns[order_label]"
+                          lineageId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].Columns[order_label]"
+                          name="order_label"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].Columns[created_by]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].ExternalColumns[created_by]"
+                          length="255"
+                          lineageId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].Columns[created_by]"
+                          name="created_by"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].Columns[monthly_value]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].ExternalColumns[monthly_value]"
+                          length="255"
+                          lineageId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].Columns[monthly_value]"
+                          name="monthly_value"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].Columns[monthly_value_currency]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].ExternalColumns[monthly_value_currency]"
+                          length="255"
+                          lineageId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].Columns[monthly_value_currency]"
+                          name="monthly_value_currency"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].Columns[monthly_cost]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].ExternalColumns[monthly_cost]"
+                          length="255"
+                          lineageId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].Columns[monthly_cost]"
+                          name="monthly_cost"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].Columns[monthly_cost_currency]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].ExternalColumns[monthly_cost_currency]"
+                          length="255"
+                          lineageId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].Columns[monthly_cost_currency]"
+                          name="monthly_cost_currency"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].Columns[margin]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].ExternalColumns[margin]"
+                          length="255"
+                          lineageId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].Columns[margin]"
+                          name="margin"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].Columns[accepted_by]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].ExternalColumns[accepted_by]"
+                          length="255"
+                          lineageId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].Columns[accepted_by]"
+                          name="accepted_by"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].Columns[fulfilled_date]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].ExternalColumns[fulfilled_date]"
+                          length="255"
+                          lineageId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].Columns[fulfilled_date]"
+                          name="fulfilled_date"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].Columns[last_modified]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].ExternalColumns[last_modified]"
+                          length="255"
+                          lineageId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].Columns[last_modified]"
+                          name="last_modified"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].Columns[auto_accepted]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].ExternalColumns[auto_accepted]"
+                          length="255"
+                          lineageId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].Columns[auto_accepted]"
+                          name="auto_accepted"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].Columns[zero_cost_expiry_date]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].ExternalColumns[zero_cost_expiry_date]"
+                          length="255"
+                          lineageId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].Columns[zero_cost_expiry_date]"
+                          name="zero_cost_expiry_date"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].Columns[sku]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].ExternalColumns[sku]"
+                          length="255"
+                          lineageId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].Columns[sku]"
+                          name="sku"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].Columns[quantity]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].ExternalColumns[quantity]"
+                          length="255"
+                          lineageId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].Columns[quantity]"
+                          name="quantity"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].ExternalColumns[Action]"
+                          dataType="wstr"
+                          length="255"
+                          name="Action" />
+                        <externalMetadataColumn
+                          refId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].ExternalColumns[status]"
+                          dataType="wstr"
+                          length="255"
+                          name="status" />
+                        <externalMetadataColumn
+                          refId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].ExternalColumns[Root_Domain]"
+                          dataType="r8"
+                          name="Root_Domain" />
+                        <externalMetadataColumn
+                          refId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].ExternalColumns[Customer]"
+                          dataType="wstr"
+                          length="255"
+                          name="Customer" />
+                        <externalMetadataColumn
+                          refId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].ExternalColumns[order_customer]"
+                          dataType="wstr"
+                          length="255"
+                          name="order_customer" />
+                        <externalMetadataColumn
+                          refId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].ExternalColumns[order_action]"
+                          dataType="wstr"
+                          length="255"
+                          name="order_action" />
+                        <externalMetadataColumn
+                          refId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].ExternalColumns[order_type]"
+                          dataType="wstr"
+                          length="255"
+                          name="order_type" />
+                        <externalMetadataColumn
+                          refId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].ExternalColumns[order_no]"
+                          dataType="wstr"
+                          length="255"
+                          name="order_no" />
+                        <externalMetadataColumn
+                          refId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].ExternalColumns[order_label]"
+                          dataType="r8"
+                          name="order_label" />
+                        <externalMetadataColumn
+                          refId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].ExternalColumns[created_by]"
+                          dataType="wstr"
+                          length="255"
+                          name="created_by" />
+                        <externalMetadataColumn
+                          refId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].ExternalColumns[monthly_value]"
+                          dataType="wstr"
+                          length="255"
+                          name="monthly_value" />
+                        <externalMetadataColumn
+                          refId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].ExternalColumns[monthly_value_currency]"
+                          dataType="wstr"
+                          length="255"
+                          name="monthly_value_currency" />
+                        <externalMetadataColumn
+                          refId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].ExternalColumns[monthly_cost]"
+                          dataType="wstr"
+                          length="255"
+                          name="monthly_cost" />
+                        <externalMetadataColumn
+                          refId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].ExternalColumns[monthly_cost_currency]"
+                          dataType="wstr"
+                          length="255"
+                          name="monthly_cost_currency" />
+                        <externalMetadataColumn
+                          refId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].ExternalColumns[margin]"
+                          dataType="wstr"
+                          length="255"
+                          name="margin" />
+                        <externalMetadataColumn
+                          refId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].ExternalColumns[accepted_by]"
+                          dataType="wstr"
+                          length="255"
+                          name="accepted_by" />
+                        <externalMetadataColumn
+                          refId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].ExternalColumns[fulfilled_date]"
+                          dataType="wstr"
+                          length="255"
+                          name="fulfilled_date" />
+                        <externalMetadataColumn
+                          refId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].ExternalColumns[last_modified]"
+                          dataType="wstr"
+                          length="255"
+                          name="last_modified" />
+                        <externalMetadataColumn
+                          refId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].ExternalColumns[auto_accepted]"
+                          dataType="wstr"
+                          length="255"
+                          name="auto_accepted" />
+                        <externalMetadataColumn
+                          refId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].ExternalColumns[zero_cost_expiry_date]"
+                          dataType="wstr"
+                          length="255"
+                          name="zero_cost_expiry_date" />
+                        <externalMetadataColumn
+                          refId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].ExternalColumns[sku]"
+                          dataType="wstr"
+                          length="255"
+                          name="sku" />
+                        <externalMetadataColumn
+                          refId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output].ExternalColumns[quantity]"
+                          dataType="wstr"
+                          length="255"
+                          name="quantity" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Error Output]"
+                      isErrorOut="true"
+                      name="Excel Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                        <outputColumn
+                          refId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Error Output].Columns[Action]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Error Output].Columns[Action]"
+                          name="Action" />
+                        <outputColumn
+                          refId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Error Output].Columns[status]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Error Output].Columns[status]"
+                          name="status" />
+                        <outputColumn
+                          refId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Error Output].Columns[Root_Domain]"
+                          dataType="r8"
+                          lineageId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Error Output].Columns[Root_Domain]"
+                          name="Root_Domain" />
+                        <outputColumn
+                          refId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Error Output].Columns[Customer]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Error Output].Columns[Customer]"
+                          name="Customer" />
+                        <outputColumn
+                          refId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Error Output].Columns[order_customer]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Error Output].Columns[order_customer]"
+                          name="order_customer" />
+                        <outputColumn
+                          refId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Error Output].Columns[order_action]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Error Output].Columns[order_action]"
+                          name="order_action" />
+                        <outputColumn
+                          refId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Error Output].Columns[order_type]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Error Output].Columns[order_type]"
+                          name="order_type" />
+                        <outputColumn
+                          refId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Error Output].Columns[order_no]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Error Output].Columns[order_no]"
+                          name="order_no" />
+                        <outputColumn
+                          refId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Error Output].Columns[order_label]"
+                          dataType="r8"
+                          lineageId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Error Output].Columns[order_label]"
+                          name="order_label" />
+                        <outputColumn
+                          refId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Error Output].Columns[created_by]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Error Output].Columns[created_by]"
+                          name="created_by" />
+                        <outputColumn
+                          refId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Error Output].Columns[monthly_value]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Error Output].Columns[monthly_value]"
+                          name="monthly_value" />
+                        <outputColumn
+                          refId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Error Output].Columns[monthly_value_currency]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Error Output].Columns[monthly_value_currency]"
+                          name="monthly_value_currency" />
+                        <outputColumn
+                          refId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Error Output].Columns[monthly_cost]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Error Output].Columns[monthly_cost]"
+                          name="monthly_cost" />
+                        <outputColumn
+                          refId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Error Output].Columns[monthly_cost_currency]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Error Output].Columns[monthly_cost_currency]"
+                          name="monthly_cost_currency" />
+                        <outputColumn
+                          refId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Error Output].Columns[margin]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Error Output].Columns[margin]"
+                          name="margin" />
+                        <outputColumn
+                          refId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Error Output].Columns[accepted_by]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Error Output].Columns[accepted_by]"
+                          name="accepted_by" />
+                        <outputColumn
+                          refId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Error Output].Columns[fulfilled_date]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Error Output].Columns[fulfilled_date]"
+                          name="fulfilled_date" />
+                        <outputColumn
+                          refId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Error Output].Columns[last_modified]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Error Output].Columns[last_modified]"
+                          name="last_modified" />
+                        <outputColumn
+                          refId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Error Output].Columns[auto_accepted]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Error Output].Columns[auto_accepted]"
+                          name="auto_accepted" />
+                        <outputColumn
+                          refId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Error Output].Columns[zero_cost_expiry_date]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Error Output].Columns[zero_cost_expiry_date]"
+                          name="zero_cost_expiry_date" />
+                        <outputColumn
+                          refId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Error Output].Columns[sku]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Error Output].Columns[sku]"
+                          name="sku" />
+                        <outputColumn
+                          refId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Error Output].Columns[quantity]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Error Output].Columns[quantity]"
+                          name="quantity" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Loading source excel files\DFT_Order\Load_Order"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="Load_Order"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[Order]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Loading source excel files\DFT_Order\Load_Order.Connections[OleDbConnection]"
+                      connectionManagerID="{E0E6DC88-A9A1-4A51-8B19-958C1AD76267}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[ODS_Vanran_Ribbon]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Loading source excel files\DFT_Order\Load_Order.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Loading source excel files\DFT_Order\Load_Order.Inputs[OLE DB Destination Input].Columns[Copy of Action]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="25"
+                          cachedName="Copy of Action"
+                          externalMetadataColumnId="Package\Loading source excel files\DFT_Order\Load_Order.Inputs[OLE DB Destination Input].ExternalColumns[Action]"
+                          lineageId="Package\Loading source excel files\DFT_Order\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Action]" />
+                        <inputColumn
+                          refId="Package\Loading source excel files\DFT_Order\Load_Order.Inputs[OLE DB Destination Input].Columns[Copy of status]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="25"
+                          cachedName="Copy of status"
+                          externalMetadataColumnId="Package\Loading source excel files\DFT_Order\Load_Order.Inputs[OLE DB Destination Input].ExternalColumns[status]"
+                          lineageId="Package\Loading source excel files\DFT_Order\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of status]" />
+                        <inputColumn
+                          refId="Package\Loading source excel files\DFT_Order\Load_Order.Inputs[OLE DB Destination Input].Columns[Copy of Root_Domain]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="25"
+                          cachedName="Copy of Root_Domain"
+                          externalMetadataColumnId="Package\Loading source excel files\DFT_Order\Load_Order.Inputs[OLE DB Destination Input].ExternalColumns[Root_Domain]"
+                          lineageId="Package\Loading source excel files\DFT_Order\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Root_Domain]" />
+                        <inputColumn
+                          refId="Package\Loading source excel files\DFT_Order\Load_Order.Inputs[OLE DB Destination Input].Columns[Copy of Customer]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="25"
+                          cachedName="Copy of Customer"
+                          externalMetadataColumnId="Package\Loading source excel files\DFT_Order\Load_Order.Inputs[OLE DB Destination Input].ExternalColumns[Customer]"
+                          lineageId="Package\Loading source excel files\DFT_Order\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Customer]" />
+                        <inputColumn
+                          refId="Package\Loading source excel files\DFT_Order\Load_Order.Inputs[OLE DB Destination Input].Columns[Der_File_Identifier]"
+                          cachedDataType="i4"
+                          cachedName="Der_File_Identifier"
+                          externalMetadataColumnId="Package\Loading source excel files\DFT_Order\Load_Order.Inputs[OLE DB Destination Input].ExternalColumns[File_Identifier]"
+                          lineageId="Package\Loading source excel files\DFT_Order\Derived Column.Outputs[Derived Column Output].Columns[Der_File_Identifier]" />
+                        <inputColumn
+                          refId="Package\Loading source excel files\DFT_Order\Load_Order.Inputs[OLE DB Destination Input].Columns[Copy of order_customer]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="225"
+                          cachedName="Copy of order_customer"
+                          externalMetadataColumnId="Package\Loading source excel files\DFT_Order\Load_Order.Inputs[OLE DB Destination Input].ExternalColumns[order_customer]"
+                          lineageId="Package\Loading source excel files\DFT_Order\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of order_customer]" />
+                        <inputColumn
+                          refId="Package\Loading source excel files\DFT_Order\Load_Order.Inputs[OLE DB Destination Input].Columns[Copy of order_action]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="25"
+                          cachedName="Copy of order_action"
+                          externalMetadataColumnId="Package\Loading source excel files\DFT_Order\Load_Order.Inputs[OLE DB Destination Input].ExternalColumns[order_action]"
+                          lineageId="Package\Loading source excel files\DFT_Order\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of order_action]" />
+                        <inputColumn
+                          refId="Package\Loading source excel files\DFT_Order\Load_Order.Inputs[OLE DB Destination Input].Columns[Copy of order_type]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="10"
+                          cachedName="Copy of order_type"
+                          externalMetadataColumnId="Package\Loading source excel files\DFT_Order\Load_Order.Inputs[OLE DB Destination Input].ExternalColumns[order_type]"
+                          lineageId="Package\Loading source excel files\DFT_Order\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of order_type]" />
+                        <inputColumn
+                          refId="Package\Loading source excel files\DFT_Order\Load_Order.Inputs[OLE DB Destination Input].Columns[Copy of order_no]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="225"
+                          cachedName="Copy of order_no"
+                          externalMetadataColumnId="Package\Loading source excel files\DFT_Order\Load_Order.Inputs[OLE DB Destination Input].ExternalColumns[order_no]"
+                          lineageId="Package\Loading source excel files\DFT_Order\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of order_no]" />
+                        <inputColumn
+                          refId="Package\Loading source excel files\DFT_Order\Load_Order.Inputs[OLE DB Destination Input].Columns[Copy of order_label]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="32"
+                          cachedName="Copy of order_label"
+                          externalMetadataColumnId="Package\Loading source excel files\DFT_Order\Load_Order.Inputs[OLE DB Destination Input].ExternalColumns[order_label]"
+                          lineageId="Package\Loading source excel files\DFT_Order\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of order_label]" />
+                        <inputColumn
+                          refId="Package\Loading source excel files\DFT_Order\Load_Order.Inputs[OLE DB Destination Input].Columns[Copy of created_by]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="225"
+                          cachedName="Copy of created_by"
+                          externalMetadataColumnId="Package\Loading source excel files\DFT_Order\Load_Order.Inputs[OLE DB Destination Input].ExternalColumns[created_by]"
+                          lineageId="Package\Loading source excel files\DFT_Order\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of created_by]" />
+                        <inputColumn
+                          refId="Package\Loading source excel files\DFT_Order\Load_Order.Inputs[OLE DB Destination Input].Columns[Copy of monthly_value]"
+                          cachedDataType="numeric"
+                          cachedName="Copy of monthly_value"
+                          cachedPrecision="18"
+                          cachedScale="2"
+                          externalMetadataColumnId="Package\Loading source excel files\DFT_Order\Load_Order.Inputs[OLE DB Destination Input].ExternalColumns[monthly_value]"
+                          lineageId="Package\Loading source excel files\DFT_Order\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of monthly_value]" />
+                        <inputColumn
+                          refId="Package\Loading source excel files\DFT_Order\Load_Order.Inputs[OLE DB Destination Input].Columns[Copy of monthly_value_currency]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="10"
+                          cachedName="Copy of monthly_value_currency"
+                          externalMetadataColumnId="Package\Loading source excel files\DFT_Order\Load_Order.Inputs[OLE DB Destination Input].ExternalColumns[monthly_value_currency]"
+                          lineageId="Package\Loading source excel files\DFT_Order\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of monthly_value_currency]" />
+                        <inputColumn
+                          refId="Package\Loading source excel files\DFT_Order\Load_Order.Inputs[OLE DB Destination Input].Columns[Copy of monthly_cost]"
+                          cachedDataType="numeric"
+                          cachedName="Copy of monthly_cost"
+                          cachedPrecision="18"
+                          cachedScale="2"
+                          externalMetadataColumnId="Package\Loading source excel files\DFT_Order\Load_Order.Inputs[OLE DB Destination Input].ExternalColumns[monthly_cost]"
+                          lineageId="Package\Loading source excel files\DFT_Order\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of monthly_cost]" />
+                        <inputColumn
+                          refId="Package\Loading source excel files\DFT_Order\Load_Order.Inputs[OLE DB Destination Input].Columns[Copy of monthly_cost_currency]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="10"
+                          cachedName="Copy of monthly_cost_currency"
+                          externalMetadataColumnId="Package\Loading source excel files\DFT_Order\Load_Order.Inputs[OLE DB Destination Input].ExternalColumns[monthly_cost_currency]"
+                          lineageId="Package\Loading source excel files\DFT_Order\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of monthly_cost_currency]" />
+                        <inputColumn
+                          refId="Package\Loading source excel files\DFT_Order\Load_Order.Inputs[OLE DB Destination Input].Columns[Copy of margin]"
+                          cachedDataType="i4"
+                          cachedName="Copy of margin"
+                          externalMetadataColumnId="Package\Loading source excel files\DFT_Order\Load_Order.Inputs[OLE DB Destination Input].ExternalColumns[margin]"
+                          lineageId="Package\Loading source excel files\DFT_Order\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of margin]" />
+                        <inputColumn
+                          refId="Package\Loading source excel files\DFT_Order\Load_Order.Inputs[OLE DB Destination Input].Columns[Copy of accepted_by]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="225"
+                          cachedName="Copy of accepted_by"
+                          externalMetadataColumnId="Package\Loading source excel files\DFT_Order\Load_Order.Inputs[OLE DB Destination Input].ExternalColumns[accepted_by]"
+                          lineageId="Package\Loading source excel files\DFT_Order\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of accepted_by]" />
+                        <inputColumn
+                          refId="Package\Loading source excel files\DFT_Order\Load_Order.Inputs[OLE DB Destination Input].Columns[Copy of fulfilled_date]"
+                          cachedDataType="dbTimeStamp2"
+                          cachedName="Copy of fulfilled_date"
+                          externalMetadataColumnId="Package\Loading source excel files\DFT_Order\Load_Order.Inputs[OLE DB Destination Input].ExternalColumns[fulfilled_date]"
+                          lineageId="Package\Loading source excel files\DFT_Order\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of fulfilled_date]" />
+                        <inputColumn
+                          refId="Package\Loading source excel files\DFT_Order\Load_Order.Inputs[OLE DB Destination Input].Columns[Copy of last_modified]"
+                          cachedDataType="dbTimeStamp2"
+                          cachedName="Copy of last_modified"
+                          externalMetadataColumnId="Package\Loading source excel files\DFT_Order\Load_Order.Inputs[OLE DB Destination Input].ExternalColumns[last_modified]"
+                          lineageId="Package\Loading source excel files\DFT_Order\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of last_modified]" />
+                        <inputColumn
+                          refId="Package\Loading source excel files\DFT_Order\Load_Order.Inputs[OLE DB Destination Input].Columns[Copy of auto_accepted]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="10"
+                          cachedName="Copy of auto_accepted"
+                          externalMetadataColumnId="Package\Loading source excel files\DFT_Order\Load_Order.Inputs[OLE DB Destination Input].ExternalColumns[auto_accepted]"
+                          lineageId="Package\Loading source excel files\DFT_Order\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of auto_accepted]" />
+                        <inputColumn
+                          refId="Package\Loading source excel files\DFT_Order\Load_Order.Inputs[OLE DB Destination Input].Columns[Copy of zero_cost_expiry_date]"
+                          cachedDataType="dbTimeStamp2"
+                          cachedName="Copy of zero_cost_expiry_date"
+                          externalMetadataColumnId="Package\Loading source excel files\DFT_Order\Load_Order.Inputs[OLE DB Destination Input].ExternalColumns[zero_cost_expiry_date]"
+                          lineageId="Package\Loading source excel files\DFT_Order\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of zero_cost_expiry_date]" />
+                        <inputColumn
+                          refId="Package\Loading source excel files\DFT_Order\Load_Order.Inputs[OLE DB Destination Input].Columns[Copy of sku]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Copy of sku"
+                          externalMetadataColumnId="Package\Loading source excel files\DFT_Order\Load_Order.Inputs[OLE DB Destination Input].ExternalColumns[sku]"
+                          lineageId="Package\Loading source excel files\DFT_Order\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of sku]" />
+                        <inputColumn
+                          refId="Package\Loading source excel files\DFT_Order\Load_Order.Inputs[OLE DB Destination Input].Columns[Copy of quantity]"
+                          cachedDataType="i4"
+                          cachedName="Copy of quantity"
+                          externalMetadataColumnId="Package\Loading source excel files\DFT_Order\Load_Order.Inputs[OLE DB Destination Input].ExternalColumns[quantity]"
+                          lineageId="Package\Loading source excel files\DFT_Order\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of quantity]" />
+                        <inputColumn
+                          refId="Package\Loading source excel files\DFT_Order\Load_Order.Inputs[OLE DB Destination Input].Columns[Der_Is_Valid]"
+                          cachedDataType="i4"
+                          cachedName="Der_Is_Valid"
+                          externalMetadataColumnId="Package\Loading source excel files\DFT_Order\Load_Order.Inputs[OLE DB Destination Input].ExternalColumns[Is_Valid]"
+                          lineageId="Package\Loading source excel files\DFT_Order\Derived Column.Outputs[Derived Column Output].Columns[Der_Is_Valid]" />
+                        <inputColumn
+                          refId="Package\Loading source excel files\DFT_Order\Load_Order.Inputs[OLE DB Destination Input].Columns[Der_Source_Type]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="10"
+                          cachedName="Der_Source_Type"
+                          externalMetadataColumnId="Package\Loading source excel files\DFT_Order\Load_Order.Inputs[OLE DB Destination Input].ExternalColumns[Source_Type]"
+                          lineageId="Package\Loading source excel files\DFT_Order\Derived Column.Outputs[Derived Column Output].Columns[Der_Source_Type]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Loading source excel files\DFT_Order\Load_Order.Inputs[OLE DB Destination Input].ExternalColumns[Action]"
+                          codePage="1252"
+                          dataType="str"
+                          length="25"
+                          name="Action" />
+                        <externalMetadataColumn
+                          refId="Package\Loading source excel files\DFT_Order\Load_Order.Inputs[OLE DB Destination Input].ExternalColumns[Root_Domain]"
+                          codePage="1252"
+                          dataType="str"
+                          length="25"
+                          name="Root_Domain" />
+                        <externalMetadataColumn
+                          refId="Package\Loading source excel files\DFT_Order\Load_Order.Inputs[OLE DB Destination Input].ExternalColumns[Customer]"
+                          codePage="1252"
+                          dataType="str"
+                          length="25"
+                          name="Customer" />
+                        <externalMetadataColumn
+                          refId="Package\Loading source excel files\DFT_Order\Load_Order.Inputs[OLE DB Destination Input].ExternalColumns[status]"
+                          codePage="1252"
+                          dataType="str"
+                          length="25"
+                          name="status" />
+                        <externalMetadataColumn
+                          refId="Package\Loading source excel files\DFT_Order\Load_Order.Inputs[OLE DB Destination Input].ExternalColumns[Is_Valid]"
+                          dataType="bool"
+                          name="Is_Valid" />
+                        <externalMetadataColumn
+                          refId="Package\Loading source excel files\DFT_Order\Load_Order.Inputs[OLE DB Destination Input].ExternalColumns[Is_Valid_Reason]"
+                          codePage="1252"
+                          dataType="text"
+                          name="Is_Valid_Reason" />
+                        <externalMetadataColumn
+                          refId="Package\Loading source excel files\DFT_Order\Load_Order.Inputs[OLE DB Destination Input].ExternalColumns[Source_Type]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          name="Source_Type" />
+                        <externalMetadataColumn
+                          refId="Package\Loading source excel files\DFT_Order\Load_Order.Inputs[OLE DB Destination Input].ExternalColumns[File_Identifier]"
+                          dataType="i4"
+                          name="File_Identifier" />
+                        <externalMetadataColumn
+                          refId="Package\Loading source excel files\DFT_Order\Load_Order.Inputs[OLE DB Destination Input].ExternalColumns[order_customer]"
+                          codePage="1252"
+                          dataType="str"
+                          length="225"
+                          name="order_customer" />
+                        <externalMetadataColumn
+                          refId="Package\Loading source excel files\DFT_Order\Load_Order.Inputs[OLE DB Destination Input].ExternalColumns[order_action]"
+                          codePage="1252"
+                          dataType="str"
+                          length="25"
+                          name="order_action" />
+                        <externalMetadataColumn
+                          refId="Package\Loading source excel files\DFT_Order\Load_Order.Inputs[OLE DB Destination Input].ExternalColumns[order_type]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          name="order_type" />
+                        <externalMetadataColumn
+                          refId="Package\Loading source excel files\DFT_Order\Load_Order.Inputs[OLE DB Destination Input].ExternalColumns[order_no]"
+                          codePage="1252"
+                          dataType="str"
+                          length="225"
+                          name="order_no" />
+                        <externalMetadataColumn
+                          refId="Package\Loading source excel files\DFT_Order\Load_Order.Inputs[OLE DB Destination Input].ExternalColumns[order_label]"
+                          codePage="1252"
+                          dataType="str"
+                          length="32"
+                          name="order_label" />
+                        <externalMetadataColumn
+                          refId="Package\Loading source excel files\DFT_Order\Load_Order.Inputs[OLE DB Destination Input].ExternalColumns[created_by]"
+                          codePage="1252"
+                          dataType="str"
+                          length="225"
+                          name="created_by" />
+                        <externalMetadataColumn
+                          refId="Package\Loading source excel files\DFT_Order\Load_Order.Inputs[OLE DB Destination Input].ExternalColumns[monthly_value]"
+                          dataType="numeric"
+                          name="monthly_value"
+                          precision="18"
+                          scale="2" />
+                        <externalMetadataColumn
+                          refId="Package\Loading source excel files\DFT_Order\Load_Order.Inputs[OLE DB Destination Input].ExternalColumns[monthly_value_currency]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          name="monthly_value_currency" />
+                        <externalMetadataColumn
+                          refId="Package\Loading source excel files\DFT_Order\Load_Order.Inputs[OLE DB Destination Input].ExternalColumns[monthly_cost]"
+                          dataType="numeric"
+                          name="monthly_cost"
+                          precision="18"
+                          scale="2" />
+                        <externalMetadataColumn
+                          refId="Package\Loading source excel files\DFT_Order\Load_Order.Inputs[OLE DB Destination Input].ExternalColumns[monthly_cost_currency]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          name="monthly_cost_currency" />
+                        <externalMetadataColumn
+                          refId="Package\Loading source excel files\DFT_Order\Load_Order.Inputs[OLE DB Destination Input].ExternalColumns[margin]"
+                          dataType="i4"
+                          name="margin" />
+                        <externalMetadataColumn
+                          refId="Package\Loading source excel files\DFT_Order\Load_Order.Inputs[OLE DB Destination Input].ExternalColumns[accepted_by]"
+                          codePage="1252"
+                          dataType="str"
+                          length="225"
+                          name="accepted_by" />
+                        <externalMetadataColumn
+                          refId="Package\Loading source excel files\DFT_Order\Load_Order.Inputs[OLE DB Destination Input].ExternalColumns[fulfilled_date]"
+                          dataType="dbTimeStamp"
+                          name="fulfilled_date" />
+                        <externalMetadataColumn
+                          refId="Package\Loading source excel files\DFT_Order\Load_Order.Inputs[OLE DB Destination Input].ExternalColumns[last_modified]"
+                          dataType="dbTimeStamp"
+                          name="last_modified" />
+                        <externalMetadataColumn
+                          refId="Package\Loading source excel files\DFT_Order\Load_Order.Inputs[OLE DB Destination Input].ExternalColumns[auto_accepted]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          name="auto_accepted" />
+                        <externalMetadataColumn
+                          refId="Package\Loading source excel files\DFT_Order\Load_Order.Inputs[OLE DB Destination Input].ExternalColumns[zero_cost_expiry_date]"
+                          dataType="dbTimeStamp"
+                          name="zero_cost_expiry_date" />
+                        <externalMetadataColumn
+                          refId="Package\Loading source excel files\DFT_Order\Load_Order.Inputs[OLE DB Destination Input].ExternalColumns[sku]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="sku" />
+                        <externalMetadataColumn
+                          refId="Package\Loading source excel files\DFT_Order\Load_Order.Inputs[OLE DB Destination Input].ExternalColumns[quantity]"
+                          dataType="i4"
+                          name="quantity" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Loading source excel files\DFT_Order\Load_Order.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Loading source excel files\DFT_Order\Load_Order.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Loading source excel files\DFT_Order\Load_Order.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Loading source excel files\DFT_Order\Load_Order.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Loading source excel files\DFT_Order\Load_Order.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Loading source excel files\DFT_Order\Load_Order.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Loading source excel files\DFT_Order.Paths[Data Conversion Output]"
+                  endId="Package\Loading source excel files\DFT_Order\Derived Column.Inputs[Derived Column Input]"
+                  name="Data Conversion Output"
+                  startId="Package\Loading source excel files\DFT_Order\Data Conversion.Outputs[Data Conversion Output]" />
+                <path
+                  refId="Package\Loading source excel files\DFT_Order.Paths[Derived Column Output]"
+                  endId="Package\Loading source excel files\DFT_Order\Load_Order.Inputs[OLE DB Destination Input]"
+                  name="Derived Column Output"
+                  startId="Package\Loading source excel files\DFT_Order\Derived Column.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\Loading source excel files\DFT_Order.Paths[Excel Source Output]"
+                  endId="Package\Loading source excel files\DFT_Order\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Excel Source Output"
+                  startId="Package\Loading source excel files\DFT_Order\Excel_Order.Outputs[Excel Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Loading source excel files\Get file identifier"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:DelayValidation="True"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{341CC32E-66CC-4F06-A69A-95406EBF86D8}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Get file identifier"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:PropertyExpression
+            DTS:Name="SqlStatementSource">@[User::File_Identifier_Query]</DTS:PropertyExpression>
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{E0E6DC88-A9A1-4A51-8B19-958C1AD76267}"
+              SQLTask:SqlStatementSource="&#xA;select File_Identifier from ODS.dbo.File_Load_Logs&#xA;where File_Name = RIGHT('', CHARINDEX('\', REVERSE(''))-1)&#xA;and Load_Date = (select max(Load_Date) from ODS.dbo.File_Load_Logs)&#xA;"
+              SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ResultBinding
+                SQLTask:ResultName="File_Identifier"
+                SQLTask:DtsVariableName="User::File_Identifier" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Loading source excel files.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{81D50D16-5751-4D4F-81AB-5F061164A413}"
+          DTS:From="Package\Loading source excel files\Get file identifier"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Loading source excel files\DFT_Order" />
+      </DTS:PrecedenceConstraints>
+      <DTS:ForEachVariableMappings>
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{E136E943-5CCD-41E1-B5D2-ED9DC52E91AF}"
+          DTS:ObjectName="{E136E943-5CCD-41E1-B5D2-ED9DC52E91AF}"
+          DTS:ValueIndex="0"
+          DTS:VariableName="User::File_Name" />
+      </DTS:ForEachVariableMappings>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate ODS table"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{EECBE09D-2831-479A-8B9D-F573E2620CB6}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate ODS table"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{E0E6DC88-A9A1-4A51-8B19-958C1AD76267}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE ODS.dbo.[Order]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Validation_ODS_Order"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{57770143-725F-41D9-BE63-219969BCE18F}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Validation_ODS_Order"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{E0E6DC88-A9A1-4A51-8B19-958C1AD76267}"
+          SQLTask:SqlStatementSource="EXEC [dbo].[usp_validation_ODS_Order]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{466E65B0-2AD4-466C-9D64-4332E827A6DA}"
+      DTS:From="Package\Loading source excel files"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Validation_ODS_Order" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{D5659569-FE26-4C6C-AA58-7E1307D81A7D}"
+      DTS:From="Package\Truncate ODS table"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Loading source excel files" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{F40BA995-4D23-489C-A733-66AA2052562F}"
+      DTS:From="Package\Validation_ODS_Order"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\LoadArc_ODS_to_HIST_Order" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="230,42"
+          Id="Package\LoadArc_ODS_to_HIST_Order"
+          TopLeft="335,509" />
+        <NodeLayout
+          Size="135,42"
+          Id="Package\Loading source excel files\DFT_Order"
+          TopLeft="55,132" />
+        <NodeLayout
+          Size="159,42"
+          Id="Package\Loading source excel files\Get file identifier"
+          TopLeft="49,30" />
+        <EdgeLayout
+          Id="Package\Loading source excel files.PrecedenceConstraints[Constraint]"
+          TopLeft="125.5,72">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="270,229"
+          Size="270,272"
+          Id="Package\Loading source excel files"
+          TopLeft="326,96" />
+        <NodeLayout
+          Size="176,42"
+          Id="Package\Truncate ODS table"
+          TopLeft="376,9" />
+        <NodeLayout
+          Size="192,42"
+          Id="Package\Validation_ODS_Order"
+          TopLeft="359,416" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="458,368">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,48"
+              Start="0,0"
+              End="0,40.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,40.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="462.5,51">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,45"
+              Start="0,0"
+              End="0,37.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,37.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="452.5,458">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,51"
+              Start="0,0"
+              End="0,43.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,43.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Loading source excel files\DFT_Order">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="140,42"
+          Id="Package\Loading source excel files\DFT_Order\Excel_Order"
+          TopLeft="380,55" />
+        <NodeLayout
+          Size="158,42"
+          Id="Package\Loading source excel files\DFT_Order\Derived Column"
+          TopLeft="377,247" />
+        <NodeLayout
+          Size="161,42"
+          Id="Package\Loading source excel files\DFT_Order\Data Conversion"
+          TopLeft="376,151" />
+        <NodeLayout
+          Size="138,42"
+          Id="Package\Loading source excel files\DFT_Order\Load_Order"
+          TopLeft="387,345" />
+        <EdgeLayout
+          Id="Package\Loading source excel files\DFT_Order.Paths[Data Conversion Output]"
+          TopLeft="456.25,193">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,54"
+              Start="0,0"
+              End="0,46.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,46.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Loading source excel files\DFT_Order.Paths[Excel Source Output]"
+          TopLeft="453.25,97">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,54"
+              Start="0,0"
+              End="0,46.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,46.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Loading source excel files\DFT_Order.Paths[Derived Column Output]"
+          TopLeft="456,289">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,56"
+              Start="0,0"
+              End="0,48.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,48.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Loading source excel files\DFT_Order\Excel_Order">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Loading source excel files\DFT_Order\Load_Order">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

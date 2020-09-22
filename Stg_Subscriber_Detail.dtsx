@@ -1,0 +1,2432 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/22/2020 7:13:13 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="PREETISHK-LPT"
+  DTS:CreatorName="DATAFORTUNE\preetish.kharche"
+  DTS:DTSID="{29D25DA9-F8C3-432B-B0F1-AD059BCBDA53}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.123"
+  DTS:LocaleID="16393"
+  DTS:ObjectName="Stg_Subscriber_Detail"
+  DTS:PackageType="5"
+  DTS:VersionBuild="70"
+  DTS:VersionGUID="{39B64F7B-2AC6-4966-A944-C900F163CBAA}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{CA5A1321-B3C8-4C2F-AE84-5712632C4B12}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="ETL_Load_Time">
+      <DTS:VariableValue
+        DTS:DataType="7">7/8/2020 8:07:19 AM</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DFT_Subscriber_Detail"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{119FB327-FD69-488A-8E74-529A93645394}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT_Subscriber_Detail"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT_Subscriber_Detail\CS_CompareNonKeyColumns"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+              name="CS_CompareNonKeyColumns"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT_Subscriber_Detail\CS_CompareNonKeyColumns.Inputs[Conditional Split Input]"
+                  description="Input to the Conditional Split Transformation"
+                  name="Conditional Split Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT_Subscriber_Detail\CS_CompareNonKeyColumns.Inputs[Conditional Split Input].Columns[Checksumval]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="32"
+                      cachedName="Checksumval"
+                      lineageId="Package\DFT_Subscriber_Detail\Source_ODS.Outputs[OLE DB Source Output].Columns[Checksumval]" />
+                    <inputColumn
+                      refId="Package\DFT_Subscriber_Detail\CS_CompareNonKeyColumns.Inputs[Conditional Split Input].Columns[Lkp_Checksumval]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Lkp_Checksumval"
+                      lineageId="Package\DFT_Subscriber_Detail\Lkp_Arc.Outputs[Lookup Match Output].Columns[Lkp_Checksumval]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_Subscriber_Detail\CS_CompareNonKeyColumns.Outputs[Changed Records]"
+                  description="Output 1 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Changed Records"
+                  synchronousInputId="Package\DFT_Subscriber_Detail\CS_CompareNonKeyColumns.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">[REPLACENULL](#{Package\DFT_Subscriber_Detail\Source_ODS.Outputs[OLE DB Source Output].Columns[Checksumval]},"ZZZ") != [REPLACENULL](#{Package\DFT_Subscriber_Detail\Lkp_Arc.Outputs[Lookup Match Output].Columns[Lkp_Checksumval]},"ZZZ")</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">REPLACENULL(Checksumval,"ZZZ") != REPLACENULL(Lkp_Checksumval,"ZZZ")</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT_Subscriber_Detail\CS_CompareNonKeyColumns.Outputs[Conditional Split Default Output]"
+                  description="Default Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  name="Conditional Split Default Output"
+                  synchronousInputId="Package\DFT_Subscriber_Detail\CS_CompareNonKeyColumns.Inputs[Conditional Split Input]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT_Subscriber_Detail\CS_CompareNonKeyColumns.Outputs[Conditional Split Error Output]"
+                  description="Error Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Conditional Split Error Output"
+                  synchronousInputId="Package\DFT_Subscriber_Detail\CS_CompareNonKeyColumns.Inputs[Conditional Split Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Subscriber_Detail\CS_CompareNonKeyColumns.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Subscriber_Detail\CS_CompareNonKeyColumns.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_Subscriber_Detail\CS_CompareNonKeyColumns.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Subscriber_Detail\CS_CompareNonKeyColumns.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT_Subscriber_Detail\DC_NewFlag_N"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="DC_NewFlag_N"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT_Subscriber_Detail\DC_NewFlag_N.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_Subscriber_Detail\DC_NewFlag_N.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\DFT_Subscriber_Detail\DC_NewFlag_N.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Subscriber_Detail\DC_NewFlag_N.Outputs[Derived Column Output].Columns[dw_eff_strt_dttm]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT_Subscriber_Detail\DC_NewFlag_N.Outputs[Derived Column Output].Columns[dw_eff_strt_dttm]"
+                      name="dw_eff_strt_dttm"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_DBTIMESTAMP)@[User::ETL_Load_Time]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_DBTIMESTAMP)@[User::ETL_Load_Time]</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Subscriber_Detail\DC_NewFlag_N.Outputs[Derived Column Output].Columns[new_flag]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="1"
+                      lineageId="Package\DFT_Subscriber_Detail\DC_NewFlag_N.Outputs[Derived Column Output].Columns[new_flag]"
+                      name="new_flag"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_STR,1,1252)"N"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_STR,1,1252)"N"</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Subscriber_Detail\DC_NewFlag_N.Outputs[Derived Column Output].Columns[dw_crte_usrid]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="10"
+                      lineageId="Package\DFT_Subscriber_Detail\DC_NewFlag_N.Outputs[Derived Column Output].Columns[dw_crte_usrid]"
+                      name="dw_crte_usrid"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_STR,10,1252)"etlprocess"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_STR,10,1252)"etlprocess"</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT_Subscriber_Detail\DC_NewFlag_N.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\DFT_Subscriber_Detail\DC_NewFlag_N.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Subscriber_Detail\DC_NewFlag_N.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Subscriber_Detail\DC_NewFlag_N.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_Subscriber_Detail\DC_NewFlag_N.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Subscriber_Detail\DC_NewFlag_N.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT_Subscriber_Detail\DC_NewFlag_Y"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="DC_NewFlag_Y"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT_Subscriber_Detail\DC_NewFlag_Y.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_Subscriber_Detail\DC_NewFlag_Y.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\DFT_Subscriber_Detail\DC_NewFlag_Y.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Subscriber_Detail\DC_NewFlag_Y.Outputs[Derived Column Output].Columns[dw_eff_strt_dttm]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT_Subscriber_Detail\DC_NewFlag_Y.Outputs[Derived Column Output].Columns[dw_eff_strt_dttm]"
+                      name="dw_eff_strt_dttm"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_DBTIMESTAMP)@[User::ETL_Load_Time]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_DBTIMESTAMP)@[User::ETL_Load_Time]</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Subscriber_Detail\DC_NewFlag_Y.Outputs[Derived Column Output].Columns[new_flag]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="1"
+                      lineageId="Package\DFT_Subscriber_Detail\DC_NewFlag_Y.Outputs[Derived Column Output].Columns[new_flag]"
+                      name="new_flag"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_STR,1,1252)"Y"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_STR,1,1252)"Y"</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Subscriber_Detail\DC_NewFlag_Y.Outputs[Derived Column Output].Columns[dw_crte_usrid]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="10"
+                      lineageId="Package\DFT_Subscriber_Detail\DC_NewFlag_Y.Outputs[Derived Column Output].Columns[dw_crte_usrid]"
+                      name="dw_crte_usrid"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_STR,10,1252)"etlprocess"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_STR,10,1252)"etlprocess"</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT_Subscriber_Detail\DC_NewFlag_Y.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\DFT_Subscriber_Detail\DC_NewFlag_Y.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Subscriber_Detail\DC_NewFlag_Y.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Subscriber_Detail\DC_NewFlag_Y.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_Subscriber_Detail\DC_NewFlag_Y.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Subscriber_Detail\DC_NewFlag_Y.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT_Subscriber_Detail\Lkp_Arc"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Lkp_Arc"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT  [first_name]
+      ,[last_name]
+      ,[description]
+      ,[change]
+      ,[date]
+      ,[rate]
+      ,[charge]
+      ,[charge_currency]
+      ,[Checksumval] 
+FROM DW_HIST.dbo.Subscriber_Detail WHERE current_flag = 'Y'</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (SELECT  [first_name]
+      ,[last_name]
+      ,[description]
+      ,[change]
+      ,[date]
+      ,[rate]
+      ,[charge]
+      ,[charge_currency]
+      ,[Checksumval] 
+FROM DW_HIST.dbo.Subscriber_Detail WHERE current_flag = 'Y') [refTable]
+where [refTable].[first_name] = ? and [refTable].[last_name] = ? and [refTable].[description] = ? and [refTable].[change] = ? and [refTable].[date] = ? and [refTable].[rate] = ? and [refTable].[charge] = ? and [refTable].[charge_currency] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="first_name" dataType="DT_STR" length="100" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="last_name" dataType="DT_STR" length="100" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="description" dataType="DT_STR" length="500" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="change" dataType="DT_STR" length="100" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="date" dataType="DT_STR" length="20" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="rate" dataType="DT_NUMERIC" length="0" precision="8" scale="2" codePage="0"/&gt;&lt;referenceColumn name="charge" dataType="DT_NUMERIC" length="0" precision="8" scale="2" codePage="0"/&gt;&lt;referenceColumn name="charge_currency" dataType="DT_STR" length="10" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="Checksumval" dataType="DT_STR" length="100" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\DFT_Subscriber_Detail\Source_ODS.Outputs[OLE DB Source Output].Columns[first_name]};#{Package\DFT_Subscriber_Detail\Source_ODS.Outputs[OLE DB Source Output].Columns[last_name]};#{Package\DFT_Subscriber_Detail\Source_ODS.Outputs[OLE DB Source Output].Columns[description]};#{Package\DFT_Subscriber_Detail\Source_ODS.Outputs[OLE DB Source Output].Columns[change]};#{Package\DFT_Subscriber_Detail\Source_ODS.Outputs[OLE DB Source Output].Columns[date]};#{Package\DFT_Subscriber_Detail\Source_ODS.Outputs[OLE DB Source Output].Columns[rate]};#{Package\DFT_Subscriber_Detail\Source_ODS.Outputs[OLE DB Source Output].Columns[charge]};#{Package\DFT_Subscriber_Detail\Source_ODS.Outputs[OLE DB Source Output].Columns[charge_currency]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT_Subscriber_Detail\Lkp_Arc.Connections[OleDbConnection]"
+                  connectionManagerID="{05B7AD07-7614-46E5-A55A-1E46DA8444A4}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Hist_Vanran_Ribbon]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT_Subscriber_Detail\Lkp_Arc.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT_Subscriber_Detail\Lkp_Arc.Inputs[Lookup Input].Columns[last_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="last_name"
+                      lineageId="Package\DFT_Subscriber_Detail\Source_ODS.Outputs[OLE DB Source Output].Columns[last_name]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">last_name</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Subscriber_Detail\Lkp_Arc.Inputs[Lookup Input].Columns[first_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="first_name"
+                      lineageId="Package\DFT_Subscriber_Detail\Source_ODS.Outputs[OLE DB Source Output].Columns[first_name]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">first_name</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Subscriber_Detail\Lkp_Arc.Inputs[Lookup Input].Columns[description]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="description"
+                      lineageId="Package\DFT_Subscriber_Detail\Source_ODS.Outputs[OLE DB Source Output].Columns[description]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">description</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Subscriber_Detail\Lkp_Arc.Inputs[Lookup Input].Columns[change]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="change"
+                      lineageId="Package\DFT_Subscriber_Detail\Source_ODS.Outputs[OLE DB Source Output].Columns[change]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">change</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Subscriber_Detail\Lkp_Arc.Inputs[Lookup Input].Columns[date]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="date"
+                      lineageId="Package\DFT_Subscriber_Detail\Source_ODS.Outputs[OLE DB Source Output].Columns[date]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">date</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Subscriber_Detail\Lkp_Arc.Inputs[Lookup Input].Columns[rate]"
+                      cachedDataType="numeric"
+                      cachedName="rate"
+                      cachedPrecision="8"
+                      cachedScale="2"
+                      lineageId="Package\DFT_Subscriber_Detail\Source_ODS.Outputs[OLE DB Source Output].Columns[rate]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">rate</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Subscriber_Detail\Lkp_Arc.Inputs[Lookup Input].Columns[charge]"
+                      cachedDataType="numeric"
+                      cachedName="charge"
+                      cachedPrecision="8"
+                      cachedScale="2"
+                      lineageId="Package\DFT_Subscriber_Detail\Source_ODS.Outputs[OLE DB Source Output].Columns[charge]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">charge</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Subscriber_Detail\Lkp_Arc.Inputs[Lookup Input].Columns[charge_currency]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="charge_currency"
+                      lineageId="Package\DFT_Subscriber_Detail\Source_ODS.Outputs[OLE DB Source Output].Columns[charge_currency]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">charge_currency</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_Subscriber_Detail\Lkp_Arc.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\DFT_Subscriber_Detail\Lkp_Arc.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Subscriber_Detail\Lkp_Arc.Outputs[Lookup Match Output].Columns[Lkp_Checksumval]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Copy Column"
+                      length="100"
+                      lineageId="Package\DFT_Subscriber_Detail\Lkp_Arc.Outputs[Lookup Match Output].Columns[Lkp_Checksumval]"
+                      name="Lkp_Checksumval"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">Checksumval</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT_Subscriber_Detail\Lkp_Arc.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\DFT_Subscriber_Detail\Lkp_Arc.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT_Subscriber_Detail\Lkp_Arc.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\DFT_Subscriber_Detail\Lkp_Arc.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Subscriber_Detail\Lkp_Arc.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Subscriber_Detail\Lkp_Arc.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_Subscriber_Detail\Lkp_Arc.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Subscriber_Detail\Lkp_Arc.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT_Subscriber_Detail\Source_ODS"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Source_ODS"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Subscriber_Detail]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT_Subscriber_Detail\Source_ODS.Connections[OleDbConnection]"
+                  connectionManagerID="{E0E6DC88-A9A1-4A51-8B19-958C1AD76267}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[ODS_Vanran_Ribbon]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT_Subscriber_Detail\Source_ODS.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Subscriber_Detail\Source_ODS.Outputs[OLE DB Source Output].Columns[Root_Domain]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Subscriber_Detail\Source_ODS.Outputs[OLE DB Source Output].ExternalColumns[Root_Domain]"
+                      length="25"
+                      lineageId="Package\DFT_Subscriber_Detail\Source_ODS.Outputs[OLE DB Source Output].Columns[Root_Domain]"
+                      name="Root_Domain"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Subscriber_Detail\Source_ODS.Outputs[OLE DB Source Output].Columns[Customer]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Subscriber_Detail\Source_ODS.Outputs[OLE DB Source Output].ExternalColumns[Customer]"
+                      length="25"
+                      lineageId="Package\DFT_Subscriber_Detail\Source_ODS.Outputs[OLE DB Source Output].Columns[Customer]"
+                      name="Customer"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Subscriber_Detail\Source_ODS.Outputs[OLE DB Source Output].Columns[Action]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Subscriber_Detail\Source_ODS.Outputs[OLE DB Source Output].ExternalColumns[Action]"
+                      length="25"
+                      lineageId="Package\DFT_Subscriber_Detail\Source_ODS.Outputs[OLE DB Source Output].Columns[Action]"
+                      name="Action"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Subscriber_Detail\Source_ODS.Outputs[OLE DB Source Output].Columns[Checksumval]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Subscriber_Detail\Source_ODS.Outputs[OLE DB Source Output].ExternalColumns[Checksumval]"
+                      length="32"
+                      lineageId="Package\DFT_Subscriber_Detail\Source_ODS.Outputs[OLE DB Source Output].Columns[Checksumval]"
+                      name="Checksumval"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Subscriber_Detail\Source_ODS.Outputs[OLE DB Source Output].Columns[first_name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Subscriber_Detail\Source_ODS.Outputs[OLE DB Source Output].ExternalColumns[first_name]"
+                      length="100"
+                      lineageId="Package\DFT_Subscriber_Detail\Source_ODS.Outputs[OLE DB Source Output].Columns[first_name]"
+                      name="first_name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Subscriber_Detail\Source_ODS.Outputs[OLE DB Source Output].Columns[last_name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Subscriber_Detail\Source_ODS.Outputs[OLE DB Source Output].ExternalColumns[last_name]"
+                      length="100"
+                      lineageId="Package\DFT_Subscriber_Detail\Source_ODS.Outputs[OLE DB Source Output].Columns[last_name]"
+                      name="last_name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Subscriber_Detail\Source_ODS.Outputs[OLE DB Source Output].Columns[description]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Subscriber_Detail\Source_ODS.Outputs[OLE DB Source Output].ExternalColumns[description]"
+                      length="500"
+                      lineageId="Package\DFT_Subscriber_Detail\Source_ODS.Outputs[OLE DB Source Output].Columns[description]"
+                      name="description"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Subscriber_Detail\Source_ODS.Outputs[OLE DB Source Output].Columns[change]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Subscriber_Detail\Source_ODS.Outputs[OLE DB Source Output].ExternalColumns[change]"
+                      length="100"
+                      lineageId="Package\DFT_Subscriber_Detail\Source_ODS.Outputs[OLE DB Source Output].Columns[change]"
+                      name="change"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Subscriber_Detail\Source_ODS.Outputs[OLE DB Source Output].Columns[date]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Subscriber_Detail\Source_ODS.Outputs[OLE DB Source Output].ExternalColumns[date]"
+                      length="20"
+                      lineageId="Package\DFT_Subscriber_Detail\Source_ODS.Outputs[OLE DB Source Output].Columns[date]"
+                      name="date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Subscriber_Detail\Source_ODS.Outputs[OLE DB Source Output].Columns[rate]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Subscriber_Detail\Source_ODS.Outputs[OLE DB Source Output].ExternalColumns[rate]"
+                      lineageId="Package\DFT_Subscriber_Detail\Source_ODS.Outputs[OLE DB Source Output].Columns[rate]"
+                      name="rate"
+                      precision="8"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Subscriber_Detail\Source_ODS.Outputs[OLE DB Source Output].Columns[charge]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Subscriber_Detail\Source_ODS.Outputs[OLE DB Source Output].ExternalColumns[charge]"
+                      lineageId="Package\DFT_Subscriber_Detail\Source_ODS.Outputs[OLE DB Source Output].Columns[charge]"
+                      name="charge"
+                      precision="8"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Subscriber_Detail\Source_ODS.Outputs[OLE DB Source Output].Columns[charge_currency]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Subscriber_Detail\Source_ODS.Outputs[OLE DB Source Output].ExternalColumns[charge_currency]"
+                      length="10"
+                      lineageId="Package\DFT_Subscriber_Detail\Source_ODS.Outputs[OLE DB Source Output].Columns[charge_currency]"
+                      name="charge_currency"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT_Subscriber_Detail\Source_ODS.Outputs[OLE DB Source Output].ExternalColumns[Root_Domain]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      name="Root_Domain" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Subscriber_Detail\Source_ODS.Outputs[OLE DB Source Output].ExternalColumns[Customer]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      name="Customer" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Subscriber_Detail\Source_ODS.Outputs[OLE DB Source Output].ExternalColumns[Action]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      name="Action" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Subscriber_Detail\Source_ODS.Outputs[OLE DB Source Output].ExternalColumns[Checksumval]"
+                      codePage="1252"
+                      dataType="str"
+                      length="32"
+                      name="Checksumval" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Subscriber_Detail\Source_ODS.Outputs[OLE DB Source Output].ExternalColumns[Is_Sync]"
+                      dataType="bool"
+                      name="Is_Sync" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Subscriber_Detail\Source_ODS.Outputs[OLE DB Source Output].ExternalColumns[first_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="first_name" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Subscriber_Detail\Source_ODS.Outputs[OLE DB Source Output].ExternalColumns[last_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="last_name" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Subscriber_Detail\Source_ODS.Outputs[OLE DB Source Output].ExternalColumns[description]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="description" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Subscriber_Detail\Source_ODS.Outputs[OLE DB Source Output].ExternalColumns[change]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="change" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Subscriber_Detail\Source_ODS.Outputs[OLE DB Source Output].ExternalColumns[date]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="date" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Subscriber_Detail\Source_ODS.Outputs[OLE DB Source Output].ExternalColumns[rate]"
+                      dataType="numeric"
+                      name="rate"
+                      precision="8"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Subscriber_Detail\Source_ODS.Outputs[OLE DB Source Output].ExternalColumns[charge]"
+                      dataType="numeric"
+                      name="charge"
+                      precision="8"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Subscriber_Detail\Source_ODS.Outputs[OLE DB Source Output].ExternalColumns[charge_currency]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="charge_currency" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT_Subscriber_Detail\Source_ODS.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Subscriber_Detail\Source_ODS.Outputs[OLE DB Source Error Output].Columns[Root_Domain]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      lineageId="Package\DFT_Subscriber_Detail\Source_ODS.Outputs[OLE DB Source Error Output].Columns[Root_Domain]"
+                      name="Root_Domain" />
+                    <outputColumn
+                      refId="Package\DFT_Subscriber_Detail\Source_ODS.Outputs[OLE DB Source Error Output].Columns[Customer]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      lineageId="Package\DFT_Subscriber_Detail\Source_ODS.Outputs[OLE DB Source Error Output].Columns[Customer]"
+                      name="Customer" />
+                    <outputColumn
+                      refId="Package\DFT_Subscriber_Detail\Source_ODS.Outputs[OLE DB Source Error Output].Columns[Action]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      lineageId="Package\DFT_Subscriber_Detail\Source_ODS.Outputs[OLE DB Source Error Output].Columns[Action]"
+                      name="Action" />
+                    <outputColumn
+                      refId="Package\DFT_Subscriber_Detail\Source_ODS.Outputs[OLE DB Source Error Output].Columns[first_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\DFT_Subscriber_Detail\Source_ODS.Outputs[OLE DB Source Error Output].Columns[first_name]"
+                      name="first_name" />
+                    <outputColumn
+                      refId="Package\DFT_Subscriber_Detail\Source_ODS.Outputs[OLE DB Source Error Output].Columns[last_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\DFT_Subscriber_Detail\Source_ODS.Outputs[OLE DB Source Error Output].Columns[last_name]"
+                      name="last_name" />
+                    <outputColumn
+                      refId="Package\DFT_Subscriber_Detail\Source_ODS.Outputs[OLE DB Source Error Output].Columns[description]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      lineageId="Package\DFT_Subscriber_Detail\Source_ODS.Outputs[OLE DB Source Error Output].Columns[description]"
+                      name="description" />
+                    <outputColumn
+                      refId="Package\DFT_Subscriber_Detail\Source_ODS.Outputs[OLE DB Source Error Output].Columns[change]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\DFT_Subscriber_Detail\Source_ODS.Outputs[OLE DB Source Error Output].Columns[change]"
+                      name="change" />
+                    <outputColumn
+                      refId="Package\DFT_Subscriber_Detail\Source_ODS.Outputs[OLE DB Source Error Output].Columns[date]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\DFT_Subscriber_Detail\Source_ODS.Outputs[OLE DB Source Error Output].Columns[date]"
+                      name="date" />
+                    <outputColumn
+                      refId="Package\DFT_Subscriber_Detail\Source_ODS.Outputs[OLE DB Source Error Output].Columns[rate]"
+                      dataType="numeric"
+                      lineageId="Package\DFT_Subscriber_Detail\Source_ODS.Outputs[OLE DB Source Error Output].Columns[rate]"
+                      name="rate"
+                      precision="8"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\DFT_Subscriber_Detail\Source_ODS.Outputs[OLE DB Source Error Output].Columns[charge]"
+                      dataType="numeric"
+                      lineageId="Package\DFT_Subscriber_Detail\Source_ODS.Outputs[OLE DB Source Error Output].Columns[charge]"
+                      name="charge"
+                      precision="8"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\DFT_Subscriber_Detail\Source_ODS.Outputs[OLE DB Source Error Output].Columns[charge_currency]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\DFT_Subscriber_Detail\Source_ODS.Outputs[OLE DB Source Error Output].Columns[charge_currency]"
+                      name="charge_currency" />
+                    <outputColumn
+                      refId="Package\DFT_Subscriber_Detail\Source_ODS.Outputs[OLE DB Source Error Output].Columns[Checksumval]"
+                      codePage="1252"
+                      dataType="str"
+                      length="32"
+                      lineageId="Package\DFT_Subscriber_Detail\Source_ODS.Outputs[OLE DB Source Error Output].Columns[Checksumval]"
+                      name="Checksumval" />
+                    <outputColumn
+                      refId="Package\DFT_Subscriber_Detail\Source_ODS.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Subscriber_Detail\Source_ODS.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_Subscriber_Detail\Source_ODS.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Subscriber_Detail\Source_ODS.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT_Subscriber_Detail\Stg_Subscriber_Detail"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Stg_Subscriber_Detail"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Subscriber_Detail]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS,ROWS_PER_BATCH = 10000</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">10000</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT_Subscriber_Detail\Stg_Subscriber_Detail.Connections[OleDbConnection]"
+                  connectionManagerID="{4B2BAB6F-A5B2-4A58-BD25-0961304475AA}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Stg_Vanran_Ribbon]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT_Subscriber_Detail\Stg_Subscriber_Detail.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT_Subscriber_Detail\Stg_Subscriber_Detail.Inputs[OLE DB Destination Input].Columns[Root_Domain]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="25"
+                      cachedName="Root_Domain"
+                      externalMetadataColumnId="Package\DFT_Subscriber_Detail\Stg_Subscriber_Detail.Inputs[OLE DB Destination Input].ExternalColumns[Root_Domain]"
+                      lineageId="Package\DFT_Subscriber_Detail\Union All.Outputs[Union All Output 1].Columns[Root_Domain]" />
+                    <inputColumn
+                      refId="Package\DFT_Subscriber_Detail\Stg_Subscriber_Detail.Inputs[OLE DB Destination Input].Columns[Customer]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="25"
+                      cachedName="Customer"
+                      externalMetadataColumnId="Package\DFT_Subscriber_Detail\Stg_Subscriber_Detail.Inputs[OLE DB Destination Input].ExternalColumns[Customer]"
+                      lineageId="Package\DFT_Subscriber_Detail\Union All.Outputs[Union All Output 1].Columns[Customer]" />
+                    <inputColumn
+                      refId="Package\DFT_Subscriber_Detail\Stg_Subscriber_Detail.Inputs[OLE DB Destination Input].Columns[Action]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="25"
+                      cachedName="Action"
+                      externalMetadataColumnId="Package\DFT_Subscriber_Detail\Stg_Subscriber_Detail.Inputs[OLE DB Destination Input].ExternalColumns[Action]"
+                      lineageId="Package\DFT_Subscriber_Detail\Union All.Outputs[Union All Output 1].Columns[Action]" />
+                    <inputColumn
+                      refId="Package\DFT_Subscriber_Detail\Stg_Subscriber_Detail.Inputs[OLE DB Destination Input].Columns[Checksumval]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="32"
+                      cachedName="Checksumval"
+                      externalMetadataColumnId="Package\DFT_Subscriber_Detail\Stg_Subscriber_Detail.Inputs[OLE DB Destination Input].ExternalColumns[Checksumval]"
+                      lineageId="Package\DFT_Subscriber_Detail\Union All.Outputs[Union All Output 1].Columns[Checksumval]" />
+                    <inputColumn
+                      refId="Package\DFT_Subscriber_Detail\Stg_Subscriber_Detail.Inputs[OLE DB Destination Input].Columns[first_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="first_name"
+                      externalMetadataColumnId="Package\DFT_Subscriber_Detail\Stg_Subscriber_Detail.Inputs[OLE DB Destination Input].ExternalColumns[first_name]"
+                      lineageId="Package\DFT_Subscriber_Detail\Union All.Outputs[Union All Output 1].Columns[first_name]" />
+                    <inputColumn
+                      refId="Package\DFT_Subscriber_Detail\Stg_Subscriber_Detail.Inputs[OLE DB Destination Input].Columns[last_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="last_name"
+                      externalMetadataColumnId="Package\DFT_Subscriber_Detail\Stg_Subscriber_Detail.Inputs[OLE DB Destination Input].ExternalColumns[last_name]"
+                      lineageId="Package\DFT_Subscriber_Detail\Union All.Outputs[Union All Output 1].Columns[last_name]" />
+                    <inputColumn
+                      refId="Package\DFT_Subscriber_Detail\Stg_Subscriber_Detail.Inputs[OLE DB Destination Input].Columns[description]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="description"
+                      externalMetadataColumnId="Package\DFT_Subscriber_Detail\Stg_Subscriber_Detail.Inputs[OLE DB Destination Input].ExternalColumns[description]"
+                      lineageId="Package\DFT_Subscriber_Detail\Union All.Outputs[Union All Output 1].Columns[description]" />
+                    <inputColumn
+                      refId="Package\DFT_Subscriber_Detail\Stg_Subscriber_Detail.Inputs[OLE DB Destination Input].Columns[change]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="change"
+                      externalMetadataColumnId="Package\DFT_Subscriber_Detail\Stg_Subscriber_Detail.Inputs[OLE DB Destination Input].ExternalColumns[change]"
+                      lineageId="Package\DFT_Subscriber_Detail\Union All.Outputs[Union All Output 1].Columns[change]" />
+                    <inputColumn
+                      refId="Package\DFT_Subscriber_Detail\Stg_Subscriber_Detail.Inputs[OLE DB Destination Input].Columns[date]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="date"
+                      externalMetadataColumnId="Package\DFT_Subscriber_Detail\Stg_Subscriber_Detail.Inputs[OLE DB Destination Input].ExternalColumns[date]"
+                      lineageId="Package\DFT_Subscriber_Detail\Union All.Outputs[Union All Output 1].Columns[date]" />
+                    <inputColumn
+                      refId="Package\DFT_Subscriber_Detail\Stg_Subscriber_Detail.Inputs[OLE DB Destination Input].Columns[rate]"
+                      cachedDataType="numeric"
+                      cachedName="rate"
+                      cachedPrecision="8"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\DFT_Subscriber_Detail\Stg_Subscriber_Detail.Inputs[OLE DB Destination Input].ExternalColumns[rate]"
+                      lineageId="Package\DFT_Subscriber_Detail\Union All.Outputs[Union All Output 1].Columns[rate]" />
+                    <inputColumn
+                      refId="Package\DFT_Subscriber_Detail\Stg_Subscriber_Detail.Inputs[OLE DB Destination Input].Columns[charge]"
+                      cachedDataType="numeric"
+                      cachedName="charge"
+                      cachedPrecision="8"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\DFT_Subscriber_Detail\Stg_Subscriber_Detail.Inputs[OLE DB Destination Input].ExternalColumns[charge]"
+                      lineageId="Package\DFT_Subscriber_Detail\Union All.Outputs[Union All Output 1].Columns[charge]" />
+                    <inputColumn
+                      refId="Package\DFT_Subscriber_Detail\Stg_Subscriber_Detail.Inputs[OLE DB Destination Input].Columns[charge_currency]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="charge_currency"
+                      externalMetadataColumnId="Package\DFT_Subscriber_Detail\Stg_Subscriber_Detail.Inputs[OLE DB Destination Input].ExternalColumns[charge_currency]"
+                      lineageId="Package\DFT_Subscriber_Detail\Union All.Outputs[Union All Output 1].Columns[charge_currency]" />
+                    <inputColumn
+                      refId="Package\DFT_Subscriber_Detail\Stg_Subscriber_Detail.Inputs[OLE DB Destination Input].Columns[dw_eff_strt_dttm]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="dw_eff_strt_dttm"
+                      externalMetadataColumnId="Package\DFT_Subscriber_Detail\Stg_Subscriber_Detail.Inputs[OLE DB Destination Input].ExternalColumns[dw_eff_strt_dttm]"
+                      lineageId="Package\DFT_Subscriber_Detail\Union All.Outputs[Union All Output 1].Columns[dw_eff_strt_dttm]" />
+                    <inputColumn
+                      refId="Package\DFT_Subscriber_Detail\Stg_Subscriber_Detail.Inputs[OLE DB Destination Input].Columns[new_flag]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="new_flag"
+                      externalMetadataColumnId="Package\DFT_Subscriber_Detail\Stg_Subscriber_Detail.Inputs[OLE DB Destination Input].ExternalColumns[new_flag]"
+                      lineageId="Package\DFT_Subscriber_Detail\Union All.Outputs[Union All Output 1].Columns[new_flag]" />
+                    <inputColumn
+                      refId="Package\DFT_Subscriber_Detail\Stg_Subscriber_Detail.Inputs[OLE DB Destination Input].Columns[dw_crte_usrid]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="dw_crte_usrid"
+                      externalMetadataColumnId="Package\DFT_Subscriber_Detail\Stg_Subscriber_Detail.Inputs[OLE DB Destination Input].ExternalColumns[dw_crte_usrid]"
+                      lineageId="Package\DFT_Subscriber_Detail\Union All.Outputs[Union All Output 1].Columns[dw_crte_usrid]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT_Subscriber_Detail\Stg_Subscriber_Detail.Inputs[OLE DB Destination Input].ExternalColumns[Root_Domain]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      name="Root_Domain" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Subscriber_Detail\Stg_Subscriber_Detail.Inputs[OLE DB Destination Input].ExternalColumns[Customer]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      name="Customer" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Subscriber_Detail\Stg_Subscriber_Detail.Inputs[OLE DB Destination Input].ExternalColumns[Action]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      name="Action" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Subscriber_Detail\Stg_Subscriber_Detail.Inputs[OLE DB Destination Input].ExternalColumns[dw_eff_strt_dttm]"
+                      dataType="dbTimeStamp"
+                      name="dw_eff_strt_dttm" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Subscriber_Detail\Stg_Subscriber_Detail.Inputs[OLE DB Destination Input].ExternalColumns[dw_crte_usrid]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="dw_crte_usrid" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Subscriber_Detail\Stg_Subscriber_Detail.Inputs[OLE DB Destination Input].ExternalColumns[new_flag]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="new_flag" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Subscriber_Detail\Stg_Subscriber_Detail.Inputs[OLE DB Destination Input].ExternalColumns[Checksumval]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Checksumval" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Subscriber_Detail\Stg_Subscriber_Detail.Inputs[OLE DB Destination Input].ExternalColumns[first_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="first_name" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Subscriber_Detail\Stg_Subscriber_Detail.Inputs[OLE DB Destination Input].ExternalColumns[last_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="last_name" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Subscriber_Detail\Stg_Subscriber_Detail.Inputs[OLE DB Destination Input].ExternalColumns[description]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      name="description" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Subscriber_Detail\Stg_Subscriber_Detail.Inputs[OLE DB Destination Input].ExternalColumns[change]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="change" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Subscriber_Detail\Stg_Subscriber_Detail.Inputs[OLE DB Destination Input].ExternalColumns[date]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="date" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Subscriber_Detail\Stg_Subscriber_Detail.Inputs[OLE DB Destination Input].ExternalColumns[rate]"
+                      dataType="numeric"
+                      name="rate"
+                      precision="8"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Subscriber_Detail\Stg_Subscriber_Detail.Inputs[OLE DB Destination Input].ExternalColumns[charge]"
+                      dataType="numeric"
+                      name="charge"
+                      precision="8"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Subscriber_Detail\Stg_Subscriber_Detail.Inputs[OLE DB Destination Input].ExternalColumns[charge_currency]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="charge_currency" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_Subscriber_Detail\Stg_Subscriber_Detail.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DFT_Subscriber_Detail\Stg_Subscriber_Detail.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Subscriber_Detail\Stg_Subscriber_Detail.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Subscriber_Detail\Stg_Subscriber_Detail.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_Subscriber_Detail\Stg_Subscriber_Detail.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Subscriber_Detail\Stg_Subscriber_Detail.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT_Subscriber_Detail\Union All"
+              componentClassID="Microsoft.UnionAll"
+              contactInfo="Union All;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Combines rows from multiple data flows without sorting. For example, add rows back to a data flow after correction of errors. If sorting is important, we recommend using the Merge transformation."
+              name="Union All"
+              version="1">
+              <inputs>
+                <input
+                  refId="Package\DFT_Subscriber_Detail\Union All.Inputs[Union All Input 1]"
+                  name="Union All Input 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT_Subscriber_Detail\Union All.Inputs[Union All Input 1].Columns[Root_Domain]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="25"
+                      cachedName="Root_Domain"
+                      lineageId="Package\DFT_Subscriber_Detail\Source_ODS.Outputs[OLE DB Source Output].Columns[Root_Domain]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_Subscriber_Detail\Union All.Outputs[Union All Output 1].Columns[Root_Domain]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Subscriber_Detail\Union All.Inputs[Union All Input 1].Columns[Customer]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="25"
+                      cachedName="Customer"
+                      lineageId="Package\DFT_Subscriber_Detail\Source_ODS.Outputs[OLE DB Source Output].Columns[Customer]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_Subscriber_Detail\Union All.Outputs[Union All Output 1].Columns[Customer]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Subscriber_Detail\Union All.Inputs[Union All Input 1].Columns[Action]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="25"
+                      cachedName="Action"
+                      lineageId="Package\DFT_Subscriber_Detail\Source_ODS.Outputs[OLE DB Source Output].Columns[Action]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_Subscriber_Detail\Union All.Outputs[Union All Output 1].Columns[Action]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Subscriber_Detail\Union All.Inputs[Union All Input 1].Columns[Checksumval]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="32"
+                      cachedName="Checksumval"
+                      lineageId="Package\DFT_Subscriber_Detail\Source_ODS.Outputs[OLE DB Source Output].Columns[Checksumval]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_Subscriber_Detail\Union All.Outputs[Union All Output 1].Columns[Checksumval]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Subscriber_Detail\Union All.Inputs[Union All Input 1].Columns[first_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="first_name"
+                      lineageId="Package\DFT_Subscriber_Detail\Source_ODS.Outputs[OLE DB Source Output].Columns[first_name]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_Subscriber_Detail\Union All.Outputs[Union All Output 1].Columns[first_name]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Subscriber_Detail\Union All.Inputs[Union All Input 1].Columns[last_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="last_name"
+                      lineageId="Package\DFT_Subscriber_Detail\Source_ODS.Outputs[OLE DB Source Output].Columns[last_name]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_Subscriber_Detail\Union All.Outputs[Union All Output 1].Columns[last_name]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Subscriber_Detail\Union All.Inputs[Union All Input 1].Columns[description]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="description"
+                      lineageId="Package\DFT_Subscriber_Detail\Source_ODS.Outputs[OLE DB Source Output].Columns[description]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_Subscriber_Detail\Union All.Outputs[Union All Output 1].Columns[description]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Subscriber_Detail\Union All.Inputs[Union All Input 1].Columns[change]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="change"
+                      lineageId="Package\DFT_Subscriber_Detail\Source_ODS.Outputs[OLE DB Source Output].Columns[change]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_Subscriber_Detail\Union All.Outputs[Union All Output 1].Columns[change]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Subscriber_Detail\Union All.Inputs[Union All Input 1].Columns[date]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="date"
+                      lineageId="Package\DFT_Subscriber_Detail\Source_ODS.Outputs[OLE DB Source Output].Columns[date]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_Subscriber_Detail\Union All.Outputs[Union All Output 1].Columns[date]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Subscriber_Detail\Union All.Inputs[Union All Input 1].Columns[rate]"
+                      cachedDataType="numeric"
+                      cachedName="rate"
+                      cachedPrecision="8"
+                      cachedScale="2"
+                      lineageId="Package\DFT_Subscriber_Detail\Source_ODS.Outputs[OLE DB Source Output].Columns[rate]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_Subscriber_Detail\Union All.Outputs[Union All Output 1].Columns[rate]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Subscriber_Detail\Union All.Inputs[Union All Input 1].Columns[charge]"
+                      cachedDataType="numeric"
+                      cachedName="charge"
+                      cachedPrecision="8"
+                      cachedScale="2"
+                      lineageId="Package\DFT_Subscriber_Detail\Source_ODS.Outputs[OLE DB Source Output].Columns[charge]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_Subscriber_Detail\Union All.Outputs[Union All Output 1].Columns[charge]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Subscriber_Detail\Union All.Inputs[Union All Input 1].Columns[charge_currency]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="charge_currency"
+                      lineageId="Package\DFT_Subscriber_Detail\Source_ODS.Outputs[OLE DB Source Output].Columns[charge_currency]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_Subscriber_Detail\Union All.Outputs[Union All Output 1].Columns[charge_currency]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Subscriber_Detail\Union All.Inputs[Union All Input 1].Columns[dw_eff_strt_dttm]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="dw_eff_strt_dttm"
+                      lineageId="Package\DFT_Subscriber_Detail\DC_NewFlag_Y.Outputs[Derived Column Output].Columns[dw_eff_strt_dttm]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_Subscriber_Detail\Union All.Outputs[Union All Output 1].Columns[dw_eff_strt_dttm]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Subscriber_Detail\Union All.Inputs[Union All Input 1].Columns[new_flag]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="new_flag"
+                      lineageId="Package\DFT_Subscriber_Detail\DC_NewFlag_Y.Outputs[Derived Column Output].Columns[new_flag]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_Subscriber_Detail\Union All.Outputs[Union All Output 1].Columns[new_flag]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Subscriber_Detail\Union All.Inputs[Union All Input 1].Columns[dw_crte_usrid]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="dw_crte_usrid"
+                      lineageId="Package\DFT_Subscriber_Detail\DC_NewFlag_Y.Outputs[Derived Column Output].Columns[dw_crte_usrid]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_Subscriber_Detail\Union All.Outputs[Union All Output 1].Columns[dw_crte_usrid]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\DFT_Subscriber_Detail\Union All.Inputs[Union All Input 2]"
+                  hasSideEffects="true"
+                  name="Union All Input 2">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT_Subscriber_Detail\Union All.Inputs[Union All Input 2].Columns[Root_Domain]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="25"
+                      cachedName="Root_Domain"
+                      lineageId="Package\DFT_Subscriber_Detail\Source_ODS.Outputs[OLE DB Source Output].Columns[Root_Domain]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_Subscriber_Detail\Union All.Outputs[Union All Output 1].Columns[Root_Domain]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Subscriber_Detail\Union All.Inputs[Union All Input 2].Columns[Customer]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="25"
+                      cachedName="Customer"
+                      lineageId="Package\DFT_Subscriber_Detail\Source_ODS.Outputs[OLE DB Source Output].Columns[Customer]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_Subscriber_Detail\Union All.Outputs[Union All Output 1].Columns[Customer]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Subscriber_Detail\Union All.Inputs[Union All Input 2].Columns[Action]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="25"
+                      cachedName="Action"
+                      lineageId="Package\DFT_Subscriber_Detail\Source_ODS.Outputs[OLE DB Source Output].Columns[Action]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_Subscriber_Detail\Union All.Outputs[Union All Output 1].Columns[Action]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Subscriber_Detail\Union All.Inputs[Union All Input 2].Columns[Checksumval]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="32"
+                      cachedName="Checksumval"
+                      lineageId="Package\DFT_Subscriber_Detail\Source_ODS.Outputs[OLE DB Source Output].Columns[Checksumval]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_Subscriber_Detail\Union All.Outputs[Union All Output 1].Columns[Checksumval]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Subscriber_Detail\Union All.Inputs[Union All Input 2].Columns[first_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="first_name"
+                      lineageId="Package\DFT_Subscriber_Detail\Source_ODS.Outputs[OLE DB Source Output].Columns[first_name]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_Subscriber_Detail\Union All.Outputs[Union All Output 1].Columns[first_name]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Subscriber_Detail\Union All.Inputs[Union All Input 2].Columns[last_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="last_name"
+                      lineageId="Package\DFT_Subscriber_Detail\Source_ODS.Outputs[OLE DB Source Output].Columns[last_name]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_Subscriber_Detail\Union All.Outputs[Union All Output 1].Columns[last_name]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Subscriber_Detail\Union All.Inputs[Union All Input 2].Columns[description]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="description"
+                      lineageId="Package\DFT_Subscriber_Detail\Source_ODS.Outputs[OLE DB Source Output].Columns[description]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_Subscriber_Detail\Union All.Outputs[Union All Output 1].Columns[description]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Subscriber_Detail\Union All.Inputs[Union All Input 2].Columns[change]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="change"
+                      lineageId="Package\DFT_Subscriber_Detail\Source_ODS.Outputs[OLE DB Source Output].Columns[change]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_Subscriber_Detail\Union All.Outputs[Union All Output 1].Columns[change]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Subscriber_Detail\Union All.Inputs[Union All Input 2].Columns[date]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="date"
+                      lineageId="Package\DFT_Subscriber_Detail\Source_ODS.Outputs[OLE DB Source Output].Columns[date]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_Subscriber_Detail\Union All.Outputs[Union All Output 1].Columns[date]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Subscriber_Detail\Union All.Inputs[Union All Input 2].Columns[rate]"
+                      cachedDataType="numeric"
+                      cachedName="rate"
+                      cachedPrecision="8"
+                      cachedScale="2"
+                      lineageId="Package\DFT_Subscriber_Detail\Source_ODS.Outputs[OLE DB Source Output].Columns[rate]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_Subscriber_Detail\Union All.Outputs[Union All Output 1].Columns[rate]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Subscriber_Detail\Union All.Inputs[Union All Input 2].Columns[charge]"
+                      cachedDataType="numeric"
+                      cachedName="charge"
+                      cachedPrecision="8"
+                      cachedScale="2"
+                      lineageId="Package\DFT_Subscriber_Detail\Source_ODS.Outputs[OLE DB Source Output].Columns[charge]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_Subscriber_Detail\Union All.Outputs[Union All Output 1].Columns[charge]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Subscriber_Detail\Union All.Inputs[Union All Input 2].Columns[charge_currency]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="charge_currency"
+                      lineageId="Package\DFT_Subscriber_Detail\Source_ODS.Outputs[OLE DB Source Output].Columns[charge_currency]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_Subscriber_Detail\Union All.Outputs[Union All Output 1].Columns[charge_currency]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Subscriber_Detail\Union All.Inputs[Union All Input 2].Columns[dw_eff_strt_dttm]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="dw_eff_strt_dttm"
+                      lineageId="Package\DFT_Subscriber_Detail\DC_NewFlag_N.Outputs[Derived Column Output].Columns[dw_eff_strt_dttm]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_Subscriber_Detail\Union All.Outputs[Union All Output 1].Columns[dw_eff_strt_dttm]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Subscriber_Detail\Union All.Inputs[Union All Input 2].Columns[new_flag]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="new_flag"
+                      lineageId="Package\DFT_Subscriber_Detail\DC_NewFlag_N.Outputs[Derived Column Output].Columns[new_flag]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_Subscriber_Detail\Union All.Outputs[Union All Output 1].Columns[new_flag]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Subscriber_Detail\Union All.Inputs[Union All Input 2].Columns[dw_crte_usrid]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="dw_crte_usrid"
+                      lineageId="Package\DFT_Subscriber_Detail\DC_NewFlag_N.Outputs[Derived Column Output].Columns[dw_crte_usrid]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_Subscriber_Detail\Union All.Outputs[Union All Output 1].Columns[dw_crte_usrid]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\DFT_Subscriber_Detail\Union All.Inputs[Union All Input 3]"
+                  dangling="true"
+                  hasSideEffects="true"
+                  name="Union All Input 3">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_Subscriber_Detail\Union All.Outputs[Union All Output 1]"
+                  name="Union All Output 1">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Subscriber_Detail\Union All.Outputs[Union All Output 1].Columns[Root_Domain]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      lineageId="Package\DFT_Subscriber_Detail\Union All.Outputs[Union All Output 1].Columns[Root_Domain]"
+                      name="Root_Domain" />
+                    <outputColumn
+                      refId="Package\DFT_Subscriber_Detail\Union All.Outputs[Union All Output 1].Columns[Customer]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      lineageId="Package\DFT_Subscriber_Detail\Union All.Outputs[Union All Output 1].Columns[Customer]"
+                      name="Customer" />
+                    <outputColumn
+                      refId="Package\DFT_Subscriber_Detail\Union All.Outputs[Union All Output 1].Columns[Action]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      lineageId="Package\DFT_Subscriber_Detail\Union All.Outputs[Union All Output 1].Columns[Action]"
+                      name="Action" />
+                    <outputColumn
+                      refId="Package\DFT_Subscriber_Detail\Union All.Outputs[Union All Output 1].Columns[Checksumval]"
+                      codePage="1252"
+                      dataType="str"
+                      length="32"
+                      lineageId="Package\DFT_Subscriber_Detail\Union All.Outputs[Union All Output 1].Columns[Checksumval]"
+                      name="Checksumval" />
+                    <outputColumn
+                      refId="Package\DFT_Subscriber_Detail\Union All.Outputs[Union All Output 1].Columns[first_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\DFT_Subscriber_Detail\Union All.Outputs[Union All Output 1].Columns[first_name]"
+                      name="first_name" />
+                    <outputColumn
+                      refId="Package\DFT_Subscriber_Detail\Union All.Outputs[Union All Output 1].Columns[last_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\DFT_Subscriber_Detail\Union All.Outputs[Union All Output 1].Columns[last_name]"
+                      name="last_name" />
+                    <outputColumn
+                      refId="Package\DFT_Subscriber_Detail\Union All.Outputs[Union All Output 1].Columns[description]"
+                      codePage="1252"
+                      dataType="str"
+                      length="500"
+                      lineageId="Package\DFT_Subscriber_Detail\Union All.Outputs[Union All Output 1].Columns[description]"
+                      name="description" />
+                    <outputColumn
+                      refId="Package\DFT_Subscriber_Detail\Union All.Outputs[Union All Output 1].Columns[change]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\DFT_Subscriber_Detail\Union All.Outputs[Union All Output 1].Columns[change]"
+                      name="change" />
+                    <outputColumn
+                      refId="Package\DFT_Subscriber_Detail\Union All.Outputs[Union All Output 1].Columns[date]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\DFT_Subscriber_Detail\Union All.Outputs[Union All Output 1].Columns[date]"
+                      name="date" />
+                    <outputColumn
+                      refId="Package\DFT_Subscriber_Detail\Union All.Outputs[Union All Output 1].Columns[rate]"
+                      dataType="numeric"
+                      lineageId="Package\DFT_Subscriber_Detail\Union All.Outputs[Union All Output 1].Columns[rate]"
+                      name="rate"
+                      precision="8"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\DFT_Subscriber_Detail\Union All.Outputs[Union All Output 1].Columns[charge]"
+                      dataType="numeric"
+                      lineageId="Package\DFT_Subscriber_Detail\Union All.Outputs[Union All Output 1].Columns[charge]"
+                      name="charge"
+                      precision="8"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\DFT_Subscriber_Detail\Union All.Outputs[Union All Output 1].Columns[charge_currency]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\DFT_Subscriber_Detail\Union All.Outputs[Union All Output 1].Columns[charge_currency]"
+                      name="charge_currency" />
+                    <outputColumn
+                      refId="Package\DFT_Subscriber_Detail\Union All.Outputs[Union All Output 1].Columns[dw_eff_strt_dttm]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\DFT_Subscriber_Detail\Union All.Outputs[Union All Output 1].Columns[dw_eff_strt_dttm]"
+                      name="dw_eff_strt_dttm" />
+                    <outputColumn
+                      refId="Package\DFT_Subscriber_Detail\Union All.Outputs[Union All Output 1].Columns[new_flag]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\DFT_Subscriber_Detail\Union All.Outputs[Union All Output 1].Columns[new_flag]"
+                      name="new_flag" />
+                    <outputColumn
+                      refId="Package\DFT_Subscriber_Detail\Union All.Outputs[Union All Output 1].Columns[dw_crte_usrid]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\DFT_Subscriber_Detail\Union All.Outputs[Union All Output 1].Columns[dw_crte_usrid]"
+                      name="dw_crte_usrid" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT_Subscriber_Detail.Paths[Changed Records]"
+              endId="Package\DFT_Subscriber_Detail\DC_NewFlag_N.Inputs[Derived Column Input]"
+              name="Changed Records"
+              startId="Package\DFT_Subscriber_Detail\CS_CompareNonKeyColumns.Outputs[Changed Records]" />
+            <path
+              refId="Package\DFT_Subscriber_Detail.Paths[Derived Column Output]"
+              endId="Package\DFT_Subscriber_Detail\Union All.Inputs[Union All Input 1]"
+              name="Derived Column Output"
+              startId="Package\DFT_Subscriber_Detail\DC_NewFlag_Y.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\DFT_Subscriber_Detail.Paths[Derived Column Output1]"
+              endId="Package\DFT_Subscriber_Detail\Union All.Inputs[Union All Input 2]"
+              name="Derived Column Output"
+              startId="Package\DFT_Subscriber_Detail\DC_NewFlag_N.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\DFT_Subscriber_Detail.Paths[Existing Records]"
+              endId="Package\DFT_Subscriber_Detail\CS_CompareNonKeyColumns.Inputs[Conditional Split Input]"
+              name="Existing Records"
+              startId="Package\DFT_Subscriber_Detail\Lkp_Arc.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\DFT_Subscriber_Detail.Paths[Lookup No Match Output]"
+              endId="Package\DFT_Subscriber_Detail\DC_NewFlag_Y.Inputs[Derived Column Input]"
+              name="Lookup No Match Output"
+              startId="Package\DFT_Subscriber_Detail\Lkp_Arc.Outputs[Lookup No Match Output]" />
+            <path
+              refId="Package\DFT_Subscriber_Detail.Paths[OLE DB Source Output]"
+              endId="Package\DFT_Subscriber_Detail\Lkp_Arc.Inputs[Lookup Input]"
+              name="OLE DB Source Output"
+              startId="Package\DFT_Subscriber_Detail\Source_ODS.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\DFT_Subscriber_Detail.Paths[Union All Output 1]"
+              endId="Package\DFT_Subscriber_Detail\Stg_Subscriber_Detail.Inputs[OLE DB Destination Input]"
+              name="Union All Output 1"
+              startId="Package\DFT_Subscriber_Detail\Union All.Outputs[Union All Output 1]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Take ETL load time"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{23EA62D5-4995-4B60-A64C-8CAA42CC2516}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Take ETL load time"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{E0E6DC88-A9A1-4A51-8B19-958C1AD76267}"
+          SQLTask:SqlStatementSource="SELECT GETDATE() ETL_Load_Time"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="ETL_Load_Time"
+            SQLTask:DtsVariableName="User::ETL_Load_Time" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate_Stg_table"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{59F96C69-DB90-46A1-943B-9A1FBD9B6594}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate_Stg_table"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{4B2BAB6F-A5B2-4A58-BD25-0961304475AA}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE DW_STG.dbo.Subscriber_Detail" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{32C8DF51-8C7A-485D-B76C-492DBF04D3C4}"
+      DTS:From="Package\Truncate_Stg_table"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Take ETL load time" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{A7C87204-640C-40C1-874D-155F96710D1F}"
+      DTS:From="Package\Take ETL load time"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\DFT_Subscriber_Detail" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="193,42"
+          Id="Package\DFT_Subscriber_Detail"
+          TopLeft="172,261" />
+        <NodeLayout
+          Size="174,42"
+          Id="Package\Take ETL load time"
+          TopLeft="180,151" />
+        <NodeLayout
+          Size="175,42"
+          Id="Package\Truncate_Stg_table"
+          TopLeft="184,49" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="269.25,91">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="267.75,193">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,68"
+              Start="0,0"
+              End="0,60.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,60.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DFT_Subscriber_Detail">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="158,42"
+          Id="Package\DFT_Subscriber_Detail\DC_NewFlag_N"
+          TopLeft="518,311" />
+        <NodeLayout
+          Size="158,42"
+          Id="Package\DFT_Subscriber_Detail\DC_NewFlag_Y"
+          TopLeft="242,310" />
+        <NodeLayout
+          Size="119,42"
+          Id="Package\DFT_Subscriber_Detail\Lkp_Arc"
+          TopLeft="370,112" />
+        <NodeLayout
+          Size="189,42"
+          Id="Package\DFT_Subscriber_Detail\Stg_Subscriber_Detail"
+          TopLeft="352,501" />
+        <NodeLayout
+          Size="144,42"
+          Id="Package\DFT_Subscriber_Detail\Source_ODS"
+          TopLeft="355,21" />
+        <NodeLayout
+          Size="228,42"
+          Id="Package\DFT_Subscriber_Detail\CS_CompareNonKeyColumns"
+          TopLeft="477,213" />
+        <EdgeLayout
+          Id="Package\DFT_Subscriber_Detail.Paths[Changed Records]"
+          TopLeft="594,255">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,56"
+              Start="0,0"
+              End="0,48.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,48.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-39.23009765625,18.41845703125,78.4601953125,11.6630859375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT_Subscriber_Detail.Paths[OLE DB Source Output]"
+          TopLeft="428.25,63">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,49"
+              Start="0,0"
+              End="0,41.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,41.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT_Subscriber_Detail.Paths[Lookup No Match Output]"
+          TopLeft="411,154">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-90,156"
+              Start="0,0"
+              End="-90,148.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,59.6417910447761" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,59.6417910447761"
+                    Point2="0,63.6417910447761"
+                    Point3="-4,63.6417910447761" />
+                  <mssgle:LineSegment
+                    End="-86,63.6417910447761" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-86,63.6417910447761"
+                    Point2="-90,63.6417910447761"
+                    Point3="-90,67.6417910447761" />
+                  <mssgle:LineSegment
+                    End="-90,148.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-100.80638671875,68.6417910447761,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT_Subscriber_Detail.Paths[Existing Records]"
+          TopLeft="448,154">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="143,59"
+              Start="0,0"
+              End="143,51.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.0696517412935" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.0696517412935"
+                    Point2="0,24.0696517412935"
+                    Point3="4,24.0696517412935" />
+                  <mssgle:LineSegment
+                    End="139,24.0696517412935" />
+                  <mssgle:CubicBezierSegment
+                    Point1="139,24.0696517412935"
+                    Point2="143,24.0696517412935"
+                    Point3="143,28.0696517412935" />
+                  <mssgle:LineSegment
+                    End="143,51.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="23.30861328125,29.0696517412935,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="123,42"
+          Id="Package\DFT_Subscriber_Detail\Union All"
+          TopLeft="385,405" />
+        <EdgeLayout
+          Id="Package\DFT_Subscriber_Detail.Paths[Union All Output 1]"
+          TopLeft="446.5,447">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,54"
+              Start="0,0"
+              End="0,46.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,46.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT_Subscriber_Detail.Paths[Derived Column Output]"
+          TopLeft="321,352">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="125.5,53"
+              Start="0,0"
+              End="125.5,45.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22.5"
+                    Point2="0,26.5"
+                    Point3="4,26.5" />
+                  <mssgle:LineSegment
+                    End="121.5,26.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="121.5,26.5"
+                    Point2="125.5,26.5"
+                    Point3="125.5,30.5" />
+                  <mssgle:LineSegment
+                    End="125.5,45.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT_Subscriber_Detail.Paths[Derived Column Output1]"
+          TopLeft="597,353">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-131.333333333333,52"
+              Start="0,0"
+              End="-131.333333333333,44.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.7993579454253" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26.7993579454253"
+                    Point2="0,30.7993579454253"
+                    Point3="-4,30.7993579454253" />
+                  <mssgle:LineSegment
+                    End="-127.333333333333,30.7993579454253" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-127.333333333333,30.7993579454253"
+                    Point2="-131.333333333333,30.7993579454253"
+                    Point3="-131.333333333333,34.7993579454253" />
+                  <mssgle:LineSegment
+                    End="-131.333333333333,44.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT_Subscriber_Detail\Lkp_Arc">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT_Subscriber_Detail\Stg_Subscriber_Detail">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT_Subscriber_Detail\Source_ODS">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

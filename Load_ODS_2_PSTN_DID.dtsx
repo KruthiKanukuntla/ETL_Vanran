@@ -1,0 +1,975 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/22/2020 7:13:13 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="PREETISHK-LPT"
+  DTS:CreatorName="DATAFORTUNE\preetish.kharche"
+  DTS:DTSID="{21B8D875-101F-4118-BD31-86A40B8EB44F}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.123"
+  DTS:LocaleID="16393"
+  DTS:ObjectName="ODS_PSTN_DID"
+  DTS:PackageType="5"
+  DTS:VersionBuild="57"
+  DTS:VersionGUID="{B1524B62-5927-4C32-BF44-459DA6A1FEBB}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Excel Connection Manager]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{85189D7A-6791-4B3F-82ED-27D6BCD38ABE}"
+      DTS:ObjectName="Excel Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Vanran\pstn_did_data_20_08_27_07_58.xlsx;Extended Properties=&quot;Excel 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DFT_PSTN_DID"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{3547731D-CC70-4EE1-922C-97C2D1CAD54A}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT_PSTN_DID"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT_PSTN_DID\Data Conversion"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT_PSTN_DID\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT_PSTN_DID\Data Conversion.Inputs[Data Conversion Input].Columns[City]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="City"
+                      lineageId="Package\DFT_PSTN_DID\Excel_PSTN_DID.Outputs[Excel Source Output].Columns[City]" />
+                    <inputColumn
+                      refId="Package\DFT_PSTN_DID\Data Conversion.Inputs[Data Conversion Input].Columns[System]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="System"
+                      lineageId="Package\DFT_PSTN_DID\Excel_PSTN_DID.Outputs[Excel Source Output].Columns[System]" />
+                    <inputColumn
+                      refId="Package\DFT_PSTN_DID\Data Conversion.Inputs[Data Conversion Input].Columns[Number]"
+                      cachedDataType="r8"
+                      cachedName="Number"
+                      lineageId="Package\DFT_PSTN_DID\Excel_PSTN_DID.Outputs[Excel Source Output].Columns[Number]" />
+                    <inputColumn
+                      refId="Package\DFT_PSTN_DID\Data Conversion.Inputs[Data Conversion Input].Columns[Domain]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Domain"
+                      lineageId="Package\DFT_PSTN_DID\Excel_PSTN_DID.Outputs[Excel Source Output].Columns[Domain]" />
+                    <inputColumn
+                      refId="Package\DFT_PSTN_DID\Data Conversion.Inputs[Data Conversion Input].Columns[DID Billing Type]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="DID Billing Type"
+                      lineageId="Package\DFT_PSTN_DID\Excel_PSTN_DID.Outputs[Excel Source Output].Columns[DID Billing Type]" />
+                    <inputColumn
+                      refId="Package\DFT_PSTN_DID\Data Conversion.Inputs[Data Conversion Input].Columns[In Use By]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="In Use By"
+                      lineageId="Package\DFT_PSTN_DID\Excel_PSTN_DID.Outputs[Excel Source Output].Columns[In Use By]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_PSTN_DID\Data Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\DFT_PSTN_DID\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_PSTN_DID\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of city]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="200"
+                      lineageId="Package\DFT_PSTN_DID\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of city]"
+                      name="Copy of city"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT_PSTN_DID\Excel_PSTN_DID.Outputs[Excel Source Output].Columns[City]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_PSTN_DID\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of System]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="10"
+                      lineageId="Package\DFT_PSTN_DID\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of System]"
+                      name="Copy of System"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT_PSTN_DID\Excel_PSTN_DID.Outputs[Excel Source Output].Columns[System]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_PSTN_DID\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Number]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="30"
+                      lineageId="Package\DFT_PSTN_DID\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Number]"
+                      name="Copy of Number"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT_PSTN_DID\Excel_PSTN_DID.Outputs[Excel Source Output].Columns[Number]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_PSTN_DID\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Domain]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\DFT_PSTN_DID\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Domain]"
+                      name="Copy of Domain"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT_PSTN_DID\Excel_PSTN_DID.Outputs[Excel Source Output].Columns[Domain]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_PSTN_DID\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of DID Billing Type]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="20"
+                      lineageId="Package\DFT_PSTN_DID\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of DID Billing Type]"
+                      name="Copy of DID Billing Type"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT_PSTN_DID\Excel_PSTN_DID.Outputs[Excel Source Output].Columns[DID Billing Type]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_PSTN_DID\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of In Use By]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="60"
+                      lineageId="Package\DFT_PSTN_DID\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of In Use By]"
+                      name="Copy of In Use By"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT_PSTN_DID\Excel_PSTN_DID.Outputs[Excel Source Output].Columns[In Use By]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT_PSTN_DID\Data Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\DFT_PSTN_DID\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_PSTN_DID\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_PSTN_DID\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_PSTN_DID\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_PSTN_DID\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT_PSTN_DID\Derived Column"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT_PSTN_DID\Derived Column.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_PSTN_DID\Derived Column.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\DFT_PSTN_DID\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_PSTN_DID\Derived Column.Outputs[Derived Column Output].Columns[Der_Root_Domain]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="25"
+                      lineageId="Package\DFT_PSTN_DID\Derived Column.Outputs[Derived Column Output].Columns[Der_Root_Domain]"
+                      name="Der_Root_Domain"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_STR,25,1252)"vrgsol.com"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_STR,25,1252)"vrgsol.com"</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT_PSTN_DID\Derived Column.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\DFT_PSTN_DID\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_PSTN_DID\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_PSTN_DID\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_PSTN_DID\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_PSTN_DID\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT_PSTN_DID\Excel_PSTN_DID"
+              componentClassID="Microsoft.ExcelSource"
+              contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Excel Source"
+              name="Excel_PSTN_DID"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">pstn_did_data_20_08_27_07_58$</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mapping from parameters in the SQL command to variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT_PSTN_DID\Excel_PSTN_DID.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT_PSTN_DID\Excel_PSTN_DID.Outputs[Excel Source Output]"
+                  name="Excel Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_PSTN_DID\Excel_PSTN_DID.Outputs[Excel Source Output].Columns[System]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_PSTN_DID\Excel_PSTN_DID.Outputs[Excel Source Output].ExternalColumns[System]"
+                      length="255"
+                      lineageId="Package\DFT_PSTN_DID\Excel_PSTN_DID.Outputs[Excel Source Output].Columns[System]"
+                      name="System"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_PSTN_DID\Excel_PSTN_DID.Outputs[Excel Source Output].Columns[Number]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_PSTN_DID\Excel_PSTN_DID.Outputs[Excel Source Output].ExternalColumns[Number]"
+                      lineageId="Package\DFT_PSTN_DID\Excel_PSTN_DID.Outputs[Excel Source Output].Columns[Number]"
+                      name="Number"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_PSTN_DID\Excel_PSTN_DID.Outputs[Excel Source Output].Columns[Domain]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_PSTN_DID\Excel_PSTN_DID.Outputs[Excel Source Output].ExternalColumns[Domain]"
+                      length="255"
+                      lineageId="Package\DFT_PSTN_DID\Excel_PSTN_DID.Outputs[Excel Source Output].Columns[Domain]"
+                      name="Domain"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_PSTN_DID\Excel_PSTN_DID.Outputs[Excel Source Output].Columns[City]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_PSTN_DID\Excel_PSTN_DID.Outputs[Excel Source Output].ExternalColumns[City]"
+                      length="255"
+                      lineageId="Package\DFT_PSTN_DID\Excel_PSTN_DID.Outputs[Excel Source Output].Columns[City]"
+                      name="City"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_PSTN_DID\Excel_PSTN_DID.Outputs[Excel Source Output].Columns[DID Billing Type]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_PSTN_DID\Excel_PSTN_DID.Outputs[Excel Source Output].ExternalColumns[DID Billing Type]"
+                      length="255"
+                      lineageId="Package\DFT_PSTN_DID\Excel_PSTN_DID.Outputs[Excel Source Output].Columns[DID Billing Type]"
+                      name="DID Billing Type"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_PSTN_DID\Excel_PSTN_DID.Outputs[Excel Source Output].Columns[In Use By]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_PSTN_DID\Excel_PSTN_DID.Outputs[Excel Source Output].ExternalColumns[In Use By]"
+                      length="255"
+                      lineageId="Package\DFT_PSTN_DID\Excel_PSTN_DID.Outputs[Excel Source Output].Columns[In Use By]"
+                      name="In Use By"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT_PSTN_DID\Excel_PSTN_DID.Outputs[Excel Source Output].ExternalColumns[System]"
+                      dataType="wstr"
+                      length="255"
+                      name="System" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_PSTN_DID\Excel_PSTN_DID.Outputs[Excel Source Output].ExternalColumns[Number]"
+                      dataType="r8"
+                      name="Number" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_PSTN_DID\Excel_PSTN_DID.Outputs[Excel Source Output].ExternalColumns[Domain]"
+                      dataType="wstr"
+                      length="255"
+                      name="Domain" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_PSTN_DID\Excel_PSTN_DID.Outputs[Excel Source Output].ExternalColumns[City]"
+                      dataType="wstr"
+                      length="255"
+                      name="City" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_PSTN_DID\Excel_PSTN_DID.Outputs[Excel Source Output].ExternalColumns[DID Billing Type]"
+                      dataType="wstr"
+                      length="255"
+                      name="DID Billing Type" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_PSTN_DID\Excel_PSTN_DID.Outputs[Excel Source Output].ExternalColumns[In Use By]"
+                      dataType="wstr"
+                      length="255"
+                      name="In Use By" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT_PSTN_DID\Excel_PSTN_DID.Outputs[Excel Source Error Output]"
+                  isErrorOut="true"
+                  name="Excel Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_PSTN_DID\Excel_PSTN_DID.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_PSTN_DID\Excel_PSTN_DID.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_PSTN_DID\Excel_PSTN_DID.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_PSTN_DID\Excel_PSTN_DID.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\DFT_PSTN_DID\Excel_PSTN_DID.Outputs[Excel Source Error Output].Columns[System]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT_PSTN_DID\Excel_PSTN_DID.Outputs[Excel Source Error Output].Columns[System]"
+                      name="System" />
+                    <outputColumn
+                      refId="Package\DFT_PSTN_DID\Excel_PSTN_DID.Outputs[Excel Source Error Output].Columns[Number]"
+                      dataType="r8"
+                      lineageId="Package\DFT_PSTN_DID\Excel_PSTN_DID.Outputs[Excel Source Error Output].Columns[Number]"
+                      name="Number" />
+                    <outputColumn
+                      refId="Package\DFT_PSTN_DID\Excel_PSTN_DID.Outputs[Excel Source Error Output].Columns[Domain]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT_PSTN_DID\Excel_PSTN_DID.Outputs[Excel Source Error Output].Columns[Domain]"
+                      name="Domain" />
+                    <outputColumn
+                      refId="Package\DFT_PSTN_DID\Excel_PSTN_DID.Outputs[Excel Source Error Output].Columns[City]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT_PSTN_DID\Excel_PSTN_DID.Outputs[Excel Source Error Output].Columns[City]"
+                      name="City" />
+                    <outputColumn
+                      refId="Package\DFT_PSTN_DID\Excel_PSTN_DID.Outputs[Excel Source Error Output].Columns[DID Billing Type]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT_PSTN_DID\Excel_PSTN_DID.Outputs[Excel Source Error Output].Columns[DID Billing Type]"
+                      name="DID Billing Type" />
+                    <outputColumn
+                      refId="Package\DFT_PSTN_DID\Excel_PSTN_DID.Outputs[Excel Source Error Output].Columns[In Use By]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT_PSTN_DID\Excel_PSTN_DID.Outputs[Excel Source Error Output].Columns[In Use By]"
+                      name="In Use By" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT_PSTN_DID\Load_PSTN_DID"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Load_PSTN_DID"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[PSTN_DID]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT_PSTN_DID\Load_PSTN_DID.Connections[OleDbConnection]"
+                  connectionManagerID="{4B2BAB6F-A5B2-4A58-BD25-0961304475AA}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[ODS_2_Vanran_Ribbon]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT_PSTN_DID\Load_PSTN_DID.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT_PSTN_DID\Load_PSTN_DID.Inputs[OLE DB Destination Input].Columns[Copy of city]"
+                      cachedDataType="wstr"
+                      cachedLength="200"
+                      cachedName="Copy of city"
+                      externalMetadataColumnId="Package\DFT_PSTN_DID\Load_PSTN_DID.Inputs[OLE DB Destination Input].ExternalColumns[city]"
+                      lineageId="Package\DFT_PSTN_DID\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of city]" />
+                    <inputColumn
+                      refId="Package\DFT_PSTN_DID\Load_PSTN_DID.Inputs[OLE DB Destination Input].Columns[Copy of System]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="Copy of System"
+                      externalMetadataColumnId="Package\DFT_PSTN_DID\Load_PSTN_DID.Inputs[OLE DB Destination Input].ExternalColumns[system]"
+                      lineageId="Package\DFT_PSTN_DID\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of System]" />
+                    <inputColumn
+                      refId="Package\DFT_PSTN_DID\Load_PSTN_DID.Inputs[OLE DB Destination Input].Columns[Der_Root_Domain]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="25"
+                      cachedName="Der_Root_Domain"
+                      externalMetadataColumnId="Package\DFT_PSTN_DID\Load_PSTN_DID.Inputs[OLE DB Destination Input].ExternalColumns[Root_Domain]"
+                      lineageId="Package\DFT_PSTN_DID\Derived Column.Outputs[Derived Column Output].Columns[Der_Root_Domain]" />
+                    <inputColumn
+                      refId="Package\DFT_PSTN_DID\Load_PSTN_DID.Inputs[OLE DB Destination Input].Columns[Copy of Number]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="Copy of Number"
+                      externalMetadataColumnId="Package\DFT_PSTN_DID\Load_PSTN_DID.Inputs[OLE DB Destination Input].ExternalColumns[pstn_number]"
+                      lineageId="Package\DFT_PSTN_DID\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Number]" />
+                    <inputColumn
+                      refId="Package\DFT_PSTN_DID\Load_PSTN_DID.Inputs[OLE DB Destination Input].Columns[Copy of Domain]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Copy of Domain"
+                      externalMetadataColumnId="Package\DFT_PSTN_DID\Load_PSTN_DID.Inputs[OLE DB Destination Input].ExternalColumns[domain_name]"
+                      lineageId="Package\DFT_PSTN_DID\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Domain]" />
+                    <inputColumn
+                      refId="Package\DFT_PSTN_DID\Load_PSTN_DID.Inputs[OLE DB Destination Input].Columns[Copy of DID Billing Type]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="Copy of DID Billing Type"
+                      externalMetadataColumnId="Package\DFT_PSTN_DID\Load_PSTN_DID.Inputs[OLE DB Destination Input].ExternalColumns[did_type]"
+                      lineageId="Package\DFT_PSTN_DID\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of DID Billing Type]" />
+                    <inputColumn
+                      refId="Package\DFT_PSTN_DID\Load_PSTN_DID.Inputs[OLE DB Destination Input].Columns[Copy of In Use By]"
+                      cachedDataType="wstr"
+                      cachedLength="60"
+                      cachedName="Copy of In Use By"
+                      externalMetadataColumnId="Package\DFT_PSTN_DID\Load_PSTN_DID.Inputs[OLE DB Destination Input].ExternalColumns[reserved]"
+                      lineageId="Package\DFT_PSTN_DID\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of In Use By]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT_PSTN_DID\Load_PSTN_DID.Inputs[OLE DB Destination Input].ExternalColumns[Action]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      name="Action" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_PSTN_DID\Load_PSTN_DID.Inputs[OLE DB Destination Input].ExternalColumns[Root_Domain]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      name="Root_Domain" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_PSTN_DID\Load_PSTN_DID.Inputs[OLE DB Destination Input].ExternalColumns[Customer]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      name="Customer" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_PSTN_DID\Load_PSTN_DID.Inputs[OLE DB Destination Input].ExternalColumns[pstn_number]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="pstn_number" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_PSTN_DID\Load_PSTN_DID.Inputs[OLE DB Destination Input].ExternalColumns[domain_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="domain_name" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_PSTN_DID\Load_PSTN_DID.Inputs[OLE DB Destination Input].ExternalColumns[city]"
+                      dataType="wstr"
+                      length="200"
+                      name="city" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_PSTN_DID\Load_PSTN_DID.Inputs[OLE DB Destination Input].ExternalColumns[did_type]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="did_type" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_PSTN_DID\Load_PSTN_DID.Inputs[OLE DB Destination Input].ExternalColumns[system]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="system" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_PSTN_DID\Load_PSTN_DID.Inputs[OLE DB Destination Input].ExternalColumns[purpose]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="purpose" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_PSTN_DID\Load_PSTN_DID.Inputs[OLE DB Destination Input].ExternalColumns[reserved]"
+                      dataType="wstr"
+                      length="60"
+                      name="reserved" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_PSTN_DID\Load_PSTN_DID.Inputs[OLE DB Destination Input].ExternalColumns[provisioning_progress]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="provisioning_progress" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_PSTN_DID\Load_PSTN_DID.Inputs[OLE DB Destination Input].ExternalColumns[File_Identifier]"
+                      dataType="i4"
+                      name="File_Identifier" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_PSTN_DID\Load_PSTN_DID.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DFT_PSTN_DID\Load_PSTN_DID.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_PSTN_DID\Load_PSTN_DID.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_PSTN_DID\Load_PSTN_DID.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_PSTN_DID\Load_PSTN_DID.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_PSTN_DID\Load_PSTN_DID.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT_PSTN_DID.Paths[Data Conversion Output]"
+              endId="Package\DFT_PSTN_DID\Derived Column.Inputs[Derived Column Input]"
+              name="Data Conversion Output"
+              startId="Package\DFT_PSTN_DID\Data Conversion.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\DFT_PSTN_DID.Paths[Derived Column Output]"
+              endId="Package\DFT_PSTN_DID\Load_PSTN_DID.Inputs[OLE DB Destination Input]"
+              name="Derived Column Output"
+              startId="Package\DFT_PSTN_DID\Derived Column.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\DFT_PSTN_DID.Paths[Excel Source Output]"
+              endId="Package\DFT_PSTN_DID\Data Conversion.Inputs[Data Conversion Input]"
+              name="Excel Source Output"
+              startId="Package\DFT_PSTN_DID\Excel_PSTN_DID.Outputs[Excel Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate_ODS_2_table"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{6E1B00C9-368A-4844-A702-4753F9C9A21D}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate_ODS_2_table"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{4B2BAB6F-A5B2-4A58-BD25-0961304475AA}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE ODS_2.dbo.PSTN_DID" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{633B2B48-AAE1-4D7A-A50B-887CC36ADD62}"
+      DTS:From="Package\Truncate_ODS_2_table"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\DFT_PSTN_DID" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="161,42"
+          Id="Package\DFT_PSTN_DID"
+          TopLeft="182,134" />
+        <NodeLayout
+          Size="194,42"
+          Id="Package\Truncate_ODS_2_table"
+          TopLeft="165,40" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="262.25,82">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,52"
+              Start="0,0"
+              End="0,44.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,44.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DFT_PSTN_DID">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="158,42"
+          Id="Package\DFT_PSTN_DID\Derived Column"
+          TopLeft="382,238" />
+        <NodeLayout
+          Size="166,42"
+          Id="Package\DFT_PSTN_DID\Excel_PSTN_DID"
+          TopLeft="371,42" />
+        <NodeLayout
+          Size="161,42"
+          Id="Package\DFT_PSTN_DID\Data Conversion"
+          TopLeft="381,139" />
+        <NodeLayout
+          Size="164,42"
+          Id="Package\DFT_PSTN_DID\Load_PSTN_DID"
+          TopLeft="375,331" />
+        <EdgeLayout
+          Id="Package\DFT_PSTN_DID.Paths[Excel Source Output]"
+          TopLeft="457.75,84">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,55"
+              Start="0,0"
+              End="0,47.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,47.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT_PSTN_DID.Paths[Derived Column Output]"
+          TopLeft="459,280">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,51"
+              Start="0,0"
+              End="0,43.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,43.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT_PSTN_DID.Paths[Data Conversion Output]"
+          TopLeft="461.25,181">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,57"
+              Start="0,0"
+              End="0,49.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,49.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT_PSTN_DID\Excel_PSTN_DID">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT_PSTN_DID\Load_PSTN_DID">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

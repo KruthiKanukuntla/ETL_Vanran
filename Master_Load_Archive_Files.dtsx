@@ -1,0 +1,256 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="8/10/2020 3:58:01 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="ATL-DEVWS03"
+  DTS:CreatorName="VANRAN\pkharche"
+  DTS:DTSID="{950E9596-E485-4CD2-A97D-A63ABDBA48A3}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.123"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="27"
+  DTS:VersionGUID="{AD3C8C7C-A861-4663-91F4-56404CA2CF7F}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{3B6437C2-3082-4967-9438-D82EC7159F95}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Actual_File_Name">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{9D4C59CD-056B-43F3-B494-2871A0C2E863}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[User::Archive_Path] +&quot;\\&quot;+REPLACE(@[User::Actual_File_Name],&quot;.xlsx&quot;,&quot;&quot;)+&quot;_&quot;+REPLACE(REPLACE(REPLACE(SUBSTRING(REPLACE((DT_WSTR,50) GETDATE(),&quot;-&quot;,&quot;&quot;),1,14),&quot;_&quot;,&quot;&quot;),&quot; &quot;,&quot;_&quot;),&quot;:&quot;,&quot;&quot;)+&quot;.xlsx&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Archive_Full_Path">
+      <DTS:VariableValue
+        DTS:DataType="8">\_20200813_0933.xlsx</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{4FBD34C9-3253-4288-8090-8642F2859879}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Archive_Path">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{AA5384F9-B49A-43D6-AA2C-0CBBA8E6D0DA}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[User::Archive_Path] +&quot;\\&quot;+@[User::Actual_File_Name]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="File_Full_Path">
+      <DTS:VariableValue
+        DTS:DataType="8">\</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{9F4FD796-E19E-48A6-896B-B56CBFF1EFEF}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="File_Name">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{0DC12D77-D099-4B54-9DFB-253DA7F007A9}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="File_Path">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{1FAEE29F-374F-43DE-A078-DDBB6F1071CA}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;&#xA;SELECT LEFT('&quot; + @[User::File_Name] + &quot;',LEN('&quot; + @[User::File_Name] + &quot;') - charindex('\\',reverse('&quot; + @[User::File_Name] + &quot;'),1)) File_Path,&#xA;LEFT('&quot; + @[User::File_Name] + &quot;',LEN('&quot; + @[User::File_Name] + &quot;') - charindex('\\',reverse('&quot; + @[User::File_Name] + &quot;'),1)) + '\\' + 'Archive' Archive_Path,&#xA;RIGHT('&quot; + @[User::File_Name] + &quot;', CHARINDEX('\\', REVERSE('&quot; + @[User::File_Name] + &quot;'))-1)  Actual_File_Name&#xA;&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="File_Path_Archive_Path_Query">
+      <DTS:VariableValue
+        DTS:DataType="8">
+SELECT LEFT('',LEN('') - charindex('\',reverse(''),1)) File_Path,
+LEFT('',LEN('') - charindex('\',reverse(''),1)) + '\' + 'Archive' Archive_Path,
+RIGHT('', CHARINDEX('\', REVERSE(''))-1)  Actual_File_Name
+</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Archive files"
+      DTS:CreationName="STOCK:FOREACHLOOP"
+      DTS:Description="Foreach Loop Container"
+      DTS:DTSID="{420fe662-caa8-4bcf-97fe-420d779811b0}"
+      DTS:ExecutableType="STOCK:FOREACHLOOP"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Archive files">
+      <DTS:ForEachEnumerator
+        DTS:CreationName="Microsoft.ForEachFileEnumerator"
+        DTS:DTSID="{4b259017-9e56-450b-a980-901104526787}"
+        DTS:ObjectName="{16B6AB6B-D1B4-4F4B-87E8-D100DE41703D}">
+        <DTS:PropertyExpression
+          DTS:Name="Directory">@[$Project::Excel_File_Path]</DTS:PropertyExpression>
+        <DTS:PropertyExpression
+          DTS:Name="FileSpec">@[$Project::Excel_File_Extension]</DTS:PropertyExpression>
+        <DTS:ObjectData>
+          <ForEachFileEnumeratorProperties>
+            <FEFEProperty
+              Folder="\\atl-sql01\f$\Vanran_Test" />
+            <FEFEProperty
+              FileSpec="*.xlsx" />
+            <FEFEProperty
+              FileNameRetrievalType="0" />
+            <FEFEProperty
+              Recurse="0" />
+          </ForEachFileEnumeratorProperties>
+        </DTS:ObjectData>
+      </DTS:ForEachEnumerator>
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Archive files\Archive files"
+          DTS:CreationName="Microsoft.FileSystemTask"
+          DTS:DelayValidation="True"
+          DTS:Description="File System Task"
+          DTS:DTSID="{4455B230-9B46-4763-912D-4888D9A6B0F3}"
+          DTS:ExecutableType="Microsoft.FileSystemTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Archive files"
+          DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <FileSystemData
+              TaskOperationType="RenameFile"
+              TaskOverwriteDestFile="True"
+              TaskSourcePath="User::File_Name"
+              TaskIsSourceVariable="True"
+              TaskDestinationPath="User::Archive_Full_Path"
+              TaskIsDestinationVariable="True" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Archive files\Get filepath and archivepath"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:DelayValidation="True"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{0DA3EC20-B95C-489D-8ACE-B466770AB8C2}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Get filepath and archivepath"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:PropertyExpression
+            DTS:Name="SqlStatementSource">@[User::File_Path_Archive_Path_Query]</DTS:PropertyExpression>
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{E0E6DC88-A9A1-4A51-8B19-958C1AD76267}"
+              SQLTask:SqlStatementSource="&#xA;SELECT LEFT('',LEN('') - charindex('\',reverse(''),1)) File_Path,&#xA;LEFT('',LEN('') - charindex('\',reverse(''),1)) + '\' + 'Archive' Archive_Path,&#xA;RIGHT('', CHARINDEX('\', REVERSE(''))-1)  Actual_File_Name&#xA;"
+              SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ResultBinding
+                SQLTask:ResultName="File_Path"
+                SQLTask:DtsVariableName="User::File_Path" />
+              <SQLTask:ResultBinding
+                SQLTask:ResultName="Archive_Path"
+                SQLTask:DtsVariableName="User::Archive_Path" />
+              <SQLTask:ResultBinding
+                SQLTask:ResultName="Actual_File_Name"
+                SQLTask:DtsVariableName="User::Actual_File_Name" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Archive files.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{C20DD417-ECD4-484C-B92A-1E30E1FB62B8}"
+          DTS:From="Package\Archive files\Get filepath and archivepath"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Archive files\Archive files" />
+      </DTS:PrecedenceConstraints>
+      <DTS:ForEachVariableMappings>
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{8FD36481-8CD5-46C3-95C8-5A9D779E03F1}"
+          DTS:ObjectName="{8FD36481-8CD5-46C3-95C8-5A9D779E03F1}"
+          DTS:ValueIndex="0"
+          DTS:VariableName="User::File_Name" />
+      </DTS:ForEachVariableMappings>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="138,42"
+          Id="Package\Archive files\Archive files"
+          TopLeft="62,131" />
+        <NodeLayout
+          Size="216,42"
+          Id="Package\Archive files\Get filepath and archivepath"
+          TopLeft="29,36" />
+        <EdgeLayout
+          Id="Package\Archive files.PrecedenceConstraints[Constraint]"
+          TopLeft="134,78">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,53"
+              Start="0,0"
+              End="0,45.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,45.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="275,228"
+          Size="275,271"
+          Id="Package\Archive files"
+          TopLeft="214,53" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

@@ -5,26 +5,26 @@
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="PREETISHK-LPT"
   DTS:CreatorName="DATAFORTUNE\preetish.kharche"
-  DTS:DTSID="{52575D2E-FE81-4786-B873-405C24B1C576}"
+  DTS:DTSID="{9539ECBE-B712-4C3C-B0B7-538EFEED7317}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="15.0.2000.123"
   DTS:LocaleID="16393"
-  DTS:ObjectName="ODS_Device_Parameter"
+  DTS:ObjectName="ODS_Terminal"
   DTS:PackageType="5"
-  DTS:VersionBuild="35"
-  DTS:VersionGUID="{B7587CD6-94CE-420E-A042-CAD6259DDD68}">
+  DTS:VersionBuild="53"
+  DTS:VersionGUID="{9D6CB206-BDC4-420D-8681-54318AF3A9ED}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
   <DTS:Executables>
     <DTS:Executable
-      DTS:refId="Package\DFT_Device_Parameter"
+      DTS:refId="Package\DFT_Terminal"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
-      DTS:DTSID="{88322B68-9E30-4033-A5BD-5BC23597D64F}"
+      DTS:DTSID="{7432C16C-D2A3-42D4-9D25-73CCEB488070}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
-      DTS:ObjectName="DFT_Device_Parameter"
+      DTS:ObjectName="DFT_Terminal"
       DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
       <DTS:Variables />
       <DTS:ObjectData>
@@ -32,7 +32,7 @@
           version="1">
           <components>
             <component
-              refId="Package\DFT_Device_Parameter\Data Conversion"
+              refId="Package\DFT_Terminal\Data Conversion"
               componentClassID="Microsoft.DataConvert"
               contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
               description="Data Conversion"
@@ -40,70 +40,82 @@
               usesDispositions="true">
               <inputs>
                 <input
-                  refId="Package\DFT_Device_Parameter\Data Conversion.Inputs[Data Conversion Input]"
+                  refId="Package\DFT_Terminal\Data Conversion.Inputs[Data Conversion Input]"
                   name="Data Conversion Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\DFT_Device_Parameter\Data Conversion.Inputs[Data Conversion Input].Columns[Root Domain]"
+                      refId="Package\DFT_Terminal\Data Conversion.Inputs[Data Conversion Input].Columns[Root Domain]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="Root Domain"
-                      lineageId="Package\DFT_Device_Parameter\Excel_Device_Parameter.Outputs[Excel Source Output].Columns[Root Domain]" />
+                      lineageId="Package\DFT_Terminal\Excel_Terminal.Outputs[Excel Source Output].Columns[Root Domain]" />
                     <inputColumn
-                      refId="Package\DFT_Device_Parameter\Data Conversion.Inputs[Data Conversion Input].Columns[Action]"
+                      refId="Package\DFT_Terminal\Data Conversion.Inputs[Data Conversion Input].Columns[Action]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="Action"
-                      lineageId="Package\DFT_Device_Parameter\Excel_Device_Parameter.Outputs[Excel Source Output].Columns[Action]" />
+                      lineageId="Package\DFT_Terminal\Excel_Terminal.Outputs[Excel Source Output].Columns[Action]" />
                     <inputColumn
-                      refId="Package\DFT_Device_Parameter\Data Conversion.Inputs[Data Conversion Input].Columns[group_name]"
+                      refId="Package\DFT_Terminal\Data Conversion.Inputs[Data Conversion Input].Columns[mac_address]"
                       cachedDataType="wstr"
                       cachedLength="255"
-                      cachedName="group_name"
-                      lineageId="Package\DFT_Device_Parameter\Excel_Device_Parameter.Outputs[Excel Source Output].Columns[group_name]" />
+                      cachedName="mac_address"
+                      lineageId="Package\DFT_Terminal\Excel_Terminal.Outputs[Excel Source Output].Columns[mac_address]" />
                     <inputColumn
-                      refId="Package\DFT_Device_Parameter\Data Conversion.Inputs[Data Conversion Input].Columns[parameter]"
+                      refId="Package\DFT_Terminal\Data Conversion.Inputs[Data Conversion Input].Columns[terminal_type]"
                       cachedDataType="wstr"
                       cachedLength="255"
-                      cachedName="parameter"
-                      lineageId="Package\DFT_Device_Parameter\Excel_Device_Parameter.Outputs[Excel Source Output].Columns[parameter]" />
+                      cachedName="terminal_type"
+                      lineageId="Package\DFT_Terminal\Excel_Terminal.Outputs[Excel Source Output].Columns[terminal_type]" />
                     <inputColumn
-                      refId="Package\DFT_Device_Parameter\Data Conversion.Inputs[Data Conversion Input].Columns[Parameter Action]"
+                      refId="Package\DFT_Terminal\Data Conversion.Inputs[Data Conversion Input].Columns[domain_name]"
                       cachedDataType="wstr"
                       cachedLength="255"
-                      cachedName="Parameter Action"
-                      lineageId="Package\DFT_Device_Parameter\Excel_Device_Parameter.Outputs[Excel Source Output].Columns[Parameter Action]" />
+                      cachedName="domain_name"
+                      lineageId="Package\DFT_Terminal\Excel_Terminal.Outputs[Excel Source Output].Columns[domain_name]" />
                     <inputColumn
-                      refId="Package\DFT_Device_Parameter\Data Conversion.Inputs[Data Conversion Input].Columns[value]"
+                      refId="Package\DFT_Terminal\Data Conversion.Inputs[Data Conversion Input].Columns[firmware]"
                       cachedDataType="wstr"
                       cachedLength="255"
-                      cachedName="value"
-                      lineageId="Package\DFT_Device_Parameter\Excel_Device_Parameter.Outputs[Excel Source Output].Columns[value]" />
+                      cachedName="firmware"
+                      lineageId="Package\DFT_Terminal\Excel_Terminal.Outputs[Excel Source Output].Columns[firmware]" />
                     <inputColumn
-                      refId="Package\DFT_Device_Parameter\Data Conversion.Inputs[Data Conversion Input].Columns[Customer ]"
+                      refId="Package\DFT_Terminal\Data Conversion.Inputs[Data Conversion Input].Columns[hotdesk]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="hotdesk"
+                      lineageId="Package\DFT_Terminal\Excel_Terminal.Outputs[Excel Source Output].Columns[hotdesk]" />
+                    <inputColumn
+                      refId="Package\DFT_Terminal\Data Conversion.Inputs[Data Conversion Input].Columns[Customer ]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="Customer "
-                      lineageId="Package\DFT_Device_Parameter\Excel_Device_Parameter.Outputs[Excel Source Output].Columns[Customer ]" />
+                      lineageId="Package\DFT_Terminal\Excel_Terminal.Outputs[Excel Source Output].Columns[Customer ]" />
+                    <inputColumn
+                      refId="Package\DFT_Terminal\Data Conversion.Inputs[Data Conversion Input].Columns[source]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="source"
+                      lineageId="Package\DFT_Terminal\Excel_Terminal.Outputs[Excel Source Output].Columns[source]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\DFT_Device_Parameter\Data Conversion.Outputs[Data Conversion Output]"
+                  refId="Package\DFT_Terminal\Data Conversion.Outputs[Data Conversion Output]"
                   exclusionGroup="1"
                   name="Data Conversion Output"
-                  synchronousInputId="Package\DFT_Device_Parameter\Data Conversion.Inputs[Data Conversion Input]">
+                  synchronousInputId="Package\DFT_Terminal\Data Conversion.Inputs[Data Conversion Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\DFT_Device_Parameter\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Root Domain]"
+                      refId="Package\DFT_Terminal\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Root Domain]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       length="25"
-                      lineageId="Package\DFT_Device_Parameter\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Root Domain]"
+                      lineageId="Package\DFT_Terminal\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Root Domain]"
                       name="Copy of Root Domain"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -111,7 +123,7 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\DFT_Device_Parameter\Excel_Device_Parameter.Outputs[Excel Source Output].Columns[Root Domain]}</property>
+                          name="SourceInputColumnLineageID">#{Package\DFT_Terminal\Excel_Terminal.Outputs[Excel Source Output].Columns[Root Domain]}</property>
                         <property
                           dataType="System.Boolean"
                           description="Indicates whether the column uses the faster, locale-neutral parsing routines."
@@ -119,13 +131,13 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\DFT_Device_Parameter\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Action]"
+                      refId="Package\DFT_Terminal\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Action]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       length="25"
-                      lineageId="Package\DFT_Device_Parameter\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Action]"
+                      lineageId="Package\DFT_Terminal\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Action]"
                       name="Copy of Action"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -133,7 +145,7 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\DFT_Device_Parameter\Excel_Device_Parameter.Outputs[Excel Source Output].Columns[Action]}</property>
+                          name="SourceInputColumnLineageID">#{Package\DFT_Terminal\Excel_Terminal.Outputs[Excel Source Output].Columns[Action]}</property>
                         <property
                           dataType="System.Boolean"
                           description="Indicates whether the column uses the faster, locale-neutral parsing routines."
@@ -141,101 +153,13 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\DFT_Device_Parameter\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of group_name]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      length="30"
-                      lineageId="Package\DFT_Device_Parameter\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of group_name]"
-                      name="Copy of group_name"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\DFT_Device_Parameter\Excel_Device_Parameter.Outputs[Excel Source Output].Columns[group_name]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\DFT_Device_Parameter\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of parameter]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      length="255"
-                      lineageId="Package\DFT_Device_Parameter\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of parameter]"
-                      name="Copy of parameter"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\DFT_Device_Parameter\Excel_Device_Parameter.Outputs[Excel Source Output].Columns[parameter]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\DFT_Device_Parameter\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Parameter Action]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      length="10"
-                      lineageId="Package\DFT_Device_Parameter\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Parameter Action]"
-                      name="Copy of Parameter Action"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\DFT_Device_Parameter\Excel_Device_Parameter.Outputs[Excel Source Output].Columns[Parameter Action]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\DFT_Device_Parameter\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of value]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      length="500"
-                      lineageId="Package\DFT_Device_Parameter\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of value]"
-                      name="Copy of value"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\DFT_Device_Parameter\Excel_Device_Parameter.Outputs[Excel Source Output].Columns[value]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\DFT_Device_Parameter\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Customer]"
+                      refId="Package\DFT_Terminal\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Customer]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       length="25"
-                      lineageId="Package\DFT_Device_Parameter\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Customer]"
+                      lineageId="Package\DFT_Terminal\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Customer]"
                       name="Copy of Customer"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -243,7 +167,138 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\DFT_Device_Parameter\Excel_Device_Parameter.Outputs[Excel Source Output].Columns[Customer ]}</property>
+                          name="SourceInputColumnLineageID">#{Package\DFT_Terminal\Excel_Terminal.Outputs[Excel Source Output].Columns[Customer ]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Terminal\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of mac_address]"
+                      dataType="bytes"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="17"
+                      lineageId="Package\DFT_Terminal\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of mac_address]"
+                      name="Copy of mac_address"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT_Terminal\Excel_Terminal.Outputs[Excel Source Output].Columns[mac_address]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Terminal\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of terminal_type]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\DFT_Terminal\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of terminal_type]"
+                      name="Copy of terminal_type"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT_Terminal\Excel_Terminal.Outputs[Excel Source Output].Columns[terminal_type]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Terminal\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of domain_name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\DFT_Terminal\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of domain_name]"
+                      name="Copy of domain_name"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT_Terminal\Excel_Terminal.Outputs[Excel Source Output].Columns[domain_name]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Terminal\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of firmware]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\DFT_Terminal\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of firmware]"
+                      name="Copy of firmware"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT_Terminal\Excel_Terminal.Outputs[Excel Source Output].Columns[firmware]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Terminal\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of hotdesk]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="10"
+                      lineageId="Package\DFT_Terminal\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of hotdesk]"
+                      name="Copy of hotdesk"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT_Terminal\Excel_Terminal.Outputs[Excel Source Output].Columns[hotdesk]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Terminal\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of source]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="10"
+                      lineageId="Package\DFT_Terminal\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of source]"
+                      name="Copy of source"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT_Terminal\Excel_Terminal.Outputs[Excel Source Output].Columns[source]}</property>
                         <property
                           dataType="System.Boolean"
                           description="Indicates whether the column uses the faster, locale-neutral parsing routines."
@@ -254,22 +309,22 @@
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\DFT_Device_Parameter\Data Conversion.Outputs[Data Conversion Error Output]"
+                  refId="Package\DFT_Terminal\Data Conversion.Outputs[Data Conversion Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Data Conversion Error Output"
-                  synchronousInputId="Package\DFT_Device_Parameter\Data Conversion.Inputs[Data Conversion Input]">
+                  synchronousInputId="Package\DFT_Terminal\Data Conversion.Inputs[Data Conversion Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\DFT_Device_Parameter\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      refId="Package\DFT_Terminal\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\DFT_Device_Parameter\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      lineageId="Package\DFT_Terminal\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\DFT_Device_Parameter\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      refId="Package\DFT_Terminal\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\DFT_Device_Parameter\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\DFT_Terminal\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -278,7 +333,7 @@
               </outputs>
             </component>
             <component
-              refId="Package\DFT_Device_Parameter\Derived Column"
+              refId="Package\DFT_Terminal\Derived Column"
               componentClassID="Microsoft.DerivedColumn"
               contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
               description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
@@ -286,7 +341,7 @@
               usesDispositions="true">
               <inputs>
                 <input
-                  refId="Package\DFT_Device_Parameter\Derived Column.Inputs[Derived Column Input]"
+                  refId="Package\DFT_Terminal\Derived Column.Inputs[Derived Column Input]"
                   description="Input to the Derived Column Transformation"
                   name="Derived Column Input">
                   <externalMetadataColumns />
@@ -294,20 +349,20 @@
               </inputs>
               <outputs>
                 <output
-                  refId="Package\DFT_Device_Parameter\Derived Column.Outputs[Derived Column Output]"
+                  refId="Package\DFT_Terminal\Derived Column.Outputs[Derived Column Output]"
                   description="Default Output of the Derived Column Transformation"
                   exclusionGroup="1"
                   name="Derived Column Output"
-                  synchronousInputId="Package\DFT_Device_Parameter\Derived Column.Inputs[Derived Column Input]">
+                  synchronousInputId="Package\DFT_Terminal\Derived Column.Inputs[Derived Column Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\DFT_Device_Parameter\Derived Column.Outputs[Derived Column Output].Columns[Der_Source_Type]"
+                      refId="Package\DFT_Terminal\Derived Column.Outputs[Derived Column Output].Columns[Der_Source_Type]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Computation"
                       errorRowDisposition="FailComponent"
                       length="10"
-                      lineageId="Package\DFT_Device_Parameter\Derived Column.Outputs[Derived Column Output].Columns[Der_Source_Type]"
+                      lineageId="Package\DFT_Terminal\Derived Column.Outputs[Derived Column Output].Columns[Der_Source_Type]"
                       name="Der_Source_Type"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -324,49 +379,27 @@
                           name="FriendlyExpression">(DT_STR,10,1252)"Excel"</property>
                       </properties>
                     </outputColumn>
-                    <outputColumn
-                      refId="Package\DFT_Device_Parameter\Derived Column.Outputs[Derived Column Output].Columns[Der_Is_Valid]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Computation"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\DFT_Device_Parameter\Derived Column.Outputs[Derived Column Output].Columns[Der_Is_Valid]"
-                      name="Der_Is_Valid"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Derived Column Expression"
-                          name="Expression">1</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Derived Column Friendly Expression"
-                          expressionType="Notify"
-                          name="FriendlyExpression">1</property>
-                      </properties>
-                    </outputColumn>
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\DFT_Device_Parameter\Derived Column.Outputs[Derived Column Error Output]"
+                  refId="Package\DFT_Terminal\Derived Column.Outputs[Derived Column Error Output]"
                   description="Error Output of the Derived Column Transformation"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Derived Column Error Output"
-                  synchronousInputId="Package\DFT_Device_Parameter\Derived Column.Inputs[Derived Column Input]">
+                  synchronousInputId="Package\DFT_Terminal\Derived Column.Inputs[Derived Column Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\DFT_Device_Parameter\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      refId="Package\DFT_Terminal\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\DFT_Device_Parameter\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      lineageId="Package\DFT_Terminal\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\DFT_Device_Parameter\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      refId="Package\DFT_Terminal\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\DFT_Device_Parameter\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\DFT_Terminal\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -375,11 +408,11 @@
               </outputs>
             </component>
             <component
-              refId="Package\DFT_Device_Parameter\Excel_Device_Parameter"
+              refId="Package\DFT_Terminal\Excel_Terminal"
               componentClassID="Microsoft.ExcelSource"
               contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
               description="Excel Source"
-              name="Excel_Device_Parameter"
+              name="Excel_Terminal"
               usesDispositions="true"
               version="1">
               <properties>
@@ -390,7 +423,7 @@
                 <property
                   dataType="System.String"
                   description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">Device_Parameter$A53:G</property>
+                  name="OpenRowset">Terminals$A53:I</property>
                 <property
                   dataType="System.String"
                   description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -416,7 +449,7 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\DFT_Device_Parameter\Excel_Device_Parameter.Connections[OleDbConnection]"
+                  refId="Package\DFT_Terminal\Excel_Terminal.Connections[OleDbConnection]"
                   connectionManagerID="{0D2225D9-F1D8-4D95-B705-EE61F6D41EC3}:external"
                   connectionManagerRefId="Project.ConnectionManagers[Excel]"
                   description="The OLE DB runtime connection used to access the database."
@@ -424,189 +457,231 @@
               </connections>
               <outputs>
                 <output
-                  refId="Package\DFT_Device_Parameter\Excel_Device_Parameter.Outputs[Excel Source Output]"
+                  refId="Package\DFT_Terminal\Excel_Terminal.Outputs[Excel Source Output]"
                   name="Excel Source Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\DFT_Device_Parameter\Excel_Device_Parameter.Outputs[Excel Source Output].Columns[Root Domain]"
+                      refId="Package\DFT_Terminal\Excel_Terminal.Outputs[Excel Source Output].Columns[Root Domain]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT_Device_Parameter\Excel_Device_Parameter.Outputs[Excel Source Output].ExternalColumns[Root Domain]"
+                      externalMetadataColumnId="Package\DFT_Terminal\Excel_Terminal.Outputs[Excel Source Output].ExternalColumns[Root Domain]"
                       length="255"
-                      lineageId="Package\DFT_Device_Parameter\Excel_Device_Parameter.Outputs[Excel Source Output].Columns[Root Domain]"
+                      lineageId="Package\DFT_Terminal\Excel_Terminal.Outputs[Excel Source Output].Columns[Root Domain]"
                       name="Root Domain"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\DFT_Device_Parameter\Excel_Device_Parameter.Outputs[Excel Source Output].Columns[Action]"
+                      refId="Package\DFT_Terminal\Excel_Terminal.Outputs[Excel Source Output].Columns[Action]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT_Device_Parameter\Excel_Device_Parameter.Outputs[Excel Source Output].ExternalColumns[Action]"
+                      externalMetadataColumnId="Package\DFT_Terminal\Excel_Terminal.Outputs[Excel Source Output].ExternalColumns[Action]"
                       length="255"
-                      lineageId="Package\DFT_Device_Parameter\Excel_Device_Parameter.Outputs[Excel Source Output].Columns[Action]"
+                      lineageId="Package\DFT_Terminal\Excel_Terminal.Outputs[Excel Source Output].Columns[Action]"
                       name="Action"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\DFT_Device_Parameter\Excel_Device_Parameter.Outputs[Excel Source Output].Columns[group_name]"
+                      refId="Package\DFT_Terminal\Excel_Terminal.Outputs[Excel Source Output].Columns[Customer ]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT_Device_Parameter\Excel_Device_Parameter.Outputs[Excel Source Output].ExternalColumns[group_name]"
+                      externalMetadataColumnId="Package\DFT_Terminal\Excel_Terminal.Outputs[Excel Source Output].ExternalColumns[Customer ]"
                       length="255"
-                      lineageId="Package\DFT_Device_Parameter\Excel_Device_Parameter.Outputs[Excel Source Output].Columns[group_name]"
-                      name="group_name"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\DFT_Device_Parameter\Excel_Device_Parameter.Outputs[Excel Source Output].Columns[parameter]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT_Device_Parameter\Excel_Device_Parameter.Outputs[Excel Source Output].ExternalColumns[parameter]"
-                      length="255"
-                      lineageId="Package\DFT_Device_Parameter\Excel_Device_Parameter.Outputs[Excel Source Output].Columns[parameter]"
-                      name="parameter"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\DFT_Device_Parameter\Excel_Device_Parameter.Outputs[Excel Source Output].Columns[Parameter Action]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT_Device_Parameter\Excel_Device_Parameter.Outputs[Excel Source Output].ExternalColumns[Parameter Action]"
-                      length="255"
-                      lineageId="Package\DFT_Device_Parameter\Excel_Device_Parameter.Outputs[Excel Source Output].Columns[Parameter Action]"
-                      name="Parameter Action"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\DFT_Device_Parameter\Excel_Device_Parameter.Outputs[Excel Source Output].Columns[value]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT_Device_Parameter\Excel_Device_Parameter.Outputs[Excel Source Output].ExternalColumns[value]"
-                      length="255"
-                      lineageId="Package\DFT_Device_Parameter\Excel_Device_Parameter.Outputs[Excel Source Output].Columns[value]"
-                      name="value"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\DFT_Device_Parameter\Excel_Device_Parameter.Outputs[Excel Source Output].Columns[Customer ]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT_Device_Parameter\Excel_Device_Parameter.Outputs[Excel Source Output].ExternalColumns[Customer ]"
-                      length="255"
-                      lineageId="Package\DFT_Device_Parameter\Excel_Device_Parameter.Outputs[Excel Source Output].Columns[Customer ]"
+                      lineageId="Package\DFT_Terminal\Excel_Terminal.Outputs[Excel Source Output].Columns[Customer ]"
                       name="Customer "
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Terminal\Excel_Terminal.Outputs[Excel Source Output].Columns[mac_address]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Terminal\Excel_Terminal.Outputs[Excel Source Output].ExternalColumns[mac_address]"
+                      length="255"
+                      lineageId="Package\DFT_Terminal\Excel_Terminal.Outputs[Excel Source Output].Columns[mac_address]"
+                      name="mac_address"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Terminal\Excel_Terminal.Outputs[Excel Source Output].Columns[terminal_type]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Terminal\Excel_Terminal.Outputs[Excel Source Output].ExternalColumns[terminal_type]"
+                      length="255"
+                      lineageId="Package\DFT_Terminal\Excel_Terminal.Outputs[Excel Source Output].Columns[terminal_type]"
+                      name="terminal_type"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Terminal\Excel_Terminal.Outputs[Excel Source Output].Columns[domain_name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Terminal\Excel_Terminal.Outputs[Excel Source Output].ExternalColumns[domain_name]"
+                      length="255"
+                      lineageId="Package\DFT_Terminal\Excel_Terminal.Outputs[Excel Source Output].Columns[domain_name]"
+                      name="domain_name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Terminal\Excel_Terminal.Outputs[Excel Source Output].Columns[firmware]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Terminal\Excel_Terminal.Outputs[Excel Source Output].ExternalColumns[firmware]"
+                      length="255"
+                      lineageId="Package\DFT_Terminal\Excel_Terminal.Outputs[Excel Source Output].Columns[firmware]"
+                      name="firmware"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Terminal\Excel_Terminal.Outputs[Excel Source Output].Columns[hotdesk]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Terminal\Excel_Terminal.Outputs[Excel Source Output].ExternalColumns[hotdesk]"
+                      length="255"
+                      lineageId="Package\DFT_Terminal\Excel_Terminal.Outputs[Excel Source Output].Columns[hotdesk]"
+                      name="hotdesk"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Terminal\Excel_Terminal.Outputs[Excel Source Output].Columns[source]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Terminal\Excel_Terminal.Outputs[Excel Source Output].ExternalColumns[source]"
+                      length="255"
+                      lineageId="Package\DFT_Terminal\Excel_Terminal.Outputs[Excel Source Output].Columns[source]"
+                      name="source"
                       truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\DFT_Device_Parameter\Excel_Device_Parameter.Outputs[Excel Source Output].ExternalColumns[Root Domain]"
+                      refId="Package\DFT_Terminal\Excel_Terminal.Outputs[Excel Source Output].ExternalColumns[Root Domain]"
                       dataType="wstr"
                       length="255"
                       name="Root Domain" />
                     <externalMetadataColumn
-                      refId="Package\DFT_Device_Parameter\Excel_Device_Parameter.Outputs[Excel Source Output].ExternalColumns[Action]"
+                      refId="Package\DFT_Terminal\Excel_Terminal.Outputs[Excel Source Output].ExternalColumns[Action]"
                       dataType="wstr"
                       length="255"
                       name="Action" />
                     <externalMetadataColumn
-                      refId="Package\DFT_Device_Parameter\Excel_Device_Parameter.Outputs[Excel Source Output].ExternalColumns[group_name]"
-                      dataType="wstr"
-                      length="255"
-                      name="group_name" />
-                    <externalMetadataColumn
-                      refId="Package\DFT_Device_Parameter\Excel_Device_Parameter.Outputs[Excel Source Output].ExternalColumns[parameter]"
-                      dataType="wstr"
-                      length="255"
-                      name="parameter" />
-                    <externalMetadataColumn
-                      refId="Package\DFT_Device_Parameter\Excel_Device_Parameter.Outputs[Excel Source Output].ExternalColumns[Parameter Action]"
-                      dataType="wstr"
-                      length="255"
-                      name="Parameter Action" />
-                    <externalMetadataColumn
-                      refId="Package\DFT_Device_Parameter\Excel_Device_Parameter.Outputs[Excel Source Output].ExternalColumns[value]"
-                      dataType="wstr"
-                      length="255"
-                      name="value" />
-                    <externalMetadataColumn
-                      refId="Package\DFT_Device_Parameter\Excel_Device_Parameter.Outputs[Excel Source Output].ExternalColumns[Customer ]"
+                      refId="Package\DFT_Terminal\Excel_Terminal.Outputs[Excel Source Output].ExternalColumns[Customer ]"
                       dataType="wstr"
                       length="255"
                       name="Customer " />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Terminal\Excel_Terminal.Outputs[Excel Source Output].ExternalColumns[mac_address]"
+                      dataType="wstr"
+                      length="255"
+                      name="mac_address" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Terminal\Excel_Terminal.Outputs[Excel Source Output].ExternalColumns[terminal_type]"
+                      dataType="wstr"
+                      length="255"
+                      name="terminal_type" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Terminal\Excel_Terminal.Outputs[Excel Source Output].ExternalColumns[domain_name]"
+                      dataType="wstr"
+                      length="255"
+                      name="domain_name" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Terminal\Excel_Terminal.Outputs[Excel Source Output].ExternalColumns[firmware]"
+                      dataType="wstr"
+                      length="255"
+                      name="firmware" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Terminal\Excel_Terminal.Outputs[Excel Source Output].ExternalColumns[hotdesk]"
+                      dataType="wstr"
+                      length="255"
+                      name="hotdesk" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Terminal\Excel_Terminal.Outputs[Excel Source Output].ExternalColumns[source]"
+                      dataType="wstr"
+                      length="255"
+                      name="source" />
                   </externalMetadataColumns>
                 </output>
                 <output
-                  refId="Package\DFT_Device_Parameter\Excel_Device_Parameter.Outputs[Excel Source Error Output]"
+                  refId="Package\DFT_Terminal\Excel_Terminal.Outputs[Excel Source Error Output]"
                   isErrorOut="true"
                   name="Excel Source Error Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\DFT_Device_Parameter\Excel_Device_Parameter.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      refId="Package\DFT_Terminal\Excel_Terminal.Outputs[Excel Source Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\DFT_Device_Parameter\Excel_Device_Parameter.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      lineageId="Package\DFT_Terminal\Excel_Terminal.Outputs[Excel Source Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\DFT_Device_Parameter\Excel_Device_Parameter.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      refId="Package\DFT_Terminal\Excel_Terminal.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\DFT_Device_Parameter\Excel_Device_Parameter.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\DFT_Terminal\Excel_Terminal.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                     <outputColumn
-                      refId="Package\DFT_Device_Parameter\Excel_Device_Parameter.Outputs[Excel Source Error Output].Columns[Root Domain]"
+                      refId="Package\DFT_Terminal\Excel_Terminal.Outputs[Excel Source Error Output].Columns[Root Domain]"
                       dataType="wstr"
                       length="255"
-                      lineageId="Package\DFT_Device_Parameter\Excel_Device_Parameter.Outputs[Excel Source Error Output].Columns[Root Domain]"
+                      lineageId="Package\DFT_Terminal\Excel_Terminal.Outputs[Excel Source Error Output].Columns[Root Domain]"
                       name="Root Domain" />
                     <outputColumn
-                      refId="Package\DFT_Device_Parameter\Excel_Device_Parameter.Outputs[Excel Source Error Output].Columns[Action]"
+                      refId="Package\DFT_Terminal\Excel_Terminal.Outputs[Excel Source Error Output].Columns[Action]"
                       dataType="wstr"
                       length="255"
-                      lineageId="Package\DFT_Device_Parameter\Excel_Device_Parameter.Outputs[Excel Source Error Output].Columns[Action]"
+                      lineageId="Package\DFT_Terminal\Excel_Terminal.Outputs[Excel Source Error Output].Columns[Action]"
                       name="Action" />
                     <outputColumn
-                      refId="Package\DFT_Device_Parameter\Excel_Device_Parameter.Outputs[Excel Source Error Output].Columns[group_name]"
+                      refId="Package\DFT_Terminal\Excel_Terminal.Outputs[Excel Source Error Output].Columns[Customer ]"
                       dataType="wstr"
                       length="255"
-                      lineageId="Package\DFT_Device_Parameter\Excel_Device_Parameter.Outputs[Excel Source Error Output].Columns[group_name]"
-                      name="group_name" />
-                    <outputColumn
-                      refId="Package\DFT_Device_Parameter\Excel_Device_Parameter.Outputs[Excel Source Error Output].Columns[parameter]"
-                      dataType="wstr"
-                      length="255"
-                      lineageId="Package\DFT_Device_Parameter\Excel_Device_Parameter.Outputs[Excel Source Error Output].Columns[parameter]"
-                      name="parameter" />
-                    <outputColumn
-                      refId="Package\DFT_Device_Parameter\Excel_Device_Parameter.Outputs[Excel Source Error Output].Columns[Parameter Action]"
-                      dataType="wstr"
-                      length="255"
-                      lineageId="Package\DFT_Device_Parameter\Excel_Device_Parameter.Outputs[Excel Source Error Output].Columns[Parameter Action]"
-                      name="Parameter Action" />
-                    <outputColumn
-                      refId="Package\DFT_Device_Parameter\Excel_Device_Parameter.Outputs[Excel Source Error Output].Columns[value]"
-                      dataType="wstr"
-                      length="255"
-                      lineageId="Package\DFT_Device_Parameter\Excel_Device_Parameter.Outputs[Excel Source Error Output].Columns[value]"
-                      name="value" />
-                    <outputColumn
-                      refId="Package\DFT_Device_Parameter\Excel_Device_Parameter.Outputs[Excel Source Error Output].Columns[Customer ]"
-                      dataType="wstr"
-                      length="255"
-                      lineageId="Package\DFT_Device_Parameter\Excel_Device_Parameter.Outputs[Excel Source Error Output].Columns[Customer ]"
+                      lineageId="Package\DFT_Terminal\Excel_Terminal.Outputs[Excel Source Error Output].Columns[Customer ]"
                       name="Customer " />
+                    <outputColumn
+                      refId="Package\DFT_Terminal\Excel_Terminal.Outputs[Excel Source Error Output].Columns[mac_address]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT_Terminal\Excel_Terminal.Outputs[Excel Source Error Output].Columns[mac_address]"
+                      name="mac_address" />
+                    <outputColumn
+                      refId="Package\DFT_Terminal\Excel_Terminal.Outputs[Excel Source Error Output].Columns[terminal_type]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT_Terminal\Excel_Terminal.Outputs[Excel Source Error Output].Columns[terminal_type]"
+                      name="terminal_type" />
+                    <outputColumn
+                      refId="Package\DFT_Terminal\Excel_Terminal.Outputs[Excel Source Error Output].Columns[domain_name]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT_Terminal\Excel_Terminal.Outputs[Excel Source Error Output].Columns[domain_name]"
+                      name="domain_name" />
+                    <outputColumn
+                      refId="Package\DFT_Terminal\Excel_Terminal.Outputs[Excel Source Error Output].Columns[firmware]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT_Terminal\Excel_Terminal.Outputs[Excel Source Error Output].Columns[firmware]"
+                      name="firmware" />
+                    <outputColumn
+                      refId="Package\DFT_Terminal\Excel_Terminal.Outputs[Excel Source Error Output].Columns[hotdesk]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT_Terminal\Excel_Terminal.Outputs[Excel Source Error Output].Columns[hotdesk]"
+                      name="hotdesk" />
+                    <outputColumn
+                      refId="Package\DFT_Terminal\Excel_Terminal.Outputs[Excel Source Error Output].Columns[source]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT_Terminal\Excel_Terminal.Outputs[Excel Source Error Output].Columns[source]"
+                      name="source" />
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
               </outputs>
             </component>
             <component
-              refId="Package\DFT_Device_Parameter\Load_Device_Parameter"
+              refId="Package\DFT_Terminal\Load_Terminal"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
               description="OLE DB Destination"
-              name="Load_Device_Parameter"
+              name="Load_Terminal"
               usesDispositions="true"
               version="4">
               <properties>
@@ -617,7 +692,7 @@
                 <property
                   dataType="System.String"
                   description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[dbo].[Device_Parameter]</property>
+                  name="OpenRowset">[dbo].[Terminal]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -659,7 +734,7 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\DFT_Device_Parameter\Load_Device_Parameter.Connections[OleDbConnection]"
+                  refId="Package\DFT_Terminal\Load_Terminal.Connections[OleDbConnection]"
                   connectionManagerID="{E0E6DC88-A9A1-4A51-8B19-958C1AD76267}:external"
                   connectionManagerRefId="Project.ConnectionManagers[ODS_Vanran_Ribbon]"
                   description="The OLE DB runtime connection used to access the database."
@@ -667,149 +742,192 @@
               </connections>
               <inputs>
                 <input
-                  refId="Package\DFT_Device_Parameter\Load_Device_Parameter.Inputs[OLE DB Destination Input]"
+                  refId="Package\DFT_Terminal\Load_Terminal.Inputs[OLE DB Destination Input]"
                   errorOrTruncationOperation="Insert"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="OLE DB Destination Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\DFT_Device_Parameter\Load_Device_Parameter.Inputs[OLE DB Destination Input].Columns[Copy of Action]"
+                      refId="Package\DFT_Terminal\Load_Terminal.Inputs[OLE DB Destination Input].Columns[Copy of Action]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="25"
                       cachedName="Copy of Action"
-                      externalMetadataColumnId="Package\DFT_Device_Parameter\Load_Device_Parameter.Inputs[OLE DB Destination Input].ExternalColumns[Action]"
-                      lineageId="Package\DFT_Device_Parameter\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Action]" />
+                      externalMetadataColumnId="Package\DFT_Terminal\Load_Terminal.Inputs[OLE DB Destination Input].ExternalColumns[Action]"
+                      lineageId="Package\DFT_Terminal\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Action]" />
                     <inputColumn
-                      refId="Package\DFT_Device_Parameter\Load_Device_Parameter.Inputs[OLE DB Destination Input].Columns[Copy of Root Domain]"
+                      refId="Package\DFT_Terminal\Load_Terminal.Inputs[OLE DB Destination Input].Columns[Copy of Root Domain]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="25"
                       cachedName="Copy of Root Domain"
-                      externalMetadataColumnId="Package\DFT_Device_Parameter\Load_Device_Parameter.Inputs[OLE DB Destination Input].ExternalColumns[Root_Domain]"
-                      lineageId="Package\DFT_Device_Parameter\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Root Domain]" />
+                      externalMetadataColumnId="Package\DFT_Terminal\Load_Terminal.Inputs[OLE DB Destination Input].ExternalColumns[Root_Domain]"
+                      lineageId="Package\DFT_Terminal\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Root Domain]" />
                     <inputColumn
-                      refId="Package\DFT_Device_Parameter\Load_Device_Parameter.Inputs[OLE DB Destination Input].Columns[Copy of Customer]"
+                      refId="Package\DFT_Terminal\Load_Terminal.Inputs[OLE DB Destination Input].Columns[Copy of Customer]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="25"
                       cachedName="Copy of Customer"
-                      externalMetadataColumnId="Package\DFT_Device_Parameter\Load_Device_Parameter.Inputs[OLE DB Destination Input].ExternalColumns[Customer]"
-                      lineageId="Package\DFT_Device_Parameter\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Customer]" />
+                      externalMetadataColumnId="Package\DFT_Terminal\Load_Terminal.Inputs[OLE DB Destination Input].ExternalColumns[Customer]"
+                      lineageId="Package\DFT_Terminal\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Customer]" />
                     <inputColumn
-                      refId="Package\DFT_Device_Parameter\Load_Device_Parameter.Inputs[OLE DB Destination Input].Columns[Copy of group_name]"
+                      refId="Package\DFT_Terminal\Load_Terminal.Inputs[OLE DB Destination Input].Columns[Copy of mac_address]"
+                      cachedDataType="bytes"
+                      cachedLength="17"
+                      cachedName="Copy of mac_address"
+                      externalMetadataColumnId="Package\DFT_Terminal\Load_Terminal.Inputs[OLE DB Destination Input].ExternalColumns[mac_address]"
+                      lineageId="Package\DFT_Terminal\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of mac_address]" />
+                    <inputColumn
+                      refId="Package\DFT_Terminal\Load_Terminal.Inputs[OLE DB Destination Input].Columns[Copy of terminal_type]"
                       cachedCodepage="1252"
                       cachedDataType="str"
-                      cachedLength="30"
-                      cachedName="Copy of group_name"
-                      externalMetadataColumnId="Package\DFT_Device_Parameter\Load_Device_Parameter.Inputs[OLE DB Destination Input].ExternalColumns[group_name]"
-                      lineageId="Package\DFT_Device_Parameter\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of group_name]" />
+                      cachedLength="100"
+                      cachedName="Copy of terminal_type"
+                      externalMetadataColumnId="Package\DFT_Terminal\Load_Terminal.Inputs[OLE DB Destination Input].ExternalColumns[terminal_type]"
+                      lineageId="Package\DFT_Terminal\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of terminal_type]" />
                     <inputColumn
-                      refId="Package\DFT_Device_Parameter\Load_Device_Parameter.Inputs[OLE DB Destination Input].Columns[Copy of parameter]"
+                      refId="Package\DFT_Terminal\Load_Terminal.Inputs[OLE DB Destination Input].Columns[Copy of domain_name]"
                       cachedCodepage="1252"
                       cachedDataType="str"
-                      cachedLength="255"
-                      cachedName="Copy of parameter"
-                      externalMetadataColumnId="Package\DFT_Device_Parameter\Load_Device_Parameter.Inputs[OLE DB Destination Input].ExternalColumns[parameter]"
-                      lineageId="Package\DFT_Device_Parameter\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of parameter]" />
+                      cachedLength="100"
+                      cachedName="Copy of domain_name"
+                      externalMetadataColumnId="Package\DFT_Terminal\Load_Terminal.Inputs[OLE DB Destination Input].ExternalColumns[domain_name]"
+                      lineageId="Package\DFT_Terminal\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of domain_name]" />
                     <inputColumn
-                      refId="Package\DFT_Device_Parameter\Load_Device_Parameter.Inputs[OLE DB Destination Input].Columns[Copy of Parameter Action]"
+                      refId="Package\DFT_Terminal\Load_Terminal.Inputs[OLE DB Destination Input].Columns[Copy of firmware]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Copy of firmware"
+                      externalMetadataColumnId="Package\DFT_Terminal\Load_Terminal.Inputs[OLE DB Destination Input].ExternalColumns[firmware]"
+                      lineageId="Package\DFT_Terminal\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of firmware]" />
+                    <inputColumn
+                      refId="Package\DFT_Terminal\Load_Terminal.Inputs[OLE DB Destination Input].Columns[Copy of hotdesk]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="10"
-                      cachedName="Copy of Parameter Action"
-                      externalMetadataColumnId="Package\DFT_Device_Parameter\Load_Device_Parameter.Inputs[OLE DB Destination Input].ExternalColumns[Parameter_Action]"
-                      lineageId="Package\DFT_Device_Parameter\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Parameter Action]" />
+                      cachedName="Copy of hotdesk"
+                      externalMetadataColumnId="Package\DFT_Terminal\Load_Terminal.Inputs[OLE DB Destination Input].ExternalColumns[hotdesk]"
+                      lineageId="Package\DFT_Terminal\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of hotdesk]" />
                     <inputColumn
-                      refId="Package\DFT_Device_Parameter\Load_Device_Parameter.Inputs[OLE DB Destination Input].Columns[Copy of value]"
+                      refId="Package\DFT_Terminal\Load_Terminal.Inputs[OLE DB Destination Input].Columns[Copy of source]"
                       cachedCodepage="1252"
                       cachedDataType="str"
-                      cachedLength="500"
-                      cachedName="Copy of value"
-                      externalMetadataColumnId="Package\DFT_Device_Parameter\Load_Device_Parameter.Inputs[OLE DB Destination Input].ExternalColumns[value]"
-                      lineageId="Package\DFT_Device_Parameter\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of value]" />
+                      cachedLength="10"
+                      cachedName="Copy of source"
+                      externalMetadataColumnId="Package\DFT_Terminal\Load_Terminal.Inputs[OLE DB Destination Input].ExternalColumns[source]"
+                      lineageId="Package\DFT_Terminal\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of source]" />
                     <inputColumn
-                      refId="Package\DFT_Device_Parameter\Load_Device_Parameter.Inputs[OLE DB Destination Input].Columns[Der_Source_Type]"
+                      refId="Package\DFT_Terminal\Load_Terminal.Inputs[OLE DB Destination Input].Columns[Der_Source_Type]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="10"
                       cachedName="Der_Source_Type"
-                      externalMetadataColumnId="Package\DFT_Device_Parameter\Load_Device_Parameter.Inputs[OLE DB Destination Input].ExternalColumns[Source_Type]"
-                      lineageId="Package\DFT_Device_Parameter\Derived Column.Outputs[Derived Column Output].Columns[Der_Source_Type]" />
-                    <inputColumn
-                      refId="Package\DFT_Device_Parameter\Load_Device_Parameter.Inputs[OLE DB Destination Input].Columns[Der_Is_Valid]"
-                      cachedDataType="i4"
-                      cachedName="Der_Is_Valid"
-                      externalMetadataColumnId="Package\DFT_Device_Parameter\Load_Device_Parameter.Inputs[OLE DB Destination Input].ExternalColumns[Is_Valid]"
-                      lineageId="Package\DFT_Device_Parameter\Derived Column.Outputs[Derived Column Output].Columns[Der_Is_Valid]" />
+                      externalMetadataColumnId="Package\DFT_Terminal\Load_Terminal.Inputs[OLE DB Destination Input].ExternalColumns[Source_Type]"
+                      lineageId="Package\DFT_Terminal\Derived Column.Outputs[Derived Column Output].Columns[Der_Source_Type]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\DFT_Device_Parameter\Load_Device_Parameter.Inputs[OLE DB Destination Input].ExternalColumns[Action]"
+                      refId="Package\DFT_Terminal\Load_Terminal.Inputs[OLE DB Destination Input].ExternalColumns[Action]"
                       codePage="1252"
                       dataType="str"
                       length="25"
                       name="Action" />
                     <externalMetadataColumn
-                      refId="Package\DFT_Device_Parameter\Load_Device_Parameter.Inputs[OLE DB Destination Input].ExternalColumns[Root_Domain]"
+                      refId="Package\DFT_Terminal\Load_Terminal.Inputs[OLE DB Destination Input].ExternalColumns[Root_Domain]"
                       codePage="1252"
                       dataType="str"
                       length="25"
                       name="Root_Domain" />
                     <externalMetadataColumn
-                      refId="Package\DFT_Device_Parameter\Load_Device_Parameter.Inputs[OLE DB Destination Input].ExternalColumns[Customer]"
+                      refId="Package\DFT_Terminal\Load_Terminal.Inputs[OLE DB Destination Input].ExternalColumns[Customer]"
                       codePage="1252"
                       dataType="str"
                       length="25"
                       name="Customer" />
                     <externalMetadataColumn
-                      refId="Package\DFT_Device_Parameter\Load_Device_Parameter.Inputs[OLE DB Destination Input].ExternalColumns[group_name]"
+                      refId="Package\DFT_Terminal\Load_Terminal.Inputs[OLE DB Destination Input].ExternalColumns[Checksumval]"
                       codePage="1252"
                       dataType="str"
-                      length="30"
-                      name="group_name" />
+                      length="32"
+                      name="Checksumval" />
                     <externalMetadataColumn
-                      refId="Package\DFT_Device_Parameter\Load_Device_Parameter.Inputs[OLE DB Destination Input].ExternalColumns[parameter]"
-                      codePage="1252"
-                      dataType="str"
-                      length="255"
-                      name="parameter" />
-                    <externalMetadataColumn
-                      refId="Package\DFT_Device_Parameter\Load_Device_Parameter.Inputs[OLE DB Destination Input].ExternalColumns[Parameter_Action]"
+                      refId="Package\DFT_Terminal\Load_Terminal.Inputs[OLE DB Destination Input].ExternalColumns[in_use]"
                       codePage="1252"
                       dataType="str"
                       length="10"
-                      name="Parameter_Action" />
+                      name="in_use" />
                     <externalMetadataColumn
-                      refId="Package\DFT_Device_Parameter\Load_Device_Parameter.Inputs[OLE DB Destination Input].ExternalColumns[value]"
+                      refId="Package\DFT_Terminal\Load_Terminal.Inputs[OLE DB Destination Input].ExternalColumns[Is_Sync]"
+                      dataType="bool"
+                      name="Is_Sync" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Terminal\Load_Terminal.Inputs[OLE DB Destination Input].ExternalColumns[mac_address]"
+                      dataType="bytes"
+                      length="17"
+                      name="mac_address" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Terminal\Load_Terminal.Inputs[OLE DB Destination Input].ExternalColumns[terminal_type]"
                       codePage="1252"
-                      dataType="text"
-                      name="value" />
+                      dataType="str"
+                      length="100"
+                      name="terminal_type" />
                     <externalMetadataColumn
-                      refId="Package\DFT_Device_Parameter\Load_Device_Parameter.Inputs[OLE DB Destination Input].ExternalColumns[lock]"
+                      refId="Package\DFT_Terminal\Load_Terminal.Inputs[OLE DB Destination Input].ExternalColumns[domain_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="domain_name" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Terminal\Load_Terminal.Inputs[OLE DB Destination Input].ExternalColumns[source]"
                       codePage="1252"
                       dataType="str"
                       length="10"
-                      name="lock" />
+                      name="source" />
                     <externalMetadataColumn
-                      refId="Package\DFT_Device_Parameter\Load_Device_Parameter.Inputs[OLE DB Destination Input].ExternalColumns[force_lock]"
+                      refId="Package\DFT_Terminal\Load_Terminal.Inputs[OLE DB Destination Input].ExternalColumns[firmware]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="firmware" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Terminal\Load_Terminal.Inputs[OLE DB Destination Input].ExternalColumns[hotdesk]"
                       codePage="1252"
                       dataType="str"
                       length="10"
-                      name="force_lock" />
+                      name="hotdesk" />
                     <externalMetadataColumn
-                      refId="Package\DFT_Device_Parameter\Load_Device_Parameter.Inputs[OLE DB Destination Input].ExternalColumns[Is_Valid]"
+                      refId="Package\DFT_Terminal\Load_Terminal.Inputs[OLE DB Destination Input].ExternalColumns[location]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="location" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Terminal\Load_Terminal.Inputs[OLE DB Destination Input].ExternalColumns[prov_in_progress]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="prov_in_progress" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Terminal\Load_Terminal.Inputs[OLE DB Destination Input].ExternalColumns[subscriber_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="subscriber_name" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Terminal\Load_Terminal.Inputs[OLE DB Destination Input].ExternalColumns[Is_Valid]"
                       dataType="bool"
                       name="Is_Valid" />
                     <externalMetadataColumn
-                      refId="Package\DFT_Device_Parameter\Load_Device_Parameter.Inputs[OLE DB Destination Input].ExternalColumns[Is_Valid_Reason]"
+                      refId="Package\DFT_Terminal\Load_Terminal.Inputs[OLE DB Destination Input].ExternalColumns[Is_Valid_Reason]"
                       codePage="1252"
                       dataType="text"
                       name="Is_Valid_Reason" />
                     <externalMetadataColumn
-                      refId="Package\DFT_Device_Parameter\Load_Device_Parameter.Inputs[OLE DB Destination Input].ExternalColumns[Source_Type]"
+                      refId="Package\DFT_Terminal\Load_Terminal.Inputs[OLE DB Destination Input].ExternalColumns[Source_Type]"
                       codePage="1252"
                       dataType="str"
                       length="10"
@@ -819,22 +937,22 @@
               </inputs>
               <outputs>
                 <output
-                  refId="Package\DFT_Device_Parameter\Load_Device_Parameter.Outputs[OLE DB Destination Error Output]"
+                  refId="Package\DFT_Terminal\Load_Terminal.Outputs[OLE DB Destination Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="OLE DB Destination Error Output"
-                  synchronousInputId="Package\DFT_Device_Parameter\Load_Device_Parameter.Inputs[OLE DB Destination Input]">
+                  synchronousInputId="Package\DFT_Terminal\Load_Terminal.Inputs[OLE DB Destination Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\DFT_Device_Parameter\Load_Device_Parameter.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      refId="Package\DFT_Terminal\Load_Terminal.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\DFT_Device_Parameter\Load_Device_Parameter.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      lineageId="Package\DFT_Terminal\Load_Terminal.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\DFT_Device_Parameter\Load_Device_Parameter.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      refId="Package\DFT_Terminal\Load_Terminal.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\DFT_Device_Parameter\Load_Device_Parameter.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\DFT_Terminal\Load_Terminal.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -845,20 +963,20 @@
           </components>
           <paths>
             <path
-              refId="Package\DFT_Device_Parameter.Paths[Data Conversion Output]"
-              endId="Package\DFT_Device_Parameter\Derived Column.Inputs[Derived Column Input]"
+              refId="Package\DFT_Terminal.Paths[Data Conversion Output]"
+              endId="Package\DFT_Terminal\Derived Column.Inputs[Derived Column Input]"
               name="Data Conversion Output"
-              startId="Package\DFT_Device_Parameter\Data Conversion.Outputs[Data Conversion Output]" />
+              startId="Package\DFT_Terminal\Data Conversion.Outputs[Data Conversion Output]" />
             <path
-              refId="Package\DFT_Device_Parameter.Paths[Derived Column Output]"
-              endId="Package\DFT_Device_Parameter\Load_Device_Parameter.Inputs[OLE DB Destination Input]"
+              refId="Package\DFT_Terminal.Paths[Derived Column Output]"
+              endId="Package\DFT_Terminal\Load_Terminal.Inputs[OLE DB Destination Input]"
               name="Derived Column Output"
-              startId="Package\DFT_Device_Parameter\Derived Column.Outputs[Derived Column Output]" />
+              startId="Package\DFT_Terminal\Derived Column.Outputs[Derived Column Output]" />
             <path
-              refId="Package\DFT_Device_Parameter.Paths[Excel Source Output]"
-              endId="Package\DFT_Device_Parameter\Data Conversion.Inputs[Data Conversion Input]"
+              refId="Package\DFT_Terminal.Paths[Excel Source Output]"
+              endId="Package\DFT_Terminal\Data Conversion.Inputs[Data Conversion Input]"
               name="Excel Source Output"
-              startId="Package\DFT_Device_Parameter\Excel_Device_Parameter.Outputs[Excel Source Output]" />
+              startId="Package\DFT_Terminal\Excel_Terminal.Outputs[Excel Source Output]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -868,7 +986,7 @@
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
       DTS:Disabled="True"
-      DTS:DTSID="{9089ea7d-126f-4957-8c0a-c25604309d87}"
+      DTS:DTSID="{B942AEC5-2F4E-4E44-9EA1-F0FFF527E537}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Truncate_ODS_table"
@@ -878,7 +996,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{E0E6DC88-A9A1-4A51-8B19-958C1AD76267}"
-          SQLTask:SqlStatementSource="TRUNCATE TABLE ODS.dbo.Device_Parameter" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="TRUNCATE TABLE ODS.dbo.Terminal" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
@@ -886,11 +1004,11 @@
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint]"
       DTS:CreationName=""
-      DTS:DTSID="{6BE4F587-3CB3-4936-8AC4-7CCFF0F073B8}"
+      DTS:DTSID="{C9BD2BC2-C36F-4FBB-9E21-7E8E57D7DEE4}"
       DTS:From="Package\Truncate_ODS_table"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint"
-      DTS:To="Package\DFT_Device_Parameter" />
+      DTS:To="Package\DFT_Terminal" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -905,27 +1023,27 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="198,42"
-          Id="Package\DFT_Device_Parameter"
-          TopLeft="162,158" />
+          Size="149,42"
+          Id="Package\DFT_Terminal"
+          TopLeft="180,131" />
         <NodeLayout
           Size="182,42"
           Id="Package\Truncate_ODS_table"
-          TopLeft="173,60" />
+          TopLeft="165,40" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="262.5,102">
+          TopLeft="255.25,82">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,56"
+              EndConnector="0,49"
               Start="0,0"
-              End="0,48.5">
+              End="0,41.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,48.5" />
+                    End="0,41.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -938,40 +1056,62 @@
     </LayoutInfo>
   </Package>
   <TaskHost
-    design-time-name="Package\DFT_Device_Parameter">
+    design-time-name="Package\DFT_Terminal">
     <LayoutInfo>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="203,42"
-          Id="Package\DFT_Device_Parameter\Excel_Device_Parameter"
-          TopLeft="378,41" />
+          Size="155,42"
+          Id="Package\DFT_Terminal\Excel_Terminal"
+          TopLeft="372,79" />
         <NodeLayout
           Size="161,42"
-          Id="Package\DFT_Device_Parameter\Data Conversion"
-          TopLeft="401,133" />
+          Id="Package\DFT_Terminal\Data Conversion"
+          TopLeft="368,175" />
+        <NodeLayout
+          Size="152,42"
+          Id="Package\DFT_Terminal\Load_Terminal"
+          TopLeft="376,365" />
+        <EdgeLayout
+          Id="Package\DFT_Terminal.Paths[Excel Source Output]"
+          TopLeft="449,121">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,54"
+              Start="0,0"
+              End="0,46.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,46.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <NodeLayout
           Size="158,42"
-          Id="Package\DFT_Device_Parameter\Derived Column"
-          TopLeft="402,234" />
-        <NodeLayout
-          Size="201,42"
-          Id="Package\DFT_Device_Parameter\Load_Device_Parameter"
-          TopLeft="377,322" />
+          Id="Package\DFT_Terminal\Derived Column"
+          TopLeft="369,268" />
         <EdgeLayout
-          Id="Package\DFT_Device_Parameter.Paths[Data Conversion Output]"
-          TopLeft="481.25,175">
+          Id="Package\DFT_Terminal.Paths[Data Conversion Output]"
+          TopLeft="448.25,217">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,59"
+              EndConnector="0,51"
               Start="0,0"
-              End="0,51.5">
+              End="0,43.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,51.5" />
+                    End="0,43.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -981,41 +1121,19 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\DFT_Device_Parameter.Paths[Excel Source Output]"
-          TopLeft="480.5,83">
+          Id="Package\DFT_Terminal.Paths[Derived Column Output]"
+          TopLeft="450,310">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,50"
+              EndConnector="0,55"
               Start="0,0"
-              End="0,42.5">
+              End="0,47.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,42.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DFT_Device_Parameter.Paths[Derived Column Output]"
-          TopLeft="479.25,276">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,46"
-              Start="0,0"
-              End="0,38.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,38.5" />
+                    End="0,47.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1028,7 +1146,7 @@
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\DFT_Device_Parameter\Excel_Device_Parameter">
+    design-time-name="Package\DFT_Terminal\Excel_Terminal">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -1041,7 +1159,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\DFT_Device_Parameter\Load_Device_Parameter">
+    design-time-name="Package\DFT_Terminal\Load_Terminal">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

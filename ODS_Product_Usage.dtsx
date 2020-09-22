@@ -1,0 +1,1304 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/22/2020 7:13:13 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="PREETISHK-LPT"
+  DTS:CreatorName="DATAFORTUNE\preetish.kharche"
+  DTS:DTSID="{B0BA785D-FEE6-4EDE-A717-053309A7513D}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.123"
+  DTS:LocaleID="16393"
+  DTS:ObjectName="ODS_Product_Usage"
+  DTS:PackageType="5"
+  DTS:VersionBuild="65"
+  DTS:VersionGUID="{132D1EB2-D77D-4DC0-AB94-14F63F3652C2}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DFT_Product_Usage"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{68310C30-6006-4713-9CCA-5C36AF0B11DC}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT_Product_Usage"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT_Product_Usage\Data Conversion"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT_Product_Usage\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT_Product_Usage\Data Conversion.Inputs[Data Conversion Input].Columns[Customer]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Customer"
+                      lineageId="Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Output].Columns[Customer]" />
+                    <inputColumn
+                      refId="Package\DFT_Product_Usage\Data Conversion.Inputs[Data Conversion Input].Columns[Action]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Action"
+                      lineageId="Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Output].Columns[Action]" />
+                    <inputColumn
+                      refId="Package\DFT_Product_Usage\Data Conversion.Inputs[Data Conversion Input].Columns[Root_Domain]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Root_Domain"
+                      lineageId="Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Output].Columns[Root_Domain]" />
+                    <inputColumn
+                      refId="Package\DFT_Product_Usage\Data Conversion.Inputs[Data Conversion Input].Columns[sku]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="sku"
+                      lineageId="Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Output].Columns[sku]" />
+                    <inputColumn
+                      refId="Package\DFT_Product_Usage\Data Conversion.Inputs[Data Conversion Input].Columns[description]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="description"
+                      lineageId="Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Output].Columns[description]" />
+                    <inputColumn
+                      refId="Package\DFT_Product_Usage\Data Conversion.Inputs[Data Conversion Input].Columns[total_currency]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="total_currency"
+                      lineageId="Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Output].Columns[total_currency]" />
+                    <inputColumn
+                      refId="Package\DFT_Product_Usage\Data Conversion.Inputs[Data Conversion Input].Columns[grand_total_currency]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="grand_total_currency"
+                      lineageId="Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Output].Columns[grand_total_currency]" />
+                    <inputColumn
+                      refId="Package\DFT_Product_Usage\Data Conversion.Inputs[Data Conversion Input].Columns[type]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="type"
+                      lineageId="Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Output].Columns[type]" />
+                    <inputColumn
+                      refId="Package\DFT_Product_Usage\Data Conversion.Inputs[Data Conversion Input].Columns[cost_currency]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="cost_currency"
+                      lineageId="Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Output].Columns[cost_currency]" />
+                    <inputColumn
+                      refId="Package\DFT_Product_Usage\Data Conversion.Inputs[Data Conversion Input].Columns[date]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="date"
+                      lineageId="Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Output].Columns[date]" />
+                    <inputColumn
+                      refId="Package\DFT_Product_Usage\Data Conversion.Inputs[Data Conversion Input].Columns[event]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="event"
+                      lineageId="Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Output].Columns[event]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_Product_Usage\Data Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\DFT_Product_Usage\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Product_Usage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Customer]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="25"
+                      lineageId="Package\DFT_Product_Usage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Customer]"
+                      name="Copy of Customer"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Output].Columns[Customer]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Product_Usage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Action]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="25"
+                      lineageId="Package\DFT_Product_Usage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Action]"
+                      name="Copy of Action"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Output].Columns[Action]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Product_Usage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Root_Domain]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="25"
+                      lineageId="Package\DFT_Product_Usage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Root_Domain]"
+                      name="Copy of Root_Domain"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Output].Columns[Root_Domain]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Product_Usage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of sku]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="16"
+                      lineageId="Package\DFT_Product_Usage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of sku]"
+                      name="Copy of sku"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Output].Columns[sku]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Product_Usage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of description]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="68"
+                      lineageId="Package\DFT_Product_Usage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of description]"
+                      name="Copy of description"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Output].Columns[description]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Product_Usage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of total_currency]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="10"
+                      lineageId="Package\DFT_Product_Usage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of total_currency]"
+                      name="Copy of total_currency"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Output].Columns[total_currency]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Product_Usage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of grand_total_currency]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="10"
+                      lineageId="Package\DFT_Product_Usage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of grand_total_currency]"
+                      name="Copy of grand_total_currency"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Output].Columns[grand_total_currency]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Product_Usage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of type]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="10"
+                      lineageId="Package\DFT_Product_Usage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of type]"
+                      name="Copy of type"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Output].Columns[type]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Product_Usage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of cost_currency]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="10"
+                      lineageId="Package\DFT_Product_Usage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of cost_currency]"
+                      name="Copy of cost_currency"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Output].Columns[cost_currency]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Product_Usage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of date]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT_Product_Usage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of date]"
+                      name="Copy of date"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Output].Columns[date]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Product_Usage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of event]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="10"
+                      lineageId="Package\DFT_Product_Usage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of event]"
+                      name="Copy of event"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Output].Columns[event]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT_Product_Usage\Data Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\DFT_Product_Usage\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Product_Usage\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Product_Usage\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_Product_Usage\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Product_Usage\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT_Product_Usage\Excel_Product_Usage"
+              componentClassID="Microsoft.ExcelSource"
+              contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Excel Source"
+              name="Excel_Product_Usage"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">Product_Usage$A50:P</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mapping from parameters in the SQL command to variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT_Product_Usage\Excel_Product_Usage.Connections[OleDbConnection]"
+                  connectionManagerID="{0D2225D9-F1D8-4D95-B705-EE61F6D41EC3}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Excel]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Output]"
+                  name="Excel Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Output].Columns[Root_Domain]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Output].ExternalColumns[Root_Domain]"
+                      length="255"
+                      lineageId="Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Output].Columns[Root_Domain]"
+                      name="Root_Domain"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Output].Columns[Customer]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Output].ExternalColumns[Customer]"
+                      length="255"
+                      lineageId="Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Output].Columns[Customer]"
+                      name="Customer"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Output].Columns[Action]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Output].ExternalColumns[Action]"
+                      length="255"
+                      lineageId="Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Output].Columns[Action]"
+                      name="Action"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Output].Columns[sku]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Output].ExternalColumns[sku]"
+                      length="255"
+                      lineageId="Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Output].Columns[sku]"
+                      name="sku"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Output].Columns[description]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Output].ExternalColumns[description]"
+                      length="255"
+                      lineageId="Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Output].Columns[description]"
+                      name="description"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Output].Columns[event]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Output].ExternalColumns[event]"
+                      length="255"
+                      lineageId="Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Output].Columns[event]"
+                      name="event"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Output].Columns[date]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Output].ExternalColumns[date]"
+                      length="255"
+                      lineageId="Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Output].Columns[date]"
+                      name="date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Output].Columns[quantity]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Output].ExternalColumns[quantity]"
+                      lineageId="Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Output].Columns[quantity]"
+                      name="quantity"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Output].Columns[cost]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Output].ExternalColumns[cost]"
+                      lineageId="Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Output].Columns[cost]"
+                      name="cost"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Output].Columns[cost_currency]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Output].ExternalColumns[cost_currency]"
+                      length="255"
+                      lineageId="Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Output].Columns[cost_currency]"
+                      name="cost_currency"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Output].Columns[type]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Output].ExternalColumns[type]"
+                      length="255"
+                      lineageId="Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Output].Columns[type]"
+                      name="type"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Output].Columns[rate]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Output].ExternalColumns[rate]"
+                      lineageId="Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Output].Columns[rate]"
+                      name="rate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Output].Columns[total]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Output].ExternalColumns[total]"
+                      lineageId="Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Output].Columns[total]"
+                      name="total"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Output].Columns[total_currency]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Output].ExternalColumns[total_currency]"
+                      length="255"
+                      lineageId="Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Output].Columns[total_currency]"
+                      name="total_currency"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Output].Columns[grand_total]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Output].ExternalColumns[grand_total]"
+                      lineageId="Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Output].Columns[grand_total]"
+                      name="grand_total"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Output].Columns[grand_total_currency]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Output].ExternalColumns[grand_total_currency]"
+                      length="255"
+                      lineageId="Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Output].Columns[grand_total_currency]"
+                      name="grand_total_currency"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Output].ExternalColumns[Root_Domain]"
+                      dataType="wstr"
+                      length="255"
+                      name="Root_Domain" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Output].ExternalColumns[Customer]"
+                      dataType="wstr"
+                      length="255"
+                      name="Customer" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Output].ExternalColumns[Action]"
+                      dataType="wstr"
+                      length="255"
+                      name="Action" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Output].ExternalColumns[sku]"
+                      dataType="wstr"
+                      length="255"
+                      name="sku" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Output].ExternalColumns[description]"
+                      dataType="wstr"
+                      length="255"
+                      name="description" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Output].ExternalColumns[event]"
+                      dataType="wstr"
+                      length="255"
+                      name="event" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Output].ExternalColumns[date]"
+                      dataType="wstr"
+                      length="255"
+                      name="date" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Output].ExternalColumns[quantity]"
+                      dataType="r8"
+                      name="quantity" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Output].ExternalColumns[cost]"
+                      dataType="r8"
+                      name="cost" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Output].ExternalColumns[cost_currency]"
+                      dataType="wstr"
+                      length="255"
+                      name="cost_currency" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Output].ExternalColumns[type]"
+                      dataType="wstr"
+                      length="255"
+                      name="type" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Output].ExternalColumns[rate]"
+                      dataType="r8"
+                      name="rate" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Output].ExternalColumns[total]"
+                      dataType="r8"
+                      name="total" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Output].ExternalColumns[total_currency]"
+                      dataType="wstr"
+                      length="255"
+                      name="total_currency" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Output].ExternalColumns[grand_total]"
+                      dataType="r8"
+                      name="grand_total" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Output].ExternalColumns[grand_total_currency]"
+                      dataType="wstr"
+                      length="255"
+                      name="grand_total_currency" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Error Output]"
+                  isErrorOut="true"
+                  name="Excel Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Error Output].Columns[Root_Domain]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Error Output].Columns[Root_Domain]"
+                      name="Root_Domain" />
+                    <outputColumn
+                      refId="Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Error Output].Columns[Customer]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Error Output].Columns[Customer]"
+                      name="Customer" />
+                    <outputColumn
+                      refId="Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Error Output].Columns[Action]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Error Output].Columns[Action]"
+                      name="Action" />
+                    <outputColumn
+                      refId="Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Error Output].Columns[sku]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Error Output].Columns[sku]"
+                      name="sku" />
+                    <outputColumn
+                      refId="Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Error Output].Columns[description]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Error Output].Columns[description]"
+                      name="description" />
+                    <outputColumn
+                      refId="Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Error Output].Columns[event]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Error Output].Columns[event]"
+                      name="event" />
+                    <outputColumn
+                      refId="Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Error Output].Columns[date]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Error Output].Columns[date]"
+                      name="date" />
+                    <outputColumn
+                      refId="Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Error Output].Columns[quantity]"
+                      dataType="r8"
+                      lineageId="Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Error Output].Columns[quantity]"
+                      name="quantity" />
+                    <outputColumn
+                      refId="Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Error Output].Columns[cost]"
+                      dataType="r8"
+                      lineageId="Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Error Output].Columns[cost]"
+                      name="cost" />
+                    <outputColumn
+                      refId="Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Error Output].Columns[cost_currency]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Error Output].Columns[cost_currency]"
+                      name="cost_currency" />
+                    <outputColumn
+                      refId="Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Error Output].Columns[type]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Error Output].Columns[type]"
+                      name="type" />
+                    <outputColumn
+                      refId="Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Error Output].Columns[rate]"
+                      dataType="r8"
+                      lineageId="Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Error Output].Columns[rate]"
+                      name="rate" />
+                    <outputColumn
+                      refId="Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Error Output].Columns[total]"
+                      dataType="r8"
+                      lineageId="Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Error Output].Columns[total]"
+                      name="total" />
+                    <outputColumn
+                      refId="Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Error Output].Columns[total_currency]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Error Output].Columns[total_currency]"
+                      name="total_currency" />
+                    <outputColumn
+                      refId="Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Error Output].Columns[grand_total]"
+                      dataType="r8"
+                      lineageId="Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Error Output].Columns[grand_total]"
+                      name="grand_total" />
+                    <outputColumn
+                      refId="Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Error Output].Columns[grand_total_currency]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Error Output].Columns[grand_total_currency]"
+                      name="grand_total_currency" />
+                    <outputColumn
+                      refId="Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT_Product_Usage\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Product_Usage]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS,ROWS_PER_BATCH = 10000</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">10000</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT_Product_Usage\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="{E0E6DC88-A9A1-4A51-8B19-958C1AD76267}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[ODS_Vanran_Ribbon]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT_Product_Usage\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT_Product_Usage\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of Root_Domain]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="25"
+                      cachedName="Copy of Root_Domain"
+                      externalMetadataColumnId="Package\DFT_Product_Usage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Root_Domain]"
+                      lineageId="Package\DFT_Product_Usage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Root_Domain]" />
+                    <inputColumn
+                      refId="Package\DFT_Product_Usage\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of Customer]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="25"
+                      cachedName="Copy of Customer"
+                      externalMetadataColumnId="Package\DFT_Product_Usage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Customer]"
+                      lineageId="Package\DFT_Product_Usage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Customer]" />
+                    <inputColumn
+                      refId="Package\DFT_Product_Usage\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of Action]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="25"
+                      cachedName="Copy of Action"
+                      externalMetadataColumnId="Package\DFT_Product_Usage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Action]"
+                      lineageId="Package\DFT_Product_Usage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Action]" />
+                    <inputColumn
+                      refId="Package\DFT_Product_Usage\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of sku]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="16"
+                      cachedName="Copy of sku"
+                      externalMetadataColumnId="Package\DFT_Product_Usage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sku]"
+                      lineageId="Package\DFT_Product_Usage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of sku]" />
+                    <inputColumn
+                      refId="Package\DFT_Product_Usage\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of description]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="68"
+                      cachedName="Copy of description"
+                      externalMetadataColumnId="Package\DFT_Product_Usage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[description]"
+                      lineageId="Package\DFT_Product_Usage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of description]" />
+                    <inputColumn
+                      refId="Package\DFT_Product_Usage\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[quantity]"
+                      cachedDataType="r8"
+                      cachedName="quantity"
+                      externalMetadataColumnId="Package\DFT_Product_Usage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[quantity]"
+                      lineageId="Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Output].Columns[quantity]" />
+                    <inputColumn
+                      refId="Package\DFT_Product_Usage\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[total]"
+                      cachedDataType="r8"
+                      cachedName="total"
+                      externalMetadataColumnId="Package\DFT_Product_Usage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[total]"
+                      lineageId="Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Output].Columns[total]" />
+                    <inputColumn
+                      refId="Package\DFT_Product_Usage\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of total_currency]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="Copy of total_currency"
+                      externalMetadataColumnId="Package\DFT_Product_Usage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[total_currency]"
+                      lineageId="Package\DFT_Product_Usage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of total_currency]" />
+                    <inputColumn
+                      refId="Package\DFT_Product_Usage\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of event]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="Copy of event"
+                      externalMetadataColumnId="Package\DFT_Product_Usage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[event]"
+                      lineageId="Package\DFT_Product_Usage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of event]" />
+                    <inputColumn
+                      refId="Package\DFT_Product_Usage\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of date]"
+                      cachedDataType="dbDate"
+                      cachedName="Copy of date"
+                      externalMetadataColumnId="Package\DFT_Product_Usage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[date]"
+                      lineageId="Package\DFT_Product_Usage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of date]" />
+                    <inputColumn
+                      refId="Package\DFT_Product_Usage\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[cost]"
+                      cachedDataType="r8"
+                      cachedName="cost"
+                      externalMetadataColumnId="Package\DFT_Product_Usage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[cost]"
+                      lineageId="Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Output].Columns[cost]" />
+                    <inputColumn
+                      refId="Package\DFT_Product_Usage\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of cost_currency]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="Copy of cost_currency"
+                      externalMetadataColumnId="Package\DFT_Product_Usage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[cost_currency]"
+                      lineageId="Package\DFT_Product_Usage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of cost_currency]" />
+                    <inputColumn
+                      refId="Package\DFT_Product_Usage\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of type]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="Copy of type"
+                      externalMetadataColumnId="Package\DFT_Product_Usage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[type]"
+                      lineageId="Package\DFT_Product_Usage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of type]" />
+                    <inputColumn
+                      refId="Package\DFT_Product_Usage\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[rate]"
+                      cachedDataType="r8"
+                      cachedName="rate"
+                      externalMetadataColumnId="Package\DFT_Product_Usage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[rate]"
+                      lineageId="Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Output].Columns[rate]" />
+                    <inputColumn
+                      refId="Package\DFT_Product_Usage\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[grand_total]"
+                      cachedDataType="r8"
+                      cachedName="grand_total"
+                      externalMetadataColumnId="Package\DFT_Product_Usage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[grand_total]"
+                      lineageId="Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Output].Columns[grand_total]" />
+                    <inputColumn
+                      refId="Package\DFT_Product_Usage\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of grand_total_currency]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="Copy of grand_total_currency"
+                      externalMetadataColumnId="Package\DFT_Product_Usage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[grand_total_currency]"
+                      lineageId="Package\DFT_Product_Usage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of grand_total_currency]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT_Product_Usage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Root_Domain]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      name="Root_Domain" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Product_Usage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Customer]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      name="Customer" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Product_Usage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Action]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      name="Action" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Product_Usage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sku]"
+                      codePage="1252"
+                      dataType="str"
+                      length="16"
+                      name="sku" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Product_Usage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[description]"
+                      codePage="1252"
+                      dataType="str"
+                      length="68"
+                      name="description" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Product_Usage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[quantity]"
+                      dataType="i4"
+                      name="quantity" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Product_Usage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[total]"
+                      dataType="numeric"
+                      name="total"
+                      precision="8"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Product_Usage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[total_currency]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="total_currency" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Product_Usage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Is_Sync]"
+                      dataType="bool"
+                      name="Is_Sync" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Product_Usage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Checksumval]"
+                      codePage="1252"
+                      dataType="str"
+                      length="32"
+                      name="Checksumval" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Product_Usage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[event]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="event" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Product_Usage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[date]"
+                      dataType="dbDate"
+                      name="date" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Product_Usage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[cost]"
+                      dataType="numeric"
+                      name="cost"
+                      precision="8"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Product_Usage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[cost_currency]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="cost_currency" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Product_Usage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[type]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="type" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Product_Usage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[rate]"
+                      dataType="numeric"
+                      name="rate"
+                      precision="8"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Product_Usage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[grand_total]"
+                      dataType="numeric"
+                      name="grand_total"
+                      precision="8"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Product_Usage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[grand_total_currency]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="grand_total_currency" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_Product_Usage\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DFT_Product_Usage\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Product_Usage\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Product_Usage\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_Product_Usage\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Product_Usage\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT_Product_Usage.Paths[Data Conversion Output]"
+              endId="Package\DFT_Product_Usage\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Data Conversion Output"
+              startId="Package\DFT_Product_Usage\Data Conversion.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\DFT_Product_Usage.Paths[Excel Source Output]"
+              endId="Package\DFT_Product_Usage\Data Conversion.Inputs[Data Conversion Input]"
+              name="Excel Source Output"
+              startId="Package\DFT_Product_Usage\Excel_Product_Usage.Outputs[Excel Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate_ODS_Product_Usage"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{C8D3197D-6800-432B-93B4-9DF71BB0C317}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate_ODS_Product_Usage"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{E0E6DC88-A9A1-4A51-8B19-958C1AD76267}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE ODS.dbo.Product_Usage" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{3B0928EA-4FAE-4981-BDAF-C87C16A89C17}"
+      DTS:From="Package\Truncate_ODS_Product_Usage"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\DFT_Product_Usage" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="182,42"
+          Id="Package\DFT_Product_Usage"
+          TopLeft="185,138" />
+        <NodeLayout
+          Size="234,42"
+          Id="Package\Truncate_ODS_Product_Usage"
+          TopLeft="158,37" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="275.5,79">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59"
+              Start="0,0"
+              End="0,51.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,51.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DFT_Product_Usage">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="188,42"
+          Id="Package\DFT_Product_Usage\Excel_Product_Usage"
+          TopLeft="372,73" />
+        <NodeLayout
+          Size="161,42"
+          Id="Package\DFT_Product_Usage\Data Conversion"
+          TopLeft="377,168" />
+        <NodeLayout
+          Size="177,42"
+          Id="Package\DFT_Product_Usage\OLE DB Destination"
+          TopLeft="376,282" />
+        <EdgeLayout
+          Id="Package\DFT_Product_Usage.Paths[Excel Source Output]"
+          TopLeft="466,115">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-8.5,53"
+              Start="0,0"
+              End="-8.5,45.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22.5"
+                    Point2="0,26.5"
+                    Point3="-4,26.5" />
+                  <mssgle:LineSegment
+                    End="-4.5,26.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-4.5,26.5"
+                    Point2="-8.5,26.5"
+                    Point3="-8.5,30.5" />
+                  <mssgle:LineSegment
+                    End="-8.5,45.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT_Product_Usage.Paths[Data Conversion Output]"
+          TopLeft="461,210">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,72"
+              Start="0,0"
+              End="0,64.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,64.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT_Product_Usage\Excel_Product_Usage">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT_Product_Usage\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

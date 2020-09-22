@@ -11,8 +11,8 @@
   DTS:LocaleID="16393"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="27"
-  DTS:VersionGUID="{D162F53C-B156-466D-AA99-F61A8D31DC54}">
+  DTS:VersionBuild="34"
+  DTS:VersionGUID="{0223CCF0-1AB4-4581-84E4-C978D5E40693}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -32,6 +32,461 @@
           version="1">
           <components>
             <component
+              refId="Package\DFT_Device_Parameter_Group\Data Conversion"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT_Device_Parameter_Group\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Data Conversion.Inputs[Data Conversion Input].Columns[Root Domain]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Root Domain"
+                      lineageId="Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Output].Columns[Root Domain]" />
+                    <inputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Data Conversion.Inputs[Data Conversion Input].Columns[Action]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Action"
+                      lineageId="Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Output].Columns[Action]" />
+                    <inputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Data Conversion.Inputs[Data Conversion Input].Columns[name]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="name"
+                      lineageId="Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Output].Columns[name]" />
+                    <inputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Data Conversion.Inputs[Data Conversion Input].Columns[scope]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="scope"
+                      lineageId="Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Output].Columns[scope]" />
+                    <inputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Data Conversion.Inputs[Data Conversion Input].Columns[device types]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="device types"
+                      lineageId="Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Output].Columns[device types]" />
+                    <inputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Data Conversion.Inputs[Data Conversion Input].Columns[device vendor]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="device vendor"
+                      lineageId="Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Output].Columns[device vendor]" />
+                    <inputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Data Conversion.Inputs[Data Conversion Input].Columns[site]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="site"
+                      lineageId="Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Output].Columns[site]" />
+                    <inputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Data Conversion.Inputs[Data Conversion Input].Columns[subscribers]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="subscribers"
+                      lineageId="Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Output].Columns[subscribers]" />
+                    <inputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Data Conversion.Inputs[Data Conversion Input].Columns[devices]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="devices"
+                      lineageId="Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Output].Columns[devices]" />
+                    <inputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Data Conversion.Inputs[Data Conversion Input].Columns[Customer ]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Customer "
+                      lineageId="Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Output].Columns[Customer ]" />
+                    <inputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Data Conversion.Inputs[Data Conversion Input].Columns[customer_scope]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="customer_scope"
+                      lineageId="Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Output].Columns[customer_scope]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_Device_Parameter_Group\Data Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\DFT_Device_Parameter_Group\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Root Domain]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="25"
+                      lineageId="Package\DFT_Device_Parameter_Group\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Root Domain]"
+                      name="Copy of Root Domain"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Output].Columns[Root Domain]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Action]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="25"
+                      lineageId="Package\DFT_Device_Parameter_Group\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Action]"
+                      name="Copy of Action"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Output].Columns[Action]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="30"
+                      lineageId="Package\DFT_Device_Parameter_Group\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of name]"
+                      name="Copy of name"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Output].Columns[name]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of scope]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="10"
+                      lineageId="Package\DFT_Device_Parameter_Group\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of scope]"
+                      name="Copy of scope"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Output].Columns[scope]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of device types]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="500"
+                      lineageId="Package\DFT_Device_Parameter_Group\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of device types]"
+                      name="Copy of device types"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Output].Columns[device types]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of device vendor]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="500"
+                      lineageId="Package\DFT_Device_Parameter_Group\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of device vendor]"
+                      name="Copy of device vendor"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Output].Columns[device vendor]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of site]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="500"
+                      lineageId="Package\DFT_Device_Parameter_Group\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of site]"
+                      name="Copy of site"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Output].Columns[site]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of subscribers]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="500"
+                      lineageId="Package\DFT_Device_Parameter_Group\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of subscribers]"
+                      name="Copy of subscribers"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Output].Columns[subscribers]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of devices]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="500"
+                      lineageId="Package\DFT_Device_Parameter_Group\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of devices]"
+                      name="Copy of devices"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Output].Columns[devices]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Customer]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="25"
+                      lineageId="Package\DFT_Device_Parameter_Group\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Customer]"
+                      name="Copy of Customer"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Output].Columns[Customer ]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of customer_scope]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="500"
+                      lineageId="Package\DFT_Device_Parameter_Group\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of customer_scope]"
+                      name="Copy of customer_scope"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Output].Columns[customer_scope]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT_Device_Parameter_Group\Data Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\DFT_Device_Parameter_Group\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Device_Parameter_Group\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Device_Parameter_Group\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT_Device_Parameter_Group\Derived Column"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT_Device_Parameter_Group\Derived Column.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_Device_Parameter_Group\Derived Column.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\DFT_Device_Parameter_Group\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Derived Column.Outputs[Derived Column Output].Columns[Der_Source_Type]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="10"
+                      lineageId="Package\DFT_Device_Parameter_Group\Derived Column.Outputs[Derived Column Output].Columns[Der_Source_Type]"
+                      name="Der_Source_Type"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_STR,10,1252)"Excel"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_STR,10,1252)"Excel"</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Derived Column.Outputs[Derived Column Output].Columns[Der_Is_Valid]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT_Device_Parameter_Group\Derived Column.Outputs[Derived Column Output].Columns[Der_Is_Valid]"
+                      name="Der_Is_Valid"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">1</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">1</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT_Device_Parameter_Group\Derived Column.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\DFT_Device_Parameter_Group\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Device_Parameter_Group\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Device_Parameter_Group\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
               refId="Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group"
               componentClassID="Microsoft.ExcelSource"
               contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
@@ -47,7 +502,7 @@
                 <property
                   dataType="System.String"
                   description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">Device_Parameter_Group$A53:J</property>
+                  name="OpenRowset">Device_Parameter_Group$A53:K</property>
                 <property
                   dataType="System.String"
                   description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -86,137 +541,172 @@
                   <outputColumns>
                     <outputColumn
                       refId="Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Output].Columns[Root Domain]"
-                      dataType="r8"
+                      dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Output].ExternalColumns[Root Domain]"
+                      length="255"
                       lineageId="Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Output].Columns[Root Domain]"
                       name="Root Domain"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Output].Columns[Action]"
-                      dataType="r8"
+                      dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Output].ExternalColumns[Action]"
+                      length="255"
                       lineageId="Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Output].Columns[Action]"
                       name="Action"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Output].Columns[name]"
-                      dataType="r8"
+                      dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Output].ExternalColumns[name]"
+                      length="255"
                       lineageId="Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Output].Columns[name]"
                       name="name"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Output].Columns[scope]"
-                      dataType="r8"
+                      dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Output].ExternalColumns[scope]"
+                      length="255"
                       lineageId="Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Output].Columns[scope]"
                       name="scope"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Output].Columns[device types]"
-                      dataType="r8"
+                      dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Output].ExternalColumns[device types]"
+                      length="255"
                       lineageId="Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Output].Columns[device types]"
                       name="device types"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Output].Columns[device vendor]"
-                      dataType="r8"
+                      dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Output].ExternalColumns[device vendor]"
+                      length="255"
                       lineageId="Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Output].Columns[device vendor]"
                       name="device vendor"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Output].Columns[site]"
-                      dataType="r8"
+                      dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Output].ExternalColumns[site]"
+                      length="255"
                       lineageId="Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Output].Columns[site]"
                       name="site"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Output].Columns[subscribers]"
-                      dataType="r8"
+                      dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Output].ExternalColumns[subscribers]"
+                      length="255"
                       lineageId="Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Output].Columns[subscribers]"
                       name="subscribers"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Output].Columns[Customer ]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Output].ExternalColumns[Customer ]"
+                      length="255"
+                      lineageId="Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Output].Columns[Customer ]"
+                      name="Customer "
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Output].Columns[customer_scope]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Output].ExternalColumns[customer]"
+                      length="255"
+                      lineageId="Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Output].Columns[customer_scope]"
+                      name="customer_scope"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
                       refId="Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Output].Columns[devices]"
-                      dataType="r8"
+                      dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Output].ExternalColumns[devices]"
+                      length="255"
                       lineageId="Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Output].Columns[devices]"
                       name="devices"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Output].Columns[Customer]"
-                      dataType="r8"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Output].ExternalColumns[Customer]"
-                      lineageId="Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Output].Columns[Customer]"
-                      name="Customer"
                       truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
                       refId="Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Output].ExternalColumns[Root Domain]"
-                      dataType="r8"
+                      dataType="wstr"
+                      length="255"
                       name="Root Domain" />
                     <externalMetadataColumn
                       refId="Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Output].ExternalColumns[Action]"
-                      dataType="r8"
+                      dataType="wstr"
+                      length="255"
                       name="Action" />
                     <externalMetadataColumn
                       refId="Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Output].ExternalColumns[name]"
-                      dataType="r8"
+                      dataType="wstr"
+                      length="255"
                       name="name" />
                     <externalMetadataColumn
                       refId="Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Output].ExternalColumns[scope]"
-                      dataType="r8"
+                      dataType="wstr"
+                      length="255"
                       name="scope" />
                     <externalMetadataColumn
                       refId="Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Output].ExternalColumns[device types]"
-                      dataType="r8"
+                      dataType="wstr"
+                      length="255"
                       name="device types" />
                     <externalMetadataColumn
                       refId="Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Output].ExternalColumns[device vendor]"
-                      dataType="r8"
+                      dataType="wstr"
+                      length="255"
                       name="device vendor" />
                     <externalMetadataColumn
                       refId="Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Output].ExternalColumns[site]"
-                      dataType="r8"
+                      dataType="wstr"
+                      length="255"
                       name="site" />
                     <externalMetadataColumn
                       refId="Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Output].ExternalColumns[subscribers]"
-                      dataType="r8"
+                      dataType="wstr"
+                      length="255"
                       name="subscribers" />
                     <externalMetadataColumn
-                      refId="Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Output].ExternalColumns[devices]"
-                      dataType="r8"
-                      name="devices" />
+                      refId="Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Output].ExternalColumns[Customer ]"
+                      dataType="wstr"
+                      length="255"
+                      name="Customer " />
                     <externalMetadataColumn
-                      refId="Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Output].ExternalColumns[Customer]"
-                      dataType="r8"
-                      name="Customer" />
+                      refId="Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Output].ExternalColumns[customer]"
+                      dataType="wstr"
+                      length="255"
+                      name="customer" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Output].ExternalColumns[devices]"
+                      dataType="wstr"
+                      length="255"
+                      name="devices" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -224,56 +714,6 @@
                   isErrorOut="true"
                   name="Excel Source Error Output">
                   <outputColumns>
-                    <outputColumn
-                      refId="Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Error Output].Columns[Root Domain]"
-                      dataType="r8"
-                      lineageId="Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Error Output].Columns[Root Domain]"
-                      name="Root Domain" />
-                    <outputColumn
-                      refId="Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Error Output].Columns[Customer]"
-                      dataType="r8"
-                      lineageId="Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Error Output].Columns[Customer]"
-                      name="Customer" />
-                    <outputColumn
-                      refId="Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Error Output].Columns[Action]"
-                      dataType="r8"
-                      lineageId="Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Error Output].Columns[Action]"
-                      name="Action" />
-                    <outputColumn
-                      refId="Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Error Output].Columns[name]"
-                      dataType="r8"
-                      lineageId="Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Error Output].Columns[name]"
-                      name="name" />
-                    <outputColumn
-                      refId="Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Error Output].Columns[scope]"
-                      dataType="r8"
-                      lineageId="Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Error Output].Columns[scope]"
-                      name="scope" />
-                    <outputColumn
-                      refId="Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Error Output].Columns[device types]"
-                      dataType="r8"
-                      lineageId="Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Error Output].Columns[device types]"
-                      name="device types" />
-                    <outputColumn
-                      refId="Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Error Output].Columns[device vendor]"
-                      dataType="r8"
-                      lineageId="Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Error Output].Columns[device vendor]"
-                      name="device vendor" />
-                    <outputColumn
-                      refId="Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Error Output].Columns[site]"
-                      dataType="r8"
-                      lineageId="Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Error Output].Columns[site]"
-                      name="site" />
-                    <outputColumn
-                      refId="Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Error Output].Columns[subscribers]"
-                      dataType="r8"
-                      lineageId="Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Error Output].Columns[subscribers]"
-                      name="subscribers" />
-                    <outputColumn
-                      refId="Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Error Output].Columns[devices]"
-                      dataType="r8"
-                      lineageId="Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Error Output].Columns[devices]"
-                      name="devices" />
                     <outputColumn
                       refId="Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Error Output].Columns[ErrorCode]"
                       dataType="i4"
@@ -286,6 +726,72 @@
                       lineageId="Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
+                    <outputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Error Output].Columns[Root Domain]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Error Output].Columns[Root Domain]"
+                      name="Root Domain" />
+                    <outputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Error Output].Columns[Action]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Error Output].Columns[Action]"
+                      name="Action" />
+                    <outputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Error Output].Columns[name]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Error Output].Columns[name]"
+                      name="name" />
+                    <outputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Error Output].Columns[scope]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Error Output].Columns[scope]"
+                      name="scope" />
+                    <outputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Error Output].Columns[device types]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Error Output].Columns[device types]"
+                      name="device types" />
+                    <outputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Error Output].Columns[device vendor]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Error Output].Columns[device vendor]"
+                      name="device vendor" />
+                    <outputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Error Output].Columns[site]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Error Output].Columns[site]"
+                      name="site" />
+                    <outputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Error Output].Columns[subscribers]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Error Output].Columns[subscribers]"
+                      name="subscribers" />
+                    <outputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Error Output].Columns[Customer ]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Error Output].Columns[Customer ]"
+                      name="Customer " />
+                    <outputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Error Output].Columns[customer]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Error Output].Columns[customer]"
+                      name="customer" />
+                    <outputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Error Output].Columns[devices]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Error Output].Columns[devices]"
+                      name="devices" />
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -364,65 +870,107 @@
                   name="OLE DB Destination Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\DFT_Device_Parameter_Group\Load_Device_Parameter_Group.Inputs[OLE DB Destination Input].Columns[Action]"
-                      cachedDataType="r8"
-                      cachedName="Action"
+                      refId="Package\DFT_Device_Parameter_Group\Load_Device_Parameter_Group.Inputs[OLE DB Destination Input].Columns[Copy of Action]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="25"
+                      cachedName="Copy of Action"
                       externalMetadataColumnId="Package\DFT_Device_Parameter_Group\Load_Device_Parameter_Group.Inputs[OLE DB Destination Input].ExternalColumns[Action]"
-                      lineageId="Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Output].Columns[Action]" />
+                      lineageId="Package\DFT_Device_Parameter_Group\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Action]" />
                     <inputColumn
-                      refId="Package\DFT_Device_Parameter_Group\Load_Device_Parameter_Group.Inputs[OLE DB Destination Input].Columns[name]"
-                      cachedDataType="r8"
-                      cachedName="name"
+                      refId="Package\DFT_Device_Parameter_Group\Load_Device_Parameter_Group.Inputs[OLE DB Destination Input].Columns[Copy of name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="Copy of name"
                       externalMetadataColumnId="Package\DFT_Device_Parameter_Group\Load_Device_Parameter_Group.Inputs[OLE DB Destination Input].ExternalColumns[name]"
-                      lineageId="Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Output].Columns[name]" />
+                      lineageId="Package\DFT_Device_Parameter_Group\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of name]" />
                     <inputColumn
-                      refId="Package\DFT_Device_Parameter_Group\Load_Device_Parameter_Group.Inputs[OLE DB Destination Input].Columns[scope]"
-                      cachedDataType="r8"
-                      cachedName="scope"
+                      refId="Package\DFT_Device_Parameter_Group\Load_Device_Parameter_Group.Inputs[OLE DB Destination Input].Columns[Copy of scope]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="Copy of scope"
                       externalMetadataColumnId="Package\DFT_Device_Parameter_Group\Load_Device_Parameter_Group.Inputs[OLE DB Destination Input].ExternalColumns[scope]"
-                      lineageId="Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Output].Columns[scope]" />
+                      lineageId="Package\DFT_Device_Parameter_Group\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of scope]" />
                     <inputColumn
-                      refId="Package\DFT_Device_Parameter_Group\Load_Device_Parameter_Group.Inputs[OLE DB Destination Input].Columns[subscribers]"
-                      cachedDataType="r8"
-                      cachedName="subscribers"
+                      refId="Package\DFT_Device_Parameter_Group\Load_Device_Parameter_Group.Inputs[OLE DB Destination Input].Columns[Copy of subscribers]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="Copy of subscribers"
                       externalMetadataColumnId="Package\DFT_Device_Parameter_Group\Load_Device_Parameter_Group.Inputs[OLE DB Destination Input].ExternalColumns[subscribers]"
-                      lineageId="Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Output].Columns[subscribers]" />
+                      lineageId="Package\DFT_Device_Parameter_Group\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of subscribers]" />
                     <inputColumn
-                      refId="Package\DFT_Device_Parameter_Group\Load_Device_Parameter_Group.Inputs[OLE DB Destination Input].Columns[devices]"
-                      cachedDataType="r8"
-                      cachedName="devices"
-                      externalMetadataColumnId="Package\DFT_Device_Parameter_Group\Load_Device_Parameter_Group.Inputs[OLE DB Destination Input].ExternalColumns[devices]"
-                      lineageId="Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Output].Columns[devices]" />
-                    <inputColumn
-                      refId="Package\DFT_Device_Parameter_Group\Load_Device_Parameter_Group.Inputs[OLE DB Destination Input].Columns[Root Domain]"
-                      cachedDataType="r8"
-                      cachedName="Root Domain"
+                      refId="Package\DFT_Device_Parameter_Group\Load_Device_Parameter_Group.Inputs[OLE DB Destination Input].Columns[Copy of Root Domain]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="25"
+                      cachedName="Copy of Root Domain"
                       externalMetadataColumnId="Package\DFT_Device_Parameter_Group\Load_Device_Parameter_Group.Inputs[OLE DB Destination Input].ExternalColumns[Root_Domain]"
-                      lineageId="Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Output].Columns[Root Domain]" />
+                      lineageId="Package\DFT_Device_Parameter_Group\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Root Domain]" />
                     <inputColumn
-                      refId="Package\DFT_Device_Parameter_Group\Load_Device_Parameter_Group.Inputs[OLE DB Destination Input].Columns[device types]"
-                      cachedDataType="r8"
-                      cachedName="device types"
+                      refId="Package\DFT_Device_Parameter_Group\Load_Device_Parameter_Group.Inputs[OLE DB Destination Input].Columns[Copy of device types]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="Copy of device types"
                       externalMetadataColumnId="Package\DFT_Device_Parameter_Group\Load_Device_Parameter_Group.Inputs[OLE DB Destination Input].ExternalColumns[device_types]"
-                      lineageId="Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Output].Columns[device types]" />
+                      lineageId="Package\DFT_Device_Parameter_Group\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of device types]" />
                     <inputColumn
-                      refId="Package\DFT_Device_Parameter_Group\Load_Device_Parameter_Group.Inputs[OLE DB Destination Input].Columns[device vendor]"
-                      cachedDataType="r8"
-                      cachedName="device vendor"
+                      refId="Package\DFT_Device_Parameter_Group\Load_Device_Parameter_Group.Inputs[OLE DB Destination Input].Columns[Copy of device vendor]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="Copy of device vendor"
                       externalMetadataColumnId="Package\DFT_Device_Parameter_Group\Load_Device_Parameter_Group.Inputs[OLE DB Destination Input].ExternalColumns[device_vendor]"
-                      lineageId="Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Output].Columns[device vendor]" />
+                      lineageId="Package\DFT_Device_Parameter_Group\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of device vendor]" />
                     <inputColumn
-                      refId="Package\DFT_Device_Parameter_Group\Load_Device_Parameter_Group.Inputs[OLE DB Destination Input].Columns[site]"
-                      cachedDataType="r8"
-                      cachedName="site"
+                      refId="Package\DFT_Device_Parameter_Group\Load_Device_Parameter_Group.Inputs[OLE DB Destination Input].Columns[Copy of site]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="Copy of site"
                       externalMetadataColumnId="Package\DFT_Device_Parameter_Group\Load_Device_Parameter_Group.Inputs[OLE DB Destination Input].ExternalColumns[sites]"
-                      lineageId="Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Output].Columns[site]" />
+                      lineageId="Package\DFT_Device_Parameter_Group\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of site]" />
                     <inputColumn
-                      refId="Package\DFT_Device_Parameter_Group\Load_Device_Parameter_Group.Inputs[OLE DB Destination Input].Columns[Customer]"
-                      cachedDataType="r8"
-                      cachedName="Customer"
+                      refId="Package\DFT_Device_Parameter_Group\Load_Device_Parameter_Group.Inputs[OLE DB Destination Input].Columns[Copy of devices]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="Copy of devices"
+                      externalMetadataColumnId="Package\DFT_Device_Parameter_Group\Load_Device_Parameter_Group.Inputs[OLE DB Destination Input].ExternalColumns[devices]"
+                      lineageId="Package\DFT_Device_Parameter_Group\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of devices]" />
+                    <inputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Load_Device_Parameter_Group.Inputs[OLE DB Destination Input].Columns[Der_Source_Type]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="Der_Source_Type"
+                      externalMetadataColumnId="Package\DFT_Device_Parameter_Group\Load_Device_Parameter_Group.Inputs[OLE DB Destination Input].ExternalColumns[Source_Type]"
+                      lineageId="Package\DFT_Device_Parameter_Group\Derived Column.Outputs[Derived Column Output].Columns[Der_Source_Type]" />
+                    <inputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Load_Device_Parameter_Group.Inputs[OLE DB Destination Input].Columns[Copy of Customer]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="25"
+                      cachedName="Copy of Customer"
                       externalMetadataColumnId="Package\DFT_Device_Parameter_Group\Load_Device_Parameter_Group.Inputs[OLE DB Destination Input].ExternalColumns[Customer]"
-                      lineageId="Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Output].Columns[Customer]" />
+                      lineageId="Package\DFT_Device_Parameter_Group\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Customer]" />
+                    <inputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Load_Device_Parameter_Group.Inputs[OLE DB Destination Input].Columns[Copy of customer_scope]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedName="Copy of customer_scope"
+                      externalMetadataColumnId="Package\DFT_Device_Parameter_Group\Load_Device_Parameter_Group.Inputs[OLE DB Destination Input].ExternalColumns[customer_scope]"
+                      lineageId="Package\DFT_Device_Parameter_Group\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of customer_scope]" />
+                    <inputColumn
+                      refId="Package\DFT_Device_Parameter_Group\Load_Device_Parameter_Group.Inputs[OLE DB Destination Input].Columns[Der_Is_Valid]"
+                      cachedDataType="i4"
+                      cachedName="Der_Is_Valid"
+                      externalMetadataColumnId="Package\DFT_Device_Parameter_Group\Load_Device_Parameter_Group.Inputs[OLE DB Destination Input].ExternalColumns[Is_Valid]"
+                      lineageId="Package\DFT_Device_Parameter_Group\Derived Column.Outputs[Derived Column Output].Columns[Der_Is_Valid]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -482,11 +1030,31 @@
                       dataType="text"
                       name="devices" />
                     <externalMetadataColumn
-                      refId="Package\DFT_Device_Parameter_Group\Load_Device_Parameter_Group.Inputs[OLE DB Destination Input].ExternalColumns[Checksumval]"
+                      refId="Package\DFT_Device_Parameter_Group\Load_Device_Parameter_Group.Inputs[OLE DB Destination Input].ExternalColumns[customer_scope]"
+                      codePage="1252"
+                      dataType="text"
+                      name="customer_scope" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Device_Parameter_Group\Load_Device_Parameter_Group.Inputs[OLE DB Destination Input].ExternalColumns[force_lock]"
                       codePage="1252"
                       dataType="str"
-                      length="32"
-                      name="Checksumval" />
+                      length="10"
+                      name="force_lock" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Device_Parameter_Group\Load_Device_Parameter_Group.Inputs[OLE DB Destination Input].ExternalColumns[Is_Valid]"
+                      dataType="bool"
+                      name="Is_Valid" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Device_Parameter_Group\Load_Device_Parameter_Group.Inputs[OLE DB Destination Input].ExternalColumns[Is_Valid_Reason]"
+                      codePage="1252"
+                      dataType="text"
+                      name="Is_Valid_Reason" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Device_Parameter_Group\Load_Device_Parameter_Group.Inputs[OLE DB Destination Input].ExternalColumns[Source_Type]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="Source_Type" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -518,8 +1086,18 @@
           </components>
           <paths>
             <path
-              refId="Package\DFT_Device_Parameter_Group.Paths[Excel Source Output]"
+              refId="Package\DFT_Device_Parameter_Group.Paths[Data Conversion Output]"
+              endId="Package\DFT_Device_Parameter_Group\Derived Column.Inputs[Derived Column Input]"
+              name="Data Conversion Output"
+              startId="Package\DFT_Device_Parameter_Group\Data Conversion.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\DFT_Device_Parameter_Group.Paths[Derived Column Output]"
               endId="Package\DFT_Device_Parameter_Group\Load_Device_Parameter_Group.Inputs[OLE DB Destination Input]"
+              name="Derived Column Output"
+              startId="Package\DFT_Device_Parameter_Group\Derived Column.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\DFT_Device_Parameter_Group.Paths[Excel Source Output]"
+              endId="Package\DFT_Device_Parameter_Group\Data Conversion.Inputs[Data Conversion Input]"
               name="Excel Source Output"
               startId="Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group.Outputs[Excel Source Output]" />
           </paths>
@@ -530,6 +1108,7 @@
       DTS:refId="Package\Truncate_ODS_table"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
+      DTS:Disabled="True"
       DTS:DTSID="{deca9b70-53f4-4970-9439-e29ff0d37c3c}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
@@ -603,29 +1182,81 @@
     design-time-name="Package\DFT_Device_Parameter_Group">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="237,42"
-          Id="Package\DFT_Device_Parameter_Group\Load_Device_Parameter_Group"
-          TopLeft="374,206" />
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="240,42"
           Id="Package\DFT_Device_Parameter_Group\Excel_Device_Parameter_Group"
-          TopLeft="372,79" />
+          TopLeft="372,46" />
+        <NodeLayout
+          Size="237,42"
+          Id="Package\DFT_Device_Parameter_Group\Load_Device_Parameter_Group"
+          TopLeft="380,344" />
+        <NodeLayout
+          Size="158,42"
+          Id="Package\DFT_Device_Parameter_Group\Derived Column"
+          TopLeft="413,241" />
+        <NodeLayout
+          Size="161,42"
+          Id="Package\DFT_Device_Parameter_Group\Data Conversion"
+          TopLeft="412,142" />
         <EdgeLayout
-          Id="Package\DFT_Device_Parameter_Group.Paths[Excel Source Output]"
-          TopLeft="492.25,121">
+          Id="Package\DFT_Device_Parameter_Group.Paths[Data Conversion Output]"
+          TopLeft="492.25,184">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,85"
+              EndConnector="0,57"
               Start="0,0"
-              End="0,77.5">
+              End="0,49.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,77.5" />
+                    End="0,49.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT_Device_Parameter_Group.Paths[Excel Source Output]"
+          TopLeft="492.25,88">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,54"
+              Start="0,0"
+              End="0,46.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,46.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT_Device_Parameter_Group.Paths[Derived Column Output]"
+          TopLeft="495.25,283">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,61"
+              Start="0,0"
+              End="0,53.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,53.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

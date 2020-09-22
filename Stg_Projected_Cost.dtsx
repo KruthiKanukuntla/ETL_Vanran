@@ -1,0 +1,2509 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/22/2020 7:13:13 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="PREETISHK-LPT"
+  DTS:CreatorName="DATAFORTUNE\preetish.kharche"
+  DTS:DTSID="{D68317B3-A604-43E3-8C27-CC0B33018D09}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.123"
+  DTS:LocaleID="16393"
+  DTS:ObjectName="Stg_Projected_Cost"
+  DTS:PackageType="5"
+  DTS:VersionBuild="71"
+  DTS:VersionGUID="{1DB46247-680B-42C5-8B8C-B7908DA692F9}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{A6730948-4C6E-409B-873B-A2FFD2A87DE7}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="ETL_Load_Time">
+      <DTS:VariableValue
+        DTS:DataType="7">7/8/2020 8:07:19 AM</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DFT_Projected_Cost"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{83D393A5-953E-4E13-857E-4F338DE54CF8}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT_Projected_Cost"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT_Projected_Cost\CS_CompareNonKeyColumns"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+              name="CS_CompareNonKeyColumns"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT_Projected_Cost\CS_CompareNonKeyColumns.Inputs[Conditional Split Input]"
+                  description="Input to the Conditional Split Transformation"
+                  name="Conditional Split Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT_Projected_Cost\CS_CompareNonKeyColumns.Inputs[Conditional Split Input].Columns[Checksumval]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="32"
+                      cachedName="Checksumval"
+                      lineageId="Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Output].Columns[Checksumval]" />
+                    <inputColumn
+                      refId="Package\DFT_Projected_Cost\CS_CompareNonKeyColumns.Inputs[Conditional Split Input].Columns[Lkp_Checksumval]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Lkp_Checksumval"
+                      lineageId="Package\DFT_Projected_Cost\Lkp_Arc.Outputs[Lookup Match Output].Columns[Lkp_Checksumval]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_Projected_Cost\CS_CompareNonKeyColumns.Outputs[Changed Records]"
+                  description="Output 1 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Changed Records"
+                  synchronousInputId="Package\DFT_Projected_Cost\CS_CompareNonKeyColumns.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">[REPLACENULL](#{Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Output].Columns[Checksumval]},"ZZZ") != [REPLACENULL](#{Package\DFT_Projected_Cost\Lkp_Arc.Outputs[Lookup Match Output].Columns[Lkp_Checksumval]},"ZZZ")</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">REPLACENULL(Checksumval,"ZZZ") != REPLACENULL(Lkp_Checksumval,"ZZZ")</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT_Projected_Cost\CS_CompareNonKeyColumns.Outputs[Conditional Split Default Output]"
+                  description="Default Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  name="Conditional Split Default Output"
+                  synchronousInputId="Package\DFT_Projected_Cost\CS_CompareNonKeyColumns.Inputs[Conditional Split Input]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT_Projected_Cost\CS_CompareNonKeyColumns.Outputs[Conditional Split Error Output]"
+                  description="Error Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Conditional Split Error Output"
+                  synchronousInputId="Package\DFT_Projected_Cost\CS_CompareNonKeyColumns.Inputs[Conditional Split Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Projected_Cost\CS_CompareNonKeyColumns.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Projected_Cost\CS_CompareNonKeyColumns.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_Projected_Cost\CS_CompareNonKeyColumns.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Projected_Cost\CS_CompareNonKeyColumns.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT_Projected_Cost\DC_NewFlag_N"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="DC_NewFlag_N"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT_Projected_Cost\DC_NewFlag_N.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_Projected_Cost\DC_NewFlag_N.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\DFT_Projected_Cost\DC_NewFlag_N.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Projected_Cost\DC_NewFlag_N.Outputs[Derived Column Output].Columns[dw_eff_strt_dttm]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT_Projected_Cost\DC_NewFlag_N.Outputs[Derived Column Output].Columns[dw_eff_strt_dttm]"
+                      name="dw_eff_strt_dttm"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_DBTIMESTAMP)@[User::ETL_Load_Time]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_DBTIMESTAMP)@[User::ETL_Load_Time]</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Projected_Cost\DC_NewFlag_N.Outputs[Derived Column Output].Columns[new_flag]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="1"
+                      lineageId="Package\DFT_Projected_Cost\DC_NewFlag_N.Outputs[Derived Column Output].Columns[new_flag]"
+                      name="new_flag"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_STR,1,1252)"N"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_STR,1,1252)"N"</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Projected_Cost\DC_NewFlag_N.Outputs[Derived Column Output].Columns[dw_crte_usrid]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="10"
+                      lineageId="Package\DFT_Projected_Cost\DC_NewFlag_N.Outputs[Derived Column Output].Columns[dw_crte_usrid]"
+                      name="dw_crte_usrid"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_STR,10,1252)"etlprocess"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_STR,10,1252)"etlprocess"</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT_Projected_Cost\DC_NewFlag_N.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\DFT_Projected_Cost\DC_NewFlag_N.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Projected_Cost\DC_NewFlag_N.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Projected_Cost\DC_NewFlag_N.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_Projected_Cost\DC_NewFlag_N.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Projected_Cost\DC_NewFlag_N.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT_Projected_Cost\DC_NewFlag_Y"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="DC_NewFlag_Y"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT_Projected_Cost\DC_NewFlag_Y.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_Projected_Cost\DC_NewFlag_Y.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\DFT_Projected_Cost\DC_NewFlag_Y.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Projected_Cost\DC_NewFlag_Y.Outputs[Derived Column Output].Columns[dw_eff_strt_dttm]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT_Projected_Cost\DC_NewFlag_Y.Outputs[Derived Column Output].Columns[dw_eff_strt_dttm]"
+                      name="dw_eff_strt_dttm"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_DBTIMESTAMP)@[User::ETL_Load_Time]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_DBTIMESTAMP)@[User::ETL_Load_Time]</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Projected_Cost\DC_NewFlag_Y.Outputs[Derived Column Output].Columns[new_flag]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="1"
+                      lineageId="Package\DFT_Projected_Cost\DC_NewFlag_Y.Outputs[Derived Column Output].Columns[new_flag]"
+                      name="new_flag"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_STR,1,1252)"Y"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_STR,1,1252)"Y"</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Projected_Cost\DC_NewFlag_Y.Outputs[Derived Column Output].Columns[dw_crte_usrid]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="10"
+                      lineageId="Package\DFT_Projected_Cost\DC_NewFlag_Y.Outputs[Derived Column Output].Columns[dw_crte_usrid]"
+                      name="dw_crte_usrid"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_STR,10,1252)"etlprocess"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_STR,10,1252)"etlprocess"</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT_Projected_Cost\DC_NewFlag_Y.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\DFT_Projected_Cost\DC_NewFlag_Y.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Projected_Cost\DC_NewFlag_Y.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Projected_Cost\DC_NewFlag_Y.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_Projected_Cost\DC_NewFlag_Y.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Projected_Cost\DC_NewFlag_Y.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT_Projected_Cost\Lkp_Arc"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Lkp_Arc"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [sku]
+      ,[description]
+      ,[quantity]
+      ,[price]
+      ,[price_currency]
+      ,[total]
+      ,[total_currency]
+      ,[value]
+      ,[currency]
+      ,[Checksumval] 
+FROM DW_HIST.dbo.Projected_Cost WHERE current_flag = 'Y'</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (SELECT [sku]
+      ,[description]
+      ,[quantity]
+      ,[price]
+      ,[price_currency]
+      ,[total]
+      ,[total_currency]
+      ,[value]
+      ,[currency]
+      ,[Checksumval] 
+FROM DW_HIST.dbo.Projected_Cost WHERE current_flag = 'Y') [refTable]
+where [refTable].[sku] = ? and [refTable].[description] = ? and [refTable].[quantity] = ? and [refTable].[price] = ? and [refTable].[price_currency] = ? and [refTable].[total] = ? and [refTable].[total_currency] = ? and [refTable].[value] = ? and [refTable].[currency] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="sku" dataType="DT_STR" length="16" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="description" dataType="DT_STR" length="68" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="quantity" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="price" dataType="DT_NUMERIC" length="0" precision="8" scale="2" codePage="0"/&gt;&lt;referenceColumn name="price_currency" dataType="DT_STR" length="10" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="total" dataType="DT_NUMERIC" length="0" precision="8" scale="2" codePage="0"/&gt;&lt;referenceColumn name="total_currency" dataType="DT_STR" length="10" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="value" dataType="DT_NUMERIC" length="0" precision="8" scale="2" codePage="0"/&gt;&lt;referenceColumn name="currency" dataType="DT_STR" length="10" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="Checksumval" dataType="DT_STR" length="100" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Output].Columns[sku]};#{Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Output].Columns[description]};#{Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Output].Columns[quantity]};#{Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Output].Columns[price]};#{Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Output].Columns[price_currency]};#{Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Output].Columns[total]};#{Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Output].Columns[total_currency]};#{Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Output].Columns[value]};#{Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Output].Columns[currency]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT_Projected_Cost\Lkp_Arc.Connections[OleDbConnection]"
+                  connectionManagerID="{05B7AD07-7614-46E5-A55A-1E46DA8444A4}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Hist_Vanran_Ribbon]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT_Projected_Cost\Lkp_Arc.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT_Projected_Cost\Lkp_Arc.Inputs[Lookup Input].Columns[sku]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="16"
+                      cachedName="sku"
+                      lineageId="Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Output].Columns[sku]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">sku</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Projected_Cost\Lkp_Arc.Inputs[Lookup Input].Columns[description]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="68"
+                      cachedName="description"
+                      lineageId="Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Output].Columns[description]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">description</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Projected_Cost\Lkp_Arc.Inputs[Lookup Input].Columns[quantity]"
+                      cachedDataType="i4"
+                      cachedName="quantity"
+                      lineageId="Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Output].Columns[quantity]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">quantity</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Projected_Cost\Lkp_Arc.Inputs[Lookup Input].Columns[price]"
+                      cachedDataType="numeric"
+                      cachedName="price"
+                      cachedPrecision="8"
+                      cachedScale="2"
+                      lineageId="Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Output].Columns[price]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">price</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Projected_Cost\Lkp_Arc.Inputs[Lookup Input].Columns[price_currency]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="price_currency"
+                      lineageId="Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Output].Columns[price_currency]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">price_currency</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Projected_Cost\Lkp_Arc.Inputs[Lookup Input].Columns[total]"
+                      cachedDataType="numeric"
+                      cachedName="total"
+                      cachedPrecision="8"
+                      cachedScale="2"
+                      lineageId="Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Output].Columns[total]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">total</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Projected_Cost\Lkp_Arc.Inputs[Lookup Input].Columns[total_currency]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="total_currency"
+                      lineageId="Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Output].Columns[total_currency]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">total_currency</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Projected_Cost\Lkp_Arc.Inputs[Lookup Input].Columns[value]"
+                      cachedDataType="numeric"
+                      cachedName="value"
+                      cachedPrecision="8"
+                      cachedScale="2"
+                      lineageId="Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Output].Columns[value]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">value</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Projected_Cost\Lkp_Arc.Inputs[Lookup Input].Columns[currency]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="currency"
+                      lineageId="Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Output].Columns[currency]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">currency</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_Projected_Cost\Lkp_Arc.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\DFT_Projected_Cost\Lkp_Arc.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Projected_Cost\Lkp_Arc.Outputs[Lookup Match Output].Columns[Lkp_Checksumval]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Copy Column"
+                      length="100"
+                      lineageId="Package\DFT_Projected_Cost\Lkp_Arc.Outputs[Lookup Match Output].Columns[Lkp_Checksumval]"
+                      name="Lkp_Checksumval"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">Checksumval</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT_Projected_Cost\Lkp_Arc.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\DFT_Projected_Cost\Lkp_Arc.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT_Projected_Cost\Lkp_Arc.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\DFT_Projected_Cost\Lkp_Arc.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Projected_Cost\Lkp_Arc.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Projected_Cost\Lkp_Arc.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_Projected_Cost\Lkp_Arc.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Projected_Cost\Lkp_Arc.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT_Projected_Cost\Source_ODS"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Source_ODS"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Projected_Cost]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT_Projected_Cost\Source_ODS.Connections[OleDbConnection]"
+                  connectionManagerID="{E0E6DC88-A9A1-4A51-8B19-958C1AD76267}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[ODS_Vanran_Ribbon]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Output].Columns[Root_Domain]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Output].ExternalColumns[Root_Domain]"
+                      length="25"
+                      lineageId="Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Output].Columns[Root_Domain]"
+                      name="Root_Domain"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Output].Columns[Customer]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Output].ExternalColumns[Customer]"
+                      length="25"
+                      lineageId="Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Output].Columns[Customer]"
+                      name="Customer"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Output].Columns[Action]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Output].ExternalColumns[Action]"
+                      length="25"
+                      lineageId="Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Output].Columns[Action]"
+                      name="Action"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Output].Columns[Checksumval]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Output].ExternalColumns[Checksumval]"
+                      length="32"
+                      lineageId="Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Output].Columns[Checksumval]"
+                      name="Checksumval"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Output].Columns[sku]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Output].ExternalColumns[sku]"
+                      length="16"
+                      lineageId="Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Output].Columns[sku]"
+                      name="sku"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Output].Columns[description]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Output].ExternalColumns[description]"
+                      length="68"
+                      lineageId="Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Output].Columns[description]"
+                      name="description"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Output].Columns[quantity]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Output].ExternalColumns[quantity]"
+                      lineageId="Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Output].Columns[quantity]"
+                      name="quantity"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Output].Columns[price]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Output].ExternalColumns[price]"
+                      lineageId="Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Output].Columns[price]"
+                      name="price"
+                      precision="8"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Output].Columns[price_currency]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Output].ExternalColumns[price_currency]"
+                      length="10"
+                      lineageId="Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Output].Columns[price_currency]"
+                      name="price_currency"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Output].Columns[total]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Output].ExternalColumns[total]"
+                      lineageId="Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Output].Columns[total]"
+                      name="total"
+                      precision="8"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Output].Columns[total_currency]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Output].ExternalColumns[total_currency]"
+                      length="10"
+                      lineageId="Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Output].Columns[total_currency]"
+                      name="total_currency"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Output].Columns[value]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Output].ExternalColumns[value]"
+                      lineageId="Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Output].Columns[value]"
+                      name="value"
+                      precision="8"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Output].Columns[currency]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Output].ExternalColumns[currency]"
+                      length="10"
+                      lineageId="Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Output].Columns[currency]"
+                      name="currency"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Output].ExternalColumns[Root_Domain]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      name="Root_Domain" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Output].ExternalColumns[Customer]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      name="Customer" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Output].ExternalColumns[Action]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      name="Action" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Output].ExternalColumns[Checksumval]"
+                      codePage="1252"
+                      dataType="str"
+                      length="32"
+                      name="Checksumval" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Output].ExternalColumns[Is_Sync]"
+                      dataType="bool"
+                      name="Is_Sync" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Output].ExternalColumns[sku]"
+                      codePage="1252"
+                      dataType="str"
+                      length="16"
+                      name="sku" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Output].ExternalColumns[description]"
+                      codePage="1252"
+                      dataType="str"
+                      length="68"
+                      name="description" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Output].ExternalColumns[quantity]"
+                      dataType="i4"
+                      name="quantity" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Output].ExternalColumns[price]"
+                      dataType="numeric"
+                      name="price"
+                      precision="8"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Output].ExternalColumns[price_currency]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="price_currency" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Output].ExternalColumns[total]"
+                      dataType="numeric"
+                      name="total"
+                      precision="8"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Output].ExternalColumns[total_currency]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="total_currency" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Output].ExternalColumns[value]"
+                      dataType="numeric"
+                      name="value"
+                      precision="8"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Output].ExternalColumns[currency]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="currency" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Error Output].Columns[Root_Domain]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      lineageId="Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Error Output].Columns[Root_Domain]"
+                      name="Root_Domain" />
+                    <outputColumn
+                      refId="Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Error Output].Columns[Customer]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      lineageId="Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Error Output].Columns[Customer]"
+                      name="Customer" />
+                    <outputColumn
+                      refId="Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Error Output].Columns[Action]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      lineageId="Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Error Output].Columns[Action]"
+                      name="Action" />
+                    <outputColumn
+                      refId="Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Error Output].Columns[sku]"
+                      codePage="1252"
+                      dataType="str"
+                      length="16"
+                      lineageId="Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Error Output].Columns[sku]"
+                      name="sku" />
+                    <outputColumn
+                      refId="Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Error Output].Columns[description]"
+                      codePage="1252"
+                      dataType="str"
+                      length="68"
+                      lineageId="Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Error Output].Columns[description]"
+                      name="description" />
+                    <outputColumn
+                      refId="Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Error Output].Columns[quantity]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Error Output].Columns[quantity]"
+                      name="quantity" />
+                    <outputColumn
+                      refId="Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Error Output].Columns[price]"
+                      dataType="numeric"
+                      lineageId="Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Error Output].Columns[price]"
+                      name="price"
+                      precision="8"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Error Output].Columns[price_currency]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Error Output].Columns[price_currency]"
+                      name="price_currency" />
+                    <outputColumn
+                      refId="Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Error Output].Columns[total]"
+                      dataType="numeric"
+                      lineageId="Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Error Output].Columns[total]"
+                      name="total"
+                      precision="8"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Error Output].Columns[total_currency]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Error Output].Columns[total_currency]"
+                      name="total_currency" />
+                    <outputColumn
+                      refId="Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Error Output].Columns[value]"
+                      dataType="numeric"
+                      lineageId="Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Error Output].Columns[value]"
+                      name="value"
+                      precision="8"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Error Output].Columns[currency]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Error Output].Columns[currency]"
+                      name="currency" />
+                    <outputColumn
+                      refId="Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Error Output].Columns[Checksumval]"
+                      codePage="1252"
+                      dataType="str"
+                      length="32"
+                      lineageId="Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Error Output].Columns[Checksumval]"
+                      name="Checksumval" />
+                    <outputColumn
+                      refId="Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT_Projected_Cost\Stg_Projected_Cost"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Stg_Projected_Cost"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Projected_Cost]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS,ROWS_PER_BATCH = 10000</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">10000</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT_Projected_Cost\Stg_Projected_Cost.Connections[OleDbConnection]"
+                  connectionManagerID="{4B2BAB6F-A5B2-4A58-BD25-0961304475AA}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Stg_Vanran_Ribbon]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT_Projected_Cost\Stg_Projected_Cost.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT_Projected_Cost\Stg_Projected_Cost.Inputs[OLE DB Destination Input].Columns[Root_Domain]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="25"
+                      cachedName="Root_Domain"
+                      externalMetadataColumnId="Package\DFT_Projected_Cost\Stg_Projected_Cost.Inputs[OLE DB Destination Input].ExternalColumns[Root_Domain]"
+                      lineageId="Package\DFT_Projected_Cost\Union All.Outputs[Union All Output 1].Columns[Root_Domain]" />
+                    <inputColumn
+                      refId="Package\DFT_Projected_Cost\Stg_Projected_Cost.Inputs[OLE DB Destination Input].Columns[Customer]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="25"
+                      cachedName="Customer"
+                      externalMetadataColumnId="Package\DFT_Projected_Cost\Stg_Projected_Cost.Inputs[OLE DB Destination Input].ExternalColumns[Customer]"
+                      lineageId="Package\DFT_Projected_Cost\Union All.Outputs[Union All Output 1].Columns[Customer]" />
+                    <inputColumn
+                      refId="Package\DFT_Projected_Cost\Stg_Projected_Cost.Inputs[OLE DB Destination Input].Columns[Action]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="25"
+                      cachedName="Action"
+                      externalMetadataColumnId="Package\DFT_Projected_Cost\Stg_Projected_Cost.Inputs[OLE DB Destination Input].ExternalColumns[Action]"
+                      lineageId="Package\DFT_Projected_Cost\Union All.Outputs[Union All Output 1].Columns[Action]" />
+                    <inputColumn
+                      refId="Package\DFT_Projected_Cost\Stg_Projected_Cost.Inputs[OLE DB Destination Input].Columns[Checksumval]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="32"
+                      cachedName="Checksumval"
+                      externalMetadataColumnId="Package\DFT_Projected_Cost\Stg_Projected_Cost.Inputs[OLE DB Destination Input].ExternalColumns[Checksumval]"
+                      lineageId="Package\DFT_Projected_Cost\Union All.Outputs[Union All Output 1].Columns[Checksumval]" />
+                    <inputColumn
+                      refId="Package\DFT_Projected_Cost\Stg_Projected_Cost.Inputs[OLE DB Destination Input].Columns[dw_eff_strt_dttm]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="dw_eff_strt_dttm"
+                      externalMetadataColumnId="Package\DFT_Projected_Cost\Stg_Projected_Cost.Inputs[OLE DB Destination Input].ExternalColumns[dw_eff_strt_dttm]"
+                      lineageId="Package\DFT_Projected_Cost\Union All.Outputs[Union All Output 1].Columns[dw_eff_strt_dttm]" />
+                    <inputColumn
+                      refId="Package\DFT_Projected_Cost\Stg_Projected_Cost.Inputs[OLE DB Destination Input].Columns[new_flag]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="new_flag"
+                      externalMetadataColumnId="Package\DFT_Projected_Cost\Stg_Projected_Cost.Inputs[OLE DB Destination Input].ExternalColumns[new_flag]"
+                      lineageId="Package\DFT_Projected_Cost\Union All.Outputs[Union All Output 1].Columns[new_flag]" />
+                    <inputColumn
+                      refId="Package\DFT_Projected_Cost\Stg_Projected_Cost.Inputs[OLE DB Destination Input].Columns[dw_crte_usrid]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="dw_crte_usrid"
+                      externalMetadataColumnId="Package\DFT_Projected_Cost\Stg_Projected_Cost.Inputs[OLE DB Destination Input].ExternalColumns[dw_crte_usrid]"
+                      lineageId="Package\DFT_Projected_Cost\Union All.Outputs[Union All Output 1].Columns[dw_crte_usrid]" />
+                    <inputColumn
+                      refId="Package\DFT_Projected_Cost\Stg_Projected_Cost.Inputs[OLE DB Destination Input].Columns[sku]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="16"
+                      cachedName="sku"
+                      externalMetadataColumnId="Package\DFT_Projected_Cost\Stg_Projected_Cost.Inputs[OLE DB Destination Input].ExternalColumns[sku]"
+                      lineageId="Package\DFT_Projected_Cost\Union All.Outputs[Union All Output 1].Columns[sku]" />
+                    <inputColumn
+                      refId="Package\DFT_Projected_Cost\Stg_Projected_Cost.Inputs[OLE DB Destination Input].Columns[description]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="68"
+                      cachedName="description"
+                      externalMetadataColumnId="Package\DFT_Projected_Cost\Stg_Projected_Cost.Inputs[OLE DB Destination Input].ExternalColumns[description]"
+                      lineageId="Package\DFT_Projected_Cost\Union All.Outputs[Union All Output 1].Columns[description]" />
+                    <inputColumn
+                      refId="Package\DFT_Projected_Cost\Stg_Projected_Cost.Inputs[OLE DB Destination Input].Columns[quantity]"
+                      cachedDataType="i4"
+                      cachedName="quantity"
+                      externalMetadataColumnId="Package\DFT_Projected_Cost\Stg_Projected_Cost.Inputs[OLE DB Destination Input].ExternalColumns[quantity]"
+                      lineageId="Package\DFT_Projected_Cost\Union All.Outputs[Union All Output 1].Columns[quantity]" />
+                    <inputColumn
+                      refId="Package\DFT_Projected_Cost\Stg_Projected_Cost.Inputs[OLE DB Destination Input].Columns[price]"
+                      cachedDataType="numeric"
+                      cachedName="price"
+                      cachedPrecision="8"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\DFT_Projected_Cost\Stg_Projected_Cost.Inputs[OLE DB Destination Input].ExternalColumns[price]"
+                      lineageId="Package\DFT_Projected_Cost\Union All.Outputs[Union All Output 1].Columns[price]" />
+                    <inputColumn
+                      refId="Package\DFT_Projected_Cost\Stg_Projected_Cost.Inputs[OLE DB Destination Input].Columns[price_currency]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="price_currency"
+                      externalMetadataColumnId="Package\DFT_Projected_Cost\Stg_Projected_Cost.Inputs[OLE DB Destination Input].ExternalColumns[price_currency]"
+                      lineageId="Package\DFT_Projected_Cost\Union All.Outputs[Union All Output 1].Columns[price_currency]" />
+                    <inputColumn
+                      refId="Package\DFT_Projected_Cost\Stg_Projected_Cost.Inputs[OLE DB Destination Input].Columns[total]"
+                      cachedDataType="numeric"
+                      cachedName="total"
+                      cachedPrecision="8"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\DFT_Projected_Cost\Stg_Projected_Cost.Inputs[OLE DB Destination Input].ExternalColumns[total]"
+                      lineageId="Package\DFT_Projected_Cost\Union All.Outputs[Union All Output 1].Columns[total]" />
+                    <inputColumn
+                      refId="Package\DFT_Projected_Cost\Stg_Projected_Cost.Inputs[OLE DB Destination Input].Columns[total_currency]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="total_currency"
+                      externalMetadataColumnId="Package\DFT_Projected_Cost\Stg_Projected_Cost.Inputs[OLE DB Destination Input].ExternalColumns[total_currency]"
+                      lineageId="Package\DFT_Projected_Cost\Union All.Outputs[Union All Output 1].Columns[total_currency]" />
+                    <inputColumn
+                      refId="Package\DFT_Projected_Cost\Stg_Projected_Cost.Inputs[OLE DB Destination Input].Columns[value]"
+                      cachedDataType="numeric"
+                      cachedName="value"
+                      cachedPrecision="8"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\DFT_Projected_Cost\Stg_Projected_Cost.Inputs[OLE DB Destination Input].ExternalColumns[value]"
+                      lineageId="Package\DFT_Projected_Cost\Union All.Outputs[Union All Output 1].Columns[value]" />
+                    <inputColumn
+                      refId="Package\DFT_Projected_Cost\Stg_Projected_Cost.Inputs[OLE DB Destination Input].Columns[currency]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="currency"
+                      externalMetadataColumnId="Package\DFT_Projected_Cost\Stg_Projected_Cost.Inputs[OLE DB Destination Input].ExternalColumns[currency]"
+                      lineageId="Package\DFT_Projected_Cost\Union All.Outputs[Union All Output 1].Columns[currency]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT_Projected_Cost\Stg_Projected_Cost.Inputs[OLE DB Destination Input].ExternalColumns[Root_Domain]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      name="Root_Domain" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Projected_Cost\Stg_Projected_Cost.Inputs[OLE DB Destination Input].ExternalColumns[Customer]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      name="Customer" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Projected_Cost\Stg_Projected_Cost.Inputs[OLE DB Destination Input].ExternalColumns[Action]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      name="Action" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Projected_Cost\Stg_Projected_Cost.Inputs[OLE DB Destination Input].ExternalColumns[dw_eff_strt_dttm]"
+                      dataType="dbTimeStamp"
+                      name="dw_eff_strt_dttm" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Projected_Cost\Stg_Projected_Cost.Inputs[OLE DB Destination Input].ExternalColumns[dw_crte_usrid]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="dw_crte_usrid" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Projected_Cost\Stg_Projected_Cost.Inputs[OLE DB Destination Input].ExternalColumns[new_flag]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="new_flag" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Projected_Cost\Stg_Projected_Cost.Inputs[OLE DB Destination Input].ExternalColumns[Checksumval]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Checksumval" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Projected_Cost\Stg_Projected_Cost.Inputs[OLE DB Destination Input].ExternalColumns[sku]"
+                      codePage="1252"
+                      dataType="str"
+                      length="16"
+                      name="sku" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Projected_Cost\Stg_Projected_Cost.Inputs[OLE DB Destination Input].ExternalColumns[description]"
+                      codePage="1252"
+                      dataType="str"
+                      length="68"
+                      name="description" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Projected_Cost\Stg_Projected_Cost.Inputs[OLE DB Destination Input].ExternalColumns[quantity]"
+                      dataType="i4"
+                      name="quantity" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Projected_Cost\Stg_Projected_Cost.Inputs[OLE DB Destination Input].ExternalColumns[price]"
+                      dataType="numeric"
+                      name="price"
+                      precision="8"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Projected_Cost\Stg_Projected_Cost.Inputs[OLE DB Destination Input].ExternalColumns[price_currency]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="price_currency" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Projected_Cost\Stg_Projected_Cost.Inputs[OLE DB Destination Input].ExternalColumns[total]"
+                      dataType="numeric"
+                      name="total"
+                      precision="8"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Projected_Cost\Stg_Projected_Cost.Inputs[OLE DB Destination Input].ExternalColumns[total_currency]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="total_currency" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Projected_Cost\Stg_Projected_Cost.Inputs[OLE DB Destination Input].ExternalColumns[value]"
+                      dataType="numeric"
+                      name="value"
+                      precision="8"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Projected_Cost\Stg_Projected_Cost.Inputs[OLE DB Destination Input].ExternalColumns[currency]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="currency" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_Projected_Cost\Stg_Projected_Cost.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DFT_Projected_Cost\Stg_Projected_Cost.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Projected_Cost\Stg_Projected_Cost.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Projected_Cost\Stg_Projected_Cost.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT_Projected_Cost\Stg_Projected_Cost.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Projected_Cost\Stg_Projected_Cost.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT_Projected_Cost\Union All"
+              componentClassID="Microsoft.UnionAll"
+              contactInfo="Union All;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Combines rows from multiple data flows without sorting. For example, add rows back to a data flow after correction of errors. If sorting is important, we recommend using the Merge transformation."
+              name="Union All"
+              version="1">
+              <inputs>
+                <input
+                  refId="Package\DFT_Projected_Cost\Union All.Inputs[Union All Input 1]"
+                  name="Union All Input 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT_Projected_Cost\Union All.Inputs[Union All Input 1].Columns[Root_Domain]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="25"
+                      cachedName="Root_Domain"
+                      lineageId="Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Output].Columns[Root_Domain]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_Projected_Cost\Union All.Outputs[Union All Output 1].Columns[Root_Domain]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Projected_Cost\Union All.Inputs[Union All Input 1].Columns[Customer]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="25"
+                      cachedName="Customer"
+                      lineageId="Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Output].Columns[Customer]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_Projected_Cost\Union All.Outputs[Union All Output 1].Columns[Customer]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Projected_Cost\Union All.Inputs[Union All Input 1].Columns[Action]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="25"
+                      cachedName="Action"
+                      lineageId="Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Output].Columns[Action]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_Projected_Cost\Union All.Outputs[Union All Output 1].Columns[Action]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Projected_Cost\Union All.Inputs[Union All Input 1].Columns[Checksumval]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="32"
+                      cachedName="Checksumval"
+                      lineageId="Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Output].Columns[Checksumval]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_Projected_Cost\Union All.Outputs[Union All Output 1].Columns[Checksumval]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Projected_Cost\Union All.Inputs[Union All Input 1].Columns[sku]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="16"
+                      cachedName="sku"
+                      lineageId="Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Output].Columns[sku]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_Projected_Cost\Union All.Outputs[Union All Output 1].Columns[sku]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Projected_Cost\Union All.Inputs[Union All Input 1].Columns[description]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="68"
+                      cachedName="description"
+                      lineageId="Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Output].Columns[description]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_Projected_Cost\Union All.Outputs[Union All Output 1].Columns[description]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Projected_Cost\Union All.Inputs[Union All Input 1].Columns[quantity]"
+                      cachedDataType="i4"
+                      cachedName="quantity"
+                      lineageId="Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Output].Columns[quantity]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_Projected_Cost\Union All.Outputs[Union All Output 1].Columns[quantity]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Projected_Cost\Union All.Inputs[Union All Input 1].Columns[price]"
+                      cachedDataType="numeric"
+                      cachedName="price"
+                      cachedPrecision="8"
+                      cachedScale="2"
+                      lineageId="Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Output].Columns[price]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_Projected_Cost\Union All.Outputs[Union All Output 1].Columns[price]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Projected_Cost\Union All.Inputs[Union All Input 1].Columns[price_currency]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="price_currency"
+                      lineageId="Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Output].Columns[price_currency]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_Projected_Cost\Union All.Outputs[Union All Output 1].Columns[price_currency]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Projected_Cost\Union All.Inputs[Union All Input 1].Columns[total]"
+                      cachedDataType="numeric"
+                      cachedName="total"
+                      cachedPrecision="8"
+                      cachedScale="2"
+                      lineageId="Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Output].Columns[total]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_Projected_Cost\Union All.Outputs[Union All Output 1].Columns[total]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Projected_Cost\Union All.Inputs[Union All Input 1].Columns[total_currency]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="total_currency"
+                      lineageId="Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Output].Columns[total_currency]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_Projected_Cost\Union All.Outputs[Union All Output 1].Columns[total_currency]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Projected_Cost\Union All.Inputs[Union All Input 1].Columns[value]"
+                      cachedDataType="numeric"
+                      cachedName="value"
+                      cachedPrecision="8"
+                      cachedScale="2"
+                      lineageId="Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Output].Columns[value]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_Projected_Cost\Union All.Outputs[Union All Output 1].Columns[value]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Projected_Cost\Union All.Inputs[Union All Input 1].Columns[currency]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="currency"
+                      lineageId="Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Output].Columns[currency]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_Projected_Cost\Union All.Outputs[Union All Output 1].Columns[currency]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Projected_Cost\Union All.Inputs[Union All Input 1].Columns[dw_eff_strt_dttm]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="dw_eff_strt_dttm"
+                      lineageId="Package\DFT_Projected_Cost\DC_NewFlag_Y.Outputs[Derived Column Output].Columns[dw_eff_strt_dttm]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_Projected_Cost\Union All.Outputs[Union All Output 1].Columns[dw_eff_strt_dttm]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Projected_Cost\Union All.Inputs[Union All Input 1].Columns[new_flag]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="new_flag"
+                      lineageId="Package\DFT_Projected_Cost\DC_NewFlag_Y.Outputs[Derived Column Output].Columns[new_flag]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_Projected_Cost\Union All.Outputs[Union All Output 1].Columns[new_flag]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Projected_Cost\Union All.Inputs[Union All Input 1].Columns[dw_crte_usrid]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="dw_crte_usrid"
+                      lineageId="Package\DFT_Projected_Cost\DC_NewFlag_Y.Outputs[Derived Column Output].Columns[dw_crte_usrid]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_Projected_Cost\Union All.Outputs[Union All Output 1].Columns[dw_crte_usrid]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\DFT_Projected_Cost\Union All.Inputs[Union All Input 2]"
+                  hasSideEffects="true"
+                  name="Union All Input 2">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT_Projected_Cost\Union All.Inputs[Union All Input 2].Columns[Root_Domain]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="25"
+                      cachedName="Root_Domain"
+                      lineageId="Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Output].Columns[Root_Domain]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_Projected_Cost\Union All.Outputs[Union All Output 1].Columns[Root_Domain]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Projected_Cost\Union All.Inputs[Union All Input 2].Columns[Customer]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="25"
+                      cachedName="Customer"
+                      lineageId="Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Output].Columns[Customer]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_Projected_Cost\Union All.Outputs[Union All Output 1].Columns[Customer]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Projected_Cost\Union All.Inputs[Union All Input 2].Columns[Action]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="25"
+                      cachedName="Action"
+                      lineageId="Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Output].Columns[Action]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_Projected_Cost\Union All.Outputs[Union All Output 1].Columns[Action]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Projected_Cost\Union All.Inputs[Union All Input 2].Columns[Checksumval]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="32"
+                      cachedName="Checksumval"
+                      lineageId="Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Output].Columns[Checksumval]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_Projected_Cost\Union All.Outputs[Union All Output 1].Columns[Checksumval]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Projected_Cost\Union All.Inputs[Union All Input 2].Columns[sku]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="16"
+                      cachedName="sku"
+                      lineageId="Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Output].Columns[sku]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_Projected_Cost\Union All.Outputs[Union All Output 1].Columns[sku]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Projected_Cost\Union All.Inputs[Union All Input 2].Columns[description]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="68"
+                      cachedName="description"
+                      lineageId="Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Output].Columns[description]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_Projected_Cost\Union All.Outputs[Union All Output 1].Columns[description]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Projected_Cost\Union All.Inputs[Union All Input 2].Columns[quantity]"
+                      cachedDataType="i4"
+                      cachedName="quantity"
+                      lineageId="Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Output].Columns[quantity]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_Projected_Cost\Union All.Outputs[Union All Output 1].Columns[quantity]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Projected_Cost\Union All.Inputs[Union All Input 2].Columns[price]"
+                      cachedDataType="numeric"
+                      cachedName="price"
+                      cachedPrecision="8"
+                      cachedScale="2"
+                      lineageId="Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Output].Columns[price]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_Projected_Cost\Union All.Outputs[Union All Output 1].Columns[price]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Projected_Cost\Union All.Inputs[Union All Input 2].Columns[price_currency]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="price_currency"
+                      lineageId="Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Output].Columns[price_currency]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_Projected_Cost\Union All.Outputs[Union All Output 1].Columns[price_currency]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Projected_Cost\Union All.Inputs[Union All Input 2].Columns[total]"
+                      cachedDataType="numeric"
+                      cachedName="total"
+                      cachedPrecision="8"
+                      cachedScale="2"
+                      lineageId="Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Output].Columns[total]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_Projected_Cost\Union All.Outputs[Union All Output 1].Columns[total]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Projected_Cost\Union All.Inputs[Union All Input 2].Columns[total_currency]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="total_currency"
+                      lineageId="Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Output].Columns[total_currency]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_Projected_Cost\Union All.Outputs[Union All Output 1].Columns[total_currency]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Projected_Cost\Union All.Inputs[Union All Input 2].Columns[value]"
+                      cachedDataType="numeric"
+                      cachedName="value"
+                      cachedPrecision="8"
+                      cachedScale="2"
+                      lineageId="Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Output].Columns[value]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_Projected_Cost\Union All.Outputs[Union All Output 1].Columns[value]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Projected_Cost\Union All.Inputs[Union All Input 2].Columns[currency]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="currency"
+                      lineageId="Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Output].Columns[currency]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_Projected_Cost\Union All.Outputs[Union All Output 1].Columns[currency]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Projected_Cost\Union All.Inputs[Union All Input 2].Columns[dw_eff_strt_dttm]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="dw_eff_strt_dttm"
+                      lineageId="Package\DFT_Projected_Cost\DC_NewFlag_N.Outputs[Derived Column Output].Columns[dw_eff_strt_dttm]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_Projected_Cost\Union All.Outputs[Union All Output 1].Columns[dw_eff_strt_dttm]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Projected_Cost\Union All.Inputs[Union All Input 2].Columns[new_flag]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="new_flag"
+                      lineageId="Package\DFT_Projected_Cost\DC_NewFlag_N.Outputs[Derived Column Output].Columns[new_flag]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_Projected_Cost\Union All.Outputs[Union All Output 1].Columns[new_flag]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT_Projected_Cost\Union All.Inputs[Union All Input 2].Columns[dw_crte_usrid]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="dw_crte_usrid"
+                      lineageId="Package\DFT_Projected_Cost\DC_NewFlag_N.Outputs[Derived Column Output].Columns[dw_crte_usrid]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\DFT_Projected_Cost\Union All.Outputs[Union All Output 1].Columns[dw_crte_usrid]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\DFT_Projected_Cost\Union All.Inputs[Union All Input 3]"
+                  dangling="true"
+                  hasSideEffects="true"
+                  name="Union All Input 3">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT_Projected_Cost\Union All.Outputs[Union All Output 1]"
+                  name="Union All Output 1">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT_Projected_Cost\Union All.Outputs[Union All Output 1].Columns[Root_Domain]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      lineageId="Package\DFT_Projected_Cost\Union All.Outputs[Union All Output 1].Columns[Root_Domain]"
+                      name="Root_Domain" />
+                    <outputColumn
+                      refId="Package\DFT_Projected_Cost\Union All.Outputs[Union All Output 1].Columns[Customer]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      lineageId="Package\DFT_Projected_Cost\Union All.Outputs[Union All Output 1].Columns[Customer]"
+                      name="Customer" />
+                    <outputColumn
+                      refId="Package\DFT_Projected_Cost\Union All.Outputs[Union All Output 1].Columns[Action]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      lineageId="Package\DFT_Projected_Cost\Union All.Outputs[Union All Output 1].Columns[Action]"
+                      name="Action" />
+                    <outputColumn
+                      refId="Package\DFT_Projected_Cost\Union All.Outputs[Union All Output 1].Columns[Checksumval]"
+                      codePage="1252"
+                      dataType="str"
+                      length="32"
+                      lineageId="Package\DFT_Projected_Cost\Union All.Outputs[Union All Output 1].Columns[Checksumval]"
+                      name="Checksumval" />
+                    <outputColumn
+                      refId="Package\DFT_Projected_Cost\Union All.Outputs[Union All Output 1].Columns[sku]"
+                      codePage="1252"
+                      dataType="str"
+                      length="16"
+                      lineageId="Package\DFT_Projected_Cost\Union All.Outputs[Union All Output 1].Columns[sku]"
+                      name="sku" />
+                    <outputColumn
+                      refId="Package\DFT_Projected_Cost\Union All.Outputs[Union All Output 1].Columns[description]"
+                      codePage="1252"
+                      dataType="str"
+                      length="68"
+                      lineageId="Package\DFT_Projected_Cost\Union All.Outputs[Union All Output 1].Columns[description]"
+                      name="description" />
+                    <outputColumn
+                      refId="Package\DFT_Projected_Cost\Union All.Outputs[Union All Output 1].Columns[quantity]"
+                      dataType="i4"
+                      lineageId="Package\DFT_Projected_Cost\Union All.Outputs[Union All Output 1].Columns[quantity]"
+                      name="quantity" />
+                    <outputColumn
+                      refId="Package\DFT_Projected_Cost\Union All.Outputs[Union All Output 1].Columns[price]"
+                      dataType="numeric"
+                      lineageId="Package\DFT_Projected_Cost\Union All.Outputs[Union All Output 1].Columns[price]"
+                      name="price"
+                      precision="8"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\DFT_Projected_Cost\Union All.Outputs[Union All Output 1].Columns[price_currency]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\DFT_Projected_Cost\Union All.Outputs[Union All Output 1].Columns[price_currency]"
+                      name="price_currency" />
+                    <outputColumn
+                      refId="Package\DFT_Projected_Cost\Union All.Outputs[Union All Output 1].Columns[total]"
+                      dataType="numeric"
+                      lineageId="Package\DFT_Projected_Cost\Union All.Outputs[Union All Output 1].Columns[total]"
+                      name="total"
+                      precision="8"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\DFT_Projected_Cost\Union All.Outputs[Union All Output 1].Columns[total_currency]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\DFT_Projected_Cost\Union All.Outputs[Union All Output 1].Columns[total_currency]"
+                      name="total_currency" />
+                    <outputColumn
+                      refId="Package\DFT_Projected_Cost\Union All.Outputs[Union All Output 1].Columns[value]"
+                      dataType="numeric"
+                      lineageId="Package\DFT_Projected_Cost\Union All.Outputs[Union All Output 1].Columns[value]"
+                      name="value"
+                      precision="8"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\DFT_Projected_Cost\Union All.Outputs[Union All Output 1].Columns[currency]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\DFT_Projected_Cost\Union All.Outputs[Union All Output 1].Columns[currency]"
+                      name="currency" />
+                    <outputColumn
+                      refId="Package\DFT_Projected_Cost\Union All.Outputs[Union All Output 1].Columns[dw_eff_strt_dttm]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\DFT_Projected_Cost\Union All.Outputs[Union All Output 1].Columns[dw_eff_strt_dttm]"
+                      name="dw_eff_strt_dttm" />
+                    <outputColumn
+                      refId="Package\DFT_Projected_Cost\Union All.Outputs[Union All Output 1].Columns[new_flag]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\DFT_Projected_Cost\Union All.Outputs[Union All Output 1].Columns[new_flag]"
+                      name="new_flag" />
+                    <outputColumn
+                      refId="Package\DFT_Projected_Cost\Union All.Outputs[Union All Output 1].Columns[dw_crte_usrid]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\DFT_Projected_Cost\Union All.Outputs[Union All Output 1].Columns[dw_crte_usrid]"
+                      name="dw_crte_usrid" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT_Projected_Cost.Paths[Changed Records]"
+              endId="Package\DFT_Projected_Cost\DC_NewFlag_N.Inputs[Derived Column Input]"
+              name="Changed Records"
+              startId="Package\DFT_Projected_Cost\CS_CompareNonKeyColumns.Outputs[Changed Records]" />
+            <path
+              refId="Package\DFT_Projected_Cost.Paths[Derived Column Output]"
+              endId="Package\DFT_Projected_Cost\Union All.Inputs[Union All Input 1]"
+              name="Derived Column Output"
+              startId="Package\DFT_Projected_Cost\DC_NewFlag_Y.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\DFT_Projected_Cost.Paths[Derived Column Output1]"
+              endId="Package\DFT_Projected_Cost\Union All.Inputs[Union All Input 2]"
+              name="Derived Column Output"
+              startId="Package\DFT_Projected_Cost\DC_NewFlag_N.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\DFT_Projected_Cost.Paths[Existing Records]"
+              endId="Package\DFT_Projected_Cost\CS_CompareNonKeyColumns.Inputs[Conditional Split Input]"
+              name="Existing Records"
+              startId="Package\DFT_Projected_Cost\Lkp_Arc.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\DFT_Projected_Cost.Paths[Lookup No Match Output]"
+              endId="Package\DFT_Projected_Cost\DC_NewFlag_Y.Inputs[Derived Column Input]"
+              name="Lookup No Match Output"
+              startId="Package\DFT_Projected_Cost\Lkp_Arc.Outputs[Lookup No Match Output]" />
+            <path
+              refId="Package\DFT_Projected_Cost.Paths[OLE DB Source Output]"
+              endId="Package\DFT_Projected_Cost\Lkp_Arc.Inputs[Lookup Input]"
+              name="OLE DB Source Output"
+              startId="Package\DFT_Projected_Cost\Source_ODS.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\DFT_Projected_Cost.Paths[Union All Output 1]"
+              endId="Package\DFT_Projected_Cost\Stg_Projected_Cost.Inputs[OLE DB Destination Input]"
+              name="Union All Output 1"
+              startId="Package\DFT_Projected_Cost\Union All.Outputs[Union All Output 1]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Take ETL load time"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{B272636C-F9F7-44A6-A9D6-D75B55A52701}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Take ETL load time"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{E0E6DC88-A9A1-4A51-8B19-958C1AD76267}"
+          SQLTask:SqlStatementSource="SELECT GETDATE() ETL_Load_Time"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="ETL_Load_Time"
+            SQLTask:DtsVariableName="User::ETL_Load_Time" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate_Stg_table"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{EB31BA2B-6024-4B46-A73D-4667AE81AC1F}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate_Stg_table"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{4B2BAB6F-A5B2-4A58-BD25-0961304475AA}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE DW_STG.dbo.Projected_Cost" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{EFFDC670-3519-4CA1-A95B-50516A123764}"
+      DTS:From="Package\Truncate_Stg_table"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Take ETL load time" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{FF5E3C7C-48D5-4BEF-B613-03F85FFFE3ED}"
+      DTS:From="Package\Take ETL load time"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\DFT_Projected_Cost" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="182,42"
+          Id="Package\DFT_Projected_Cost"
+          TopLeft="180,261" />
+        <NodeLayout
+          Size="174,42"
+          Id="Package\Take ETL load time"
+          TopLeft="180,151" />
+        <NodeLayout
+          Size="175,42"
+          Id="Package\Truncate_Stg_table"
+          TopLeft="184,49" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="269.25,91">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="269,193">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,68"
+              Start="0,0"
+              End="0,60.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,60.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DFT_Projected_Cost">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="158,42"
+          Id="Package\DFT_Projected_Cost\DC_NewFlag_N"
+          TopLeft="518,312" />
+        <NodeLayout
+          Size="158,42"
+          Id="Package\DFT_Projected_Cost\DC_NewFlag_Y"
+          TopLeft="242,310" />
+        <NodeLayout
+          Size="119,42"
+          Id="Package\DFT_Projected_Cost\Lkp_Arc"
+          TopLeft="370,112" />
+        <NodeLayout
+          Size="144,42"
+          Id="Package\DFT_Projected_Cost\Source_ODS"
+          TopLeft="355,21" />
+        <NodeLayout
+          Size="123,42"
+          Id="Package\DFT_Projected_Cost\Union All"
+          TopLeft="368,408" />
+        <NodeLayout
+          Size="177,42"
+          Id="Package\DFT_Projected_Cost\Stg_Projected_Cost"
+          TopLeft="339,501" />
+        <NodeLayout
+          Size="228,42"
+          Id="Package\DFT_Projected_Cost\CS_CompareNonKeyColumns"
+          TopLeft="477,213" />
+        <EdgeLayout
+          Id="Package\DFT_Projected_Cost.Paths[OLE DB Source Output]"
+          TopLeft="428.25,63">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,49"
+              Start="0,0"
+              End="0,41.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,41.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT_Projected_Cost.Paths[Lookup No Match Output]"
+          TopLeft="411,154">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-90,156"
+              Start="0,0"
+              End="-90,148.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,59.6417910447761" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,59.6417910447761"
+                    Point2="0,63.6417910447761"
+                    Point3="-4,63.6417910447761" />
+                  <mssgle:LineSegment
+                    End="-86,63.6417910447761" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-86,63.6417910447761"
+                    Point2="-90,63.6417910447761"
+                    Point3="-90,67.6417910447761" />
+                  <mssgle:LineSegment
+                    End="-90,148.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-100.80638671875,68.6417910447761,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT_Projected_Cost.Paths[Existing Records]"
+          TopLeft="448,154">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="143,59"
+              Start="0,0"
+              End="143,51.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.0696517412935" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.0696517412935"
+                    Point2="0,24.0696517412935"
+                    Point3="4,24.0696517412935" />
+                  <mssgle:LineSegment
+                    End="139,24.0696517412935" />
+                  <mssgle:CubicBezierSegment
+                    Point1="139,24.0696517412935"
+                    Point2="143,24.0696517412935"
+                    Point3="143,28.0696517412935" />
+                  <mssgle:LineSegment
+                    End="143,51.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="23.30861328125,29.0696517412935,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT_Projected_Cost.Paths[Derived Column Output1]"
+          TopLeft="597,354">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-148.333333333333,54"
+              Start="0,0"
+              End="-148.333333333333,46.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.983948635634" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,27.983948635634"
+                    Point2="0,31.983948635634"
+                    Point3="-4,31.983948635634" />
+                  <mssgle:LineSegment
+                    End="-144.333333333333,31.983948635634" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-144.333333333333,31.983948635634"
+                    Point2="-148.333333333333,31.983948635634"
+                    Point3="-148.333333333333,35.983948635634" />
+                  <mssgle:LineSegment
+                    End="-148.333333333333,46.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT_Projected_Cost.Paths[Derived Column Output]"
+          TopLeft="321,352">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="108.5,56"
+              Start="0,0"
+              End="108.5,48.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,24"
+                    Point2="0,28"
+                    Point3="4,28" />
+                  <mssgle:LineSegment
+                    End="104.5,28" />
+                  <mssgle:CubicBezierSegment
+                    Point1="104.5,28"
+                    Point2="108.5,28"
+                    Point3="108.5,32" />
+                  <mssgle:LineSegment
+                    End="108.5,48.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT_Projected_Cost.Paths[Changed Records]"
+          TopLeft="594,255">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,57"
+              Start="0,0"
+              End="0,49.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,49.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-39.23009765625,18.91845703125,78.4601953125,11.6630859375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT_Projected_Cost.Paths[Union All Output 1]"
+          TopLeft="428.5,450">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,51"
+              Start="0,0"
+              End="0,43.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,43.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT_Projected_Cost\Lkp_Arc">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT_Projected_Cost\Source_ODS">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT_Projected_Cost\Stg_Projected_Cost">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

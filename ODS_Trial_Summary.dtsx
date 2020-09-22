@@ -5,26 +5,26 @@
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="PREETISHK-LPT"
   DTS:CreatorName="DATAFORTUNE\preetish.kharche"
-  DTS:DTSID="{9423DA7E-C57A-4588-878F-FDA601FD825D}"
+  DTS:DTSID="{29C681B6-8FA4-48EE-968F-0A776733B3AF}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="15.0.2000.123"
   DTS:LocaleID="16393"
-  DTS:ObjectName="ODS_Access_Log"
+  DTS:ObjectName="ODS_Trial_Summary"
   DTS:PackageType="5"
-  DTS:VersionBuild="47"
-  DTS:VersionGUID="{B41F7156-CE7C-4093-BF61-1B74BB6D5005}">
+  DTS:VersionBuild="63"
+  DTS:VersionGUID="{4B57B41D-847F-4074-A8BA-0708C4C2FCE9}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
   <DTS:Executables>
     <DTS:Executable
-      DTS:refId="Package\DFT_Access_Log"
+      DTS:refId="Package\DFT_Trial_Summary"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
-      DTS:DTSID="{47F27C6C-D6DC-402C-A510-4A47A556A8EB}"
+      DTS:DTSID="{2860204C-4AE5-452F-9E1B-CB779D5BF22B}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
-      DTS:ObjectName="DFT_Access_Log"
+      DTS:ObjectName="DFT_Trial_Summary"
       DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
       <DTS:Variables />
       <DTS:ObjectData>
@@ -32,7 +32,7 @@
           version="1">
           <components>
             <component
-              refId="Package\DFT_Access_Log\Data Conversion"
+              refId="Package\DFT_Trial_Summary\Data Conversion"
               componentClassID="Microsoft.DataConvert"
               contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
               description="Data Conversion"
@@ -40,74 +40,77 @@
               usesDispositions="true">
               <inputs>
                 <input
-                  refId="Package\DFT_Access_Log\Data Conversion.Inputs[Data Conversion Input]"
+                  refId="Package\DFT_Trial_Summary\Data Conversion.Inputs[Data Conversion Input]"
                   name="Data Conversion Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\DFT_Access_Log\Data Conversion.Inputs[Data Conversion Input].Columns[Root Domain]"
-                      cachedDataType="r8"
-                      cachedName="Root Domain"
-                      lineageId="Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Output].Columns[Root Domain]" />
+                      refId="Package\DFT_Trial_Summary\Data Conversion.Inputs[Data Conversion Input].Columns[Root_Domain]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Root_Domain"
+                      lineageId="Package\DFT_Trial_Summary\Excel_Trial_Summary.Outputs[Excel Source Output].Columns[Root_Domain]" />
                     <inputColumn
-                      refId="Package\DFT_Access_Log\Data Conversion.Inputs[Data Conversion Input].Columns[Action]"
-                      cachedDataType="r8"
-                      cachedName="Action"
-                      lineageId="Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Output].Columns[Action]" />
-                    <inputColumn
-                      refId="Package\DFT_Access_Log\Data Conversion.Inputs[Data Conversion Input].Columns[Customer]"
-                      cachedDataType="r8"
+                      refId="Package\DFT_Trial_Summary\Data Conversion.Inputs[Data Conversion Input].Columns[Customer]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
                       cachedName="Customer"
-                      lineageId="Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Output].Columns[Customer]" />
+                      lineageId="Package\DFT_Trial_Summary\Excel_Trial_Summary.Outputs[Excel Source Output].Columns[Customer]" />
                     <inputColumn
-                      refId="Package\DFT_Access_Log\Data Conversion.Inputs[Data Conversion Input].Columns[type]"
+                      refId="Package\DFT_Trial_Summary\Data Conversion.Inputs[Data Conversion Input].Columns[Action]"
                       cachedDataType="wstr"
                       cachedLength="255"
-                      cachedName="type"
-                      lineageId="Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Output].Columns[type]" />
+                      cachedName="Action"
+                      lineageId="Package\DFT_Trial_Summary\Excel_Trial_Summary.Outputs[Excel Source Output].Columns[Action]" />
                     <inputColumn
-                      refId="Package\DFT_Access_Log\Data Conversion.Inputs[Data Conversion Input].Columns[log]"
+                      refId="Package\DFT_Trial_Summary\Data Conversion.Inputs[Data Conversion Input].Columns[customer_name]"
                       cachedDataType="wstr"
                       cachedLength="255"
-                      cachedName="log"
-                      lineageId="Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Output].Columns[log]" />
+                      cachedName="customer_name"
+                      lineageId="Package\DFT_Trial_Summary\Excel_Trial_Summary.Outputs[Excel Source Output].Columns[customer_name]" />
                     <inputColumn
-                      refId="Package\DFT_Access_Log\Data Conversion.Inputs[Data Conversion Input].Columns[log_time]"
+                      refId="Package\DFT_Trial_Summary\Data Conversion.Inputs[Data Conversion Input].Columns[site]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="site"
+                      lineageId="Package\DFT_Trial_Summary\Excel_Trial_Summary.Outputs[Excel Source Output].Columns[site]" />
+                    <inputColumn
+                      refId="Package\DFT_Trial_Summary\Data Conversion.Inputs[Data Conversion Input].Columns[subscriber]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="subscriber"
+                      lineageId="Package\DFT_Trial_Summary\Excel_Trial_Summary.Outputs[Excel Source Output].Columns[subscriber]" />
+                    <inputColumn
+                      refId="Package\DFT_Trial_Summary\Data Conversion.Inputs[Data Conversion Input].Columns[activation_date]"
                       cachedDataType="date"
-                      cachedName="log_time"
-                      lineageId="Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Output].Columns[log_time]" />
-                    <inputColumn
-                      refId="Package\DFT_Access_Log\Data Conversion.Inputs[Data Conversion Input].Columns[user_login_name]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="user_login_name"
-                      lineageId="Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Output].Columns[user_login_name]" />
+                      cachedName="activation_date"
+                      lineageId="Package\DFT_Trial_Summary\Excel_Trial_Summary.Outputs[Excel Source Output].Columns[activation_date]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\DFT_Access_Log\Data Conversion.Outputs[Data Conversion Output]"
+                  refId="Package\DFT_Trial_Summary\Data Conversion.Outputs[Data Conversion Output]"
                   exclusionGroup="1"
                   name="Data Conversion Output"
-                  synchronousInputId="Package\DFT_Access_Log\Data Conversion.Inputs[Data Conversion Input]">
+                  synchronousInputId="Package\DFT_Trial_Summary\Data Conversion.Inputs[Data Conversion Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\DFT_Access_Log\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Root Domain]"
+                      refId="Package\DFT_Trial_Summary\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Root_Domain]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       length="25"
-                      lineageId="Package\DFT_Access_Log\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Root Domain]"
-                      name="Copy of Root Domain"
+                      lineageId="Package\DFT_Trial_Summary\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Root_Domain]"
+                      name="Copy of Root_Domain"
                       truncationRowDisposition="FailComponent">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Output].Columns[Root Domain]}</property>
+                          name="SourceInputColumnLineageID">#{Package\DFT_Trial_Summary\Excel_Trial_Summary.Outputs[Excel Source Output].Columns[Root_Domain]}</property>
                         <property
                           dataType="System.Boolean"
                           description="Indicates whether the column uses the faster, locale-neutral parsing routines."
@@ -115,35 +118,13 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\DFT_Access_Log\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Action]"
+                      refId="Package\DFT_Trial_Summary\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Customer]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       length="25"
-                      lineageId="Package\DFT_Access_Log\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Action]"
-                      name="Copy of Action"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Output].Columns[Action]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\DFT_Access_Log\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Customer]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      length="25"
-                      lineageId="Package\DFT_Access_Log\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Customer]"
+                      lineageId="Package\DFT_Trial_Summary\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Customer]"
                       name="Copy of Customer"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -151,7 +132,7 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Output].Columns[Customer]}</property>
+                          name="SourceInputColumnLineageID">#{Package\DFT_Trial_Summary\Excel_Trial_Summary.Outputs[Excel Source Output].Columns[Customer]}</property>
                         <property
                           dataType="System.Boolean"
                           description="Indicates whether the column uses the faster, locale-neutral parsing routines."
@@ -159,21 +140,21 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\DFT_Access_Log\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of type]"
+                      refId="Package\DFT_Trial_Summary\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Action]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      length="100"
-                      lineageId="Package\DFT_Access_Log\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of type]"
-                      name="Copy of type"
+                      length="25"
+                      lineageId="Package\DFT_Trial_Summary\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Action]"
+                      name="Copy of Action"
                       truncationRowDisposition="FailComponent">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Output].Columns[type]}</property>
+                          name="SourceInputColumnLineageID">#{Package\DFT_Trial_Summary\Excel_Trial_Summary.Outputs[Excel Source Output].Columns[Action]}</property>
                         <property
                           dataType="System.Boolean"
                           description="Indicates whether the column uses the faster, locale-neutral parsing routines."
@@ -181,21 +162,43 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\DFT_Access_Log\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of log]"
+                      refId="Package\DFT_Trial_Summary\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of customer_name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\DFT_Trial_Summary\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of customer_name]"
+                      name="Copy of customer_name"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT_Trial_Summary\Excel_Trial_Summary.Outputs[Excel Source Output].Columns[customer_name]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Trial_Summary\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of site]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       length="500"
-                      lineageId="Package\DFT_Access_Log\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of log]"
-                      name="Copy of log"
+                      lineageId="Package\DFT_Trial_Summary\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of site]"
+                      name="Copy of site"
                       truncationRowDisposition="FailComponent">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Output].Columns[log]}</property>
+                          name="SourceInputColumnLineageID">#{Package\DFT_Trial_Summary\Excel_Trial_Summary.Outputs[Excel Source Output].Columns[site]}</property>
                         <property
                           dataType="System.Boolean"
                           description="Indicates whether the column uses the faster, locale-neutral parsing routines."
@@ -203,41 +206,43 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\DFT_Access_Log\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of log_time]"
-                      dataType="dbTimeStamp"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\DFT_Access_Log\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of log_time]"
-                      name="Copy of log_time"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Output].Columns[log_time]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\DFT_Access_Log\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of user_login_name]"
+                      refId="Package\DFT_Trial_Summary\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of subscriber]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       length="100"
-                      lineageId="Package\DFT_Access_Log\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of user_login_name]"
-                      name="Copy of user_login_name"
+                      lineageId="Package\DFT_Trial_Summary\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of subscriber]"
+                      name="Copy of subscriber"
                       truncationRowDisposition="FailComponent">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Output].Columns[user_login_name]}</property>
+                          name="SourceInputColumnLineageID">#{Package\DFT_Trial_Summary\Excel_Trial_Summary.Outputs[Excel Source Output].Columns[subscriber]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT_Trial_Summary\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of activation_date]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="16"
+                      lineageId="Package\DFT_Trial_Summary\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of activation_date]"
+                      name="Copy of activation_date"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT_Trial_Summary\Excel_Trial_Summary.Outputs[Excel Source Output].Columns[activation_date]}</property>
                         <property
                           dataType="System.Boolean"
                           description="Indicates whether the column uses the faster, locale-neutral parsing routines."
@@ -248,22 +253,22 @@
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\DFT_Access_Log\Data Conversion.Outputs[Data Conversion Error Output]"
+                  refId="Package\DFT_Trial_Summary\Data Conversion.Outputs[Data Conversion Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Data Conversion Error Output"
-                  synchronousInputId="Package\DFT_Access_Log\Data Conversion.Inputs[Data Conversion Input]">
+                  synchronousInputId="Package\DFT_Trial_Summary\Data Conversion.Inputs[Data Conversion Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\DFT_Access_Log\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      refId="Package\DFT_Trial_Summary\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\DFT_Access_Log\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      lineageId="Package\DFT_Trial_Summary\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\DFT_Access_Log\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      refId="Package\DFT_Trial_Summary\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\DFT_Access_Log\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\DFT_Trial_Summary\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -272,11 +277,11 @@
               </outputs>
             </component>
             <component
-              refId="Package\DFT_Access_Log\Excel_Access_Log"
+              refId="Package\DFT_Trial_Summary\Excel_Trial_Summary"
               componentClassID="Microsoft.ExcelSource"
               contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
               description="Excel Source"
-              name="Excel_Access_Log"
+              name="Excel_Trial_Summary"
               usesDispositions="true"
               version="1">
               <properties>
@@ -287,7 +292,7 @@
                 <property
                   dataType="System.String"
                   description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">Access Log$A53:G</property>
+                  name="OpenRowset">Trial_Summary$A53:H</property>
                 <property
                   dataType="System.String"
                   description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -313,7 +318,7 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\DFT_Access_Log\Excel_Access_Log.Connections[OleDbConnection]"
+                  refId="Package\DFT_Trial_Summary\Excel_Trial_Summary.Connections[OleDbConnection]"
                   connectionManagerID="{0D2225D9-F1D8-4D95-B705-EE61F6D41EC3}:external"
                   connectionManagerRefId="Project.ConnectionManagers[Excel]"
                   description="The OLE DB runtime connection used to access the database."
@@ -321,177 +326,204 @@
               </connections>
               <outputs>
                 <output
-                  refId="Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Output]"
+                  refId="Package\DFT_Trial_Summary\Excel_Trial_Summary.Outputs[Excel Source Output]"
                   name="Excel Source Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Output].Columns[Root Domain]"
-                      dataType="r8"
+                      refId="Package\DFT_Trial_Summary\Excel_Trial_Summary.Outputs[Excel Source Output].Columns[Root_Domain]"
+                      dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Output].ExternalColumns[Root Domain]"
-                      lineageId="Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Output].Columns[Root Domain]"
-                      name="Root Domain"
+                      externalMetadataColumnId="Package\DFT_Trial_Summary\Excel_Trial_Summary.Outputs[Excel Source Output].ExternalColumns[Root_Domain]"
+                      length="255"
+                      lineageId="Package\DFT_Trial_Summary\Excel_Trial_Summary.Outputs[Excel Source Output].Columns[Root_Domain]"
+                      name="Root_Domain"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Output].Columns[Action]"
-                      dataType="r8"
+                      refId="Package\DFT_Trial_Summary\Excel_Trial_Summary.Outputs[Excel Source Output].Columns[Customer]"
+                      dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Output].ExternalColumns[Action]"
-                      lineageId="Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Output].Columns[Action]"
-                      name="Action"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Output].Columns[Customer]"
-                      dataType="r8"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Output].ExternalColumns[Customer]"
-                      lineageId="Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Output].Columns[Customer]"
+                      externalMetadataColumnId="Package\DFT_Trial_Summary\Excel_Trial_Summary.Outputs[Excel Source Output].ExternalColumns[Customer]"
+                      length="255"
+                      lineageId="Package\DFT_Trial_Summary\Excel_Trial_Summary.Outputs[Excel Source Output].Columns[Customer]"
                       name="Customer"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Output].Columns[type]"
+                      refId="Package\DFT_Trial_Summary\Excel_Trial_Summary.Outputs[Excel Source Output].Columns[Action]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Output].ExternalColumns[type]"
+                      externalMetadataColumnId="Package\DFT_Trial_Summary\Excel_Trial_Summary.Outputs[Excel Source Output].ExternalColumns[Action]"
                       length="255"
-                      lineageId="Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Output].Columns[type]"
-                      name="type"
+                      lineageId="Package\DFT_Trial_Summary\Excel_Trial_Summary.Outputs[Excel Source Output].Columns[Action]"
+                      name="Action"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Output].Columns[log]"
+                      refId="Package\DFT_Trial_Summary\Excel_Trial_Summary.Outputs[Excel Source Output].Columns[customer_name]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Output].ExternalColumns[log]"
+                      externalMetadataColumnId="Package\DFT_Trial_Summary\Excel_Trial_Summary.Outputs[Excel Source Output].ExternalColumns[customer_name]"
                       length="255"
-                      lineageId="Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Output].Columns[log]"
-                      name="log"
+                      lineageId="Package\DFT_Trial_Summary\Excel_Trial_Summary.Outputs[Excel Source Output].Columns[customer_name]"
+                      name="customer_name"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Output].Columns[log_time]"
+                      refId="Package\DFT_Trial_Summary\Excel_Trial_Summary.Outputs[Excel Source Output].Columns[site]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Trial_Summary\Excel_Trial_Summary.Outputs[Excel Source Output].ExternalColumns[site]"
+                      length="255"
+                      lineageId="Package\DFT_Trial_Summary\Excel_Trial_Summary.Outputs[Excel Source Output].Columns[site]"
+                      name="site"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Trial_Summary\Excel_Trial_Summary.Outputs[Excel Source Output].Columns[subscriber]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT_Trial_Summary\Excel_Trial_Summary.Outputs[Excel Source Output].ExternalColumns[subscriber]"
+                      length="255"
+                      lineageId="Package\DFT_Trial_Summary\Excel_Trial_Summary.Outputs[Excel Source Output].Columns[subscriber]"
+                      name="subscriber"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT_Trial_Summary\Excel_Trial_Summary.Outputs[Excel Source Output].Columns[activation_date]"
                       dataType="date"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Output].ExternalColumns[log_time]"
-                      lineageId="Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Output].Columns[log_time]"
-                      name="log_time"
+                      externalMetadataColumnId="Package\DFT_Trial_Summary\Excel_Trial_Summary.Outputs[Excel Source Output].ExternalColumns[activation_date]"
+                      lineageId="Package\DFT_Trial_Summary\Excel_Trial_Summary.Outputs[Excel Source Output].Columns[activation_date]"
+                      name="activation_date"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Output].Columns[user_login_name]"
-                      dataType="wstr"
+                      refId="Package\DFT_Trial_Summary\Excel_Trial_Summary.Outputs[Excel Source Output].Columns[trial_length]"
+                      dataType="r8"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Output].ExternalColumns[user_login_name]"
-                      length="255"
-                      lineageId="Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Output].Columns[user_login_name]"
-                      name="user_login_name"
+                      externalMetadataColumnId="Package\DFT_Trial_Summary\Excel_Trial_Summary.Outputs[Excel Source Output].ExternalColumns[trial_length]"
+                      lineageId="Package\DFT_Trial_Summary\Excel_Trial_Summary.Outputs[Excel Source Output].Columns[trial_length]"
+                      name="trial_length"
                       truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Output].ExternalColumns[Root Domain]"
-                      dataType="r8"
-                      name="Root Domain" />
+                      refId="Package\DFT_Trial_Summary\Excel_Trial_Summary.Outputs[Excel Source Output].ExternalColumns[Root_Domain]"
+                      dataType="wstr"
+                      length="255"
+                      name="Root_Domain" />
                     <externalMetadataColumn
-                      refId="Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Output].ExternalColumns[Action]"
-                      dataType="r8"
-                      name="Action" />
-                    <externalMetadataColumn
-                      refId="Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Output].ExternalColumns[Customer]"
-                      dataType="r8"
+                      refId="Package\DFT_Trial_Summary\Excel_Trial_Summary.Outputs[Excel Source Output].ExternalColumns[Customer]"
+                      dataType="wstr"
+                      length="255"
                       name="Customer" />
                     <externalMetadataColumn
-                      refId="Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Output].ExternalColumns[type]"
+                      refId="Package\DFT_Trial_Summary\Excel_Trial_Summary.Outputs[Excel Source Output].ExternalColumns[Action]"
                       dataType="wstr"
                       length="255"
-                      name="type" />
+                      name="Action" />
                     <externalMetadataColumn
-                      refId="Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Output].ExternalColumns[log]"
+                      refId="Package\DFT_Trial_Summary\Excel_Trial_Summary.Outputs[Excel Source Output].ExternalColumns[customer_name]"
                       dataType="wstr"
                       length="255"
-                      name="log" />
+                      name="customer_name" />
                     <externalMetadataColumn
-                      refId="Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Output].ExternalColumns[log_time]"
+                      refId="Package\DFT_Trial_Summary\Excel_Trial_Summary.Outputs[Excel Source Output].ExternalColumns[site]"
+                      dataType="wstr"
+                      length="255"
+                      name="site" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Trial_Summary\Excel_Trial_Summary.Outputs[Excel Source Output].ExternalColumns[subscriber]"
+                      dataType="wstr"
+                      length="255"
+                      name="subscriber" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Trial_Summary\Excel_Trial_Summary.Outputs[Excel Source Output].ExternalColumns[activation_date]"
                       dataType="date"
-                      name="log_time" />
+                      name="activation_date" />
                     <externalMetadataColumn
-                      refId="Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Output].ExternalColumns[user_login_name]"
-                      dataType="wstr"
-                      length="255"
-                      name="user_login_name" />
+                      refId="Package\DFT_Trial_Summary\Excel_Trial_Summary.Outputs[Excel Source Output].ExternalColumns[trial_length]"
+                      dataType="r8"
+                      name="trial_length" />
                   </externalMetadataColumns>
                 </output>
                 <output
-                  refId="Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Error Output]"
+                  refId="Package\DFT_Trial_Summary\Excel_Trial_Summary.Outputs[Excel Source Error Output]"
                   isErrorOut="true"
                   name="Excel Source Error Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      refId="Package\DFT_Trial_Summary\Excel_Trial_Summary.Outputs[Excel Source Error Output].Columns[Root_Domain]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT_Trial_Summary\Excel_Trial_Summary.Outputs[Excel Source Error Output].Columns[Root_Domain]"
+                      name="Root_Domain" />
+                    <outputColumn
+                      refId="Package\DFT_Trial_Summary\Excel_Trial_Summary.Outputs[Excel Source Error Output].Columns[Customer]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT_Trial_Summary\Excel_Trial_Summary.Outputs[Excel Source Error Output].Columns[Customer]"
+                      name="Customer" />
+                    <outputColumn
+                      refId="Package\DFT_Trial_Summary\Excel_Trial_Summary.Outputs[Excel Source Error Output].Columns[Action]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT_Trial_Summary\Excel_Trial_Summary.Outputs[Excel Source Error Output].Columns[Action]"
+                      name="Action" />
+                    <outputColumn
+                      refId="Package\DFT_Trial_Summary\Excel_Trial_Summary.Outputs[Excel Source Error Output].Columns[customer_name]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT_Trial_Summary\Excel_Trial_Summary.Outputs[Excel Source Error Output].Columns[customer_name]"
+                      name="customer_name" />
+                    <outputColumn
+                      refId="Package\DFT_Trial_Summary\Excel_Trial_Summary.Outputs[Excel Source Error Output].Columns[site]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT_Trial_Summary\Excel_Trial_Summary.Outputs[Excel Source Error Output].Columns[site]"
+                      name="site" />
+                    <outputColumn
+                      refId="Package\DFT_Trial_Summary\Excel_Trial_Summary.Outputs[Excel Source Error Output].Columns[subscriber]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT_Trial_Summary\Excel_Trial_Summary.Outputs[Excel Source Error Output].Columns[subscriber]"
+                      name="subscriber" />
+                    <outputColumn
+                      refId="Package\DFT_Trial_Summary\Excel_Trial_Summary.Outputs[Excel Source Error Output].Columns[activation_date]"
+                      dataType="date"
+                      lineageId="Package\DFT_Trial_Summary\Excel_Trial_Summary.Outputs[Excel Source Error Output].Columns[activation_date]"
+                      name="activation_date" />
+                    <outputColumn
+                      refId="Package\DFT_Trial_Summary\Excel_Trial_Summary.Outputs[Excel Source Error Output].Columns[trial_length]"
+                      dataType="r8"
+                      lineageId="Package\DFT_Trial_Summary\Excel_Trial_Summary.Outputs[Excel Source Error Output].Columns[trial_length]"
+                      name="trial_length" />
+                    <outputColumn
+                      refId="Package\DFT_Trial_Summary\Excel_Trial_Summary.Outputs[Excel Source Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      lineageId="Package\DFT_Trial_Summary\Excel_Trial_Summary.Outputs[Excel Source Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      refId="Package\DFT_Trial_Summary\Excel_Trial_Summary.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\DFT_Trial_Summary\Excel_Trial_Summary.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
-                    <outputColumn
-                      refId="Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Error Output].Columns[Root Domain]"
-                      dataType="r8"
-                      lineageId="Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Error Output].Columns[Root Domain]"
-                      name="Root Domain" />
-                    <outputColumn
-                      refId="Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Error Output].Columns[Action]"
-                      dataType="r8"
-                      lineageId="Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Error Output].Columns[Action]"
-                      name="Action" />
-                    <outputColumn
-                      refId="Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Error Output].Columns[Customer]"
-                      dataType="r8"
-                      lineageId="Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Error Output].Columns[Customer]"
-                      name="Customer" />
-                    <outputColumn
-                      refId="Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Error Output].Columns[type]"
-                      dataType="wstr"
-                      length="255"
-                      lineageId="Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Error Output].Columns[type]"
-                      name="type" />
-                    <outputColumn
-                      refId="Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Error Output].Columns[log]"
-                      dataType="wstr"
-                      length="255"
-                      lineageId="Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Error Output].Columns[log]"
-                      name="log" />
-                    <outputColumn
-                      refId="Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Error Output].Columns[log_time]"
-                      dataType="date"
-                      lineageId="Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Error Output].Columns[log_time]"
-                      name="log_time" />
-                    <outputColumn
-                      refId="Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Error Output].Columns[user_login_name]"
-                      dataType="wstr"
-                      length="255"
-                      lineageId="Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Error Output].Columns[user_login_name]"
-                      name="user_login_name" />
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
               </outputs>
             </component>
             <component
-              refId="Package\DFT_Access_Log\Load_Access_Log"
+              refId="Package\DFT_Trial_Summary\Load Trial_Summary"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
               description="OLE DB Destination"
-              name="Load_Access_Log"
+              name="Load Trial_Summary"
               usesDispositions="true"
               version="4">
               <properties>
@@ -502,7 +534,7 @@
                 <property
                   dataType="System.String"
                   description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[dbo].[Access_Log]</property>
+                  name="OpenRowset">[dbo].[Trial_Summary]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -536,15 +568,15 @@
                 <property
                   dataType="System.String"
                   description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
-                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS,ROWS_PER_BATCH = 10000</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
-                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  name="FastLoadMaxInsertCommitSize">10000</property>
               </properties>
               <connections>
                 <connection
-                  refId="Package\DFT_Access_Log\Load_Access_Log.Connections[OleDbConnection]"
+                  refId="Package\DFT_Trial_Summary\Load Trial_Summary.Connections[OleDbConnection]"
                   connectionManagerID="{E0E6DC88-A9A1-4A51-8B19-958C1AD76267}:external"
                   connectionManagerRefId="Project.ConnectionManagers[ODS_Vanran_Ribbon]"
                   description="The OLE DB runtime connection used to access the database."
@@ -552,140 +584,155 @@
               </connections>
               <inputs>
                 <input
-                  refId="Package\DFT_Access_Log\Load_Access_Log.Inputs[OLE DB Destination Input]"
+                  refId="Package\DFT_Trial_Summary\Load Trial_Summary.Inputs[OLE DB Destination Input]"
                   errorOrTruncationOperation="Insert"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="OLE DB Destination Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\DFT_Access_Log\Load_Access_Log.Inputs[OLE DB Destination Input].Columns[Copy of Action]"
+                      refId="Package\DFT_Trial_Summary\Load Trial_Summary.Inputs[OLE DB Destination Input].Columns[trial_length]"
+                      cachedDataType="r8"
+                      cachedName="trial_length"
+                      externalMetadataColumnId="Package\DFT_Trial_Summary\Load Trial_Summary.Inputs[OLE DB Destination Input].ExternalColumns[trial_length]"
+                      lineageId="Package\DFT_Trial_Summary\Excel_Trial_Summary.Outputs[Excel Source Output].Columns[trial_length]" />
+                    <inputColumn
+                      refId="Package\DFT_Trial_Summary\Load Trial_Summary.Inputs[OLE DB Destination Input].Columns[Copy of Root_Domain]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="25"
-                      cachedName="Copy of Action"
-                      externalMetadataColumnId="Package\DFT_Access_Log\Load_Access_Log.Inputs[OLE DB Destination Input].ExternalColumns[Action]"
-                      lineageId="Package\DFT_Access_Log\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Action]" />
+                      cachedName="Copy of Root_Domain"
+                      externalMetadataColumnId="Package\DFT_Trial_Summary\Load Trial_Summary.Inputs[OLE DB Destination Input].ExternalColumns[Root_Domain]"
+                      lineageId="Package\DFT_Trial_Summary\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Root_Domain]" />
                     <inputColumn
-                      refId="Package\DFT_Access_Log\Load_Access_Log.Inputs[OLE DB Destination Input].Columns[Copy of Root Domain]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="25"
-                      cachedName="Copy of Root Domain"
-                      externalMetadataColumnId="Package\DFT_Access_Log\Load_Access_Log.Inputs[OLE DB Destination Input].ExternalColumns[Root_Domain]"
-                      lineageId="Package\DFT_Access_Log\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Root Domain]" />
-                    <inputColumn
-                      refId="Package\DFT_Access_Log\Load_Access_Log.Inputs[OLE DB Destination Input].Columns[Copy of Customer]"
+                      refId="Package\DFT_Trial_Summary\Load Trial_Summary.Inputs[OLE DB Destination Input].Columns[Copy of Customer]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="25"
                       cachedName="Copy of Customer"
-                      externalMetadataColumnId="Package\DFT_Access_Log\Load_Access_Log.Inputs[OLE DB Destination Input].ExternalColumns[Customer]"
-                      lineageId="Package\DFT_Access_Log\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Customer]" />
+                      externalMetadataColumnId="Package\DFT_Trial_Summary\Load Trial_Summary.Inputs[OLE DB Destination Input].ExternalColumns[Customer]"
+                      lineageId="Package\DFT_Trial_Summary\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Customer]" />
                     <inputColumn
-                      refId="Package\DFT_Access_Log\Load_Access_Log.Inputs[OLE DB Destination Input].Columns[Copy of type]"
+                      refId="Package\DFT_Trial_Summary\Load Trial_Summary.Inputs[OLE DB Destination Input].Columns[Copy of Action]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="25"
+                      cachedName="Copy of Action"
+                      externalMetadataColumnId="Package\DFT_Trial_Summary\Load Trial_Summary.Inputs[OLE DB Destination Input].ExternalColumns[Action]"
+                      lineageId="Package\DFT_Trial_Summary\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Action]" />
+                    <inputColumn
+                      refId="Package\DFT_Trial_Summary\Load Trial_Summary.Inputs[OLE DB Destination Input].Columns[Copy of customer_name]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="100"
-                      cachedName="Copy of type"
-                      externalMetadataColumnId="Package\DFT_Access_Log\Load_Access_Log.Inputs[OLE DB Destination Input].ExternalColumns[type]"
-                      lineageId="Package\DFT_Access_Log\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of type]" />
+                      cachedName="Copy of customer_name"
+                      externalMetadataColumnId="Package\DFT_Trial_Summary\Load Trial_Summary.Inputs[OLE DB Destination Input].ExternalColumns[customer_name]"
+                      lineageId="Package\DFT_Trial_Summary\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of customer_name]" />
                     <inputColumn
-                      refId="Package\DFT_Access_Log\Load_Access_Log.Inputs[OLE DB Destination Input].Columns[Copy of log]"
+                      refId="Package\DFT_Trial_Summary\Load Trial_Summary.Inputs[OLE DB Destination Input].Columns[Copy of site]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="500"
-                      cachedName="Copy of log"
-                      externalMetadataColumnId="Package\DFT_Access_Log\Load_Access_Log.Inputs[OLE DB Destination Input].ExternalColumns[log]"
-                      lineageId="Package\DFT_Access_Log\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of log]" />
+                      cachedName="Copy of site"
+                      externalMetadataColumnId="Package\DFT_Trial_Summary\Load Trial_Summary.Inputs[OLE DB Destination Input].ExternalColumns[site]"
+                      lineageId="Package\DFT_Trial_Summary\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of site]" />
                     <inputColumn
-                      refId="Package\DFT_Access_Log\Load_Access_Log.Inputs[OLE DB Destination Input].Columns[Copy of log_time]"
-                      cachedDataType="dbTimeStamp"
-                      cachedName="Copy of log_time"
-                      externalMetadataColumnId="Package\DFT_Access_Log\Load_Access_Log.Inputs[OLE DB Destination Input].ExternalColumns[log_time]"
-                      lineageId="Package\DFT_Access_Log\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of log_time]" />
-                    <inputColumn
-                      refId="Package\DFT_Access_Log\Load_Access_Log.Inputs[OLE DB Destination Input].Columns[Copy of user_login_name]"
+                      refId="Package\DFT_Trial_Summary\Load Trial_Summary.Inputs[OLE DB Destination Input].Columns[Copy of subscriber]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="100"
-                      cachedName="Copy of user_login_name"
-                      externalMetadataColumnId="Package\DFT_Access_Log\Load_Access_Log.Inputs[OLE DB Destination Input].ExternalColumns[user_login_name]"
-                      lineageId="Package\DFT_Access_Log\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of user_login_name]" />
+                      cachedName="Copy of subscriber"
+                      externalMetadataColumnId="Package\DFT_Trial_Summary\Load Trial_Summary.Inputs[OLE DB Destination Input].ExternalColumns[subscriber]"
+                      lineageId="Package\DFT_Trial_Summary\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of subscriber]" />
+                    <inputColumn
+                      refId="Package\DFT_Trial_Summary\Load Trial_Summary.Inputs[OLE DB Destination Input].Columns[Copy of activation_date]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="16"
+                      cachedName="Copy of activation_date"
+                      externalMetadataColumnId="Package\DFT_Trial_Summary\Load Trial_Summary.Inputs[OLE DB Destination Input].ExternalColumns[activation_date]"
+                      lineageId="Package\DFT_Trial_Summary\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of activation_date]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\DFT_Access_Log\Load_Access_Log.Inputs[OLE DB Destination Input].ExternalColumns[Action]"
-                      codePage="1252"
-                      dataType="str"
-                      length="25"
-                      name="Action" />
-                    <externalMetadataColumn
-                      refId="Package\DFT_Access_Log\Load_Access_Log.Inputs[OLE DB Destination Input].ExternalColumns[Root_Domain]"
+                      refId="Package\DFT_Trial_Summary\Load Trial_Summary.Inputs[OLE DB Destination Input].ExternalColumns[Root_Domain]"
                       codePage="1252"
                       dataType="str"
                       length="25"
                       name="Root_Domain" />
                     <externalMetadataColumn
-                      refId="Package\DFT_Access_Log\Load_Access_Log.Inputs[OLE DB Destination Input].ExternalColumns[Customer]"
+                      refId="Package\DFT_Trial_Summary\Load Trial_Summary.Inputs[OLE DB Destination Input].ExternalColumns[Customer]"
                       codePage="1252"
                       dataType="str"
                       length="25"
                       name="Customer" />
                     <externalMetadataColumn
-                      refId="Package\DFT_Access_Log\Load_Access_Log.Inputs[OLE DB Destination Input].ExternalColumns[Checksumval]"
+                      refId="Package\DFT_Trial_Summary\Load Trial_Summary.Inputs[OLE DB Destination Input].ExternalColumns[Action]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      name="Action" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Trial_Summary\Load Trial_Summary.Inputs[OLE DB Destination Input].ExternalColumns[customer_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="customer_name" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Trial_Summary\Load Trial_Summary.Inputs[OLE DB Destination Input].ExternalColumns[site]"
+                      codePage="1252"
+                      dataType="text"
+                      name="site" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Trial_Summary\Load Trial_Summary.Inputs[OLE DB Destination Input].ExternalColumns[subscriber]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="subscriber" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Trial_Summary\Load Trial_Summary.Inputs[OLE DB Destination Input].ExternalColumns[activation_date]"
+                      codePage="1252"
+                      dataType="str"
+                      length="16"
+                      name="activation_date" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Trial_Summary\Load Trial_Summary.Inputs[OLE DB Destination Input].ExternalColumns[trial_length]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="trial_length" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Trial_Summary\Load Trial_Summary.Inputs[OLE DB Destination Input].ExternalColumns[Is_Sync]"
+                      dataType="bool"
+                      name="Is_Sync" />
+                    <externalMetadataColumn
+                      refId="Package\DFT_Trial_Summary\Load Trial_Summary.Inputs[OLE DB Destination Input].ExternalColumns[Checksumval]"
                       codePage="1252"
                       dataType="str"
                       length="32"
                       name="Checksumval" />
-                    <externalMetadataColumn
-                      refId="Package\DFT_Access_Log\Load_Access_Log.Inputs[OLE DB Destination Input].ExternalColumns[Is_Sync]"
-                      dataType="bool"
-                      name="Is_Sync" />
-                    <externalMetadataColumn
-                      refId="Package\DFT_Access_Log\Load_Access_Log.Inputs[OLE DB Destination Input].ExternalColumns[type]"
-                      codePage="1252"
-                      dataType="str"
-                      length="100"
-                      name="type" />
-                    <externalMetadataColumn
-                      refId="Package\DFT_Access_Log\Load_Access_Log.Inputs[OLE DB Destination Input].ExternalColumns[log]"
-                      codePage="1252"
-                      dataType="str"
-                      length="500"
-                      name="log" />
-                    <externalMetadataColumn
-                      refId="Package\DFT_Access_Log\Load_Access_Log.Inputs[OLE DB Destination Input].ExternalColumns[log_time]"
-                      dataType="dbTimeStamp"
-                      name="log_time" />
-                    <externalMetadataColumn
-                      refId="Package\DFT_Access_Log\Load_Access_Log.Inputs[OLE DB Destination Input].ExternalColumns[user_login_name]"
-                      codePage="1252"
-                      dataType="str"
-                      length="100"
-                      name="user_login_name" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\DFT_Access_Log\Load_Access_Log.Outputs[OLE DB Destination Error Output]"
+                  refId="Package\DFT_Trial_Summary\Load Trial_Summary.Outputs[OLE DB Destination Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="OLE DB Destination Error Output"
-                  synchronousInputId="Package\DFT_Access_Log\Load_Access_Log.Inputs[OLE DB Destination Input]">
+                  synchronousInputId="Package\DFT_Trial_Summary\Load Trial_Summary.Inputs[OLE DB Destination Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\DFT_Access_Log\Load_Access_Log.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      refId="Package\DFT_Trial_Summary\Load Trial_Summary.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\DFT_Access_Log\Load_Access_Log.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      lineageId="Package\DFT_Trial_Summary\Load Trial_Summary.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\DFT_Access_Log\Load_Access_Log.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      refId="Package\DFT_Trial_Summary\Load Trial_Summary.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\DFT_Access_Log\Load_Access_Log.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\DFT_Trial_Summary\Load Trial_Summary.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -696,34 +743,34 @@
           </components>
           <paths>
             <path
-              refId="Package\DFT_Access_Log.Paths[Data Conversion Output]"
-              endId="Package\DFT_Access_Log\Load_Access_Log.Inputs[OLE DB Destination Input]"
+              refId="Package\DFT_Trial_Summary.Paths[Data Conversion Output]"
+              endId="Package\DFT_Trial_Summary\Load Trial_Summary.Inputs[OLE DB Destination Input]"
               name="Data Conversion Output"
-              startId="Package\DFT_Access_Log\Data Conversion.Outputs[Data Conversion Output]" />
+              startId="Package\DFT_Trial_Summary\Data Conversion.Outputs[Data Conversion Output]" />
             <path
-              refId="Package\DFT_Access_Log.Paths[Excel Source Output]"
-              endId="Package\DFT_Access_Log\Data Conversion.Inputs[Data Conversion Input]"
+              refId="Package\DFT_Trial_Summary.Paths[Excel Source Output]"
+              endId="Package\DFT_Trial_Summary\Data Conversion.Inputs[Data Conversion Input]"
               name="Excel Source Output"
-              startId="Package\DFT_Access_Log\Excel_Access_Log.Outputs[Excel Source Output]" />
+              startId="Package\DFT_Trial_Summary\Excel_Trial_Summary.Outputs[Excel Source Output]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
-      DTS:refId="Package\Truncate_ODS_table"
+      DTS:refId="Package\Truncate_ODS_Trial_Summary"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
-      DTS:DTSID="{7C08C465-66D2-4228-BEFE-22C2EDF2F63C}"
+      DTS:DTSID="{450CB8ED-A709-463E-B49F-C74D4C868CDE}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
-      DTS:ObjectName="Truncate_ODS_table"
+      DTS:ObjectName="Truncate_ODS_Trial_Summary"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
       DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{E0E6DC88-A9A1-4A51-8B19-958C1AD76267}"
-          SQLTask:SqlStatementSource="TRUNCATE TABLE ODS.dbo.Access_Log" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="TRUNCATE TABLE ODS.dbo.Trial_Summary" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
@@ -731,11 +778,11 @@
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint]"
       DTS:CreationName=""
-      DTS:DTSID="{B5F00798-4218-41F3-AB65-9032075637C5}"
-      DTS:From="Package\Truncate_ODS_table"
+      DTS:DTSID="{74A6E55D-F411-4197-B319-064A22CBC216}"
+      DTS:From="Package\Truncate_ODS_Trial_Summary"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint"
-      DTS:To="Package\DFT_Access_Log" />
+      DTS:To="Package\DFT_Trial_Summary" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -750,27 +797,27 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="166,42"
-          Id="Package\DFT_Access_Log"
-          TopLeft="170,131" />
+          Size="181,42"
+          Id="Package\DFT_Trial_Summary"
+          TopLeft="152,139" />
         <NodeLayout
-          Size="182,42"
-          Id="Package\Truncate_ODS_table"
-          TopLeft="165,40" />
+          Size="233,42"
+          Id="Package\Truncate_ODS_Trial_Summary"
+          TopLeft="128,40" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="254.5,82">
+          TopLeft="243.5,82">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,49"
+              EndConnector="0,57"
               Start="0,0"
-              End="0,41.5">
+              End="0,49.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,41.5" />
+                    End="0,49.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -783,36 +830,36 @@
     </LayoutInfo>
   </Package>
   <TaskHost
-    design-time-name="Package\DFT_Access_Log">
+    design-time-name="Package\DFT_Trial_Summary">
     <LayoutInfo>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="172,42"
-          Id="Package\DFT_Access_Log\Excel_Access_Log"
-          TopLeft="383,79" />
-        <NodeLayout
-          Size="169,42"
-          Id="Package\DFT_Access_Log\Load_Access_Log"
-          TopLeft="378,277" />
+          Size="181,42"
+          Id="Package\DFT_Trial_Summary\Load Trial_Summary"
+          TopLeft="358,278" />
         <NodeLayout
           Size="161,42"
-          Id="Package\DFT_Access_Log\Data Conversion"
-          TopLeft="389,173" />
+          Id="Package\DFT_Trial_Summary\Data Conversion"
+          TopLeft="369,165" />
+        <NodeLayout
+          Size="187,42"
+          Id="Package\DFT_Trial_Summary\Excel_Trial_Summary"
+          TopLeft="357,73" />
         <EdgeLayout
-          Id="Package\DFT_Access_Log.Paths[Excel Source Output]"
-          TopLeft="469.25,121">
+          Id="Package\DFT_Trial_Summary.Paths[Excel Source Output]"
+          TopLeft="450,115">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,52"
+              EndConnector="0,50"
               Start="0,0"
-              End="0,44.5">
+              End="0,42.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,44.5" />
+                    End="0,42.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -822,19 +869,19 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\DFT_Access_Log.Paths[Data Conversion Output]"
-          TopLeft="466,215">
+          Id="Package\DFT_Trial_Summary.Paths[Data Conversion Output]"
+          TopLeft="449,207">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,62"
+              EndConnector="0,71"
               Start="0,0"
-              End="0,54.5">
+              End="0,63.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,54.5" />
+                    End="0,63.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -847,7 +894,7 @@
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\DFT_Access_Log\Excel_Access_Log">
+    design-time-name="Package\DFT_Trial_Summary\Load Trial_Summary">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -860,7 +907,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\DFT_Access_Log\Load_Access_Log">
+    design-time-name="Package\DFT_Trial_Summary\Excel_Trial_Summary">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
